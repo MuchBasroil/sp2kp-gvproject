@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script src="./demo-switcher.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:var(--body,#ECEDEB);color:var(--ink,#161B17);font-family:'Plus Jakarta Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:var(--ink,#161B17);text-decoration:none}
+a:hover{color:var(--ink,#161B17);text-decoration:underline}
+button{font-family:inherit}
+@keyframes sbIn{from{opacity:0;transform:translateX(-24px) scale(.98)}to{opacity:1;transform:none}}@keyframes sbFade{from{opacity:0}to{opacity:1}}</style>
+</helmet>
+<div style="display:flex;gap:20px;min-width:0;min-height:100vh;padding:{{ rootPad }};background:var(--page,linear-gradient(155deg,#F6F7F5 0%,#F1F2F0 45%,#E4E6E2 100%));color:var(--ink,#161B17);font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-size:14px;line-height:1.45">
+
+  <aside data-screen-label="Sidebar" style="width:248px;flex:none;position:{{ asidePos }};top:20px;left:{{ asideLeft }};z-index:{{ asideZ }};height:calc(100vh - 40px);display:{{ asideDisplay }};animation:{{ asideAnim }};flex-direction:column;gap:12px">
+    <div style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--glass,rgba(255,255,255,0.82));border:1px solid var(--glass-b,rgba(255,255,255,0.95));border-radius:24px;box-shadow:0 1px 2px rgba(22,27,23,0.04),0 8px 24px rgba(22,27,23,0.06)">
+      <img src="uploads/logo-sp2kp.webp" alt="SP2KP" style="background:#FFFFFF;border-radius:8px;padding:3px 6px;box-sizing:content-box;height:28px;width:auto;display:block">
+      <div style="display:flex;flex-direction:column;min-width:0;border-left:1px solid var(--line,#E5E7E3);padding-left:10px"><span style="font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">KP Langkat</span><span style="font-size:12px;color:var(--ink2,#5E645F)">Kurir</span></div>
+    </div>
+    <div style="flex:1;min-height:0;display:flex;flex-direction:column;padding:14px 12px;background:var(--glass,rgba(255,255,255,0.88));border:1px solid var(--glass-b,rgba(255,255,255,0.95));border-radius:28px;box-shadow:0 1px 2px rgba(22,27,23,0.04),0 8px 24px rgba(22,27,23,0.06)">
+      <nav style="display:flex;flex-direction:column;gap:2px;flex:1;overflow-y:auto;overflow-x:hidden;scrollbar-width:none">
+        <span style="font-size:12px;font-weight:600;letter-spacing:0.06em;color:var(--ink2,#5E645F);padding:6px 12px 6px">TUGAS</span>
+        <a href="3-01%20Kurir%20KP%20-%20Tugas%20Hari%20Ini.dc.html" style="display:flex;align-items:center;gap:10px;padding:8px 12px 8px 8px;border-radius:999px;background:var(--ink,#161B17);color:var(--on-ink,#FFFFFF);font-weight:600;text-decoration:none"><span style="width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;flex:none"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5h11M9 12h11M9 19h11"></path><path d="M3.5 5l1.5 1.5L7.5 4M3.5 12l1.5 1.5 2.5-2.5M3.5 19l1.5 1.5 2.5-2.5"></path></svg></span><span style="flex:1">Tugas hari ini</span><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:#D64545;color:#FFFFFF;font-size:12px;font-weight:700;display:{{ badgeD }};align-items:center;justify-content:center">{{ badgeN }}</span></a>
+        
+        <a href="3-03%20Kurir%20KP%20-%20Riwayat%20Tugas.dc.html" style="display:flex;align-items:center;gap:10px;padding:8px;border-radius:999px;color:var(--ink,#161B17);text-decoration:none" style-hover="background:var(--s2,#F1F2F0)"><span style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;flex:none"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"></path><path d="M3 3v5h5M12 7v5l3 2"></path></svg></span><span style="flex:1">Riwayat tugas</span></a>
+      </nav>
+      <div style="position:relative;border-top:1px solid var(--line,#E5E7E3);padding-top:10px">
+        <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;left:0;right:0;bottom:calc(100% + 8px);z-index:10;display:flex;flex-direction:column;gap:6px;padding:10px;border-radius:20px;background:var(--card,#FFFFFF);border:1px solid var(--line,#E3E6E1);box-shadow:0 12px 32px rgba(22,27,23,0.16)">
+          <span style="font-size:12px;font-weight:700;color:var(--ink2,#5E645F);padding:4px 6px 0">Tema</span>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;border-radius:999px;background:var(--s1,#F5F6F4)"><button onClick="{{ setLight }}" style="height:34px;border-radius:999px;border:none;background:{{ lightBg }};color:{{ lightC }};font-size:12px;font-weight:700;cursor:pointer">Terang</button><button onClick="{{ setDark }}" style="height:34px;border-radius:999px;border:none;background:{{ darkBg }};color:{{ darkC }};font-size:12px;font-weight:700;cursor:pointer">Gelap</button></div>
+          <a href="3-00%20Kurir%20KP%20-%20Login.dc.html" style="display:flex;align-items:center;gap:8px;height:40px;padding:0 10px;border-radius:12px;color:var(--red-ink,#C03A3A);font-size:14px;font-weight:700;text-decoration:none" style-hover="background:rgba(214,69,69,0.08);text-decoration:none"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h4v16h-4M10 8l-4 4 4 4M6 12h10"></path></svg>Keluar</a>
+        </div></sc-if>
+        <button onClick="{{ toggleMenu }}" aria-label="Menu profil" style="display:flex;align-items:center;gap:10px;width:100%;padding:6px 8px;border-radius:18px;border:none;background:{{ menuBg }};color:var(--ink,#161B17);cursor:pointer;text-align:left" style-hover="background:var(--s2,#F1F2F0)"><span style="width:36px;height:36px;border-radius:50%;background:linear-gradient(150deg,#B6F04A,#CFE3F7);color:#161B17;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;flex:none">RP</span><span style="display:flex;flex-direction:column;min-width:0;flex:1"><span style="font-size:14px;font-weight:600;white-space:nowrap">Rizky Pratama</span><span style="font-size:12px;color:var(--ink2,#5E645F)">Tema dan keluar</span></span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--ink2,#5E645F)"><path d="M7 14l5-5 5 5"></path></svg></button>
+      </div>
+    </div>
+  </aside>
+
+  
+
+  <sc-if value="{{ drawerOpen }}" hint-placeholder-val="{{ false }}"><div onClick="{{ closeDrawer }}" style="animation:sbFade .25s ease;position:fixed;inset:0;z-index:4900;background:rgba(22,27,23,0.40);backdrop-filter:blur(3px)"></div></sc-if>
+  <main style="flex:1;min-width:0;padding:8px 0 32px;display:flex;flex-direction:column;gap:20px">
+    <sc-if value="{{ compact }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px 10px 14px;background:var(--glass,rgba(255,255,255,0.88));border:1px solid var(--glass-b,rgba(255,255,255,0.95));border-radius:22px;box-shadow:0 1px 2px rgba(22,27,23,0.04),0 8px 24px rgba(22,27,23,0.06)">
+        <div style="display:flex;align-items:center;gap:10px;min-width:0">
+          <img src="uploads/logo-sp2kp.webp" alt="SP2KP" style="background:#FFFFFF;border-radius:8px;padding:3px 6px;box-sizing:content-box;height:24px;width:auto;display:block">
+          <span style="display:flex;flex-direction:column;min-width:0;border-left:1px solid var(--line,#E5E7E3);padding-left:10px"><span style="font-size:14px;font-weight:700;white-space:nowrap">KP Langkat</span><span style="font-size:12px;color:var(--ink2,#5E645F)">Kurir</span></span>
+        </div>
+        <button onClick="{{ openDrawer }}" aria-label="Buka menu" style="width:44px;height:44px;border-radius:50%;border:none;background:var(--ink,#161B17);color:var(--on-ink,#FFFFFF);display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+      </div>
+    </sc-if>
+
+    <div style="width:100%;display:flex;flex-direction:column;gap:20px;padding-bottom:{{ padB }}">
+      <sc-if value="{{ gA }}" hint-placeholder-val="{{ true }}"><header style="position:relative;overflow:hidden;display:flex;flex-direction:column;gap:18px;padding:{{ ghPad }};border-radius:28px;background:var(--card,#FFFFFF);border:1px solid var(--line,#E3E6E1);box-shadow:0 1px 2px rgba(22,27,23,0.04),0 8px 24px rgba(22,27,23,0.05)">
+                <div style="position:relative;display:flex;align-items:center;justify-content:space-between;gap:16px">
+          <span style="display:flex;align-items:center;gap:14px;min-width:0">
+            <span style="position:relative;width:56px;height:56px;border-radius:50%;background:linear-gradient(150deg,#1E4E9C,#13A89E);color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:800;flex:none;box-shadow:0 6px 16px rgba(30,78,156,0.25)">RP<span style="position:absolute;right:0;bottom:2px;width:14px;height:14px;border-radius:50%;background:#3DAE4F;border:3px solid var(--card,#FFFFFF)"></span></span>
+            <span style="display:flex;flex-direction:column;gap:4px;min-width:0">
+              <span style="font-size:13px;font-weight:600;color:var(--ink2,#5E645F)">{{ greet }},</span>
+              <h1 style="margin:0;font-size:{{ ghFs }};line-height:1.1;font-weight:800;letter-spacing:-0.01em">Rizky</h1>
+              <span style="display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:2px"><span style="display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 10px;border-radius:999px;background:rgba(61,174,79,0.14);color:var(--green-ink2,#14795A);font-size:12px;font-weight:700;white-space:nowrap"><span style="width:7px;height:7px;border-radius:50%;background:#3DAE4F"></span>{{ dutyTxt }}</span><span style="display:inline-flex;align-items:center;height:26px;padding:0 10px;border-radius:999px;background:var(--s1,#F5F6F4);font-size:12px;font-weight:600;color:var(--ink2,#5E645F);white-space:nowrap">Rabu, 7 Okt 2026</span></span>
+            </span>
+          </span>
+          <span style="position:relative;width:{{ ringS }};height:{{ ringS }};border-radius:50%;background:conic-gradient(#1E4E9C {{ ringPct }}, var(--s2,#E3E6E1) 0);display:flex;align-items:center;justify-content:center;flex:none"><span style="position:absolute;inset:6px;border-radius:50%;background:var(--card,#FFFFFF)"></span><span style="position:relative;display:flex;flex-direction:column;align-items:center;line-height:1"><span style="font-size:{{ ringFs }};font-weight:800;color:var(--ink,#161B17)">{{ nDoneT }}<span style="font-size:0.55em;color:var(--ink2,#5E645F)">/{{ totalT }}</span></span><span style="font-size:10px;font-weight:700;color:var(--ink2,#5E645F);margin-top:3px">selesai</span></span></span>
+        </div>
+        <div style="position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
+          <sc-for list="{{ ghStats }}" as="g" hint-placeholder-count="3"><span style="display:flex;align-items:center;gap:10px;padding:12px;border-radius:18px;background:var(--card,#FFFFFF);box-shadow:0 1px 2px rgba(22,27,23,0.05);min-width:0"><span style="width:38px;height:38px;border-radius:12px;background:{{ g.ibg }};color:{{ g.ic }};display:{{ icoD }};align-items:center;justify-content:center;flex:none">{{ g.icon }}</span><span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:11px;font-weight:700;color:var(--ink2,#5E645F);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ g.l }}</span><span style="font-size:{{ statFs }};font-weight:800;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ g.v }}</span></span></span></sc-for>
+        </div>
+      </header></sc-if>
+      <sc-if value="{{ gB }}" hint-placeholder-val="{{ false }}"><header style="position:relative;overflow:hidden;display:flex;flex-direction:column;gap:18px;padding:{{ ghPad }};border-radius:28px;background:linear-gradient(135deg,#1E4E9C 0%,#1690A8 58%,#13A89E 100%);color:#FFFFFF;box-shadow:0 12px 32px rgba(30,78,156,0.22)">
+        <span style="position:absolute;right:-70px;top:-90px;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,0.09)"></span>
+        <span style="position:absolute;left:38%;bottom:-130px;width:240px;height:240px;border-radius:50%;background:rgba(140,198,63,0.20)"></span>
+        <div style="position:relative;display:flex;align-items:center;justify-content:space-between;gap:16px">
+          <span style="display:flex;align-items:center;gap:14px;min-width:0">
+            <span style="width:56px;height:56px;border-radius:50%;background:#FFFFFF;color:#1E4E9C;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:800;flex:none;box-shadow:0 0 0 4px rgba(255,255,255,0.22)">RP</span>
+            <span style="display:flex;flex-direction:column;gap:4px;min-width:0">
+              <span style="font-size:14px;font-weight:600;opacity:0.88">{{ greet }},</span>
+              <h1 style="margin:0;font-size:{{ ghFs }};line-height:1.1;font-weight:800;letter-spacing:-0.01em;color:#FFFFFF">Rizky</h1>
+              <span style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:2px"><span style="display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 10px;border-radius:999px;background:rgba(255,255,255,0.18);font-size:12px;font-weight:700;white-space:nowrap"><span style="width:7px;height:7px;border-radius:50%;background:#B6F04A;box-shadow:0 0 0 3px rgba(182,240,74,0.3)"></span>{{ dutyTxt }}</span><span style="font-size:12px;font-weight:600;opacity:0.85;white-space:nowrap">Rabu, 7 Okt 2026</span></span>
+            </span>
+          </span>
+          <span style="position:relative;width:{{ ringS }};height:{{ ringS }};border-radius:50%;background:conic-gradient(#FFFFFF {{ ringPct }}, rgba(255,255,255,0.22) 0);display:flex;align-items:center;justify-content:center;flex:none">
+            <span style="position:absolute;inset:7px;border-radius:50%;background:rgba(20,70,140,0.55);backdrop-filter:blur(4px)"></span>
+            <span style="position:relative;display:flex;flex-direction:column;align-items:center;line-height:1"><span style="font-size:{{ ringFs }};font-weight:800">{{ nDoneT }}<span style="font-size:0.55em;opacity:0.75">/{{ totalT }}</span></span><span style="font-size:10px;font-weight:700;opacity:0.85;margin-top:3px">selesai</span></span>
+          </span>
+        </div>
+        <div style="position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
+          <sc-for list="{{ ghStats }}" as="g" hint-placeholder-count="3">
+            <span style="display:flex;flex-direction:column;gap:3px;padding:12px 14px;border-radius:18px;background:rgba(255,255,255,0.14);backdrop-filter:blur(6px);min-width:0"><span style="font-size:11px;font-weight:700;letter-spacing:0.04em;opacity:0.85;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ g.l }}</span><span style="font-size:{{ statFs }};font-weight:800;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ g.v }}</span></span>
+          </sc-for>
+        </div>
+      </header></sc-if>
+      <sc-if value="{{ gC }}" hint-placeholder-val="{{ false }}"><header style="position:relative;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:{{ ghPad }};border-radius:24px;background:linear-gradient(110deg,#1E4E9C 0%,#1690A8 70%,#13A89E 100%);color:#FFFFFF">
+        <span style="position:absolute;right:-40px;top:-60px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,0.10)"></span>
+        <span style="position:relative;display:flex;flex-direction:column;gap:4px;min-width:0"><span style="font-size:13px;font-weight:600;opacity:0.88">{{ greet }}, Rabu 7 Okt</span><h1 style="margin:0;font-size:{{ ghFs }};line-height:1.15;font-weight:800;color:#FFFFFF">Rizky</h1><span style="font-size:13px;font-weight:600;opacity:0.9">{{ progTxt }}, {{ leftTxt }}</span></span>
+        <span style="position:relative;display:flex;align-items:center;gap:6px;height:34px;padding:0 14px;border-radius:999px;background:rgba(255,255,255,0.18);font-size:13px;font-weight:700;white-space:nowrap;flex:none"><span style="width:8px;height:8px;border-radius:50%;background:#B6F04A"></span>{{ dutyTxt }}</span>
+      </header></sc-if>
+
+      <div style="display:grid;grid-template-columns:{{ mainCols }};gap:20px;align-items:start">
+      <div style="display:flex;flex-direction:column;gap:16px;min-width:0">
+      <sc-if value="{{ hasCur }}" hint-placeholder-val="{{ true }}">
+      
+      <section data-screen-label="Tugas sekarang" style="display:flex;flex-direction:column;border-radius:28px;background:var(--card,#FFFFFF);border:1px solid var(--line,#E3E6E1);box-shadow:0 1px 2px rgba(22,27,23,0.04),0 10px 28px rgba(22,27,23,0.07);overflow:hidden">
+        <div style="display:flex;flex-direction:column;gap:16px;padding:{{ heroPad }};background:rgba(30,78,156,0.05);border-bottom:1px solid var(--line,#ECEEEA)">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
+            <span style="display:inline-flex;align-items:center;gap:7px;height:28px;padding:0 12px;border-radius:999px;background:#1E4E9C;color:#FFFFFF;font-size:11px;font-weight:800;letter-spacing:0.08em"><span style="width:7px;height:7px;border-radius:50%;background:#B6F04A"></span>TUGAS SEKARANG</span>
+            <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-size:12px;font-weight:600;color:var(--ink2,#5E645F)">{{ c.code }}</span>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px 20px">
+            <span style="font-size:{{ heroFs }};font-weight:800;line-height:1.1;letter-spacing:-0.02em">Antar ke {{ c.to }}</span>
+            <span style="display:flex;align-items:center;gap:8px;color:var(--blue-ink,#1E4E9C)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span style="font-size:17px;font-weight:800;white-space:nowrap">{{ c.eta }}</span></span>
+          </div>
+          <div style="display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:12px">
+            <span style="font-size:13px;font-weight:700;white-space:nowrap">Gudang KP Langkat</span>
+            <span style="position:relative;display:block;height:28px;min-width:60px">
+              <span style="position:absolute;left:0;top:9px;width:10px;height:10px;border-radius:50%;background:#1E4E9C"></span>
+              <span style="position:absolute;left:12px;right:12px;top:13px;border-top:2px dashed rgba(30,78,156,0.35)"></span>
+              <span style="position:absolute;left:12px;width:{{ routeW }};top:12px;height:4px;border-radius:999px;background:#1E4E9C"></span>
+              <span style="position:absolute;left:{{ routeW }};top:0;width:28px;height:28px;border-radius:50%;background:#1E4E9C;color:#FFFFFF;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 4px rgba(30,78,156,0.18)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h11v10H3zM14 9h4l3 3v4h-7z"></path><circle cx="7" cy="17.5" r="1.6"></circle><circle cx="17" cy="17.5" r="1.6"></circle></svg></span>
+              <span style="position:absolute;right:0;top:7px;width:14px;height:14px;border-radius:50%;border:3px solid #1E4E9C;background:var(--card,#FFFFFF)"></span>
+            </span>
+            <span style="display:flex;flex-direction:column;align-items:flex-end;gap:1px"><span style="font-size:13px;font-weight:700;white-space:nowrap">{{ c.to }}</span><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-size:11px;color:var(--ink2,#5E645F)">{{ c.km }}</span></span>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:18px;padding:{{ heroPad }};padding-top:20px">
+          <div style="display:flex;flex-direction:column">
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:12px;align-items:center;padding:12px 0;border-top:1px solid var(--line,#ECEEEA)">
+            <span style="width:40px;height:40px;border-radius:12px;background:var(--s1,#F5F6F4);color:var(--ink2,#5E645F);display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg></span>
+            <span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:12px;color:var(--ink2,#5E645F);line-height:1.4">Alamat tujuan</span><span style="font-size:15px;font-weight:700;line-height:1.35">{{ c.addr }}</span></span>
+            <a href="{{ c.maps }}" target="_blank" aria-label="Navigasi" style="display:flex;align-items:center;justify-content:center;gap:6px;height:44px;min-width:44px;padding:0 {{ actPadX }};border-radius:999px;border:1.5px solid var(--line,#D5D9D4);background:var(--card,#FFFFFF);color:var(--ink,#161B17);font-size:14px;font-weight:700;text-decoration:none;white-space:nowrap;flex:none" style-hover="border-color:var(--ink,#161B17);text-decoration:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-8-8 18-2-8z"></path></svg><span style="display:{{ actLblD }}">Navigasi</span></a>
+          </div>
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:12px;align-items:center;padding:12px 0;border-top:1px solid var(--line,#ECEEEA)">
+            <span style="width:40px;height:40px;border-radius:12px;background:var(--s1,#F5F6F4);color:var(--ink2,#5E645F);display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"></circle><path d="M5 20c0-3.6 3-6 7-6s7 2.4 7 6"></path></svg></span>
+            <span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:12px;color:var(--ink2,#5E645F);line-height:1.4">Penerima</span><span style="font-size:15px;font-weight:700;line-height:1.35">{{ c.pic }} <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-size:13px;font-weight:500;color:var(--ink2,#5E645F)">{{ c.phone }}</span></span></span>
+            <a href="tel:{{ c.tel }}" aria-label="Telepon" style="display:flex;align-items:center;justify-content:center;gap:6px;height:44px;min-width:44px;padding:0 {{ actPadX }};border-radius:999px;border:1.5px solid var(--line,#D5D9D4);background:var(--card,#FFFFFF);color:var(--ink,#161B17);font-size:14px;font-weight:700;text-decoration:none;white-space:nowrap;flex:none" style-hover="border-color:var(--ink,#161B17);text-decoration:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"></path></svg><span style="display:{{ actLblD }}">Telepon</span></a>
+          </div>
+            <div style="display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:12px;align-items:center;padding:12px 0;border-top:1px solid var(--line,#ECEEEA)">
+            <span style="width:40px;height:40px;border-radius:12px;background:var(--s1,#F5F6F4);color:var(--ink2,#5E645F);display:flex;align-items:center;justify-content:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4v10l-9 4-9-4z"></path><path d="M3 7l9 4 9-4M12 11v10"></path></svg></span>
+            <span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:12px;color:var(--ink2,#5E645F);line-height:1.4">Muatan</span><span style="font-size:15px;font-weight:700;line-height:1.35">{{ c.qtyL }}</span></span>
+            <span></span>
+          </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:14px;border-top:1px solid var(--line,#ECEEEA)">
+            <span style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding-top:16px"><span style="font-size:12px;font-weight:800;letter-spacing:0.08em;color:var(--ink2,#5E645F)">LANGKAH KERJA</span><span style="font-size:12px;font-weight:700;color:var(--ink2,#5E645F)">{{ stepTxt }}</span></span>
+            <div style="display:flex;flex-direction:column">
+              <sc-for list="{{ steps }}" as="s" hint-placeholder-count="3">
+                <div style="display:grid;grid-template-columns:34px minmax(0,1fr);gap:14px">
+                  <span style="display:flex;flex-direction:column;align-items:center"><span style="width:34px;height:34px;border-radius:50%;background:{{ s.dotBg }};border:2px solid {{ s.dotBd }};color:{{ s.dotC }};display:flex;align-items:center;justify-content:center;flex:none;font-size:14px;font-weight:800;box-shadow:0 0 0 {{ s.ring }} rgba(30,78,156,0.14)">{{ s.n }}</span><span style="flex:1;width:2px;min-height:16px;margin:4px 0;border-radius:2px;background:{{ s.line }};display:{{ s.lineD }}"></span></span>
+                  <span style="display:flex;flex-direction:column;gap:4px;padding:{{ s.pad }};margin-bottom:{{ s.mb }};border-radius:16px;background:{{ s.bg }};min-width:0">
+                    <span style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px"><span style="font-size:16px;font-weight:{{ s.w }};color:{{ s.c }};line-height:1.3">{{ s.l }}</span><span style="display:{{ s.tagD }};font-size:11px;font-weight:800;letter-spacing:0.04em;color:#FFFFFF;background:#1E4E9C;border-radius:999px;padding:2px 8px">SEKARANG</span></span>
+                    <span style="font-size:13px;font-weight:{{ s.subW }};color:{{ s.subC }};line-height:1.45">{{ s.sub }}</span>
+                  </span>
+                </div>
+              </sc-for>
+            </div>
+            <sc-if value="{{ wideAct }}" hint-placeholder-val="{{ true }}"><sc-if value="{{ swOn }}" hint-placeholder-val="{{ true }}"><div ref="{{ swRef }}" onPointerDown="{{ swDown }}" onPointerMove="{{ swMove }}" onPointerUp="{{ swUp }}" onPointerCancel="{{ swUp }}" style="position:relative;height:60px;border-radius:999px;background:#161B17;overflow:hidden;touch-action:none;user-select:none;cursor:grab"><span style="position:absolute;left:0;top:0;bottom:0;width:{{ swFill }};background:#1E4E9C;border-radius:999px"></span><span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding-left:48px;color:#FFFFFF;font-size:16px;font-weight:700;opacity:{{ swOp }};pointer-events:none">Geser jika sudah tiba</span><span style="position:absolute;left:{{ swLeft }};top:6px;width:48px;height:48px;border-radius:50%;background:#FFFFFF;color:#161B17;display:flex;align-items:center;justify-content:center;transition:{{ swTr }};pointer-events:none;box-shadow:0 2px 8px rgba(0,0,0,0.25)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></div></sc-if><sc-if value="{{ btnOn }}" hint-placeholder-val="{{ false }}"><button onClick="{{ primary }}" style="display:flex;align-items:center;justify-content:center;gap:10px;height:56px;border-radius:999px;border:none;background:var(--ink,#161B17);color:var(--on-ink,#FFFFFF);font-size:16px;font-weight:700;cursor:pointer" style-hover="background:var(--ink-h,#2E3530)">{{ pIcon }}{{ pLbl }}</button></sc-if></sc-if>
+          </div>
+        </div>
+      </section>
+      </sc-if>
+      <sc-if value="{{ hasCur }}" hint-placeholder-val="{{ true }}"><div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:6px 6px 6px 14px;border-radius:999px;background:var(--s1,#EEF0EC);align-self:flex-start">
+        <span style="font-size:12px;font-weight:700;color:var(--ink2,#5E645F)">Demo tahap</span>
+        <span style="display:flex;flex-wrap:wrap;gap:4px"><sc-for list="{{ pvTabs }}" as="p" hint-placeholder-count="4"><button onClick="{{ p.pick }}" style="display:flex;align-items:center;gap:6px;height:32px;padding:0 12px;border-radius:999px;border:none;background:{{ p.bg }};color:{{ p.c }};font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap"><span style="opacity:0.6">{{ p.n }}</span>{{ p.l }}</button></sc-for></span>
+      </div></sc-if>
+      <sc-if value="{{ allDone }}" hint-placeholder-val="{{ false }}"><section style="background:var(--glass,rgba(255,255,255,0.88));border:1px solid var(--glass-b,rgba(255,255,255,0.95));border-radius:28px;box-shadow:0 1px 2px rgba(22,27,23,0.04),0 8px 24px rgba(22,27,23,0.06);padding:24px;display:flex;align-items:center;gap:14px"><span style="width:44px;height:44px;border-radius:50%;background:#3DAE4F;color:#FFFFFF;display:flex;align-items:center;justify-content:center;flex:none"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"></path></svg></span><span style="display:flex;flex-direction:column;gap:2px"><span style="font-size:18px;font-weight:700">Semua tugas hari ini selesai</span><span style="font-size:12px;color:var(--ink2,#5E645F);line-height:1.4">Kembali ke gudang KP Langkat dan laporkan ke Admin KP.</span></span></section></sc-if>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:22px;min-width:0;padding:{{ sidePad }};border-radius:28px;background:{{ sideBg }}">
+      <sc-if value="{{ hasQueue }}" hint-placeholder-val="{{ true }}">
+      <section data-screen-label="Berikutnya" style="display:flex;flex-direction:column;gap:10px">
+        <span style="font-size:18px;font-weight:700">Berikutnya</span>
+        <sc-for list="{{ queue }}" as="q" hint-placeholder-count="1">
+          <div style="display:flex;flex-direction:column;border-radius:22px;background:var(--s1,#EEF0EC)">
+            <div style="display:grid;grid-template-columns:36px minmax(0,1fr) auto;gap:14px;align-items:center;padding:16px">
+              <span style="width:36px;height:36px;border-radius:50%;background:var(--card,#FFFFFF);color:var(--ink2,#5E645F);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800">{{ q.n }}</span>
+              <span style="display:flex;flex-direction:column;gap:3px;min-width:0"><span style="font-size:16px;font-weight:700">{{ q.to }}</span><span style="font-size:13px;color:var(--ink2,#5E645F)">{{ q.eta }}, {{ q.qtyL }}</span></span>
+              <span style="display:flex;align-items:center;gap:6px"><a href="tel:{{ q.tel }}" aria-label="Telepon {{ q.pic }}" style="width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line,#D5D9D4);background:var(--card,#FFFFFF);color:var(--ink,#161B17);display:flex;align-items:center;justify-content:center" style-hover="border-color:var(--ink,#161B17)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"></path></svg></a><button onClick="{{ q.toggle }}" aria-label="Lihat detail" style="width:44px;height:44px;border-radius:50%;border:none;background:transparent;color:var(--ink2,#5E645F);display:flex;align-items:center;justify-content:center;cursor:pointer;transform:rotate({{ q.rot }});transition:transform .15s"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></button></span>
+            </div>
+            <sc-if value="{{ q.open }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:6px;padding:0 16px 16px 66px;font-size:13px;color:var(--ink2,#5E645F)"><span style="display:flex;align-items:center;gap:6px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>{{ q.addr }}</span><span>Penerima {{ q.pic }}, <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;">{{ q.phone }}</span></span><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-size:12px">{{ q.code }}</span><span style="font-size:12px;font-weight:600">Tombol Mulai aktif setelah tugas sekarang selesai.</span></div></sc-if>
+          </div>
+        </sc-for>
+      </section>
+      </sc-if>
+
+      <section data-screen-label="Selesai" style="display:flex;flex-direction:column;gap:10px">
+        <button onClick="{{ toggleDone }}" style="display:flex;align-items:center;gap:8px;padding:0;border:none;background:transparent;color:var(--ink,#161B17);cursor:pointer;align-self:flex-start"><span style="font-size:18px;font-weight:700">Selesai</span><span style="font-size:13px;font-weight:700;color:var(--green-ink2,#14795A);background:rgba(29,158,117,0.13);border-radius:999px;padding:2px 9px">{{ doneN }}</span><span style="display:flex;color:var(--ink2,#5E645F);transform:rotate({{ doneRot }});transition:transform .15s"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></span></button>
+        <sc-if value="{{ doneOpen }}" hint-placeholder-val="{{ true }}">
+          <sc-for list="{{ done }}" as="d" hint-placeholder-count="1">
+            <div style="display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:12px;align-items:center;padding:12px 16px;border-radius:18px;border:1px solid var(--line,#E3E6E1)">
+              <span style="width:26px;height:26px;border-radius:50%;background:#3DAE4F;color:#FFFFFF;display:flex;align-items:center;justify-content:center"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"></path></svg></span>
+              <span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:15px;font-weight:700">{{ d.to }}</span><span style="font-size:13px;color:var(--ink2,#5E645F)">{{ d.sub }}</span></span>
+              <span style="display:flex;flex-direction:column;align-items:flex-end;gap:4px"><span style="display:{{ d.warnD }};font-size:12px;font-weight:700;color:var(--amber-ink,#9A5F0A);background:rgba(239,159,39,0.16);border-radius:999px;padding:3px 10px;white-space:nowrap">{{ d.warn }}</span><a href="#" style="display:{{ d.warnD }};font-size:12px;font-weight:700;color:var(--ink,#161B17);text-decoration:underline">Lihat laporan</a></span>
+            </div>
+          </sc-for>
+        </sc-if>
+      </section>
+      </div>
+      </div>
+    </div>
+
+    <sc-if value="{{ stickyOn }}" hint-placeholder-val="{{ false }}"><div style="position:fixed;left:0;right:0;bottom:0;z-index:4000;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:var(--glass,rgba(255,255,255,0.94));backdrop-filter:blur(10px);border-top:1px solid var(--line,#E3E6E1)"><sc-if value="{{ swOn }}" hint-placeholder-val="{{ true }}"><div ref="{{ swRef }}" onPointerDown="{{ swDown }}" onPointerMove="{{ swMove }}" onPointerUp="{{ swUp }}" onPointerCancel="{{ swUp }}" style="position:relative;height:60px;border-radius:999px;background:#161B17;overflow:hidden;touch-action:none;user-select:none;cursor:grab"><span style="position:absolute;left:0;top:0;bottom:0;width:{{ swFill }};background:#1E4E9C;border-radius:999px"></span><span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding-left:48px;color:#FFFFFF;font-size:16px;font-weight:700;opacity:{{ swOp }};pointer-events:none">Geser jika sudah tiba</span><span style="position:absolute;left:{{ swLeft }};top:6px;width:48px;height:48px;border-radius:50%;background:#FFFFFF;color:#161B17;display:flex;align-items:center;justify-content:center;transition:{{ swTr }};pointer-events:none;box-shadow:0 2px 8px rgba(0,0,0,0.25)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></div></sc-if><sc-if value="{{ btnOn }}" hint-placeholder-val="{{ false }}"><button onClick="{{ primary }}" style="display:flex;align-items:center;justify-content:center;gap:10px;width:100%;height:56px;border-radius:999px;border:none;background:var(--ink,#161B17);color:var(--on-ink,#FFFFFF);font-size:16px;font-weight:700;cursor:pointer">{{ pIcon }}{{ pLbl }}</button></sc-if></div></sc-if>
+
+    <sc-if value="{{ scanOpen }}" hint-placeholder-val="{{ false }}">
+      <div onClick="{{ closeModal }}" style="position:fixed;inset:0;z-index:6000;background:rgba(22,27,23,0.5);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:16px">
+        <div onClick="{{ stop }}" role="dialog" aria-modal="true" style="width:100%;max-width:440px;background:var(--card,#FFFFFF);border-radius:28px;padding:22px;display:flex;flex-direction:column;gap:14px;box-shadow:0 24px 64px rgba(22,27,23,0.3)">
+          <span style="font-size:20px;font-weight:700">Scan label paket</span>
+          <button onClick="{{ doScan }}" style="position:relative;height:170px;border-radius:22px;border:none;background:#161B17;color:#FFFFFF;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:22px;overflow:hidden"><span style="position:absolute;left:44px;right:44px;top:50%;height:2px;background:#3DAE4F;box-shadow:0 0 12px #3DAE4F"></span><span style="position:absolute;left:28px;top:24px;width:28px;height:28px;border-top:3px solid #FFFFFF;border-left:3px solid #FFFFFF;border-radius:8px 0 0 0"></span><span style="position:absolute;right:28px;top:24px;width:28px;height:28px;border-top:3px solid #FFFFFF;border-right:3px solid #FFFFFF;border-radius:0 8px 0 0"></span><span style="position:absolute;left:28px;bottom:24px;width:28px;height:28px;border-bottom:3px solid #FFFFFF;border-left:3px solid #FFFFFF;border-radius:0 0 0 8px"></span><span style="position:absolute;right:28px;bottom:24px;width:28px;height:28px;border-bottom:3px solid #FFFFFF;border-right:3px solid #FFFFFF;border-radius:0 0 8px 0"></span><span style="position:relative;font-size:15px;font-weight:700">Arahkan kamera ke barcode, ketuk untuk scan</span></button>
+          <div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px"><input value="{{ code }}" onChange="{{ setCode }}" placeholder="Atau ketik kode {{ c.code }}" style="height:52px;padding:0 14px;border-radius:16px;border:1.5px solid {{ codeBd }};background:var(--card,#FFFFFF);color:var(--ink,#161B17);font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-size:14px;outline:none;min-width:0"><button onClick="{{ check }}" style="height:52px;padding:0 18px;border-radius:16px;border:1.5px solid var(--line,#D5D9D4);background:transparent;color:var(--ink,#161B17);font-size:14px;font-weight:700;cursor:pointer">Cek</button></div>
+          <sc-if value="{{ err }}" hint-placeholder-val="{{ false }}"><span style="font-size:12px;font-weight:600;color:var(--red-ink,#C03A3A)">Kode tidak cocok dengan tugas ini. Periksa label di kardus.</span></sc-if>
+          <button onClick="{{ closeModal }}" style="display:flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 18px;border-radius:999px;border:1.5px solid var(--line,#D5D9D4);background:var(--card,#FFFFFF);color:var(--ink,#161B17);font-size:14px;font-weight:700;text-decoration:none;cursor:pointer;white-space:nowrap">Batal</button>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ fotoOpen }}" hint-placeholder-val="{{ false }}">
+      <div onClick="{{ closeModal }}" style="position:fixed;inset:0;z-index:6000;background:rgba(22,27,23,0.5);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:16px">
+        <div onClick="{{ stop }}" role="dialog" aria-modal="true" style="width:100%;max-width:440px;max-height:calc(100vh - 32px);overflow-y:auto;background:var(--card,#FFFFFF);border-radius:28px;padding:22px;display:flex;flex-direction:column;gap:14px;box-shadow:0 24px 64px rgba(22,27,23,0.3)">
+          <span style="font-size:20px;font-weight:700">Foto bukti serah terima</span>
+          <sc-if value="{{ noFoto }}" hint-placeholder-val="{{ true }}"><button onClick="{{ takeFoto }}" style="display:flex;align-items:center;justify-content:center;gap:10px;height:120px;border-radius:20px;border:2px dashed var(--line,#C9CDC8);background:transparent;color:var(--ink,#161B17);font-size:16px;font-weight:700;cursor:pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"></path><circle cx="12" cy="13" r="3.5"></circle></svg>Ambil foto paket bersama {{ c.pic }}</button></sc-if>
+          <sc-if value="{{ hasFoto }}" hint-placeholder-val="{{ false }}"><div style="position:relative;aspect-ratio:19.5 / 9;border-radius:20px;background:linear-gradient(135deg,#9FB7A4,#5E7F68)"><span style="position:absolute;left:10px;bottom:10px;padding:4px 10px;border-radius:999px;background:rgba(22,27,23,0.75);color:#FFFFFF;font-size:12px;font-weight:600">Foto tersimpan {{ fotoT }}</span></div></sc-if>
+          <span style="font-size:14px;font-weight:700">Jumlah diterima {{ c.to }}</span>
+          <div style="display:grid;grid-template-columns:56px minmax(0,1fr) 56px;gap:8px;align-items:center"><button onClick="{{ rDec }}" aria-label="Kurangi" style="height:56px;border-radius:18px;border:none;background:var(--s1,#F5F6F4);color:var(--ink,#161B17);font-size:24px;font-weight:700;cursor:pointer">−</button><span style="display:flex;flex-direction:column;align-items:center;gap:2px"><span style="font-size:32px;font-weight:800;line-height:1">{{ recvL }}</span><span style="font-size:12px;color:var(--ink2,#5E645F);line-height:1.4">dari {{ c.qtyL }}</span></span><button onClick="{{ rInc }}" aria-label="Tambah" style="height:56px;border-radius:18px;border:none;background:var(--s1,#F5F6F4);color:var(--ink,#161B17);font-size:24px;font-weight:700;cursor:pointer">+</button></div>
+          <button onClick="{{ finish }}" style="height:56px;border-radius:999px;border:none;background:{{ fBg }};color:{{ fC }};font-size:16px;font-weight:700;cursor:{{ fCur }}">Selesaikan tugas</button>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ toastOn }}" hint-placeholder-val="{{ false }}"><div style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:6500;max-width:calc(100vw - 32px);padding:12px 18px;border-radius:999px;background:var(--ink,#161B17);color:var(--on-ink,#FFFFFF);box-shadow:0 12px 32px rgba(22,27,23,0.28);font-size:14px;font-weight:600">{{ toastText }}</div></sc-if>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;greetStyle&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Ringkas&quot;,&quot;Gradasi&quot;,&quot;Banner&quot;],&quot;default&quot;:&quot;Ringkas&quot;,&quot;tsType&quot;:&quot;'Ringkas' | 'Gradasi' | 'Banner'&quot;,&quot;section&quot;:&quot;Sapaan&quot;}}">
+class Component extends DCLogic {
+  static DARK = {"--body":"#0F1311","--page":"linear-gradient(155deg,#171C19 0%,#121614 50%,#0D100E 100%)","--glass":"rgba(28,33,30,0.92)","--glass-b":"rgba(255,255,255,0.06)","--card":"#1C211E","--ink":"#EDF0ED","--ink2":"#A2A9A3","--ink3":"#C5CBC6","--mute":"#7E857F","--mute2":"#5B625C","--s1":"#242A26","--s2":"#272D29","--line":"#313833","--hover":"#262C28","--ink-h":"#FFFFFF","--on-ink":"#121613","--tosca-bg":"rgba(19,168,158,0.18)","--tosca-ink":"#4FD6CA","--t-blue":"rgba(58,110,200,0.20)","--t-tosca":"rgba(19,168,158,0.16)","--t-green":"rgba(61,174,79,0.16)","--green-ink":"#86D9A0","--blue-ink":"#8CB2F0","--red-ink":"#F08A8A","--amber-ink":"#F2BB5E","--green-ink2":"#62D4A8"};
+  theme() { return this.state.theme || (typeof localStorage !== 'undefined' && localStorage.getItem('sp2kp-theme')) || 'light'; }
+  setTheme(t) { try { localStorage.setItem('sp2kp-theme', t); } catch (e) {} this.setState({ theme: t }, () => this.applyTheme()); }
+  applyTheme() {
+    const r = document.documentElement, dark = this.theme() === 'dark';
+    Object.entries(Component.DARK).forEach(([k, v]) => dark ? r.style.setProperty(k, v) : r.style.removeProperty(k));
+    r.style.colorScheme = dark ? 'dark' : 'light';
+    this.applyTiles();
+  }
+  applyTiles() {
+    const g = this.theme() === 'dark' ? 'Dark_Gray' : 'Light_Gray', u = n => 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_' + g + '_' + n + '/MapServer/tile/{z}/{y}/{x}';
+    if (this.tb) this.tb.setUrl(u('Base')); if (this.tr) this.tr.setUrl(u('Reference'));
+  }
+  themeVals() {
+    const d = this.theme() === 'dark';
+    return { setLight: () => this.setTheme('light'), setDark: () => this.setTheme('dark'),
+      lightBg: d ? 'transparent' : 'var(--ink,#161B17)', lightC: d ? 'var(--ink2,#5E645F)' : 'var(--on-ink,#FFFFFF)',
+      darkBg: d ? 'var(--ink,#161B17)' : 'transparent', darkC: d ? 'var(--on-ink,#FFFFFF)' : 'var(--ink2,#5E645F)' };
+  }
+
+
+
+
+  state = { cur: 0, stage: 1, doneIds: ['BK-261007-16'], recvMap: { 'BK-261007-16': 26 }, timeMap: { 'BK-261007-16': '08.10' }, code: '', err: false, foto: null, recv: null, openQ: null, doneOpen: null, menu: false };
+  componentDidMount() { this.onResize = () => { const vw = window.innerWidth; if (vw !== this.state.vw) this.setState({ vw, drawer: vw >= 1100 ? false : this.state.drawer }); }; window.addEventListener('resize', this.onResize); this.onResize(); this.applyTheme(); this.onKey = e => { if (e.key === 'Escape' && this.state.modal) this.setState({ modal: null }); }; window.addEventListener('keydown', this.onKey); }
+  componentWillUnmount() { window.removeEventListener('resize', this.onResize); window.removeEventListener('keydown', this.onKey); clearTimeout(this.tt); }
+  toast(t) { clearTimeout(this.tt); this.setState({ toast: t }); this.tt = setTimeout(() => this.setState({ toast: null }), 3500); }
+  now() { const d = new Date(); return String(d.getHours()).padStart(2, '0') + '.' + String(d.getMinutes()).padStart(2, '0'); }
+
+  renderVals() {
+    const st = this.state, vw = st.vw || 1440, lg = vw >= 1100, md = vw >= 760, compact = !lg, drawer = compact && !!st.drawer, sm = vw < 640;
+    const f = n => Number(n).toLocaleString('id-ID'), rp = n => 'Rp ' + f(n);
+    const base = { ...this.themeVals(), compact, drawerOpen: drawer, openDrawer: () => this.setState({ drawer: true }), closeDrawer: () => this.setState({ drawer: false }),
+      rootPad: md ? '20px' : '12px', asidePos: compact ? 'fixed' : 'sticky', asideLeft: compact ? '20px' : 'auto', asideZ: compact ? 5000 : 'auto', asideDisplay: compact && !drawer ? 'none' : 'flex', asideAnim: drawer ? 'sbIn .32s cubic-bezier(.2,.8,.2,1)' : 'none',
+      h1Fs: sm ? '28px' : '34px', kpiCols: vw >= 900 ? 'repeat(3,minmax(0,1fr))' : 'minmax(0,1fr)', two: vw >= 1200 ? 'minmax(0,1.5fr) minmax(0,1fr)' : 'minmax(0,1fr)', btnFlex: sm ? '1 1 0' : '0 0 auto',
+      stop: e => e.stopPropagation(), closeModal: () => this.setState({ modal: null }), toastOn: !!st.toast, toastText: st.toast || '' };
+    const T = [['BK-261007-04', 'WP Sido Mulyo', 'Jl. Sido Mulyo No. 12, Stabat', 30, 'Pak Joko', '0813-6200-4512', 'Tiba sekitar 10.05'], ['BK-261007-18', 'WP Pantai Gemi', 'Jl. Pantai Gemi, Stabat', 24, 'Bu Lestari', '0852-7011-3398', 'Berangkat sekitar 10.30'], ['BK-261007-16', 'WP Stabat Lama', 'Jl. Stabat Lama No. 4, Stabat', 26, 'Pak Hendra', '0821-6544-7710', 'Diterima 08.10']];
+    const mk = t => ({ code: t[0], to: t[1], addr: t[2], q: t[3], qtyL: f(t[3]) + ' paket', pic: t[4], phone: t[5], tel: t[5].replace(/-/g, ''), eta: t[6], km: ({ 'WP Sido Mulyo': '6,2 km', 'WP Pantai Gemi': '8,4 km', 'WP Stabat Lama': '5,1 km' })[t[1]], maps: 'https://maps.google.com/?q=' + encodeURIComponent(t[2]) });
+    const doneIds = st.doneIds, open = T.filter(t => !doneIds.includes(t[0]));
+    const c = open[0] ? mk(open[0]) : mk(T[0]), hasCur = !!open[0], stage = st.stage;
+    const L = ['Ambil dan scan di gudang', 'Antar ke warung', 'Foto bukti diterima'], UP = ['Scan label untuk memastikan paket benar', 'Bawa paket ke ' + c.to, 'Foto paket bersama ' + c.pic + ' dan isi jumlah diterima'];
+    const I = ['Muat ' + c.qtyL + ' di Gudang KP Langkat, lalu scan label paket.', 'Menuju ' + c.to + '. Setelah sampai, geser tombol di bawah ke kanan.', 'Foto paket bersama ' + c.pic + ', lalu isi jumlah yang diterima.'];
+    const DT = [(st.t0 || '09.05'), (st.t1 || '')];
+    const steps = L.map((l, i) => { const dn = i < stage, act = i === stage; return { l, act, n: dn ? '✓' : String(i + 1), dotBg: dn ? '#3DAE4F' : act ? '#1E4E9C' : 'var(--card,#FFFFFF)', dotBd: dn ? '#3DAE4F' : act ? '#1E4E9C' : 'var(--line,#C9CDC8)', dotC: dn || act ? '#FFFFFF' : 'var(--ink2,#5E645F)', ring: act ? '5px' : '0', line: dn ? '#3DAE4F' : 'var(--line,#E3E6E1)', lineD: i === 2 ? 'none' : 'block', w: act ? 800 : 700, c: dn || act ? 'var(--ink,#161B17)' : 'var(--ink2,#5E645F)', sub: dn ? (i === 0 ? 'Label cocok, ' + DT[0] : 'Tiba di lokasi' + (DT[1] ? ', ' + DT[1] : '')) : act ? I[i] : UP[i], subW: act ? 600 : 500, subC: act ? 'var(--ink,#161B17)' : 'var(--ink2,#5E645F)', bg: act ? 'rgba(30,78,156,0.07)' : 'transparent', pad: act ? '10px 14px 12px' : '5px 0 0', mb: i === 2 ? '0' : act ? '12px' : '14px', tagD: act ? 'inline-flex' : 'none' }; });
+    const P = [['Scan label', 'scan'], ['Sudah tiba di lokasi', 'arrive'], ['Foto bukti', 'foto']][stage] || ['Foto bukti', 'foto'];
+    const recv = st.recv == null ? c.q : st.recv;
+    const queue = open.slice(1).map((t, i) => { const q = mk(t), o = st.openQ === q.code; return { ...q, n: i + 2, open: o, rot: o ? '90deg' : '0deg', toggle: () => this.setState({ openQ: o ? null : q.code }) }; });
+    const done = T.filter(t => doneIds.includes(t[0])).map(t => { const g = st.recvMap[t[0]], diff = t[3] - g; return { to: t[1], sub: 'Diterima ' + f(g) + ' dari ' + f(t[3]) + ' paket, ' + st.timeMap[t[0]], warn: 'Kurang ' + f(diff) + ' paket', warnD: diff > 0 ? 'inline-flex' : 'none' }; });
+    const total = T.length, nDone = done.length, left = open.reduce((s, t) => s + t[3], 0);
+    const doneOpen = st.doneOpen == null ? nDone <= 1 : st.doneOpen;
+    const okCode = v => v.trim().toUpperCase().replace(/\s/g, '') === c.code;
+    const pickup = stage === 0;
+    const afterScan = () => this.setState({ stage: 1, t0: this.now(), modal: null, code: '', err: false });
+    return { ...base, padB: sm ? '96px' : '0px', swOn: P[1] === 'arrive', btnOn: P[1] !== 'arrive', swRef: this.swRef || (this.swRef = React.createRef()),
+      swLeft: (6 + (st.sw || 0)) + 'px', swFill: st.sw ? (st.sw + 60) + 'px' : '0px', swTr: st.swDrag ? 'none' : 'left .2s ease', swOp: String(Math.max(0, 1 - (st.sw || 0) / ((this.swMax || 200) * 0.7))),
+      swDown: e => { const el = this.swRef && this.swRef.current; this.swMax = el ? el.clientWidth - 60 : 200; this.swStart = e.clientX - (st.sw || 0); this.swDragOn = true; try { e.currentTarget.setPointerCapture(e.pointerId); } catch (x) {} this.setState({ swDrag: true }); },
+      swMove: e => { if (!this.swDragOn) return; this.setState({ sw: Math.max(0, Math.min(this.swMax, e.clientX - this.swStart)) }); },
+      swUp: () => { if (!this.swDragOn) return; this.swDragOn = false; const ok = (this.state.sw || 0) >= this.swMax * 0.9; this.setState({ sw: 0, swDrag: false, ...(ok ? { stage: 2, t1: this.now() } : {}) }); if (ok) this.toast('Tiba di ' + c.to + '. Lanjut foto bukti.'); else if ((this.state.sw || 0) < 8) this.toast('Geser tombol sampai ujung kanan'); },
+      stepTxt: 'Langkah ' + Math.min(stage + 1, 3) + ' dari 3', pvTabs: ['Di gudang', 'Di jalan', 'Di tujuan'].map((l, i) => ({ l, n: i + 1, pick: () => this.setState({ stage: i, modal: null, foto: null, recv: null }), bg: stage === i ? 'var(--ink,#161B17)' : 'transparent', c: stage === i ? 'var(--on-ink,#FFFFFF)' : 'var(--ink2,#5E645F)' })), actPadX: sm ? '0px' : '16px', actLblD: sm ? 'none' : 'inline', routeW: ['0px', 'calc(55% - 14px)', 'calc(100% - 40px)'][stage] || 'calc(100% - 40px)', mainCols: vw >= 1180 ? 'minmax(0,1.55fr) minmax(320px,1fr)' : 'minmax(0,1fr)', sidePad: vw >= 1180 ? '20px' : '0', sideBg: vw >= 1180 ? 'var(--glass,rgba(255,255,255,0.7))' : 'transparent', heroPad: sm ? '20px' : '26px', heroFs: sm ? '26px' : '32px', stepFs: sm ? '11px' : '13px', infoCols: sm ? 'minmax(0,1fr)' : '1fr 1.4fr', wideAct: !sm, narrowAct: sm, stickyOn: sm && hasCur,
+      prog: Array.from({ length: total }, (_, i) => ({ bg: i < nDone ? '#3DAE4F' : i === nDone ? '#1E4E9C' : 'var(--line,#E3E6E1)' })), progTxt: nDone + ' dari ' + total + ' tugas selesai', progW: Array.from({ length: total }, (_, i) => ({ bg: i < nDone ? '#FFFFFF' : i === nDone ? 'rgba(255,255,255,0.55)' : 'rgba(255,255,255,0.22)' })), dutyTxt: hasCur ? 'Sedang bertugas' : 'Tugas selesai', greet: 'Selamat pagi', gA: (this.props.greetStyle ?? 'Ringkas') === 'Ringkas', gB: this.props.greetStyle === 'Gradasi', gC: this.props.greetStyle === 'Banner', ringS: sm ? '68px' : '84px', ringFs: sm ? '20px' : '24px', ringPct: Math.round(nDone / total * 100) + '%', nDoneT: nDone, totalT: total, statFs: sm ? '14px' : '17px', ghStats: [{ l: 'Sisa tugas', v: (total - nDone) + ' tugas', icon: React.createElement('span', { style: { display: 'flex' }, dangerouslySetInnerHTML: { __html: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h11M9 12h11M9 18h11"></path><path d="M4 6h.01M4 12h.01M4 18h.01"></path></svg>' } }), ibg: 'rgba(30,78,156,0.10)', ic: '#1E4E9C' }, { l: 'Muatan tersisa', v: f(left) + ' paket', icon: React.createElement('span', { style: { display: 'flex' }, dangerouslySetInnerHTML: { __html: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4v10l-9 4-9-4z"></path><path d="M3 7l9 4 9-4M12 11v10"></path></svg>' } }), ibg: 'rgba(19,168,158,0.12)', ic: '#0E8A80' }, { l: hasCur ? 'Tujuan sekarang' : 'Status', v: hasCur ? c.to : 'Selesai', icon: React.createElement('span', { style: { display: 'flex' }, dangerouslySetInnerHTML: { __html: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>' } }), ibg: 'rgba(76,95,213,0.12)', ic: '#4C5FD5' }], icoD: sm ? 'none' : 'flex', ghPad: sm ? '18px' : '22px 24px', ghFs: sm ? '24px' : '28px', leftTxt: left ? f(left) + ' paket tersisa' : 'Tidak ada muatan tersisa',
+      badgeN: open.length, badgeD: open.length ? 'flex' : 'none',
+      menuOpen: !!st.menu, toggleMenu: () => this.setState({ menu: !st.menu }), menuBg: st.menu ? 'var(--s2,#F1F2F0)' : 'transparent',
+      hasCur, allDone: !hasCur, c, steps, instr: I[stage], pLbl: P[0], pIcon: P[1] === 'arrive' ? React.createElement('span', { dangerouslySetInnerHTML: { __html: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>' }, style: { display: 'flex' } }) : P[1] === 'scan' ? React.createElement('span', { dangerouslySetInnerHTML: { __html: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 8V5h3M17 5h3v3M20 16v3h-3M7 19H4v-3M8 9v6M11 9v6M14 9v6M17 9v6"></path></svg>' }, style: { display: 'flex' } }) : React.createElement('span', { dangerouslySetInnerHTML: { __html: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"></path><circle cx="12" cy="13" r="3.5"></circle></svg>' }, style: { display: 'flex' } }),
+      primary: () => P[1] === 'arrive' ? (this.setState({ stage: 2, t1: this.now() }), this.toast('Tiba di ' + c.to)) : this.setState({ modal: P[1] }),
+      queue, hasQueue: queue.length > 0, done, doneN: nDone, doneOpen, toggleDone: () => this.setState({ doneOpen: !doneOpen }), doneRot: doneOpen ? '90deg' : '0deg',
+      scanOpen: st.modal === 'scan', fotoOpen: st.modal === 'foto', doScan: () => { afterScan(); this.toast('Label cocok, status jadi Sedang diantar'); },
+      code: st.code, setCode: e => this.setState({ code: e.target.value, err: false }), err: st.err, codeBd: st.err ? '#D64545' : 'var(--line,#D5D9D4)', check: () => okCode(st.code) ? (afterScan(), this.toast('Label cocok, status jadi Sedang diantar')) : this.setState({ err: true }),
+      noFoto: !st.foto, hasFoto: !!st.foto, fotoT: st.foto || '', takeFoto: () => this.setState({ foto: this.now() }),
+      recvL: f(recv), rDec: () => this.setState({ recv: Math.max(0, recv - 1) }), rInc: () => this.setState({ recv: Math.min(c.q, recv + 1) }),
+      fBg: st.foto ? 'var(--ink,#161B17)' : 'var(--s2,#E3E6E1)', fC: st.foto ? 'var(--on-ink,#FFFFFF)' : 'var(--ink2,#5E645F)', fCur: st.foto ? 'pointer' : 'not-allowed',
+      finish: () => { if (!st.foto) return; this.setState({ t0: null, t1: null, doneIds: [...doneIds, c.code], recvMap: { ...st.recvMap, [c.code]: recv }, timeMap: { ...st.timeMap, [c.code]: this.now() }, stage: 0, modal: null, foto: null, recv: null }); this.toast('Tugas ke ' + c.to + ' selesai'); } };
+  }
+}
+</script>
+</body>
+</html>

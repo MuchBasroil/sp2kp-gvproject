@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script src="./demo-switcher.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#E6E8E4;color:#161B17;font-family:'Plus Jakarta Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#1E4E9C;text-decoration:none}
+a:hover{color:#163B78;text-decoration:underline}
+button{font-family:inherit;color:#161B17}
+input::placeholder{color:#8C918D}
+input:focus{border-color:#1E4E9C !important;box-shadow:0 0 0 4px rgba(30,78,156,0.12)}
+</style>
+</helmet>
+<div data-screen-label="Login" style="width:100%;max-width:480px;min-height:100vh;margin:0 auto;position:relative;overflow:hidden;background:#F3F4F2">
+      <div style="position:absolute;left:0;right:0;top:0;height:300px;background:linear-gradient(150deg,#1E4E9C 0%,#1690A8 60%,#13A89E 100%);border-radius:0 0 36px 36px;overflow:hidden"><span style="position:absolute;right:-70px;top:-40px;width:240px;height:240px;border-radius:50%;border:36px solid rgba(255,255,255,0.08)"></span></div>
+      <div style="position:relative;color:#FFFFFF"></div>
+      <div style="position:relative;flex:1;overflow-y:auto;display:grid;grid-auto-rows:max-content;gap:18px;padding:28px 20px 24px;scrollbar-width:none;min-height:0">
+        <span style="justify-self:start;padding:10px 14px;border-radius:16px;background:#FFFFFF"><img src="uploads/logo-sp2kp.webp" alt="SP2KP" style="height:30px;width:auto;display:block"></span>
+        <div style="display:flex;flex-direction:column;gap:6px;color:#FFFFFF;padding-bottom:6px"><span style="font-size:28px;font-weight:700;line-height:1.15">GV App</span><span style="font-size:14px;opacity:0.9">Pesan paket sembako murah, ambil di warung terdekat.</span></div>
+        <div style="padding:22px 18px;border-radius:28px;background:#FFFFFF;box-shadow:0 10px 30px rgba(22,27,23,0.10)"><form onSubmit="{{ m_submit }}" style="display:flex;flex-direction:column;gap:16px;width:100%">
+          <label style="display:flex;flex-direction:column;gap:8px"><span style="font-size:14px;font-weight:600">Email atau nomor HP</span>
+            <span style="position:relative;display:block"><span style="position:absolute;left:16px;top:16px;color:#8C918D"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"></path></svg></span><input type="text" autocomplete="username" value="{{ m_id }}" onInput="{{ m_onId }}" placeholder="Nomor HP atau email" style="width:100%;height:52px;padding:0 16px 0 48px;border-radius:16px;border:1.5px solid {{ m_bdId }};background:#FFFFFF;color:#161B17;font-family:inherit;font-size:16px;outline:none"></span></label>
+          <label style="display:flex;flex-direction:column;gap:8px"><span style="display:flex;justify-content:space-between;gap:8px"><span style="font-size:14px;font-weight:600">Kata sandi</span><a href="#" style="font-size:14px;font-weight:600;color:#1E4E9C">Lupa kata sandi?</a></span>
+            <span style="position:relative;display:block"><span style="position:absolute;left:16px;top:16px;color:#8C918D"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="3"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg></span><input type="{{ m_pwType }}" autocomplete="current-password" value="{{ m_pw }}" onInput="{{ m_onPw }}" placeholder="Masukkan kata sandi" style="width:100%;height:52px;padding:0 16px 0 48px;border-radius:16px;border:1.5px solid {{ m_bdPw }};background:#FFFFFF;color:#161B17;font-family:inherit;font-size:16px;outline:none;padding-right:52px"><button type="button" onClick="{{ m_togglePw }}" aria-label="Tampilkan kata sandi" style="position:absolute;right:6px;top:6px;width:40px;height:40px;border-radius:12px;border:none;background:transparent;color:#5E645F;cursor:pointer;display:flex;align-items:center;justify-content:center"><sc-if value="{{ m_pwShown }}" hint-placeholder-val="{{ false }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18"></path><path d="M10.6 5.1A10 10 0 0 1 12 5c6.5 0 10 7 10 7a17 17 0 0 1-3.2 4.1M6.6 6.6A17 17 0 0 0 2 12s3.5 7 10 7a10 10 0 0 0 5.4-1.6"></path><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"></path></svg></sc-if><sc-if value="{{ m_pwHidden }}" hint-placeholder-val="{{ true }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="3"></circle></svg></sc-if></button></span></label>
+          <sc-if value="{{ m_errOn }}" hint-placeholder-val="{{ false }}"><span style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:14px;background:rgba(214,69,69,0.10);color:#C03A3A;font-size:14px;font-weight:600"><span style="width:8px;height:8px;border-radius:50%;background:#D64545;flex:none"></span>{{ m_err }}</span></sc-if>
+          <sc-if value="{{ m_roleOn }}" hint-placeholder-val="{{ false }}"><span style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:14px;background:rgba(19,168,158,0.10);font-size:14px"><span style="width:32px;height:32px;border-radius:50%;background:#13A89E;color:#FFFFFF;display:flex;align-items:center;justify-content:center;flex:none"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"></path></svg></span><span style="display:flex;flex-direction:column;gap:1px"><span style="font-weight:700">{{ m_roleName }}</span><span style="font-size:12px;color:#3E4540">{{ m_roleDest }}</span></span></span></sc-if>
+          <button type="submit" style="height:56px;border-radius:999px;border:none;background:{{ m_btnBg }};color:{{ m_btnC }};font-size:16px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px" style-hover="opacity:0.92">{{ m_btnLbl }}</button>
+          <div style="display:flex;flex-direction:column;gap:8px;padding-top:4px">
+            <span style="font-size:12px;font-weight:600;color:#5E645F">Akun demo, ketuk untuk mengisi</span>
+            <div style="display:flex;flex-wrap:wrap;gap:6px"><sc-for list="{{ m_demo }}" as="d" hint-placeholder-count="1"><button type="button" onClick="{{ d.fill }}" style="height:34px;padding:0 12px;border-radius:999px;border:1.5px solid #E3E6E1;background:#FFFFFF;font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap" style-hover="border-color:#161B17">{{ d.label }}</button></sc-for></div>
+          </div>
+        </form></div>
+        <span style="font-size:12px;color:#5E645F;text-align:center;line-height:1.5">Belum punya akun? Daftar dengan nomor HP.</span>
+      </div>
+      <div style="height:28px;flex:none;display:flex;align-items:center;justify-content:center"><span style="width:134px;height:5px;border-radius:999px;background:#161B17"></span></div>
+    </div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = {};
+  static USERS = [{ ids: ["081377015522","rahma@gmail.com"], role: 'Pembeli', who: 'Ibu Rahmawati', dest: 'Cari warung', file: '7-01 GV App Pembeli.dc.html', label: 'Ibu Rahmawati' }];
+  static OTHERS = [{"r":"Admin Provinsi","ids":["admin.sumut@sp2kp.id","081260001000"],"f":"1-00 Login Admin Provinsi"},{"r":"Admin KP","ids":["ginting@sp2kp.id","085277441265"],"f":"2-00 Login Admin KP"},{"r":"Kurir KP","ids":["081263401187","rizky@sp2kp.id"],"f":"3-00 Login Kurir KP"},{"r":"Warung Point","ids":["081370228899","andi@sp2kp.id"],"f":"4-00 Login Warung Point"},{"r":"Distributor","ids":["linda@mitrasawit.co.id","081263017745"],"f":"5-00 Login Distributor"},{"r":"Kurir Distributor","ids":["081262118804","sarman@mitrasawit.co.id"],"f":"6-00 Login Kurir Distributor"}];
+  componentWillUnmount() { clearTimeout(this.t); }
+  side(P) {
+    const st = this.state, g = k => st[P + k], set = o => this.setState(Object.fromEntries(Object.entries(o).map(([k, v]) => [P + k, v])));
+    const norm = s => (s || '').trim().toLowerCase().replace(/[\s-]/g, '').replace(/^\+62/, '0');
+    const user = Component.USERS.find(u => u.ids.includes(norm(g('id'))));
+    const loading = !!g('go'), err = g('err');
+    const submit = e => { e.preventDefault(); if (loading) return;
+      if (!norm(g('id')) || !g('pw')) return set({ err: 'Isi email atau nomor HP dan kata sandi' });
+      if (!user) { const o = Component.OTHERS.find(x => x.ids.includes(norm(g('id')))); return set({ err: o ? 'Ini akun ' + o.r + '. Masuk lewat halaman ' + o.f.replace(/^[0-9-]+ /, '') + '.' : 'Akun tidak ditemukan. Cek lagi email atau nomor HP.' }); }
+      if ((g('pw') || '').length < 6) return set({ err: 'Kata sandi salah' });
+      set({ err: null, go: true }); clearTimeout(this.t); this.t = setTimeout(() => { window.location.href = encodeURI(user.file); }, 1200); };
+    return { [P + '_id']: g('id') || '', [P + '_pw']: g('pw') || '',
+      [P + '_onId']: e => set({ id: e.target.value, err: null }), [P + '_onPw']: e => set({ pw: e.target.value, err: null }),
+      [P + '_pwType']: g('show') ? 'text' : 'password', [P + '_pwShown']: !!g('show'), [P + '_pwHidden']: !g('show'), [P + '_togglePw']: () => set({ show: !g('show') }),
+      [P + '_bdId']: err && (!user || !norm(g('id'))) ? '#D64545' : '#E3E6E1', [P + '_bdPw']: err && user && norm(g('id')) ? '#D64545' : '#E3E6E1',
+      [P + '_errOn']: !!err, [P + '_err']: err || '',
+      [P + '_roleOn']: !!user && !err, [P + '_roleName']: user ? 'Masuk sebagai ' + user.role : '', [P + '_roleDest']: user ? (loading ? 'Mengarahkan ke ' + user.dest + '...' : user.who + ', ke ' + user.dest) : '',
+      [P + '_btnBg']: loading ? '#13A89E' : '#161B17', [P + '_btnC']: '#FFFFFF', [P + '_btnLbl']: loading ? 'Memuat...' : 'Masuk',
+      [P + '_submit']: submit,
+      [P + '_demo']: Component.USERS.map(u => ({ label: u.label, fill: () => set({ id: u.ids[0].startsWith('0') ? u.ids[0].replace(/(\d{4})(\d{4})(\d+)/, '$1-$2-$3') : u.ids[0], pw: 'sp2kp2026', err: null }) })) };
+  }
+  renderVals() { return { ...this.side('m') }; }
+}
+</script>
+</body>
+</html>

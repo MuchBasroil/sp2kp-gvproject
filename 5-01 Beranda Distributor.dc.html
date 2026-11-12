@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script src="./demo-switcher.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:var(--body,#ECEDEB);color:var(--ink,#161B17);font-family:'Plus Jakarta Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:var(--ink,#161B17);text-decoration:none}
+a:hover{color:var(--ink,#161B17);text-decoration:underline}
+button{font-family:inherit}
+@keyframes sbIn{from{opacity:0;transform:translateX(-24px) scale(.98)}to{opacity:1;transform:none}}@keyframes sbFade{from{opacity:0}to{opacity:1}}</style>
+</helmet>
+<div style="display:flex;gap:20px;min-width:0;min-height:100vh;padding:{{ rootPad }};background:var(--page,linear-gradient(155deg,#F6F7F5 0%,#F1F2F0 45%,#E4E6E2 100%));color:var(--ink,#161B17);font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-size:14px;line-height:1.45">
+
+  <aside data-screen-label="Sidebar" style="width:248px;flex:none;position:{{ asidePos }};top:20px;left:{{ asideLeft }};z-index:{{ asideZ }};height:calc(100vh - 40px);display:{{ asideDisplay }};animation:{{ asideAnim }};flex-direction:column;gap:12px">
+    <div style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--glass,rgba(255,255,255,0.82));border:1px solid var(--glass-b,rgba(255,255,255,0.95));border-radius:24px;box-shadow:0 1px 2px rgba(22,27,23,0.04),0 8px 24px rgba(22,27,23,0.06)">
+      <img src="uploads/logo-sp2kp.webp" alt="SP2KP" style="background:#FFFFFF;border-radius:8px;padding:3px 6px;box-sizing:content-box;height:28px;width:auto;display:block">
+      <div style="display:flex;flex-direction:column;min-width:0;border-left:1px solid var(--line,#E5E7E3);padding-left:10px"><span style="font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">PT Mitra Sawit Nusantara</span><span style="font-size:12px;color:var(--ink2,#5E645F)">Distributor</span></div>
+    </div>
+    <div style="flex:1;min-height:0;display:flex;flex-direction:column;padding:14px 12px;background:var(--glass,rgba(255,255,255,0.88));border:1px solid var(--glass-b,rgba(255,255,255,0.95));border-radius:28px;box-shadow:0 1px 2px rgba(22,27,23,0.04),0 8px 24px rgba(22,27,23,0.06)">
+      <nav style="display:flex;flex-direction:column;gap:2px;flex:1;overflow-y:auto;overflow-x:hidden;scrollbar-width:none">
+        <span style="font-size:12px;font-weight:600;letter-spacing:0.06em;color:var(--ink2,#5E645F);padding:6px 12px 6px">BERANDA</span>
+        <a href="5-01%20Beranda%20Distributor.dc.html" style="display:flex;align-items:center;gap:10px;padding:8px 12px 8px 8px;border-radius:999px;background:var(--ink,#161B17);color:var(--on-ink,#FFFFFF);font-weight:600;text-decoration:none"><span style="width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;flex:none"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--ink2,#5E645F)"><path d="M3 11l9-7 9 7"></path><path d="M5 10v10h14V10"></path><path d="M10 20v-6h4v6"></path></svg></span><span style="flex:1">Beranda</span></a>
+        <span style="font-size:12px;font-weight:600;letter-spacing:0.06em;color:var(--ink2,#5E645F);padding:12px 12px 6px">OPERASIONAL</span>
+        <a href="5-02%20Request%20KP.dc.html" style="display:flex;align-items:center;gap:10px;padding:8px;border-radius:999px;color:var(--ink,#161B17);text-decoration:none" style-hover="background:var(--s2,#F1F2F0)"><span style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;flex:none"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"></path></svg></span><span style="flex:1">Request KP</span><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:#D64545;color:#FFFFFF;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center">2</span></a>
+        <a href="5-03%20Pengiriman%20Distributor.dc.html" style="display:flex;align-items:center;gap:10px;padding:8px;border-radius:999px;color:var(--ink,#161B17);text-decoration:none" style-hover="background:var(--s2,#F1F2F0)"><span style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;flex:none"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h11v10H3zM14 9h4l3 3v4h-7z"></path><circle cx="7" cy="17.5" r="1.8"></circle><circle cx="17" cy="17.5" r="1.8"></circle></svg></span><span style="flex:1">Pengiriman</span></a>
+        <a href="5-04%20Ketersediaan%20Barang.dc.html" style="display:flex;align-items:center;gap:10px;padding:8px;border-radius:999px;color:var(--ink,#161B17);text-decoration:none" style-hover="background:var(--s2,#F1F2F0)"><span style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;flex:none"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"></path></svg></span><span style="flex:1">Ketersediaan Barang</span></a>
+      </nav>
+      <div style="border-top:1px solid var(--line,#E5E7E3);padding-top:12px;display:flex;flex-direction:column;gap:2px">
+        <div style="display:flex;align-items:center;gap:10px;padding:6px 8px"><div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(150deg,#B6F04A,#CFE3F7);color:#161B17;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;flex:none">LS</div><div style="display:flex;flex-direction:column;min-width:0"><span style="font-size:14px;font-weight:600;white-space:nowrap">Linda Siregar</span><span style="font-size:12px;color:var(--ink2,#5E645F)">PIC distributor</span></div></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;margin:2px 0 4px;border-radius:999px;background:var(--s2,#F1F2F0)"><button onClick="{{ setLight }}" aria-label="Tema terang" style="display:flex;align-items:center;justify-content:center;gap:6px;height:34px;padding:0 10px;border-radius:999px;border:none;background:{{ lightBg }};color:{{ lightC }};font-size:12px;font-weight:600;cursor:pointer;transition:background .15s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>Terang</button><button onClick="{{ setDark }}" aria-label="Tema gelap" style="display:flex;align-items:center;justify-content:center;gap:6px;height:34px;padding:0 10px;border-radius:999px;border:none;background:{{ darkBg }};color:{{ darkC }};font-size:12px;font-weight:600;cursor:pointer;transition:background .15s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>Gelap</button></div>
+        <a href="5-00%20Login%20Distributor.dc.html" style="display:flex;align-items:center;gap:10px;padding:8px;border-radius:999px;color:var(--ink,#161B17);text-decoration:none" style-hover="background:var(--s2,#F1F2F0)"><span style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;flex:none"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h4v16h-4M10 8l-4 4 4 4M6 12h10"></path></svg></span><span>Keluar</span></a>
+      </div>
+    </div>
+  </aside>
+
+  
+
+  <sc-if value="{{ drawerOpen }}" hint-placeholder-val="{{ false }}"><div onClick="{{ closeDrawer }}" style="animation:sbFade .25s ease;position:fixed;inset:0;z-index:4900;background:rgba(22,27,23,0.40);backdrop-filter:blur(3px)"></div></sc-if>
+  <main style="flex:1;min-width:0;padding:8px 0 32px;display:flex;flex-direction:column;gap:20px">
+    <sc-if value="{{ compact }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px 10px 14px;background:var(--glass,rgba(255,255,255,0.88));border:1px solid var(--glass-b,rgba(255,255,255,0.95));border-radius:22px;box-shadow:0 1px 2px rgba(22,27,23,0.04),0 8px 24px rgba(22,27,23,0.06)">
+        <div style="display:flex;align-items:center;gap:10px;min-width:0">
+          <img src="uploads/logo-sp2kp.webp" alt="SP2KP" style="background:#FFFFFF;border-radius:8px;padding:3px 6px;box-sizing:content-box;height:24px;width:auto;display:block">
+          <span style="display:flex;flex-direction:column;min-width:0;border-left:1px solid var(--line,#E5E7E3);padding-left:10px"><span style="font-size:14px;font-weight:700;white-space:nowrap">PT Mitra Sawit Nusantara</span><span style="font-size:12px;color:var(--ink2,#5E645F)">Distributor</span></span>
+        </div>
+        <button onClick="{{ openDrawer }}" aria-label="Buka menu" style="width:44px;height:44px;border-radius:50%;border:none;background:var(--ink,#161B17);color:var(--on-ink,#FFFFFF);display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+      </div>
+    </sc-if>
+
+    <div style="width:100%;display:flex;flex-direction:column;gap:22px">
+      <header style="position:relative;overflow:hidden;display:flex;flex-direction:column;gap:18px;padding:{{ ghPad }};border-radius:28px;background:linear-gradient(135deg,#1E4E9C 0%,#1690A8 58%,#13A89E 100%);color:#FFFFFF;box-shadow:0 12px 32px rgba(30,78,156,0.22)">
+                        <div style="position:relative;display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:14px">
+          <span style="display:flex;align-items:center;gap:14px;min-width:0">
+            <span style="width:48px;height:48px;border-radius:50%;background:#FFFFFF;color:#1E4E9C;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;flex:none">LS</span>
+            <span style="display:flex;flex-direction:column;gap:3px;min-width:0"><h1 style="margin:0;font-size:{{ ghFs }};line-height:1.1;font-weight:800;color:#FFFFFF">Selamat pagi, Bu Linda</h1><span style="font-size:13px;font-weight:600;opacity:0.88">PT Mitra Sawit Nusantara, Rabu 7 Okt 2026</span></span>
+          </span>
+                  </div>
+        <a href="5-02%20Request%20KP.dc.html" style="position:relative;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding:12px 12px 12px 16px;border-radius:18px;background:#FFFFFF;color:#161B17;text-decoration:none" style-hover="text-decoration:none">
+          <span style="display:flex;align-items:center;gap:12px;min-width:0"><span style="width:40px;height:40px;border-radius:12px;background:rgba(239,159,39,0.16);color:#9A5F0A;display:flex;align-items:center;justify-content:center;flex:none"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></span><span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:15px;font-weight:800">2 request KP menunggu jawaban</span><span style="font-size:12px;color:#5E645F">Jawab sebelum <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-weight:700;color:#161B17">12.00</span> agar barang bisa dikirim besok</span></span></span>
+          <span style="display:flex;align-items:center;gap:6px;height:40px;padding:0 8px 0 16px;border-radius:999px;background:#161B17;color:#FFFFFF;font-size:14px;font-weight:700;white-space:nowrap">Jawab sekarang<span style="width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,0.16);display:flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></span></span>
+        </a>
+        <div style="position:relative;display:grid;grid-template-columns:{{ statCols }};gap:12px 0;padding-top:16px;border-top:1px solid rgba(255,255,255,0.18)">
+          <sc-for list="{{ stats }}" as="g" hint-placeholder-count="3">
+            <a href="{{ g.href }}" style="display:flex;flex-direction:column;gap:4px;padding:2px 16px;border-left:{{ g.bl }};color:#FFFFFF;text-decoration:none;min-width:0;grid-column:{{ g.gc }}" style-hover="text-decoration:underline">
+              <span style="font-size:12px;font-weight:700;opacity:0.85">{{ g.l }}</span>
+              <span style="display:flex;align-items:baseline;gap:6px"><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-size:28px;font-weight:800;line-height:1">{{ g.v }}</span><span style="font-size:13px;font-weight:600;opacity:0.85">{{ g.u }}</span></span>
+              <span style="font-size:12px;opacity:0.85;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ g.s }}</span>
+            </a>
+          </sc-for>
+        </div>
+      </header>
+
+      <div style="display:grid;grid-template-columns:{{ mainCols }};gap:20px;align-items:start">
+        <section data-screen-label="Perlu dijawab" style="display:flex;flex-direction:column;gap:12px;min-width:0">
+          <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap"><span style="display:flex;flex-direction:column;gap:2px"><span style="font-size:18px;font-weight:700">Request yang perlu dijawab</span><span style="font-size:12px;color:var(--ink2,#5E645F);line-height:1.4">KP menunggu jawaban Anda. Urut dari tanggal tiba terdekat.</span></span><a href="5-02%20Request%20KP.dc.html" style="display:flex;align-items:center;gap:4px;font-size:13px;font-weight:700;color:var(--ink,#161B17);text-decoration:none" style-hover="text-decoration:underline">Semua request<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></a></div>
+          <sc-for list="{{ reqs }}" as="r" hint-placeholder-count="2">
+            <a href="5-02%20Request%20KP.dc.html" style="background:var(--glass,rgba(255,255,255,0.88));border:1px solid var(--glass-b,rgba(255,255,255,0.95));border-radius:28px;box-shadow:0 1px 2px rgba(22,27,23,0.04),0 8px 24px rgba(22,27,23,0.06);display:flex;flex-direction:column;gap:14px;padding:18px 20px;color:var(--ink,#161B17);text-decoration:none;box-shadow:0 0 0 2px rgba(239,159,39,0.55),0 8px 24px rgba(22,27,23,0.06)" style-hover="text-decoration:none;box-shadow:0 0 0 2px rgba(239,159,39,0.9),0 12px 28px rgba(22,27,23,0.10)">
+              <span style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px"><span style="display:flex;flex-direction:column;gap:3px;min-width:0"><span style="display:inline-flex;align-self:flex-start;align-items:center;gap:5px;font-size:11px;font-weight:800;letter-spacing:0.06em;color:var(--amber-ink,#9A5F0A)"><span style="width:6px;height:6px;border-radius:50%;background:#EF9F27"></span>MENUNGGU JAWABAN</span><span style="font-size:20px;font-weight:800;line-height:1.2">{{ r.kp }}</span><span style="font-size:12px;color:var(--ink2,#5E645F);line-height:1.4">{{ r.pic }}, masuk <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;">{{ r.time }}</span></span></span><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-size:12px;color:var(--ink2,#5E645F);flex:none">{{ r.code }}</span></span>
+              <span style="display:grid;grid-template-columns:{{ reqStatCols }};gap:10px;padding:12px 14px;border-radius:16px;background:var(--s1,#F5F6F4)"><span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:11px;font-weight:700;letter-spacing:0.04em;color:var(--ink2,#5E645F);white-space:nowrap">DIMINTA</span><span style="font-size:15px;font-weight:700;white-space:nowrap;">{{ r.qty }} pouch</span></span><span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:11px;font-weight:700;letter-spacing:0.04em;color:var(--ink2,#5E645F);white-space:nowrap">NILAI</span><span style="font-size:15px;font-weight:700;white-space:nowrap;font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;">{{ r.nilai }}</span></span><span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:11px;font-weight:700;letter-spacing:0.04em;color:var(--ink2,#5E645F);white-space:nowrap">MINTA TIBA</span><span style="font-size:15px;font-weight:700;white-space:nowrap;">{{ r.tiba }}</span></span></span>
+              <span style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span style="font-size:12px;color:var(--ink2,#5E645F);line-height:1.4">{{ r.stokNote }}</span><span style="display:flex;align-items:center;gap:6px;height:40px;padding:0 8px 0 16px;border-radius:999px;background:var(--ink,#161B17);color:var(--on-ink,#FFFFFF);font-size:14px;font-weight:700;white-space:nowrap">Jawab request<span style="width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,0.14);display:flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></span></span></span>
+            </a>
+          </sc-for>
+        </section>
+
+        <div style="display:flex;flex-direction:column;gap:22px;min-width:0">
+          <section data-screen-label="Sedang dikirim" style="display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap"><span style="display:flex;flex-direction:column;gap:2px"><span style="font-size:18px;font-weight:700">Sedang dikirim</span><span style="font-size:12px;color:var(--ink2,#5E645F);line-height:1.4">Diperbarui otomatis saat kurir scan label</span></span><a href="5-03%20Pengiriman%20Distributor.dc.html" style="display:flex;align-items:center;gap:4px;font-size:13px;font-weight:700;color:var(--ink,#161B17);text-decoration:none" style-hover="text-decoration:underline">Pengiriman<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></a></div>
+            <div style="background:var(--glass,rgba(255,255,255,0.88));border:1px solid var(--glass-b,rgba(255,255,255,0.95));border-radius:28px;box-shadow:0 1px 2px rgba(22,27,23,0.04),0 8px 24px rgba(22,27,23,0.06);padding:18px 20px;display:flex;flex-direction:column;gap:14px">
+              <span style="display:flex;align-items:center;justify-content:space-between;gap:8px"><span style="display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 10px;border-radius:999px;background:#1E4E9C;color:#FFFFFF;font-size:11px;font-weight:800;letter-spacing:0.06em">DALAM PERJALANAN</span><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-size:12px;color:var(--ink2,#5E645F)">BM-261007-04</span></span>
+              <span style="display:flex;align-items:baseline;justify-content:space-between;gap:10px"><span style="font-size:18px;font-weight:800">Ke KP Karo</span><span style="display:flex;align-items:center;gap:6px;font-size:14px;font-weight:800;color:var(--blue-ink,#1E4E9C)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Tiba 10.20</span></span>
+              <div style="display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:10px"><span style="font-size:12px;font-weight:700">Gudang Medan</span><span style="position:relative;display:block;height:26px"><span style="position:absolute;left:0;top:8px;width:10px;height:10px;border-radius:50%;background:#1E4E9C"></span><span style="position:absolute;left:12px;right:12px;top:12px;border-top:2px dashed rgba(30,78,156,0.35)"></span><span style="position:absolute;left:12px;width:calc(55% - 14px);top:11px;height:4px;border-radius:999px;background:#1E4E9C"></span><span style="position:absolute;left:calc(55% - 14px);top:0;width:26px;height:26px;border-radius:50%;background:#1E4E9C;color:#FFFFFF;display:flex;align-items:center;justify-content:center"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h11v10H3zM14 9h4l3 3v4h-7z"></path><circle cx="7" cy="17.5" r="1.6"></circle><circle cx="17" cy="17.5" r="1.6"></circle></svg></span><span style="position:absolute;right:0;top:6px;width:14px;height:14px;border-radius:50%;border:3px solid #1E4E9C;background:var(--card,#FFFFFF)"></span></span><span style="font-size:12px;font-weight:700">KP Karo</span></div>
+              <span style="display:grid;grid-template-columns:1fr 1fr;gap:10px;padding-top:12px;border-top:1px solid var(--line,#ECEEEA)"><span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:11px;font-weight:700;letter-spacing:0.04em;color:var(--ink2,#5E645F);white-space:nowrap">MUATAN</span><span style="font-size:15px;font-weight:700;white-space:nowrap;">600 pouch</span></span><span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:11px;font-weight:700;letter-spacing:0.04em;color:var(--ink2,#5E645F);white-space:nowrap">KURIR</span><span style="font-size:15px;font-weight:700;white-space:nowrap;">Sarman Tambunan</span></span></span>
+            </div>
+          </section>
+          <section data-screen-label="Stok siap kirim" style="display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap"><span style="display:flex;flex-direction:column;gap:2px"><span style="font-size:18px;font-weight:700">Stok siap kirim</span><span style="font-size:12px;color:var(--ink2,#5E645F);line-height:1.4">Angka yang dilihat KP saat memesan</span></span><a href="5-04%20Ketersediaan%20Barang.dc.html" style="display:flex;align-items:center;gap:4px;font-size:13px;font-weight:700;color:var(--ink,#161B17);text-decoration:none" style-hover="text-decoration:underline">Perbarui stok<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></a></div>
+            <div style="background:var(--glass,rgba(255,255,255,0.88));border:1px solid var(--glass-b,rgba(255,255,255,0.95));border-radius:28px;box-shadow:0 1px 2px rgba(22,27,23,0.04),0 8px 24px rgba(22,27,23,0.06);padding:18px 20px;display:flex;flex-direction:column;gap:14px">
+              <span style="display:flex;align-items:center;justify-content:space-between;gap:8px"><span style="font-size:15px;font-weight:700">Minyak Goreng Sawit 2 L</span><span style="display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;color:var(--green-ink2,#14795A);background:rgba(29,158,117,0.13);border-radius:999px;padding:3px 10px;white-space:nowrap"><span style="width:6px;height:6px;border-radius:50%;background:currentColor"></span>Bisa kirim besok</span></span>
+              <span style="display:flex;align-items:baseline;gap:6px"><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-size:34px;font-weight:800;line-height:1;color:var(--green-ink2,#14795A)">1.700</span><span style="font-size:13px;font-weight:600;color:var(--ink2,#5E645F)">pouch masih bisa dipesan</span></span>
+              <span style="display:flex;height:10px;border-radius:999px;overflow:hidden;background:var(--s2,#E3E6E1)"><span style="width:29%;background:#1E4E9C"></span><span style="width:71%;background:#3DAE4F"></span></span>
+              <span style="display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12px;color:var(--ink2,#5E645F);line-height:1.4"><span style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border-radius:3px;background:#1E4E9C"></span>Sudah dipesan KP <b style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;color:var(--ink,#161B17)">700</b></span><span style="display:flex;align-items:center;gap:6px"><span style="width:10px;height:10px;border-radius:3px;background:#3DAE4F"></span>Sisa <b style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;color:var(--ink,#161B17)">1.700</b></span><span>Total gudang <b style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;color:var(--ink,#161B17)">2.400</b>, diperbarui 07.15</span></span>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <sc-if value="{{ toastOn }}" hint-placeholder-val="{{ false }}"><div style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:6500;max-width:calc(100vw - 32px);padding:12px 18px;border-radius:999px;background:var(--ink,#161B17);color:var(--on-ink,#FFFFFF);box-shadow:0 12px 32px rgba(22,27,23,0.28);font-size:14px;font-weight:600">{{ toastText }}</div></sc-if>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  static DARK = {"--body":"#0F1311","--page":"linear-gradient(155deg,#171C19 0%,#121614 50%,#0D100E 100%)","--glass":"rgba(28,33,30,0.92)","--glass-b":"rgba(255,255,255,0.06)","--card":"#1C211E","--ink":"#EDF0ED","--ink2":"#A2A9A3","--ink3":"#C5CBC6","--mute":"#7E857F","--mute2":"#5B625C","--s1":"#242A26","--s2":"#272D29","--line":"#313833","--hover":"#262C28","--ink-h":"#FFFFFF","--on-ink":"#121613","--tosca-bg":"rgba(19,168,158,0.18)","--tosca-ink":"#4FD6CA","--t-blue":"rgba(58,110,200,0.20)","--t-tosca":"rgba(19,168,158,0.16)","--t-green":"rgba(61,174,79,0.16)","--green-ink":"#86D9A0","--blue-ink":"#8CB2F0","--red-ink":"#F08A8A","--amber-ink":"#F2BB5E","--green-ink2":"#62D4A8"};
+  theme() { return this.state.theme || (typeof localStorage !== 'undefined' && localStorage.getItem('sp2kp-theme')) || 'light'; }
+  setTheme(t) { try { localStorage.setItem('sp2kp-theme', t); } catch (e) {} this.setState({ theme: t }, () => this.applyTheme()); }
+  applyTheme() {
+    const r = document.documentElement, dark = this.theme() === 'dark';
+    Object.entries(Component.DARK).forEach(([k, v]) => dark ? r.style.setProperty(k, v) : r.style.removeProperty(k));
+    r.style.colorScheme = dark ? 'dark' : 'light';
+    this.applyTiles();
+  }
+  applyTiles() {
+    const g = this.theme() === 'dark' ? 'Dark_Gray' : 'Light_Gray', u = n => 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_' + g + '_' + n + '/MapServer/tile/{z}/{y}/{x}';
+    if (this.tb) this.tb.setUrl(u('Base')); if (this.tr) this.tr.setUrl(u('Reference'));
+  }
+  themeVals() {
+    const d = this.theme() === 'dark';
+    return { setLight: () => this.setTheme('light'), setDark: () => this.setTheme('dark'),
+      lightBg: d ? 'transparent' : 'var(--ink,#161B17)', lightC: d ? 'var(--ink2,#5E645F)' : 'var(--on-ink,#FFFFFF)',
+      darkBg: d ? 'var(--ink,#161B17)' : 'transparent', darkC: d ? 'var(--on-ink,#FFFFFF)' : 'var(--ink2,#5E645F)' };
+  }
+
+
+
+
+  state = {};
+  componentDidMount() { this.onResize = () => { const vw = window.innerWidth; if (vw !== this.state.vw) this.setState({ vw, drawer: vw >= 1100 ? false : this.state.drawer }); }; window.addEventListener('resize', this.onResize); this.onResize(); this.applyTheme(); this.onKey = e => { if (e.key === 'Escape' && this.state.modal) this.setState({ modal: null }); }; window.addEventListener('keydown', this.onKey); }
+  componentWillUnmount() { window.removeEventListener('resize', this.onResize); window.removeEventListener('keydown', this.onKey); clearTimeout(this.tt); }
+  toast(t) { clearTimeout(this.tt); this.setState({ toast: t }); this.tt = setTimeout(() => this.setState({ toast: null }), 3500); }
+  now() { const d = new Date(); return String(d.getHours()).padStart(2, '0') + '.' + String(d.getMinutes()).padStart(2, '0'); }
+
+  renderVals() {
+    const st = this.state, vw = st.vw || 1440, lg = vw >= 1100, md = vw >= 760, compact = !lg, drawer = compact && !!st.drawer, sm = vw < 640;
+    const f = n => Number(n).toLocaleString('id-ID'), rp = n => 'Rp ' + f(n);
+    const base = { ...this.themeVals(), compact, drawerOpen: drawer, openDrawer: () => this.setState({ drawer: true }), closeDrawer: () => this.setState({ drawer: false }),
+      rootPad: md ? '20px' : '12px', asidePos: compact ? 'fixed' : 'sticky', asideLeft: compact ? '20px' : 'auto', asideZ: compact ? 5000 : 'auto', asideDisplay: compact && !drawer ? 'none' : 'flex', asideAnim: drawer ? 'sbIn .32s cubic-bezier(.2,.8,.2,1)' : 'none',
+      h1Fs: sm ? '28px' : '34px', kpiCols: vw >= 900 ? 'repeat(3,minmax(0,1fr))' : 'minmax(0,1fr)', two: vw >= 1200 ? 'minmax(0,1.5fr) minmax(0,1fr)' : 'minmax(0,1fr)', btnFlex: sm ? '1 1 0' : '0 0 auto',
+      stop: e => e.stopPropagation(), closeModal: () => this.setState({ modal: null }), toastOn: !!st.toast, toastText: st.toast || '' };
+    const reqs = [['BM-261007-07', 'KP Kota Medan', 'Rudi Hartono', '08.40', 400, '8 Okt'], ['BM-261007-09', 'KP Karo', 'Pak Tarigan', '09.12', 300, '9 Okt']].map(([code, kp, pic, time, qty, tiba]) => ({ code, kp, pic, time, qty: f(qty), nilai: rp(qty * 34000), tiba, stokNote: 'Stok cukup, sisa ' + f(1700 - qty) + ' pouch setelah diterima' }));
+    const stats = [{ l: 'Stok bisa dipesan', v: '1.700', u: 'pouch', s: 'Dari 2.400 di gudang', c: '', href: '5-04%20Ketersediaan%20Barang.dc.html' }, { l: 'Dalam perjalanan', v: '1', u: 'kiriman', s: '600 pouch ke KP Karo', c: 'var(--blue-ink,#1E4E9C)', href: '5-03%20Pengiriman%20Distributor.dc.html' }, { l: 'Selesai hari ini', v: '1', u: 'kiriman', s: 'KP Serdang Bedagai, kurang 20 pouch', c: 'var(--ink,#161B17)', href: '5-03%20Pengiriman%20Distributor.dc.html' }];
+    return { ...base, reqs, stats: stats.map((g, i, l) => ({ ...g, gc: vw < 800 && i === l.length - 1 && l.length % 2 ? '1 / -1' : 'auto', bl: (vw >= 800 ? i > 0 : i % 2 === 1) ? '1px solid rgba(255,255,255,0.18)' : 'none' })), ...(dk => ({ hLightBg: dk ? 'transparent' : '#FFFFFF', hLightC: dk ? 'rgba(255,255,255,0.88)' : '#161B17', hDarkBg: dk ? '#FFFFFF' : 'transparent', hDarkC: dk ? '#161B17' : 'rgba(255,255,255,0.88)' }))(this.theme() === 'dark'), reqStatCols: vw >= 640 ? 'repeat(3,minmax(0,1fr))' : '1fr 1fr', statCols: vw >= 800 ? 'repeat(3,minmax(0,1fr))' : 'repeat(2,minmax(0,1fr))', mainCols: vw >= 1180 ? 'minmax(0,1.3fr) minmax(0,1fr)' : 'minmax(0,1fr)', ghPad: sm ? '18px' : '22px 24px', ghFs: sm ? '24px' : '28px' };
+  }
+}
+</script>
+</body>
+</html>

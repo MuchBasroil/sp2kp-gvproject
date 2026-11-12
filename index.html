@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+<title>SP2KP Kantong Pangan Sumut, Demo</title>
+<style>
+body{margin:0;background:#F3F4F2;color:#161B17;font-family:'Plus Jakarta Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#1E4E9C;text-decoration:none}
+a:hover{color:#163B78;text-decoration:none}
+</style>
+</helmet>
+<div data-screen-label="Pilih role" style="min-height:100vh;padding:{{ pad }};display:flex;flex-direction:column;align-items:center">
+  <div style="width:100%;max-width:1180px;display:flex;flex-direction:column;gap:32px">
+
+    <header style="position:relative;overflow:hidden;display:grid;grid-template-columns:{{ heroCols }};align-items:end;gap:28px 40px;padding:{{ heroPad }};border-radius:32px;background:linear-gradient(135deg,#1E4E9C 0%,#1690A8 58%,#13A89E 100%);color:#FFFFFF;box-shadow:0 16px 40px rgba(30,78,156,0.22)">
+      <span style="position:absolute;right:-90px;top:-120px;width:360px;height:360px;border-radius:50%;background:rgba(255,255,255,0.08);pointer-events:none"></span>
+      <span style="position:absolute;right:180px;bottom:-170px;width:300px;height:300px;border-radius:50%;background:rgba(140,198,63,0.18);pointer-events:none"></span>
+      <div style="position:relative;display:flex;flex-direction:column;gap:22px;min-width:0">
+        <div style="display:flex;align-items:center;gap:14px">
+          <img src="uploads/logo-sp2kp.webp" alt="SP2KP" style="width:56px;height:56px;object-fit:contain;flex:none;border-radius:16px;background:#FFFFFF;padding:7px">
+          <span style="display:flex;flex-direction:column;gap:2px"><span style="font-size:15px;font-weight:800">SP2KP Kantong Pangan</span><span style="font-size:13px;font-weight:600;opacity:0.85">Provinsi Sumatera Utara</span></span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <h1 style="margin:0;font-size:{{ h1 }};line-height:1.05;font-weight:800;letter-spacing:-0.035em;color:#FFFFFF;text-wrap:balance">Satu sistem untuk paket sembako, dari distributor sampai warga.</h1>
+          <p style="margin:0;font-size:16px;line-height:1.55;opacity:0.9;max-width:560px;text-wrap:pretty">Pilih peran di bawah untuk melihat tampilan masing-masing pengguna.</p>
+        </div>
+      </div>
+      <div style="position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));padding:18px 4px;border-radius:24px;background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.22)">
+        <sc-for list="{{ stats }}" as="s" hint-placeholder-count="3">
+          <span style="display:flex;flex-direction:column;gap:6px;padding:0 16px;border-left:{{ s.bl }};min-width:0"><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-size:34px;font-weight:800;line-height:1;letter-spacing:-0.03em">{{ s.v }}</span><span style="font-size:12px;font-weight:700;opacity:0.88;line-height:1.3">{{ s.l }}</span></span>
+        </sc-for>
+      </div>
+    </header>
+
+    <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px">
+      <h2 style="margin:0;font-size:24px;line-height:1.2;font-weight:800;letter-spacing:-0.02em">Masuk sebagai siapa?</h2>
+      <span style="display:flex;align-items:center;gap:8px;height:34px;padding:0 14px;border-radius:999px;background:rgba(239,159,39,0.14);color:#9A5F0A;font-size:13px;font-weight:700"><span style="width:7px;height:7px;border-radius:50%;background:#EF9F27"></span>Mode demo, data contoh per <span style="font-family:'JetBrains Mono',ui-monospace,monospace">7 Okt 2026</span></span>
+    </div>
+
+    <sc-for list="{{ groups }}" as="g" hint-placeholder-count="3">
+      <section style="display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;font-weight:800;color:{{ g.c }};background:{{ g.bg }};border-radius:999px;padding:4px 10px">{{ g.step }}</span>
+          <span style="font-size:17px;font-weight:800">{{ g.title }}</span>
+          <span style="font-size:13px;color:#5E645F">{{ g.sub }}</span>
+          <span style="flex:1;height:1px;background:#E3E6E1;min-width:24px"></span>
+        </div>
+        <div style="display:grid;grid-template-columns:{{ cols }};gap:14px">
+          <sc-for list="{{ g.roles }}" as="r" hint-placeholder-count="2">
+            <a href="{{ r.href }}" style="position:relative;overflow:hidden;display:flex;flex-direction:column;gap:18px;padding:22px;border-radius:28px;background:#FFFFFF;border:1px solid #E3E6E1;box-shadow:0 1px 2px rgba(22,27,23,0.04),0 8px 24px rgba(22,27,23,0.05);color:#161B17;min-width:0;transition:box-shadow .18s,transform .18s,border-color .18s" style-hover="border-color:{{ r.icC }};box-shadow:0 16px 36px rgba(22,27,23,0.12);transform:translateY(-3px);color:#161B17">
+              <span style="position:absolute;right:-40px;top:-40px;width:140px;height:140px;border-radius:50%;background:{{ r.icBg }};pointer-events:none"></span>
+              <span style="position:relative;display:flex;align-items:flex-start;justify-content:space-between;gap:10px">
+                <span style="width:52px;height:52px;border-radius:16px;background:{{ r.icC }};color:#FFFFFF;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 18px {{ r.sh }}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="{{ r.ic }}"></path></svg></span>
+                <span style="display:flex;align-items:center;gap:6px;height:28px;padding:0 11px;border-radius:999px;background:#FFFFFF;border:1px solid #E3E6E1;font-size:12px;font-weight:700;color:#5E645F;white-space:nowrap;flex:none"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="{{ r.devIc }}"></path></svg>{{ r.device }}</span>
+              </span>
+              <span style="position:relative;display:flex;flex-direction:column;gap:6px;min-width:0">
+                <span style="font-size:20px;font-weight:800;line-height:1.2;letter-spacing:-0.01em">{{ r.name }}</span>
+                <span style="font-size:14px;color:#5E645F;line-height:1.55;text-wrap:pretty">{{ r.desc }}</span>
+              </span>
+              <span style="position:relative;display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding:10px 8px 10px 14px;border-radius:18px;background:#F5F6F4">
+                <span style="display:flex;flex-direction:column;gap:1px;min-width:0"><span style="font-size:11px;font-weight:600;color:#5E645F">Akun demo</span><span style="font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ r.who }}</span></span>
+                <span style="display:flex;align-items:center;gap:6px;height:38px;padding:0 6px 0 14px;border-radius:999px;background:#161B17;color:#FFFFFF;font-size:13px;font-weight:700;white-space:nowrap;flex:none">Masuk<span style="width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,0.16);display:flex;align-items:center;justify-content:center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></span></span>
+              </span>
+            </a>
+          </sc-for>
+        </div>
+      </section>
+    </sc-for>
+
+    <p style="margin:0;font-size:13px;color:#5E645F;line-height:1.6;text-align:center;text-wrap:pretty">Sudah masuk? Tekan tombol hitam "Pilih role" di pojok kanan bawah setiap halaman untuk kembali ke sini.</p>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { vw: typeof window !== 'undefined' ? window.innerWidth : 1280 };
+  componentDidMount() { this.onR = () => this.setState({ vw: window.innerWidth }); window.addEventListener('resize', this.onR); }
+  componentWillUnmount() { window.removeEventListener('resize', this.onR); }
+  renderVals() {
+    const vw = this.state.vw, sm = vw < 640;
+    const B = ['rgba(30,78,156,0.07)', '#1E4E9C', 'rgba(30,78,156,0.28)'], T = ['rgba(22,144,168,0.08)', '#1690A8', 'rgba(22,144,168,0.28)'], G = ['rgba(19,168,158,0.08)', '#13A89E', 'rgba(19,168,158,0.28)'];
+    const IC = {
+      prov: 'M3 21h18M5 21V10M19 21V10M9 21v-7M15 21v-7M2 10l10-6 10 6z',
+      kp: 'M3 21V8l9-5 9 5v13M7 21v-8h10v8M7 17h10',
+      dist: 'M3 21V11l5 3v-3l5 3V7l8-4v18zM3 21h18',
+      truck: 'M2 6h12v10H2zM14 10h4l4 4v2h-8M4 18a2 2 0 1 0 4 0a2 2 0 1 0-4 0M16 18a2 2 0 1 0 4 0a2 2 0 1 0-4 0',
+      pkg: 'M21 8l-9-5-9 5 9 5 9-5zM3 8v8l9 5 9-5V8M12 13v8',
+      store: 'M3 9l2-5h14l2 5M4 9v11h16V9M3 9h18M9 20v-6h6v6',
+      bag: 'M6 7h12l-1 13H7zM9 7a3 3 0 0 1 6 0'
+    };
+    const DEV = { Desktop: 'M3 4h18v12H3zM8 20h8M12 16v4', Mobile: 'M7 2h10v20H7zM11 18h2' };
+    const r = (name, desc, who, href, device, ic, c) => ({ name, desc, who, href: encodeURI(href), device, devIc: DEV[device === 'Desktop' ? 'Desktop' : 'Mobile'], ic: IC[ic], icBg: c[0], icC: c[1], sh: c[2] });
+    const groups = [
+      { step: '01', title: 'Pengelola program', sub: 'Memantau dan mengatur', c: '#1E4E9C', bg: 'rgba(30,78,156,0.10)', roles: [
+        r('Admin Provinsi', 'Pantau 5 Kantong Pangan, harga bahan pokok, arus barang, dan keuangan program.', 'Admin Provinsi Sumut', '1-00 Login Admin Provinsi.dc.html', 'Desktop', 'prov', B),
+        r('Admin Kantong Pangan', 'Setujui request Warung Point, rakit paket, terima barang, dan tugaskan kurir.', 'Admin KP Langkat', '2-00 Login Admin KP.dc.html', 'Desktop', 'kp', B)
+      ] },
+      { step: '02', title: 'Rantai pasok', sub: 'Pemasok bahan dan pengantar', c: '#0F6F82', bg: 'rgba(22,144,168,0.12)', roles: [
+        r('Distributor', 'Terima pesanan dari Kantong Pangan dan kirim bahan ke gudang.', 'Bu Linda, PT Mitra Sawit Nusantara', '5-00 Login Distributor.dc.html', 'Desktop', 'dist', T),
+        r('Kurir Distributor', 'Antar bahan dari distributor ke gudang Kantong Pangan.', 'Pak Sarman', '6-00 Kurir Distributor - Login.dc.html', 'Web mobile', 'truck', T),
+        r('Kurir Kantong Pangan', 'Antar paket sembako dari gudang KP ke Warung Point.', 'Rizky Pratama, KP Langkat', '3-00 Kurir KP - Login.dc.html', 'Web mobile', 'pkg', T)
+      ] },
+      { step: '03', title: 'Penyaluran', sub: 'Titik akhir ke warga', c: '#0E7C74', bg: 'rgba(19,168,158,0.12)', roles: [
+        r('Warung Point', 'Pesan paket ke KP, terima kiriman, dan catat penyaluran ke warga.', 'Bang Andi, WP Ara Condong', '4-00 Login Warung Point.dc.html', 'Desktop', 'store', G),
+        r('Pembeli (GV App)', 'Warga memesan dan membayar paket sembako, lalu mengambil di Warung Point.', 'Warga, pelanggan WP', '7-00 Login GV App.dc.html', 'Mobile', 'bag', G)
+      ] }
+    ];
+    const stats = [['5', 'Kantong Pangan'], ['22', 'Warung Point'], ['7', 'Peran pengguna']].map(([v, l], i) => ({ v, l, bl: i ? '1px solid rgba(255,255,255,0.22)' : 'none' }));
+    return {
+      groups, stats,
+      pad: sm ? '16px 14px 40px' : '32px 32px 56px',
+      heroPad: sm ? '24px 20px' : '40px 44px',
+      heroCols: vw >= 1000 ? 'minmax(0,1fr) minmax(300px,380px)' : 'minmax(0,1fr)',
+      h1: sm ? '30px' : vw >= 1000 ? '44px' : '38px',
+      cols: vw >= 1000 ? 'repeat(3,minmax(0,1fr))' : vw >= 640 ? 'repeat(2,minmax(0,1fr))' : 'minmax(0,1fr)'
+    };
+  }
+}
+</script>
+</body>
+</html>

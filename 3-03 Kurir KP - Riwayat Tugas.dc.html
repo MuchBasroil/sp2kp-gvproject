@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script src="./demo-switcher.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:var(--body,#ECEDEB);color:var(--ink,#161B17);font-family:'Plus Jakarta Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:var(--ink,#161B17);text-decoration:none}
+a:hover{color:var(--ink,#161B17);text-decoration:underline}
+button{font-family:inherit}
+@keyframes sbIn{from{opacity:0;transform:translateX(-24px) scale(.98)}to{opacity:1;transform:none}}@keyframes sbFade{from{opacity:0}to{opacity:1}}</style>
+</helmet>
+<div style="display:flex;gap:20px;min-width:0;min-height:100vh;padding:{{ rootPad }};background:var(--page,linear-gradient(155deg,#F6F7F5 0%,#F1F2F0 45%,#E4E6E2 100%));color:var(--ink,#161B17);font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-size:14px;line-height:1.45">
+
+  <aside data-screen-label="Sidebar" style="width:248px;flex:none;position:{{ asidePos }};top:20px;left:{{ asideLeft }};z-index:{{ asideZ }};height:calc(100vh - 40px);display:{{ asideDisplay }};animation:{{ asideAnim }};flex-direction:column;gap:12px">
+    <div style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--glass,rgba(255,255,255,0.82));border:1px solid var(--glass-b,rgba(255,255,255,0.95));border-radius:24px;box-shadow:0 1px 2px rgba(22,27,23,0.04),0 8px 24px rgba(22,27,23,0.06)">
+      <img src="uploads/logo-sp2kp.webp" alt="SP2KP" style="background:#FFFFFF;border-radius:8px;padding:3px 6px;box-sizing:content-box;height:28px;width:auto;display:block">
+      <div style="display:flex;flex-direction:column;min-width:0;border-left:1px solid var(--line,#E5E7E3);padding-left:10px"><span style="font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">KP Langkat</span><span style="font-size:12px;color:var(--ink2,#5E645F)">Kurir</span></div>
+    </div>
+    <div style="flex:1;min-height:0;display:flex;flex-direction:column;padding:14px 12px;background:var(--glass,rgba(255,255,255,0.88));border:1px solid var(--glass-b,rgba(255,255,255,0.95));border-radius:28px;box-shadow:0 1px 2px rgba(22,27,23,0.04),0 8px 24px rgba(22,27,23,0.06)">
+      <nav style="display:flex;flex-direction:column;gap:2px;flex:1;overflow-y:auto;overflow-x:hidden;scrollbar-width:none">
+        <span style="font-size:12px;font-weight:600;letter-spacing:0.06em;color:var(--ink2,#5E645F);padding:6px 12px 6px">TUGAS</span>
+        <a href="3-01%20Kurir%20KP%20-%20Tugas%20Hari%20Ini.dc.html" style="display:flex;align-items:center;gap:10px;padding:8px;border-radius:999px;color:var(--ink,#161B17);text-decoration:none" style-hover="background:var(--s2,#F1F2F0)"><span style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;flex:none"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5h11M9 12h11M9 19h11"></path><path d="M3.5 5l1.5 1.5L7.5 4M3.5 12l1.5 1.5 2.5-2.5M3.5 19l1.5 1.5 2.5-2.5"></path></svg></span><span style="flex:1">Tugas hari ini</span><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:#D64545;color:#FFFFFF;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center">2</span></a>
+        
+        <a href="3-03%20Kurir%20KP%20-%20Riwayat%20Tugas.dc.html" style="display:flex;align-items:center;gap:10px;padding:8px 12px 8px 8px;border-radius:999px;background:var(--ink,#161B17);color:var(--on-ink,#FFFFFF);font-weight:600;text-decoration:none"><span style="width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;flex:none"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"></path><path d="M3 3v5h5M12 7v5l3 2"></path></svg></span><span style="flex:1">Riwayat tugas</span></a>
+      </nav>
+      <div style="position:relative;border-top:1px solid var(--line,#E5E7E3);padding-top:10px">
+        <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;left:0;right:0;bottom:calc(100% + 8px);z-index:10;display:flex;flex-direction:column;gap:6px;padding:10px;border-radius:20px;background:var(--card,#FFFFFF);border:1px solid var(--line,#E3E6E1);box-shadow:0 12px 32px rgba(22,27,23,0.16)">
+          <span style="font-size:12px;font-weight:700;color:var(--ink2,#5E645F);padding:4px 6px 0">Tema</span>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;border-radius:999px;background:var(--s1,#F5F6F4)"><button onClick="{{ setLight }}" style="height:34px;border-radius:999px;border:none;background:{{ lightBg }};color:{{ lightC }};font-size:12px;font-weight:700;cursor:pointer">Terang</button><button onClick="{{ setDark }}" style="height:34px;border-radius:999px;border:none;background:{{ darkBg }};color:{{ darkC }};font-size:12px;font-weight:700;cursor:pointer">Gelap</button></div>
+          <a href="3-00%20Kurir%20KP%20-%20Login.dc.html" style="display:flex;align-items:center;gap:8px;height:40px;padding:0 10px;border-radius:12px;color:var(--red-ink,#C03A3A);font-size:14px;font-weight:700;text-decoration:none" style-hover="background:rgba(214,69,69,0.08);text-decoration:none"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h4v16h-4M10 8l-4 4 4 4M6 12h10"></path></svg>Keluar</a>
+        </div></sc-if>
+        <button onClick="{{ toggleMenu }}" aria-label="Menu profil" style="display:flex;align-items:center;gap:10px;width:100%;padding:6px 8px;border-radius:18px;border:none;background:{{ menuBg }};color:var(--ink,#161B17);cursor:pointer;text-align:left" style-hover="background:var(--s2,#F1F2F0)"><span style="width:36px;height:36px;border-radius:50%;background:linear-gradient(150deg,#B6F04A,#CFE3F7);color:#161B17;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;flex:none">RP</span><span style="display:flex;flex-direction:column;min-width:0;flex:1"><span style="font-size:14px;font-weight:600;white-space:nowrap">Rizky Pratama</span><span style="font-size:12px;color:var(--ink2,#5E645F)">Tema dan keluar</span></span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--ink2,#5E645F)"><path d="M7 14l5-5 5 5"></path></svg></button>
+      </div>
+    </div>
+  </aside>
+
+  
+
+  <sc-if value="{{ drawerOpen }}" hint-placeholder-val="{{ false }}"><div onClick="{{ closeDrawer }}" style="animation:sbFade .25s ease;position:fixed;inset:0;z-index:4900;background:rgba(22,27,23,0.40);backdrop-filter:blur(3px)"></div></sc-if>
+  <main style="flex:1;min-width:0;padding:8px 0 32px;display:flex;flex-direction:column;gap:20px">
+    <sc-if value="{{ compact }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px 10px 14px;background:var(--glass,rgba(255,255,255,0.88));border:1px solid var(--glass-b,rgba(255,255,255,0.95));border-radius:22px;box-shadow:0 1px 2px rgba(22,27,23,0.04),0 8px 24px rgba(22,27,23,0.06)">
+        <div style="display:flex;align-items:center;gap:10px;min-width:0">
+          <img src="uploads/logo-sp2kp.webp" alt="SP2KP" style="background:#FFFFFF;border-radius:8px;padding:3px 6px;box-sizing:content-box;height:24px;width:auto;display:block">
+          <span style="display:flex;flex-direction:column;min-width:0;border-left:1px solid var(--line,#E5E7E3);padding-left:10px"><span style="font-size:14px;font-weight:700;white-space:nowrap">KP Langkat</span><span style="font-size:12px;color:var(--ink2,#5E645F)">Kurir</span></span>
+        </div>
+        <button onClick="{{ openDrawer }}" aria-label="Buka menu" style="width:44px;height:44px;border-radius:50%;border:none;background:var(--ink,#161B17);color:var(--on-ink,#FFFFFF);display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+      </div>
+    </sc-if>
+
+    <div style="width:100%;display:flex;flex-direction:column;gap:20px">
+      <header style="display:flex;flex-direction:column;gap:16px;padding:{{ ghPad }};background:var(--glass,rgba(255,255,255,0.88));border:1px solid var(--glass-b,rgba(255,255,255,0.95));border-radius:28px;box-shadow:0 1px 2px rgba(22,27,23,0.04),0 8px 24px rgba(22,27,23,0.06)">
+        <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px">
+          <span style="display:flex;flex-direction:column;gap:3px"><span style="font-size:13px;font-weight:600;color:var(--ink2,#5E645F)">Rizky, kurir KP Langkat</span><h1 style="margin:0;font-size:{{ ghFs }};line-height:1.15;font-weight:800;letter-spacing:-0.01em">Riwayat tugas</h1></span>
+          <span style="display:flex;gap:4px;padding:4px;border-radius:999px;background:var(--s1,#F5F6F4);overflow-x:auto;max-width:100%;scrollbar-width:none"><sc-for list="{{ tabs }}" as="t" hint-placeholder-count="3"><button onClick="{{ t.pick }}" style="display:flex;align-items:center;gap:6px;height:36px;padding:0 14px;border-radius:999px;border:none;background:{{ t.bg }};color:{{ t.c }};font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;flex:none;box-shadow:{{ t.sh }}">{{ t.label }}<span style="font-size:12px;opacity:0.7">{{ t.n }}</span></button></sc-for></span>
+        </div>
+        <div style="display:grid;grid-template-columns:{{ statCols }};gap:8px">
+          <sc-for list="{{ stats }}" as="g" hint-placeholder-count="4"><span style="display:flex;flex-direction:column;gap:3px;padding:12px 14px;border-radius:18px;background:var(--s1,#F5F6F4);min-width:0"><span style="font-size:11px;font-weight:700;color:var(--ink2,#5E645F);white-space:nowrap">{{ g.l }}</span><span style="font-size:20px;font-weight:800;line-height:1.15;color:{{ g.c }};white-space:nowrap">{{ g.v }}</span></span></sc-for>
+        </div>
+      </header>
+
+      <sc-for list="{{ groups }}" as="g" hint-placeholder-count="3">
+        <section style="display:flex;flex-direction:column;gap:10px">
+          <span style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:0 4px"><span style="font-size:16px;font-weight:700">{{ g.day }}</span><span style="font-size:12px;color:var(--ink2,#5E645F);line-height:1.4">{{ g.sum }}</span></span>
+          <div style="background:var(--glass,rgba(255,255,255,0.88));border:1px solid var(--glass-b,rgba(255,255,255,0.95));border-radius:28px;box-shadow:0 1px 2px rgba(22,27,23,0.04),0 8px 24px rgba(22,27,23,0.06);padding:6px;display:flex;flex-direction:column">
+            <sc-for list="{{ g.items }}" as="r" hint-placeholder-count="1">
+              <div style="display:flex;flex-direction:column;border-radius:22px;background:{{ r.bg }}">
+                <button onClick="{{ r.toggle }}" style="display:grid;grid-template-columns:36px minmax(0,1fr) auto 28px;gap:14px;align-items:center;padding:14px 12px;border:none;background:transparent;color:var(--ink,#161B17);cursor:pointer;text-align:left;border-radius:22px" style-hover="background:var(--hover,#F7F8F6)">
+                  <span style="width:34px;height:34px;border-radius:50%;background:{{ r.dot }};color:#FFFFFF;display:flex;align-items:center;justify-content:center">{{ r.icon }}</span>
+                  <span style="display:flex;flex-direction:column;gap:3px;min-width:0"><span style="font-size:16px;font-weight:700">{{ r.to }}</span><span style="font-size:12px;color:var(--ink2,#5E645F);line-height:1.4">Diterima {{ r.time }}, <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;">{{ r.code }}</span></span></span>
+                  <span style="display:flex;flex-direction:column;align-items:flex-end;gap:4px"><span style="font-size:15px;font-weight:800;white-space:nowrap">{{ r.got }} <span style="font-size:12px;font-weight:600;color:var(--ink2,#5E645F)">/ {{ r.qty }} paket</span></span><span style="font-size:12px;font-weight:700;color:{{ r.sC }};background:{{ r.sBg }};border-radius:999px;padding:2px 9px;white-space:nowrap">{{ r.st }}</span></span>
+                  <span style="display:flex;color:var(--ink2,#5E645F);transform:rotate({{ r.rot }});transition:transform .15s"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></span>
+                </button>
+                <sc-if value="{{ r.open }}" hint-placeholder-val="{{ false }}">
+                  <div style="display:grid;grid-template-columns:{{ detCols }};gap:12px 24px;margin:0 14px 16px {{ detML }};padding:14px 16px;border-radius:18px;background:var(--s1,#F5F6F4)">
+                    <div style="display:flex;flex-direction:column;min-width:0">
+                      <span style="display:grid;grid-template-columns:20px minmax(0,1fr) auto;gap:10px;align-items:center;padding:7px 0;border-bottom:1px solid var(--line,#ECEEEA)"><span style="width:20px;height:20px;border-radius:50%;background:#3DAE4F;color:#FFFFFF;display:flex;align-items:center;justify-content:center"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"></path></svg></span><span style="font-size:13px;font-weight:600;color:var(--ink,#161B17)">Diambil dan scan di gudang</span><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-size:13px;font-weight:700;color:var(--ink,#161B17)">{{ r.pick }}</span></span><span style="display:grid;grid-template-columns:20px minmax(0,1fr) auto;gap:10px;align-items:center;padding:7px 0;border-bottom:1px solid var(--line,#ECEEEA)"><span style="width:20px;height:20px;border-radius:50%;background:#3DAE4F;color:#FFFFFF;display:flex;align-items:center;justify-content:center"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"></path></svg></span><span style="font-size:13px;font-weight:600;color:var(--ink,#161B17)">Diterima {{ r.pic }}</span><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-size:13px;font-weight:700;color:var(--ink,#161B17)">{{ r.time }}</span></span>
+                      <span style="display:flex;justify-content:space-between;gap:10px;padding:9px 0 0;font-size:13px;color:var(--ink2,#5E645F)"><span>Durasi antar</span><b style="color:var(--ink,#161B17)">{{ r.dur }}</b></span>
+                      <span style="display:{{ r.noteD }};margin-top:10px;padding:8px 12px;border-radius:12px;background:rgba(239,159,39,0.14);color:var(--amber-ink,#9A5F0A);font-size:13px;font-weight:600;line-height:1.4">{{ r.note }}</span>
+                    </div>
+                    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;align-content:start;min-width:0"><span style="position:relative;display:block;width:100%;aspect-ratio:19.5 / 9;border-radius:12px;background:linear-gradient(135deg,#C9B48E,#8E7A57);overflow:hidden"><span style="position:absolute;left:6px;bottom:6px;padding:2px 7px;border-radius:999px;background:rgba(22,27,23,0.72);color:#FFFFFF;font-size:11px;font-weight:600">Foto ambil</span></span><span style="position:relative;display:block;width:100%;aspect-ratio:19.5 / 9;border-radius:12px;background:linear-gradient(135deg,#9FB7A4,#5E7F68);overflow:hidden"><span style="position:absolute;left:6px;bottom:6px;padding:2px 7px;border-radius:999px;background:rgba(22,27,23,0.72);color:#FFFFFF;font-size:11px;font-weight:600">Foto terima</span></span></div>
+                  </div>
+                </sc-if>
+              </div>
+            </sc-for>
+          </div>
+        </section>
+      </sc-for>
+      <sc-if value="{{ empty }}" hint-placeholder-val="{{ false }}"><div style="background:var(--glass,rgba(255,255,255,0.88));border:1px solid var(--glass-b,rgba(255,255,255,0.95));border-radius:28px;box-shadow:0 1px 2px rgba(22,27,23,0.04),0 8px 24px rgba(22,27,23,0.06);padding:28px;text-align:center;font-size:12px;color:var(--ink2,#5E645F);line-height:1.4">Tidak ada kiriman dengan filter ini.</div></sc-if>
+    </div>
+    <sc-if value="{{ toastOn }}" hint-placeholder-val="{{ false }}"><div style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:6500;max-width:calc(100vw - 32px);padding:12px 18px;border-radius:999px;background:var(--ink,#161B17);color:var(--on-ink,#FFFFFF);box-shadow:0 12px 32px rgba(22,27,23,0.28);font-size:14px;font-weight:600">{{ toastText }}</div></sc-if>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  static DARK = {"--body":"#0F1311","--page":"linear-gradient(155deg,#171C19 0%,#121614 50%,#0D100E 100%)","--glass":"rgba(28,33,30,0.92)","--glass-b":"rgba(255,255,255,0.06)","--card":"#1C211E","--ink":"#EDF0ED","--ink2":"#A2A9A3","--ink3":"#C5CBC6","--mute":"#7E857F","--mute2":"#5B625C","--s1":"#242A26","--s2":"#272D29","--line":"#313833","--hover":"#262C28","--ink-h":"#FFFFFF","--on-ink":"#121613","--tosca-bg":"rgba(19,168,158,0.18)","--tosca-ink":"#4FD6CA","--t-blue":"rgba(58,110,200,0.20)","--t-tosca":"rgba(19,168,158,0.16)","--t-green":"rgba(61,174,79,0.16)","--green-ink":"#86D9A0","--blue-ink":"#8CB2F0","--red-ink":"#F08A8A","--amber-ink":"#F2BB5E","--green-ink2":"#62D4A8"};
+  theme() { return this.state.theme || (typeof localStorage !== 'undefined' && localStorage.getItem('sp2kp-theme')) || 'light'; }
+  setTheme(t) { try { localStorage.setItem('sp2kp-theme', t); } catch (e) {} this.setState({ theme: t }, () => this.applyTheme()); }
+  applyTheme() {
+    const r = document.documentElement, dark = this.theme() === 'dark';
+    Object.entries(Component.DARK).forEach(([k, v]) => dark ? r.style.setProperty(k, v) : r.style.removeProperty(k));
+    r.style.colorScheme = dark ? 'dark' : 'light';
+    this.applyTiles();
+  }
+  applyTiles() {
+    const g = this.theme() === 'dark' ? 'Dark_Gray' : 'Light_Gray', u = n => 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_' + g + '_' + n + '/MapServer/tile/{z}/{y}/{x}';
+    if (this.tb) this.tb.setUrl(u('Base')); if (this.tr) this.tr.setUrl(u('Reference'));
+  }
+  themeVals() {
+    const d = this.theme() === 'dark';
+    return { setLight: () => this.setTheme('light'), setDark: () => this.setTheme('dark'),
+      lightBg: d ? 'transparent' : 'var(--ink,#161B17)', lightC: d ? 'var(--ink2,#5E645F)' : 'var(--on-ink,#FFFFFF)',
+      darkBg: d ? 'var(--ink,#161B17)' : 'transparent', darkC: d ? 'var(--on-ink,#FFFFFF)' : 'var(--ink2,#5E645F)' };
+  }
+
+
+
+
+  state = { tab: 'Semua', open: 'BK-261005-12', menu: false };
+  componentDidMount() { this.onResize = () => { const vw = window.innerWidth; if (vw !== this.state.vw) this.setState({ vw, drawer: vw >= 1100 ? false : this.state.drawer }); }; window.addEventListener('resize', this.onResize); this.onResize(); this.applyTheme(); this.onKey = e => { if (e.key === 'Escape' && this.state.modal) this.setState({ modal: null }); }; window.addEventListener('keydown', this.onKey); }
+  componentWillUnmount() { window.removeEventListener('resize', this.onResize); window.removeEventListener('keydown', this.onKey); clearTimeout(this.tt); }
+  toast(t) { clearTimeout(this.tt); this.setState({ toast: t }); this.tt = setTimeout(() => this.setState({ toast: null }), 3500); }
+  now() { const d = new Date(); return String(d.getHours()).padStart(2, '0') + '.' + String(d.getMinutes()).padStart(2, '0'); }
+
+  renderVals() {
+    const st = this.state, vw = st.vw || 1440, lg = vw >= 1100, md = vw >= 760, compact = !lg, drawer = compact && !!st.drawer, sm = vw < 640;
+    const f = n => Number(n).toLocaleString('id-ID'), rp = n => 'Rp ' + f(n);
+    const base = { ...this.themeVals(), compact, drawerOpen: drawer, openDrawer: () => this.setState({ drawer: true }), closeDrawer: () => this.setState({ drawer: false }),
+      rootPad: md ? '20px' : '12px', asidePos: compact ? 'fixed' : 'sticky', asideLeft: compact ? '20px' : 'auto', asideZ: compact ? 5000 : 'auto', asideDisplay: compact && !drawer ? 'none' : 'flex', asideAnim: drawer ? 'sbIn .32s cubic-bezier(.2,.8,.2,1)' : 'none',
+      h1Fs: sm ? '28px' : '34px', kpiCols: vw >= 900 ? 'repeat(3,minmax(0,1fr))' : 'minmax(0,1fr)', two: vw >= 1200 ? 'minmax(0,1.5fr) minmax(0,1fr)' : 'minmax(0,1fr)', btnFlex: sm ? '1 1 0' : '0 0 auto',
+      stop: e => e.stopPropagation(), closeModal: () => this.setState({ modal: null }), toastOn: !!st.toast, toastText: st.toast || '' };
+    const D = [['Hari ini, 7 Okt', 'BK-261007-16', 'WP Stabat Lama', 26, 26, '08.10', '07.40', 'Pak Hendra', '25 menit', ''],
+      ['Selasa, 6 Okt', 'BK-261006-09', 'WP Ara Condong', 30, 30, '10.20', '09.55', 'Bang Andi', '25 menit', ''],
+      ['Selasa, 6 Okt', 'BK-261006-05', 'WP Sido Mulyo', 25, 25, '09.15', '08.50', 'Pak Joko', '20 menit', ''],
+      ['Senin, 5 Okt', 'BK-261005-12', 'WP Pantai Gemi', 20, 19, '11.05', '10.30', 'Bu Lestari', '30 menit', 'Kurang 1 paket, kardus rusak saat diturunkan. Dilaporkan ke Admin KP.'],
+      ['Minggu, 4 Okt', 'BK-261004-03', 'WP Stabat Lama', 28, 28, '09.40', '09.10', 'Pak Hendra', '25 menit', '']];
+    const ok = x => x[4] >= x[3];
+    const vis = D.filter(x => st.tab === 'Semua' || (st.tab === 'Sesuai') === ok(x));
+    const days = [...new Set(vis.map(x => x[0]))];
+    const svg = h => React.createElement('span', { style: { display: 'flex' }, dangerouslySetInnerHTML: { __html: h } });
+    const groups = days.map(day => { const it = vis.filter(x => x[0] === day); return { day, sum: it.length + ' kiriman, ' + f(it.reduce((s, x) => s + x[4], 0)) + ' paket', items: it.map(x => { const g = ok(x), o = st.open === x[1]; return { code: x[1], to: x[2], qty: f(x[3]), got: f(x[4]), time: x[5], pick: x[6], pic: x[7], dur: x[8], note: x[9], noteD: x[9] ? 'block' : 'none', st: g ? 'Sesuai' : 'Kurang ' + f(x[3] - x[4]), sC: g ? 'var(--green-ink2,#14795A)' : 'var(--amber-ink,#9A5F0A)', sBg: g ? 'rgba(29,158,117,0.13)' : 'rgba(239,159,39,0.16)', dot: g ? '#3DAE4F' : '#EF9F27', icon: svg(g ? '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"></path></svg>' : '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v5M12 16.5h.01"></path></svg>'), open: o, rot: o ? '90deg' : '0deg', bg: o ? 'var(--s1,#F5F6F4)' : 'transparent', toggle: () => this.setState({ open: o ? null : x[1] }) }; }) }; });
+    const nOk = D.filter(ok).length, tot = D.reduce((s, x) => s + x[4], 0);
+    const tabs = [['Semua', D.length], ['Sesuai', nOk], ['Ada selisih', D.length - nOk]].map(([label, n]) => ({ label, n, pick: () => this.setState({ tab: label }), bg: st.tab === label ? 'var(--card,#FFFFFF)' : 'transparent', c: st.tab === label ? 'var(--ink,#161B17)' : 'var(--ink2,#5E645F)', sh: st.tab === label ? '0 1px 3px rgba(22,27,23,0.10)' : 'none' }));
+    const stats = [{ l: 'Kiriman 7 hari', v: D.length + ' kiriman', c: 'var(--ink,#161B17)' }, { l: 'Paket diantar', v: f(tot) + ' paket', c: 'var(--ink,#161B17)' }, { l: 'Jumlah sesuai', v: nOk + ' dari ' + D.length, c: 'var(--green-ink2,#14795A)' }, { l: 'Selisih', v: f(D.reduce((s, x) => s + x[3] - x[4], 0)) + ' paket', c: 'var(--amber-ink,#9A5F0A)' }];
+    return { ...base, groups, tabs, stats, empty: vis.length === 0, statCols: vw >= 800 ? 'repeat(4,minmax(0,1fr))' : 'repeat(2,minmax(0,1fr))', detCols: (st.vw || 1440) >= 760 ? 'minmax(0,1fr) minmax(0,340px)' : 'minmax(0,1fr)', detML: (st.vw || 1440) >= 640 ? '62px' : '14px', ghPad: sm ? '18px' : '22px 24px', ghFs: sm ? '24px' : '28px',
+      menuOpen: !!st.menu, toggleMenu: () => this.setState({ menu: !st.menu }), menuBg: st.menu ? 'var(--s2,#F1F2F0)' : 'transparent' };
+  }
+}
+</script>
+</body>
+</html>
