@@ -28,7 +28,7 @@ input:focus{border-color:#1E4E9C !important;box-shadow:0 0 0 4px rgba(30,78,156,
         <span style="position:relative;align-self:flex-start;padding:12px 16px;border-radius:18px;background:#FFFFFF"><img src="uploads/logo-sp2kp.webp" alt="SP2KP" style="height:40px;width:auto;display:block"></span>
         <div style="position:relative;display:flex;flex-direction:column;gap:16px;max-width:520px">
           <span style="font-size:14px;font-weight:700;letter-spacing:0.08em;opacity:0.85">KANTONG PANGAN SUMATERA UTARA</span>
-          <span style="font-size:48px;font-weight:700;line-height:1.1;letter-spacing:-0.02em;text-wrap:balance">Pantau 5 Kantong Pangan dan 22 Warung Point dari satu layar.</span>
+          <span style="font-size:48px;font-weight:700;line-height:1.1;letter-spacing:-0.02em;text-wrap:balance">Pantau stok barang di 5 Kantong Pangan dan 22 Warung Point dari satu layar.</span>
           <span style="font-size:16px;line-height:1.6;opacity:0.9;text-wrap:pretty">SP2KP Kantong Pangan, akses Admin Provinsi.</span>
         </div>
         <span style="position:relative;font-size:12px;opacity:0.8">Kementerian Perdagangan Republik Indonesia</span>
@@ -37,8 +37,8 @@ input:focus{border-color:#1E4E9C !important;box-shadow:0 0 0 4px rgba(30,78,156,
         <div style="width:100%;max-width:420px;display:flex;flex-direction:column;gap:28px">
           <div style="display:flex;flex-direction:column;gap:8px"><span style="font-size:32px;font-weight:700;line-height:1.15">Masuk</span><span style="font-size:16px;color:#5E645F;line-height:1.5">Masuk dengan akun Admin Provinsi.</span></div>
           <form onSubmit="{{ d_submit }}" style="display:flex;flex-direction:column;gap:16px;width:100%">
-          <label style="display:flex;flex-direction:column;gap:8px"><span style="font-size:14px;font-weight:600">Email atau nomor HP</span>
-            <span style="position:relative;display:block"><span style="position:absolute;left:16px;top:16px;color:#8C918D"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"></path></svg></span><input type="text" autocomplete="username" value="{{ d_id }}" onInput="{{ d_onId }}" placeholder="nama@sp2kp.id atau 08xx" style="width:100%;height:52px;padding:0 16px 0 48px;border-radius:16px;border:1.5px solid {{ d_bdId }};background:#FFFFFF;color:#161B17;font-family:inherit;font-size:16px;outline:none"></span></label>
+          <label style="display:flex;flex-direction:column;gap:8px"><span style="font-size:14px;font-weight:600">Username atau nomor HP</span>
+            <span style="position:relative;display:block"><span style="position:absolute;left:16px;top:16px;color:#8C918D"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"></path></svg></span><input type="text" autocomplete="username" value="{{ d_id }}" onInput="{{ d_onId }}" placeholder="admin.sumut atau 08xx" style="width:100%;height:52px;padding:0 16px 0 48px;border-radius:16px;border:1.5px solid {{ d_bdId }};background:#FFFFFF;color:#161B17;font-family:inherit;font-size:16px;outline:none"></span></label>
           <label style="display:flex;flex-direction:column;gap:8px"><span style="display:flex;justify-content:space-between;gap:8px"><span style="font-size:14px;font-weight:600">Kata sandi</span><a href="#" style="font-size:14px;font-weight:600;color:#1E4E9C">Lupa kata sandi?</a></span>
             <span style="position:relative;display:block"><span style="position:absolute;left:16px;top:16px;color:#8C918D"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="3"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg></span><input type="{{ d_pwType }}" autocomplete="current-password" value="{{ d_pw }}" onInput="{{ d_onPw }}" placeholder="Masukkan kata sandi" style="width:100%;height:52px;padding:0 16px 0 48px;border-radius:16px;border:1.5px solid {{ d_bdPw }};background:#FFFFFF;color:#161B17;font-family:inherit;font-size:16px;outline:none;padding-right:52px"><button type="button" onClick="{{ d_togglePw }}" aria-label="Tampilkan kata sandi" style="position:absolute;right:6px;top:6px;width:40px;height:40px;border-radius:12px;border:none;background:transparent;color:#5E645F;cursor:pointer;display:flex;align-items:center;justify-content:center"><sc-if value="{{ d_pwShown }}" hint-placeholder-val="{{ false }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18"></path><path d="M10.6 5.1A10 10 0 0 1 12 5c6.5 0 10 7 10 7a17 17 0 0 1-3.2 4.1M6.6 6.6A17 17 0 0 0 2 12s3.5 7 10 7a10 10 0 0 0 5.4-1.6"></path><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"></path></svg></sc-if><sc-if value="{{ d_pwHidden }}" hint-placeholder-val="{{ true }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="3"></circle></svg></sc-if></button></span></label>
           <sc-if value="{{ d_errOn }}" hint-placeholder-val="{{ false }}"><span style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:14px;background:rgba(214,69,69,0.10);color:#C03A3A;font-size:14px;font-weight:600"><span style="width:8px;height:8px;border-radius:50%;background:#D64545;flex:none"></span>{{ d_err }}</span></sc-if>
@@ -53,11 +53,23 @@ input:focus{border-color:#1E4E9C !important;box-shadow:0 0 0 4px rgba(30,78,156,
         </div>
       </div>
     </div>
+<sc-if value="{{ fOn }}" hint-placeholder-val="{{ false }}"><div style="position:fixed;inset:0;z-index:6000;background:rgba(14,18,16,0.5);display:flex;align-items:center;justify-content:center;padding:20px">
+  <div style="width:100%;max-width:440px;display:flex;flex-direction:column;gap:16px;padding:26px;border-radius:28px;background:#FFFFFF;color:#161B17;box-shadow:0 24px 60px rgba(14,18,16,0.3)">
+    <span style="width:52px;height:52px;border-radius:16px;background:rgba(30,78,156,0.1);color:#1E4E9C;display:flex;align-items:center;justify-content:center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg></span>
+    <span style="display:flex;flex-direction:column;gap:6px"><span style="font-size:22px;font-weight:800;line-height:1.2">Selamat datang, {{ fWho }}</span><span style="font-size:14px;color:#5E645F;line-height:1.5">Ini pertama kali Anda masuk. Kata sandi Anda dibuat oleh admin. Mau ganti dengan kata sandi sendiri sekarang?</span></span>
+    <label style="display:flex;flex-direction:column;gap:6px"><span style="font-size:14px;font-weight:600">Kata sandi baru</span><input type="password" value="{{ fNew }}" onInput="{{ fOnNew }}" placeholder="Minimal 8 karakter" style="width:100%;height:52px;padding:0 16px;border-radius:16px;border:1.5px solid {{ fBd }};background:#FFFFFF;color:#161B17;font-family:inherit;font-size:16px;outline:none"></label>
+    <label style="display:flex;flex-direction:column;gap:6px"><span style="font-size:14px;font-weight:600">Ulangi kata sandi baru</span><input type="password" value="{{ fNew2 }}" onInput="{{ fOnNew2 }}" placeholder="Ketik sekali lagi" style="width:100%;height:52px;padding:0 16px;border-radius:16px;border:1.5px solid {{ fBd }};background:#FFFFFF;color:#161B17;font-family:inherit;font-size:16px;outline:none"></label>
+    <sc-if value="{{ fErrOn }}" hint-placeholder-val="{{ false }}"><span style="font-size:13px;font-weight:600;color:#C03A3A">{{ fErr }}</span></sc-if>
+    <button onClick="{{ fSave }}" style="height:52px;border-radius:999px;border:none;background:#161B17;color:#FFFFFF;font-family:inherit;font-size:16px;font-weight:700;cursor:pointer">Simpan dan masuk</button>
+    <button onClick="{{ fSkip }}" style="height:48px;border-radius:999px;border:1.5px solid #E3E6E1;background:#FFFFFF;color:#161B17;font-family:inherit;font-size:15px;font-weight:700;cursor:pointer">Nanti saja, langsung masuk</button>
+    <span style="font-size:12px;color:#5E645F;text-align:center;line-height:1.5">Kata sandi bisa diganti kapan saja lewat menu akun.</span>
+  </div>
+</div></sc-if>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{}">
 class Component extends DCLogic {
   state = {};
-  static USERS = [{ ids: ["admin.sumut@sp2kp.id","081260001000"], role: 'Admin Provinsi', who: 'Admin Provinsi Sumut', dest: 'Dashboard Provinsi', file: '1-01 Dashboard Provinsi.dc.html', label: 'Admin Provinsi Sumut' }];
+  static USERS = [{ ids: ["admin.sumut","admin.sumut@sp2kp.id","081260001000"], role: 'Admin Provinsi', who: 'Admin Provinsi Sumut', dest: 'Dashboard Provinsi', file: '1-01 Dashboard Provinsi.dc.html', label: 'Admin Provinsi Sumut' }];
   static OTHERS = [{"r":"Admin KP","ids":["ginting@sp2kp.id","085277441265"],"f":"2-00 Login Admin KP"},{"r":"Kurir KP","ids":["081263401187","rizky@sp2kp.id"],"f":"3-00 Login Kurir KP"},{"r":"Warung Point","ids":["081370228899","andi@sp2kp.id"],"f":"4-00 Login Warung Point"},{"r":"Distributor","ids":["linda@mitrasawit.co.id","081263017745"],"f":"5-00 Login Distributor"},{"r":"Kurir Distributor","ids":["081262118804","sarman@mitrasawit.co.id"],"f":"6-00 Login Kurir Distributor"},{"r":"Pembeli","ids":["081377015522","rahma@gmail.com"],"f":"7-00 Login GV App"}];
   componentWillUnmount() { clearTimeout(this.t); window.removeEventListener('resize', this.onR); }
   side(P) {
@@ -66,10 +78,10 @@ class Component extends DCLogic {
     const user = Component.USERS.find(u => u.ids.includes(norm(g('id'))));
     const loading = !!g('go'), err = g('err');
     const submit = e => { e.preventDefault(); if (loading) return;
-      if (!norm(g('id')) || !g('pw')) return set({ err: 'Isi email atau nomor HP dan kata sandi' });
-      if (!user) { const o = Component.OTHERS.find(x => x.ids.includes(norm(g('id')))); return set({ err: o ? 'Ini akun ' + o.r + '. Masuk lewat halaman ' + o.f.replace(/^[0-9-]+ /, '') + '.' : 'Akun tidak ditemukan. Cek lagi email atau nomor HP.' }); }
+      if (!norm(g('id')) || !g('pw')) return set({ err: 'Isi username atau nomor HP dan kata sandi' });
+      if (!user) { const o = Component.OTHERS.find(x => x.ids.includes(norm(g('id')))); return set({ err: o ? 'Ini akun ' + o.r + '. Masuk lewat halaman ' + o.f.replace(/^[0-9-]+ /, '') + '.' : 'Akun tidak ditemukan. Cek lagi username atau nomor HP.' }); }
       if ((g('pw') || '').length < 6) return set({ err: 'Kata sandi salah' });
-      set({ err: null, go: true }); clearTimeout(this.t); this.t = setTimeout(() => { window.location.href = encodeURI(user.file); }, 1200); };
+      set({ err: null }); this.setState({ first: user, fN: '', fN2: '', fE: null }); };
     return { [P + '_id']: g('id') || '', [P + '_pw']: g('pw') || '',
       [P + '_onId']: e => set({ id: e.target.value, err: null }), [P + '_onPw']: e => set({ pw: e.target.value, err: null }),
       [P + '_pwType']: g('show') ? 'text' : 'password', [P + '_pwShown']: !!g('show'), [P + '_pwHidden']: !g('show'), [P + '_togglePw']: () => set({ show: !g('show') }),
@@ -81,7 +93,13 @@ class Component extends DCLogic {
       [P + '_demo']: Component.USERS.map(u => ({ label: u.label, fill: () => set({ id: u.ids[0].startsWith('0') ? u.ids[0].replace(/(\d{4})(\d{4})(\d+)/, '$1-$2-$3') : u.ids[0], pw: 'sp2kp2026', err: null }) })) };
   }
   componentDidMount() { this.onR = () => this.setState({ vw: window.innerWidth }); window.addEventListener('resize', this.onR); this.onR(); }
-  renderVals() { const vw = this.state.vw || 1440, n = vw < 900; return { ...this.side('d'), cols: n ? 'minmax(0,1fr)' : 'minmax(0,1.05fr) minmax(0,1fr)', brandD: n ? 'none' : 'flex', narrow: n, formPad: n ? '40px 20px' : '48px' }; }
+  firstVals() { const st = this.state, u = st.first; if (!u) return { fOn: false };
+    const go = () => { this.setState({ first: null }); window.location.href = encodeURI(u.file); };
+    return { fOn: true, fWho: u.label || u.who, fNew: st.fN || '', fNew2: st.fN2 || '', fOnNew: e => this.setState({ fN: e.target.value, fE: null }), fOnNew2: e => this.setState({ fN2: e.target.value, fE: null }),
+      fErrOn: !!st.fE, fErr: st.fE || '', fBd: st.fE ? '#D64545' : '#E3E6E1', fSkip: go,
+      fSave: () => { const a = st.fN || '', b = st.fN2 || ''; if (a.length < 8) return this.setState({ fE: 'Kata sandi baru minimal 8 karakter' }); if (a !== b) return this.setState({ fE: 'Kedua kata sandi belum sama' }); go(); } }; }
+  renderVals() { return { ...this.renderVals0(), ...this.firstVals() }; }
+  renderVals0() { const vw = this.state.vw || 1440, n = vw < 900; return { ...this.side('d'), cols: n ? 'minmax(0,1fr)' : 'minmax(0,1.05fr) minmax(0,1fr)', brandD: n ? 'none' : 'flex', narrow: n, formPad: n ? '40px 20px' : '48px' }; }
 }
 </script>
 </body>

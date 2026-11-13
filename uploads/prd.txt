@@ -1,0 +1,839 @@
+PRD Kantong Pangan Sumut (SP2KP)
+Oct 27, 2026 · @adhika achmad
+1. Ringkasan produk
+Kantong Pangan Sumut adalah dashboard monitoring program paket sembako SP2KP di
+Provinsi Sumatera Utara, dari pembelian bahan ke distributor sampai paket tersalur di
+Warung Point. PRD ini merekam seluruh fitur prototipe yang berjalan di sp2kp-sumut-
+web.vercel.app per 27 Oktober 2026, sebagai acuan iterasi desain berikutnya.
+Alur bisnis inti. Distributor mengirim bahan ke gudang Kantong Pangan (KP) tingkat
+kab/kota. KP merakit bahan menjadi paket sembako standar, lalu mengirimnya ke Warung
+Point (WP) di desa. WP menyalurkan paket ke warga, baik dibeli (harga tebus) maupun
+bantuan (gratis). Uang setoran WP dan dana program masuk ke kas program.
+Tujuan produk.
+Memberi Admin Provinsi satu layar untuk memantau penyaluran harian, stok, distribusi,
+harga, dan kas.
+Mendeteksi risiko lebih awal: stok gudang kritis, stok paket WP menipis, harga di atas
+HET/HA.
+Memberi petugas KP dan pengelola WP tampilan sesuai peran mereka.
+Cakupan data prototipe. 1 provinsi, 5 Kantong Pangan (Deli Serdang, Kota Medan,
+Serdang Bedagai, Langkat, Karo), 22 Warung Point, 5 distributor, 16 komoditas harga.
+Tanggal data dikunci di 7 Oktober 2026 pukul 09.30. Harga nasional memakai HNT SP2KP
+Kemendag; harga Sumut, kab/kota, riwayat 30 hari, dan HET/HA Region B adalah data
+contoh.
+Stack yang terlihat. Next.js (App Router, route di-cache per kunjungan), Tailwind CSS,
+Leaflet + OpenStreetMap untuk peta, di-deploy di Vercel. Footer sidebar menampilkan
+"Global Village inside".
+2. Pengguna dan peran
+Ada tiga peran, dipilih lewat menu Pengaturan (mode demo). Peran mengubah isi sidebar,
+halaman awal, dan halaman yang boleh dibuka. Membuka halaman di luar hak akses
+mengarah ke halaman Akses Ditolak.
+PRD Kantong Pangan Sumut (SP2KP)
+Page 1 of 20
+
+-- 1 of 20 --
+
+Matriks akses per halaman (hasil uji langsung di prototipe):
+Catatan: di prototipe, Petugas KP Deli Serdang masih melihat data seluruh provinsi
+(dashboard, daftar KP, barang masuk semua KP). Belum ada scoping data per KP, dan
+belum ada aksi tulis (konfirmasi terima, buat pesanan) untuk peran mana pun.
+Peran 	Contoh akun
+demo
+Halaman awal 	Menu sidebar
+Admin Provinsi 	Admin Provinsi 	/beranda 	Semua: Beranda, Harga,
+Distribusi, Penyaluran,
+Keuangan
+Petugas Kantong
+Pangan
+Petugas KP Deli
+Serdang
+/kantong-
+pangan/ds
+Semua kecuali Keuangan
+Pengelola
+Warung Point
+Pengelola WP
+Pagar Jati
+/wp/ds-1
+(Warung Saya)
+Warung Saya, Harga Bahan
+Pokok, Penyaluran Paket
+Sembako
+Halaman 	Admin
+Provinsi
+Petugas KP 	Pengelola WP
+Dashboard Provinsi 	Ya 	Ya 	Tidak
+Daftar dan detail Kantong
+Pangan
+Ya 	Ya 	Tidak
+Detail Warung Point 	Semua WP 	Semua WP 	Hanya WP
+sendiri
+Harga Bahan Pokok + detail 	Ya 	Ya 	Ya
+Peta dan Arus Barang 	Ya 	Ya 	Tidak
+Barang Masuk + detail 	Ya 	Ya 	Tidak
+Kiriman ke WP + detail 	Ya 	Ya 	Tidak
+Penyaluran Paket Sembako 	Ya 	Ya 	Ya
+Keuangan dan Riwayat
+Transaksi
+Ya 	Tidak (Akses
+Ditolak)
+Tidak
+PRD Kantong Pangan Sumut (SP2KP)
+Page 2 of 20
+
+-- 2 of 20 --
+
+3. Sitemap dan navigasi
+Aplikasi punya 12 halaman utama, 4 jenis halaman detail, halaman Masuk (/masuk), 1
+halaman Akses Ditolak, dan halaman 404 bawaan. Halaman Masuk dan Akses Ditolak
+adalah route publik. Seluruh route di bawah ini sudah diuji.
+Grup menu 	Halaman 	Route 	Breadcrumb
+Beranda 	Dashboard
+Provinsi
+/beranda 	Beranda / Dashboard
+Provinsi
+Beranda 	Daftar Kantong
+Pangan
+/kantong-pangan 	Beranda / Daftar
+Kantong Pangan
+Beranda 	Detail Kantong
+Pangan
+/kantong-pangan/{kode} (ds,
+mdn, sb, lkt, kr)
+Beranda / Detail
+Kantong Pangan
+Beranda 	Detail Warung
+Point
+/wp/{kode} (contoh ds-1, ds-3,
+mdn-4)
+Beranda / Detail
+Warung Point
+Warung Saya
+(peran WP)
+Warung Saya 	/wp/{kode WP sendiri} 	Warung Saya / Warung
+Saya
+Harga Bahan
+Pokok
+Harga Bahan
+Pokok
+/harga 	Harga Bahan Pokok /
+Harga Bahan Pokok
+Harga Bahan
+Pokok
+Detail Harga
+Komoditas
+/harga/{slug} (contoh beras-
+medium, minyakita)
+Harga Bahan Pokok /
+Detail Harga
+Komoditas
+Distribusi 	Peta dan Arus
+Barang
+/distribusi 	Distribusi / Peta &
+Arus Barang
+Distribusi 	Barang Masuk 	/distribusi/masuk 	Distribusi / Barang
+Masuk
+Distribusi 	Detail Barang
+Masuk
+/distribusi/masuk/{BM-
+YYMMDD-NN}
+Distribusi / Barang
+Masuk
+Distribusi 	Kiriman ke
+Warung Point
+/distribusi/keluar 	Distribusi / Kiriman ke
+Warung Point
+Distribusi 	Detail Kiriman 	/distribusi/keluar/{BK-
+YYMMDD-NN}
+Distribusi / Kiriman ke
+Warung Point
+PRD Kantong Pangan Sumut (SP2KP)
+Page 3 of 20
+
+-- 3 of 20 --
+
+Navigasi desktop. Sidebar kiri hijau tua (tetap gelap di tema terang) berisi logo SP2KP dan
+label "Sumatera Utara · Kantong Pangan", grup menu dengan ikon dan label huruf kapital,
+item aktif ber-border emas, badge merah angka pengiriman di jalan pada grup Distribusi
+(5), tombol Pengaturan dengan subjudul peran aktif, dan footer "Global Village inside".
+Header atas berisi breadcrumb.
+Navigasi mobile. Bottom navigation tetap di bawah layar (mengikuti safe-area) dengan 5
+item: Beranda, Harga, Distribusi (badge 5), Penyaluran, Keuangan. Pengaturan pindah ke
+tombol di header. Untuk peran WP, item menjadi Warung, Harga, Penyaluran.
+Navigasi kontekstual. Halaman detail memiliki tautan kembali di atas judul (contoh "‹
+Daftar Kantong Pangan"). Hampir semua kartu ringkasan, baris tabel, dan item daftar
+dapat diklik menuju halaman terkait.
+4. Spesifikasi fitur per halaman
+Setiap halaman dirinci per blok, sesuai urutan tampil di layar. Angka contoh berasal dari
+data prototipe 7 Oktober 2026.
+4.1 Dashboard Provinsi (/beranda)
+Tujuan: ringkasan kondisi program se-provinsi dalam satu layar.
+1. Header halaman. Judul "Provinsi Sumatera Utara", subjudul waktu data terbaru dan
+jumlah KP ("Data terbaru 7 Okt · 09.30 · 5 Kantong Pangan").
+Grup menu 	Halaman 	Route 	Breadcrumb
+Penyaluran 	Penyaluran
+Paket Sembako
+/penyaluran 	Penyaluran /
+Penyaluran Paket
+Sembako
+Keuangan 	Uang Masuk
+dan Keluar
+/keuangan 	Keuangan / Uang
+Masuk & Keluar
+Keuangan 	Riwayat
+Transaksi
+/keuangan/transaksi 	Keuangan / Riwayat
+Transaksi
+Sistem 	Akses Ditolak 	/akses-ditolak 	(tanpa breadcrumb)
+Sistem 	404 	route tidak dikenal 	Halaman bawaan
+Next.js, tidak bergaya
+PRD Kantong Pangan Sumut (SP2KP)
+Page 4 of 20
+
+-- 4 of 20 --
+
+2. Kartu hero penyaluran hari ini (gradasi hijau, border emas, chevron). Angka besar
+paket tersalur hari ini (293), lalu tiga sub-metrik: Dibeli (223), Bantuan (70), Bulan ini
+(2.828). Klik menuju /penyaluran.
+3. Alur distribusi. Tiga node berikon: Distributor (5) menuju /distribusi/masuk, Kantong
+Pangan (5) menuju /kantong-pangan, Warung Point (22) menuju /distribusi/keluar. Node
+KP disorot. Ada kalimat penjelas alur dan tautan "Peta".
+4. Peta Kantong Pangan dan Warung Point. Peta Leaflet dengan label nama kab/kota,
+kontrol zoom, legenda tiga warna: Kantong Pangan, Warung Point, Stok paket WP
+menipis. Tautan "Buka peta" ke /distribusi.
+5. Harga bahan pokok Sumut. Lima komoditas sorotan (Beras Medium, Minyakita, Gula
+Pasir Curah, Cabai Merah Keriting, Bawang Merah). Tiap baris: nama, harga nasional
+kecil, harga Sumut hari ini, chip perubahan vs kemarin (merah naik, hijau turun). Banner
+oranye "6 komoditas di atas HET/HA di Sumut". Tautan "Semua" ke /harga; tiap baris ke
+detail komoditas.
+6. Kinerja Warung Point hari ini. Segmented tab "Paket terbanyak" dan "Stok menipis (7)".
+Tiap baris: nama WP, KP induk, stok paket (oranye bila menipis), jumlah paket hari ini.
+Klik baris ke /wp/{kode}. Tautan "Daftar Kantong Pangan".
+7. Perlu perhatian. Daftar peringatan berikon segitiga, dua tingkat warna: kuning
+(waspada) dan merah (kritis). Isi berupa stok bahan gudang di bawah batas 120 per KP,
+dan jumlah WP dengan stok paket di bawah 15. Klik menuju detail KP terkait.
+8. Dua kartu ringkasan stok. Stok paket di WP (550 di 22 WP) dan Rata-rata stok per WP
+(25 paket).
+4.2 Daftar Kantong Pangan (/kantong-pangan)
+Tujuan: membandingkan kesehatan stok dan kinerja tiap KP.
+1. Header. "Kantong Pangan Sumatera Utara", subjudul "5 Kantong Pangan kab/kota · 22
+Warung Point".
+2. Empat kartu KPI: Stok gudang < 1 hari (2, dengan nama KP, angka merah), Stok gudang 1
+sampai 2 hari (1, kuning), WP stok menipis (7 dari 22), Pengiriman di jalan (5, tautan
+"Lihat peta arus").
+3. Pencarian "Cari Kantong Pangan, kota, atau kepala gudang".
+4. Tabel KP dengan kolom: Kantong Pangan (nama, kecamatan, kepala gudang), Paket hari
+ini, Warung Point, Ketahanan stok (hari, progress bar berwarna, jumlah paket yang bisa
+dirakit), Perlu perhatian (chip status), chevron. Kolom 1 sampai 4 bisa diurutkan;
+default urut Ketahanan stok naik (paling kritis di atas). Klik baris ke detail KP.
+PRD Kantong Pangan Sumut (SP2KP)
+Page 5 of 20
+
+-- 5 of 20 --
+
+5. Catatan definisi ketahanan stok di bawah tabel.
+6. Peta Lokasi gudang dengan legenda Stok < 1 hari, < 2 hari, Aman.
+4.3 Detail Kantong Pangan (/kantong-pangan/{kode})
+Tujuan: kondisi lengkap satu gudang dan jaringan WP-nya. Untuk Petugas KP, halaman ini
+adalah halaman awal.
+1. Header. Tautan kembali, nama KP, lokasi + kab/kota + kepala gudang.
+2. Empat kartu KPI: Paket hari ini (68), Warung Point (5, "2 stok menipis" oranye), Stok
+paket di WP (134 di 5 WP), Stok bahan paket (245 paket bisa dirakit, hijau bila aman).
+3. Peta wilayah dengan legenda KP, WP, Stok menipis, Distributor.
+4. Stok bahan paket. Kalimat "Cukup untuk 245 paket. Batas minimum 120 per bahan."
+lalu daftar 5 bahan dengan jumlah dan satuan (Beras Medium 5 kg 392 sak, Minyak
+Goreng Sawit 2 L 245 pouch, Gula Pasir 1 kg 401 bungkus, Tepung Terigu 1 kg 247
+bungkus, Telur Ayam Ras 1 kg 310 kg).
+5. Warung Point (n). Tabel: nama WP + pengelola, paket hari ini, stok paket. Klik ke detail
+WP.
+6. Barang masuk dari distributor. Daftar ringkas (distributor, jumlah + satuan, nilai Rp,
+status chip) dan tautan "Semua".
+7. Kiriman paket ke Warung Point. Daftar ringkas (WP, jumlah paket, kode BK, status
+chip) dan tautan "Semua".
+4.4 Detail Warung Point dan Warung Saya (/wp/{kode})
+Tujuan: kondisi satu warung. Untuk Pengelola WP, halaman ini tampil sebagai menu
+"Warung Saya" tanpa tautan kembali.
+1. Header. Tautan kembali ke KP induk (khusus Admin/Petugas), nama WP, desa dan KP
+induk.
+2. Tiga kartu KPI: Bulan ini (paket tersalur), Stok paket (angka oranye + "di bawah
+minimum 15" atau hijau + "cukup"), Hari ini (paket, rincian dibeli dan bantuan).
+3. Peta Lokasi dengan titik KP induk dan WP.
+4. Info warung: Pengelola warung, Dipasok dari, Harga tebus paket (Rp 135.000), Stok
+minimum (15 paket).
+5. Banner peringatan bila stok menipis: "Stok paket menipis. Jadwalkan kiriman dari
+Kantong Pangan {nama}."
+PRD Kantong Pangan Sumut (SP2KP)
+Page 6 of 20
+
+-- 6 of 20 --
+
+6. Kiriman dari Kantong Pangan. Kiriman terakhir: jumlah paket, kode BK, estimasi tiba,
+status chip.
+4.5 Harga Bahan Pokok (/harga)
+Tujuan: memantau harga 16 komoditas di Sumut terhadap kemarin, harga nasional, dan
+acuan HET/HA.
+1. Header. "Harga Bahan Pokok", subjudul "Prov. Sumatera Utara · 7 Okt 2026".
+2. Empat kartu KPI: Di atas HET/HA (6, merah), Naik vs kemarin (6, oranye), Turun vs
+kemarin (7), Lebih mahal dari nasional (5 dari 16).
+3. Filter wilayah (segmented): Sumut, Deli Serdang, Kota Medan, Serdang Bedagai,
+Langkat, Karo. Mengganti kolom harga sesuai wilayah.
+4. Toggle pembanding (segmented): Vs kemarin, Vs HET/HA, Vs nasional. Menyorot
+kolom pembanding yang aktif dengan latar hijau.
+5. Pencarian "Cari komoditas".
+6. Tabel komoditas dengan kolom: Komoditas (nama + satuan per kg atau per lt), Harga
+Sumut, Vs kemarin (chip persen dengan panah), Vs nasional (persen + harga nasional),
+Vs HET/HA (label status + persen + harga acuan), chevron ke detail.
+7. Daftar 16 komoditas: Beras Medium, Beras Premium, Gula Pasir Curah, Minyak Goreng
+Sawit Kemasan Premium, Minyak Goreng Sawit Curah, Minyakita, Daging Sapi Paha
+Belakang, Daging Ayam Ras, Telur Ayam Ras, Tepung Terigu, Kedelai Impor, Cabai Merah
+Keriting, Cabai Rawit Merah, Cabai Merah Besar, Bawang Merah, Bawang Putih Honan.
+8. Label status acuan: Di bawah HET, Sama dengan HET, Di atas HET, Di bawah HA, Di atas
+HA, Tidak ada acuan.
+9. Catatan sumber data di bawah tabel.
+4.6 Detail Harga Komoditas (/harga/{slug})
+1. Header. Tautan kembali, nama komoditas, "Prov. Sumatera Utara · per kg".
+2. Tiga kartu: Rata-rata Sumut hari ini (kartu hero, harga kemarin + chip perubahan),
+Nasional (HNT) + selisih ("Sumut lebih murah 0,98%"), Acuan HET atau HA + selisih.
+3. Grafik tren harga Sumut vs nasional. Line chart tiga seri (Sumut hijau, Nasional biru,
+HET garis putus-putus), label di ujung garis, toggle rentang 7H dan 30H, tombol
+"Tampilkan tabel data" untuk versi tabel aksesibel.
+4. Harga per kab/kota. Ringkasan selisih termahal dan termurah (Rp 950, 7,04%), lalu
+daftar kab/kota urut harga naik dengan chip status HET dan label Termurah/Termahal.
+PRD Kantong Pangan Sumut (SP2KP)
+Page 7 of 20
+
+-- 7 of 20 --
+
+5. Catatan sumber data.
+4.7 Peta dan Arus Barang (/distribusi)
+Tujuan: melihat semua pergerakan barang hari ini di peta dan linimasa.
+1. Header. "Distribusi", subjudul "Peta & arus barang hari ini".
+2. Filter KP (segmented): Semua Kantong Pangan, Deli Serdang, Kota Medan, Serdang
+Bedagai, Langkat, Karo.
+3. Filter arah (segmented): Semua, Masuk, Keluar.
+4. Tiga kartu KPI: Di jalan (5 pengiriman, oranye), Masuk (4 kiriman distributor hari ini), Ke
+WP (330 paket hari ini).
+5. Peta arus barang. Titik KP (lingkaran besar border emas), Distributor (biru), WP (hijau,
+oranye bila stok menipis), garis rute masuk (biru) dan rute ke WP (hijau). Garis putus-
+putus berarti sedang di jalan. Klik titik menampilkan tooltip nama dan kota. Label nama
+KP tampil tetap.
+6. Arus barang dengan tab "Masuk (9)" dan "Ke Warung Point (10)". Daftar dikelompokkan
+per waktu: HARI INI, DIJADWALKAN, KEMARIN, tanggal lampau. Tiap item: nama
+pengirim atau WP tujuan, KP terkait, jumlah + jenis barang (atau jumlah paket + jam),
+chip status, estimasi tiba bila di jalan. Klik item ke halaman detail.
+4.8 Barang Masuk dari Distributor (/distribusi/masuk)
+1. Header. "Barang Masuk dari Distributor", subjudul penjelas.
+2. Filter status: Semua status, Dipesan, Dalam perjalanan, Diterima.
+3. Filter tanggal: Semua tanggal, Hari ini, Dijadwalkan, Kemarin, tanggal spesifik (5
+Oktober 2026).
+4. Pencarian "Cari kode atau nama".
+5. Tabel dengan kolom: Kode (BM-…), Distributor → Kantong Pangan, Barang (jumlah +
+satuan + jenis), Nilai (Rp), Waktu (tanggal + jam atau "tiba ±"), Status chip. Klik baris ke
+detail.
+4.9 Detail Barang Masuk (/distribusi/masuk/{kode})
+1. Header. Tautan kembali, kode, "Barang masuk · Kantong Pangan {nama}", chip status di
+kanan.
+2. Rute. Peta mini garis distributor ke KP. Bila di jalan: progress bar persen perjalanan
+(contoh 65%) dan estimasi tiba.
+PRD Kantong Pangan Sumut (SP2KP)
+Page 8 of 20
+
+-- 8 of 20 --
+
+3. Status pengiriman. Stepper vertikal 5 langkah: Pesanan dibuat Kantong Pangan,
+Disetujui distributor, Berangkat dari {distributor} (jam + plat nomor), Tiba di {KP}
+(perkiraan atau jam aktual), Diperiksa dan masuk stok (nama pemeriksa). Status tiap
+langkah: selesai, sedang berlangsung, belum.
+4. Info pengiriman. Distributor, Lokasi distributor, Produk, Tujuan, Sopir + plat (muncul
+setelah berangkat).
+5. Rincian barang. Item, jumlah × harga satuan, subtotal; total Nilai pembelian.
+4.10 Kiriman ke Warung Point (/distribusi/keluar)
+1. Header. "Kiriman ke Warung Point", subjudul penjelas.
+2. Filter status: Semua status, Disiapkan, Dikirim, Diterima.
+3. Filter tanggal: Semua tanggal, Hari ini, Kemarin.
+4. Tabel dengan kolom: Kode (BK-…), Kantong Pangan → Warung Point, Paket, Tagihan ke
+WP (Rp), Waktu (jam + tiba ±), Status chip. Klik baris ke detail.
+4.11 Detail Kiriman (/distribusi/keluar/{kode})
+1. Header. Tautan kembali, kode BK, "Kiriman paket · Kantong Pangan {nama}", chip
+status.
+2. Rute KP ke WP dengan progress perjalanan saat Dikirim.
+3. Status kiriman. Stepper 4 langkah: Permintaan dari Warung Point (jam), Dikemas di
+Kantong Pangan, Dalam perjalanan (nama sopir + plat), Diterima WP (perkiraan atau
+jam aktual).
+4. Info kiriman. Warung Point, Desa, Pengelola, Jumlah paket, Tagihan ke WP (total + Rp
+128.000/paket).
+5. Isi 1 paket sembako. Lima bahan dikali jumlah paket.
+4.12 Penyaluran Paket Sembako (/penyaluran)
+Tujuan: melihat paket yang sampai ke warga.
+1. Header. "Penyaluran Paket Sembako", subjudul "Paket sembako yang tersalur di
+Warung Point".
+2. Kartu produk paket (hero, border emas). Harga tebus Rp 135.000 dengan harga pasar
+Rp 162.000 dicoret, teks hemat Rp 27.000, chip isi paket: Beras 5 kg, Minyak 2 L, Gula 1
+kg, Terigu 1 kg, Telur 1 kg.
+PRD Kantong Pangan Sumut (SP2KP)
+Page 9 of 20
+
+-- 9 of 20 --
+
+3. Kartu Hari ini. Total tersalur (293), Dibeli (223, nilai Rp 30.105.000, titik hijau), Bantuan
+(70, gratis, titik biru). Kalimat "Bulan ini 2.828 paket tersalur di 22 Warung Point."
+4. Tren 14 hari. Stacked bar chart Dibeli + Bantuan per hari, catatan "Hari ini masih
+berjalan (data s.d. 09.30)" dengan bar hari ini dibedakan, tombol "Tampilkan tabel data".
+5. Per Kantong Pangan hari ini. Lima kartu (nama KP, paket, jumlah WP), klik ke detail KP.
+4.13 Keuangan: Uang Masuk dan Keluar (/keuangan)
+Khusus Admin Provinsi.
+1. Header. "Keuangan", subjudul "Kas program Kantong Pangan Sumut · dikelola Kantong
+Pangan".
+2. Kartu hero Saldo kas program (Rp 612.450.000, "Gabungan 5 Kantong Pangan · per 7
+Okt 09.30").
+3. Arus kas dengan toggle 7 hari dan 30 hari. Tiga kartu: Uang masuk (428,6 jt), Uang
+keluar (146,3 jt), Selisih (+282,3 jt, hijau).
+4. Grafik batang uang masuk (hijau) vs uang keluar (biru) per hari, sumbu dalam juta,
+tombol "Tampilkan tabel data".
+5. Rincian periode. UANG MASUK: Setoran paket dari WP, Dana program bantuan. UANG
+KELUAR: Bayar distributor (per bahan), Operasional distribusi. Ditutup catatan subsidi:
+"Subsidi paket 7 hari ±Rp 118.472.500 untuk 2.165 paket. Modal per paket Rp 150.500,
+dijual ke WP Rp 128.000."
+6. Transaksi terbaru. Lima transaksi (keterangan, kategori, waktu relatif, nominal
+bertanda + hijau atau − putih) dan tautan "Lihat semua transaksi".
+4.14 Riwayat Transaksi (/keuangan/transaksi)
+1. Header. Tautan kembali ke Keuangan, judul, subjudul.
+2. Filter arah (segmented): Semua, Uang masuk, Uang keluar.
+3. Dropdown Kategori: Semua kategori, Setoran paket dari WP, Dana program bantuan,
+Bayar distributor, Operasional distribusi.
+4. Pencarian "Cari keterangan".
+5. Tombol Unduh CSV (n) dengan jumlah baris sesuai filter.
+6. Daftar transaksi dikelompokkan per hari (HARI INI, KEMARIN, tanggal) dengan
+subtotal neto per grup. Tiap baris: ikon arah (panah masuk/keluar), keterangan,
+kategori + jam, nominal. Baris belum punya halaman detail.
+PRD Kantong Pangan Sumut (SP2KP)
+Page 10 of 20
+
+-- 10 of 20 --
+
+4.15 Masuk (/masuk)
+Halaman login yang belum aktif; aplikasi berjalan di mode demo.
+1. Latar gradasi hijau tua layar penuh, tanpa sidebar.
+2. Logo SP2KP di kartu putih kecil, judul "Dashboard Kantong Pangan Sumatera Utara",
+tagline emas "Pemantauan stok, harga & distribusi".
+3. Kartu info "Login belum diaktifkan" dengan penjelas: mode demo, peran dipilih lewat
+menu, login sungguhan aktif setelah key Clerk diisi.
+4. Tombol "Masuk ke dashboard" (hijau) menuju /.
+Untuk iterasi berikutnya, halaman ini perlu dirancang ulang sebagai login sungguhan
+(form, error, lupa sandi, pilih peran atau wilayah setelah login).
+5. Fitur global
+Fitur global berada di popover Pengaturan ("Tema tampilan dan alat uji coba") yang dibuka
+dari bawah sidebar atau header mobile.
+5.1 Tema tampilan. Tiga pilihan: Sistem (default, mengikuti OS), Terang, Gelap. Sidebar
+tetap hijau tua di semua tema. Konten utama berganti latar putih atau gelap.
+5.2 State layar (alat pengujian). Label oranye "Tidak mengubah data". Empat pilihan,
+berlaku untuk halaman aktif dan direset saat berpindah halaman:
+Saat state selain Normal aktif, tombol Pengaturan menampilkan badge kuning berisi nama
+state.
+State 	Tampilan 	Contoh di Harga Bahan Pokok
+Normal Data lengkap 	Tabel 16 komoditas
+Loading Skeleton blok abu-abu mengikuti
+layout, judul tetap tampil
+Kartu dan tabel skeleton
+Kosong Kartu tengah dengan ikon inbox, judul,
+penjelas
+"Belum ada data harga", "Harga hari ini
+belum dilaporkan oleh petugas pasar."
+Error 	Kartu merah dengan ikon peringatan,
+judul, penjelas, tombol "Coba lagi"
+"Data gagal dimuat", "Koneksi ke server
+Kantong Pangan terputus. Periksa
+jaringan lalu coba lagi."
+PRD Kantong Pangan Sumut (SP2KP)
+Page 11 of 20
+
+-- 11 of 20 --
+
+5.3 Peran (mode demo). Tiga kartu radio: Admin Provinsi ("Semua halaman"), Petugas
+Kantong Pangan Deli Serdang ("Semua kecuali Keuangan"), Pengelola WP Pagar Jati
+("Warungnya, Harga, Penyaluran"). Memilih peran langsung mengganti sidebar, label peran
+di tombol Pengaturan, dan mengarahkan ke halaman awal peran bila halaman aktif tidak
+diizinkan.
+5.4 Akses Ditolak (/akses-ditolak). Kartu tengah dengan ikon perisai silang, judul
+"Halaman ini tidak untuk peran Anda", penjelas yang menyebut alasan dan peran aktif
+(contoh "Data keuangan hanya bisa dibuka Admin Provinsi. Anda masuk sebagai Petugas
+Kantong Pangan."), tautan "Kembali ke halaman awal" ke halaman awal peran.
+5.5 Aksesibilitas yang sudah ada. Grafik punya tombol "Tampilkan tabel data". Nav
+memakai aria-label "Navigasi utama". Tab memakai role tab. Kolom tabel punya aria-sort.
+6. Model data dan entitas
+Sembilan entitas utama terbaca dari tampilan. Field di bawah adalah field yang benar-
+benar muncul di UI.
+Entitas 	Field yang tampil 	Relasi 	Contoh
+Kantong
+Pangan
+kode, nama,
+kecamatan/kota, kab/kota,
+kepala gudang, koordinat,
+stok bahan per item, paket
+hari ini, ketahanan stok
+punya banyak WP,
+Barang Masuk,
+Kiriman
+ds, Lubuk Pakam,
+Sari Dewi
+Warung
+Point
+kode, nama, desa, pengelola,
+KP induk, koordinat, stok
+paket, stok minimum (15),
+harga tebus, paket hari ini
+(dibeli/bantuan), paket
+bulan ini
+milik satu KP 	ds-1 WP Pagar Jati,
+Bu Siti
+Distributor 	nama, lokasi, produk utama,
+koordinat
+mengirim Barang
+Masuk
+PT Mitra Sawit
+Nusantara, Refinery
+Belawan
+Bahan paket nama, ukuran, satuan stok,
+harga beli satuan
+isi Paket, item
+Barang Masuk
+Minyak Goreng Sawit
+2 L, pouch, Rp 34.000
+PRD Kantong Pangan Sumut (SP2KP)
+Page 12 of 20
+
+-- 12 of 20 --
+
+Paket sembako standar berisi 5 bahan: Beras Medium 5 kg, Minyak Goreng Sawit 2 L, Gula
+Pasir 1 kg, Tepung Terigu 1 kg, Telur Ayam Ras 1 kg. Satuan stok gudang: sak, pouch,
+bungkus, kg.
+Daftar master di prototipe. KP: Deli Serdang (Lubuk Pakam, Sari Dewi), Kota Medan
+(Medan Johor, Rudi Hartono), Serdang Bedagai (Sei Rampah, Pak Siregar), Langkat
+(Stabat, Bu Ginting), Karo (Kabanjahe, Pak Tarigan). Distributor: PT Pangan Sumut Lestari
+(beras), PT Mitra Sawit Nusantara (minyak), PT Gula Manis Sumut (gula, Binjai), PT Tepung
+Makmur (terigu), UD Telur Berkah (telur, Pancur Batu).
+7. Aturan bisnis, rumus, dan status
+Aturan berikut menentukan warna, peringatan, dan angka turunan di seluruh halaman.
+Entitas 	Field yang tampil 	Relasi 	Contoh
+Barang
+Masuk
+kode BM-YYMMDD-NN,
+distributor, KP tujuan, item +
+jumlah + harga, nilai, jadwal,
+jam berangkat/tiba, sopir,
+plat, pemeriksa, status,
+progress
+distributor ke KP 	BM-261007-04
+Kiriman ke
+WP
+kode BK-YYMMDD-NN, KP
+asal, WP tujuan, jumlah
+paket, tagihan, jam
+permintaan, jam terima,
+sopir, plat, status, progress
+KP ke WP 	BK-261007-06
+Penyaluran 	tanggal, WP, jumlah dibeli,
+jumlah bantuan, nilai
+per WP per hari 	293 paket hari ini
+Komoditas
+harga
+slug, nama, satuan, harga
+Sumut, harga kab/kota,
+harga kemarin, harga
+nasional HNT, acuan HET
+atau HA, riwayat 30 hari
+berdiri sendiri 	beras-medium
+Transaksi
+kas
+waktu, arah (masuk/keluar),
+kategori, keterangan,
+nominal, KP/WP/distributor
+terkait
+merujuk Kiriman
+atau Barang Masuk
+Setoran WP Kwala
+Bekala +Rp
+7.680.000
+PRD Kantong Pangan Sumut (SP2KP)
+Page 13 of 20
+
+-- 13 of 20 --
+
+7.1 Ambang dan rumus
+7.2 Status Barang Masuk (distributor ke KP)
+1. Dipesan: pesanan dibuat KP, menunggu persetujuan distributor (chip abu).
+2. Dalam Perjalanan: berangkat, ada sopir, plat, estimasi tiba, progress persen (chip biru,
+garis putus-putus di peta).
+3. Diterima: tiba, diperiksa, masuk stok, tercatat nama pemeriksa (chip hijau).
+Aturan 	Definisi 	Dampak di UI
+Ketahanan stok
+gudang
+paket yang bisa dirakit dari stok
+bahan ÷ paket tersalur hari ini
+Kritis < 1 hari (merah), waspada <
+2 hari (kuning), aman di atasnya
+(hijau)
+Paket bisa dirakit 	jumlah bahan paling sedikit di
+antara 5 bahan
+Kartu "Stok bahan paket" di detail
+KP
+Batas minimum
+bahan
+120 unit per bahan per gudang 	Peringatan "Perlu perhatian" bila
+di bawah 120
+Stok paket WP
+minimum
+15 paket 	Angka oranye, banner "Stok paket
+menipis", masuk tab "Stok
+menipis"
+Harga tebus warga Rp 135.000 per paket (harga
+pasar Rp 162.000, hemat Rp
+27.000)
+Kartu paket di Penyaluran, Info
+warung
+Tagihan ke WP 	Rp 128.000 per paket × jumlah
+paket
+Kolom Tagihan, Info kiriman
+Modal per paket 	Rp 150.500 	Selisih ke harga WP (Rp 22.500)
+menjadi subsidi
+Nilai penyaluran
+dibeli
+paket dibeli × Rp 135.000 	223 paket = Rp 30.105.000
+Perubahan harga 	(harga hari ini − kemarin) ÷
+kemarin
+Chip merah naik, hijau turun,
+netral 0,00%
+Status acuan
+harga
+harga dibanding HET atau HA
+Region B
+Di atas (merah), sama, di bawah
+(hijau), tidak ada acuan (abu)
+Harian kab/kota 	mengikuti rasio harian Sumut 	Catatan sumber data
+PRD Kantong Pangan Sumut (SP2KP)
+Page 14 of 20
+
+-- 14 of 20 --
+
+7.3 Status Kiriman ke WP (KP ke WP)
+1. Disiapkan: permintaan WP diterima, paket dikemas (chip abu).
+2. Dikirim: dalam perjalanan dengan sopir, plat, estimasi tiba (chip biru).
+3. Diterima: diterima WP dengan jam aktual (chip hijau).
+7.4 Kategori transaksi kas. Masuk: Setoran paket dari WP, Dana program bantuan. Keluar:
+Bayar distributor, Operasional distribusi.
+7.5 Format angka dan waktu. Rupiah dengan titik ribuan (Rp 20.400.000), ringkas "jt" di
+kartu arus kas, persen dengan koma desimal dan tanda + atau −, jam format 24 jam
+bertitik (09.30), estimasi "tiba ±10.20", waktu relatif "20 mnt lalu", tanggal "7 Okt" atau "5
+Oktober 2026".
+8. Komponen UI dan pola desain
+Inventaris komponen di bawah ini adalah bahan untuk design system iterasi berikutnya.
+Komponen 	Varian yang ditemukan 	Dipakai di
+App shell 	Sidebar desktop, bottom nav
+mobile, header breadcrumb
+Semua halaman
+Page header 	Judul + subjudul, dengan atau
+tanpa tautan kembali, dengan
+chip status di kanan
+Semua halaman
+Kartu hero 	Gradasi hijau tua, border emas,
+angka besar, sub-metrik bergaris
+pemisah, chevron opsional
+Dashboard, Penyaluran, Detail
+Harga, Keuangan
+Kartu KPI 	Label, angka besar berwarna
+semantik (merah, oranye, hijau,
+putih), keterangan kecil, tautan
+opsional
+Hampir semua halaman
+Segmented control Filter wilayah, filter status, filter
+tanggal, toggle pembanding,
+toggle rentang (7H/30H, 7 hari/30
+hari), tab 2 opsi
+Harga, Distribusi, Transaksi,
+Dashboard
+Search input 	Ikon kaca pembesar, placeholder
+kontekstual
+Daftar KP, Harga, Barang Masuk,
+Transaksi
+PRD Kantong Pangan Sumut (SP2KP)
+Page 15 of 20
+
+-- 15 of 20 --
+
+Komponen 	Varian yang ditemukan 	Dipakai di
+Dropdown 	Label di kiri, nilai terpilih, centang
+di opsi aktif
+Kategori transaksi
+Tabel data 	Header bisa diurutkan, kolom
+tersorot, baris klik dengan
+chevron, sel bertumpuk (judul +
+subteks)
+Daftar KP, Harga, Barang Masuk,
+Kiriman
+Chip status 	Abu (Dipesan, Disiapkan), biru
+(Dalam Perjalanan, Dikirim), hijau
+(Diterima, Sama dengan HET, Di
+bawah), merah (Di atas HET/HA,
+Stok < 1 hari), oranye (WP stok
+menipis, Stok < 2 hari)
+Tabel dan daftar
+Chip perubahan 	Panah naik merah, panah turun
+hijau, 0,00% netral
+Harga
+Progress bar 	Ketahanan stok berwarna,
+progress perjalanan dengan
+persen
+Daftar KP, detail pengiriman
+Stepper vertikal 	Selesai, sedang berlangsung,
+belum; baris keterangan jam,
+sopir, pemeriksa
+Detail Barang Masuk, Detail
+Kiriman
+Alert banner 	Kuning (waspada), merah (kritis),
+oranye (info harga) dengan ikon
+segitiga
+Dashboard, Detail WP, Harga
+Peta 	Leaflet + OSM, marker KP,
+Distributor, WP, WP menipis; garis
+rute solid dan putus-putus; label
+kab/kota; tooltip; legenda; kontrol
+zoom
+Dashboard, Daftar KP, Detail KP,
+Detail WP, Distribusi, Detail
+pengiriman
+Grafik 	Line chart multi-seri dengan garis
+acuan, stacked bar, grouped bar;
+legenda; tombol tabel data
+Detail Harga, Penyaluran,
+Keuangan
+Daftar terkelompok Header grup tanggal (HARI INI,
+KEMARIN), subtotal grup
+Arus barang, Riwayat Transaksi
+PRD Kantong Pangan Sumut (SP2KP)
+Page 16 of 20
+
+-- 16 of 20 --
+
+Gaya visual saat ini. Tema gelap default dengan permukaan hijau sangat tua, aksen hijau
+terang untuk tautan dan nilai positif, emas untuk sorotan, merah dan oranye untuk
+peringatan, biru untuk status perjalanan dan seri nasional. Sudut membulat besar pada
+kartu, garis pemisah tipis, tipografi sans-serif tebal untuk angka. Label grup memakai
+huruf kapital kecil berjarak.
+9. Temuan dan gap untuk iterasi desain
+Prototipe saat ini read-only: semua peran hanya melihat data. Daftar berikut adalah celah
+yang ditemukan saat penjelajahan, sebagai kandidat backlog desain.
+9.1 Bug dan inkonsistensi tampilan
+9.2 Celah peran dan data
+Komponen 	Varian yang ditemukan 	Dipakai di
+Kartu ringkas
+berikon
+Ikon bulat, angka, label 	Alur distribusi
+Empty, loading,
+error state
+Lihat bagian 5.2 	Semua halaman
+Popover
+pengaturan
+Grup radio tema, state, peran 	Global
+Label sumbu Y grafik tren harga berulang ("13rb, 14rb, 14rb, 14rb") karena pembulatan
+ke ribuan; perlu satu desimal atau skala lebih rapat.
+Halaman 404 masih bawaan Next.js ("This page could not be found.") tanpa shell dan
+gaya aplikasi.
+Peta mini di Detail Barang Masuk sempat tampil tanpa tile (latar abu); perlu state
+loading peta.
+Kode BM di tabel Barang Masuk terpotong menjadi 3 baris pada lebar laptop.
+Halaman yang pernah dikunjungi tetap ter-render tersembunyi di DOM (cache route),
+perlu dicek dampaknya ke performa dan pembaca layar.
+Petugas KP belum dibatasi ke data KP-nya sendiri (masih melihat seluruh provinsi).
+Belum ada login, profil, dan logout; peran hanya lewat mode demo.
+Pengelola WP belum punya penyaluran khusus warungnya; halaman Penyaluran
+menampilkan angka provinsi.
+PRD Kantong Pangan Sumut (SP2KP)
+Page 17 of 20
+
+-- 17 of 20 --
+
+9.3 Aksi yang belum ada (perlu dirancang)
+9.4 Pertanyaan terbuka
+Apakah ambang 120 unit berlaku sama untuk semua bahan dan semua gudang?
+Siapa yang menginput harga harian kab/kota, dan sumber HET/HA resminya?
+Apakah penerima bantuan gratis perlu data penerima (NIK, kuota) di level WP?
+Bagaimana alur jika barang diterima tidak sesuai jumlah atau rusak?
+10. Data dummy
+Seluruh data dummy prototipe diekspor ke file sp2kp-data-dummy.json (36 KB), diambil
+langsung dari kode dan payload server website, bukan diketik ulang. Total harian, kas 7
+hari, ketahanan stok, dan stok WP sudah dicocokkan dengan angka di layar dan hasilnya
+sama.
+KP: buat pesanan ke distributor, konfirmasi barang diterima dan diperiksa (selisih
+jumlah, foto), catat stok opname.
+KP: proses permintaan WP, tandai dikemas, tugaskan sopir, kirim.
+WP: ajukan permintaan paket, konfirmasi terima kiriman, catat penyaluran (dibeli atau
+bantuan, data penerima), setor uang.
+Admin: kelola master (KP, WP, distributor, bahan, harga paket, ambang minimum), input
+atau impor harga harian, catat dana program dan biaya operasional.
+Detail transaksi kas dan bukti (kuitansi, bukti transfer).
+Notifikasi untuk peringatan "Perlu perhatian" dan badge Distribusi.
+Ekspor selain CSV transaksi (laporan PDF penyaluran, harga, distribusi).
+Rentang tanggal bebas; data saat ini terkunci di satu hari (7 Okt 2026).
+Key 	Isi 	Jumlah
+meta 	Sumber, tanggal data (7 Okt 2026 09.30), catatan
+sumber, nilai tetap: saldo kas Rp 612.450.000,
+ambang 120, stok minimum WP 15, ambang 1 dan 2
+hari
+1
+paket 	Nama paket, isi, modal 150.500, harga tebus
+135.000, harga ke WP 128.000, nilai pasar 162.000
+1
+kantongPangan 	id, nama, kota, kab, lat, lng, kepala, wilayah 	5
+PRD Kantong Pangan Sumut (SP2KP)
+Page 18 of 20
+
+-- 18 of 20 --
+
+Angka turunan (hitung dari data, jangan disimpan terpisah).
+Paket hari ini provinsi = jumlah warungPoint.paketHariIni (293); bulan ini = jumlah
+paketBulanIni (2.828); stok paket WP = jumlah stokPaket (550).
+Dibeli dan bantuan hari ini = baris terakhir harian30 (223 dan 70); tren penyaluran 14
+hari = 14 baris terakhir harian30.
+Paket hari ini per KP = jumlah paketHariIni WP-nya; paket bisa dirakit = nilai terkecil
+stokBahanKp; ketahanan stok = paket bisa dirakit ÷ paket hari ini.
+Arus kas 7 atau 30 hari = jumlah masuk dan keluar dari harian30 (7 hari: 428.576.000
+dan 146.260.000).
+Key 	Isi 	Jumlah
+warungPoint 	id, nama, desa, sp2kpId, pengelola, lat, lng,
+stokPaket, paketBulanIni, paketHariIni, stokMin
+22
+distributor 	id, nama, kota, produk, lat, lng, kontak 	5
+bahan 	id, nama, satuan, hargaBeli, distributorId 	5
+stokBahanKp 	stok 5 bahan per KP 	5 KP
+barangMasuk 	id BM, distributorId, sp2kpId, waktu, status, items
+(produkId, qty, harga), total, eta, berangkat, plat,
+supir, progres, diterimaOleh
+9
+kirimanWp 	id BK, sp2kpId, wpId, waktu, status, paket, total,
+kurir, plat, eta, progres, diterima
+10
+harian30 	8 Sep sampai 7 Okt: beli, bantuan, masuk, keluar,
+beliDistributor, operasional, danaProgram
+30 hari
+kategoriTransaksi setoran, dana, pembelian, operasional + label +
+arah
+4
+transaksi 	id, waktu, kategori, arah, nominal, ket 	10
+wilayahHarga 	Sumut + 5 kab/kota untuk filter harga 	6
+komoditas 	id, nama, satuan, nasional, ref HET/HA, harga hari
+ini dan kemarin per wilayah
+16
+riwayatHarga30 	per komoditas: tanggal, sumut, nasional 	16 × 30
+PRD Kantong Pangan Sumut (SP2KP)
+Page 19 of 20
+
+-- 19 of 20 --
+
+Badge Distribusi dan kartu "Di jalan" = jumlah barangMasuk berstatus
+dalam_perjalanan + kirimanWp berstatus dikirim (5).
+Status acuan harga = harga Sumut dibanding ref.nilai; perubahan harian = hariIni
+dibanding kemarin.
+PRD Kantong Pangan Sumut (SP2KP)
+Page 20 of 20
+
+-- 20 of 20 --
+

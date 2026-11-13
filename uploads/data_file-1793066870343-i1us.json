@@ -1,0 +1,4208 @@
+{
+  "meta": {
+    "sumber": "https://sp2kp-sumut-web.vercel.app",
+    "diambil": "2026-10-27",
+    "tanggalData": "2026-10-07T09:30:00+07:00",
+    "catatan": "Data contoh prototipe. Harga nasional = HNT SP2KP Kemendag 6-7 Okt 2026; harga Sumut, kab/kota, riwayat 30 hari, dan HET/HA Region B adalah data contoh.",
+    "nilaiTampilTetap": {
+      "saldoKasProgram": 612450000,
+      "saldoKasKeterangan": "Gabungan 5 Kantong Pangan, per 7 Okt 09.30",
+      "batasMinimumBahanGudang": 120,
+      "stokMinimumWp": 15,
+      "ambangKetahananKritisHari": 1,
+      "ambangKetahananWaspadaHari": 2
+    }
+  },
+  "paket": {
+    "nama": "Paket Sembako Kantong Pangan",
+    "isi": [
+      "beras",
+      "minyak",
+      "gula",
+      "terigu",
+      "telur"
+    ],
+    "modal": 150500,
+    "hargaTebus": 135000,
+    "hargaKeWp": 128000,
+    "nilaiPasar": 162000
+  },
+  "kantongPangan": [
+    {
+      "id": "ds",
+      "nama": "Kantong Pangan Deli Serdang",
+      "kota": "Lubuk Pakam",
+      "kab": "Kab. Deli Serdang",
+      "lat": 3.553,
+      "lng": 98.874,
+      "kepala": "Sari Dewi",
+      "wilayah": "Deli Serdang"
+    },
+    {
+      "id": "mdn",
+      "nama": "Kantong Pangan Kota Medan",
+      "kota": "Medan Johor",
+      "kab": "Kota Medan",
+      "lat": 3.545,
+      "lng": 98.673,
+      "kepala": "Rudi Hartono",
+      "wilayah": "Kota Medan"
+    },
+    {
+      "id": "sb",
+      "nama": "Kantong Pangan Serdang Bedagai",
+      "kota": "Sei Rampah",
+      "kab": "Kab. Serdang Bedagai",
+      "lat": 3.44,
+      "lng": 99.13,
+      "kepala": "Pak Siregar",
+      "wilayah": "Serdang Bedagai"
+    },
+    {
+      "id": "lkt",
+      "nama": "Kantong Pangan Langkat",
+      "kota": "Stabat",
+      "kab": "Kab. Langkat",
+      "lat": 3.765,
+      "lng": 98.457,
+      "kepala": "Bu Ginting",
+      "wilayah": "Langkat"
+    },
+    {
+      "id": "kr",
+      "nama": "Kantong Pangan Karo",
+      "kota": "Kabanjahe",
+      "kab": "Kab. Karo",
+      "lat": 3.101,
+      "lng": 98.491,
+      "kepala": "Pak Tarigan",
+      "wilayah": "Karo"
+    }
+  ],
+  "warungPoint": [
+    {
+      "id": "ds-1",
+      "nama": "WP Pagar Jati",
+      "desa": "Desa Pagar Jati",
+      "sp2kpId": "ds",
+      "pengelola": "Bu Siti",
+      "lat": 3.544,
+      "lng": 98.865,
+      "stokPaket": 45,
+      "paketBulanIni": 68,
+      "paketHariIni": 10,
+      "stokMin": 15
+    },
+    {
+      "id": "ds-2",
+      "nama": "WP Bakaran Batu",
+      "desa": "Desa Bakaran Batu",
+      "sp2kpId": "ds",
+      "pengelola": "Kak Wati",
+      "lat": 3.572,
+      "lng": 98.856,
+      "stokPaket": 27,
+      "paketBulanIni": 153,
+      "paketHariIni": 16,
+      "stokMin": 15
+    },
+    {
+      "id": "ds-3",
+      "nama": "WP Tanjung Garbus",
+      "desa": "Desa Tanjung Garbus",
+      "sp2kpId": "ds",
+      "pengelola": "Pak Sitepu",
+      "lat": 3.536,
+      "lng": 98.848,
+      "stokPaket": 8,
+      "paketBulanIni": 155,
+      "paketHariIni": 15,
+      "stokMin": 15
+    },
+    {
+      "id": "ds-4",
+      "nama": "WP Pasar Melintang",
+      "desa": "Desa Pasar Melintang",
+      "sp2kpId": "ds",
+      "pengelola": "Bu Ani",
+      "lat": 3.541,
+      "lng": 98.895,
+      "stokPaket": 5,
+      "paketBulanIni": 75,
+      "paketHariIni": 12,
+      "stokMin": 15
+    },
+    {
+      "id": "ds-5",
+      "nama": "WP Paluh Kemiri",
+      "desa": "Desa Paluh Kemiri",
+      "sp2kpId": "ds",
+      "pengelola": "Pak Ginting",
+      "lat": 3.59,
+      "lng": 98.895,
+      "stokPaket": 49,
+      "paketBulanIni": 104,
+      "paketHariIni": 15,
+      "stokMin": 15
+    },
+    {
+      "id": "mdn-1",
+      "nama": "WP Kwala Bekala",
+      "desa": "Desa Kwala Bekala",
+      "sp2kpId": "mdn",
+      "pengelola": "Bang Joko",
+      "lat": 3.518,
+      "lng": 98.645,
+      "stokPaket": 16,
+      "paketBulanIni": 104,
+      "paketHariIni": 12,
+      "stokMin": 15
+    },
+    {
+      "id": "mdn-2",
+      "nama": "WP Titi Kuning",
+      "desa": "Desa Titi Kuning",
+      "sp2kpId": "mdn",
+      "pengelola": "Bu Lubis",
+      "lat": 3.535,
+      "lng": 98.68,
+      "stokPaket": 54,
+      "paketBulanIni": 91,
+      "paketHariIni": 9,
+      "stokMin": 15
+    },
+    {
+      "id": "mdn-3",
+      "nama": "WP Harjosari",
+      "desa": "Desa Harjosari",
+      "sp2kpId": "mdn",
+      "pengelola": "Pak Nasution",
+      "lat": 3.553,
+      "lng": 98.705,
+      "stokPaket": 8,
+      "paketBulanIni": 136,
+      "paketHariIni": 13,
+      "stokMin": 15
+    },
+    {
+      "id": "mdn-4",
+      "nama": "WP Sitirejo",
+      "desa": "Desa Sitirejo",
+      "sp2kpId": "mdn",
+      "pengelola": "Kak Rina",
+      "lat": 3.565,
+      "lng": 98.675,
+      "stokPaket": 23,
+      "paketBulanIni": 168,
+      "paketHariIni": 16,
+      "stokMin": 15
+    },
+    {
+      "id": "sb-1",
+      "nama": "WP Firdaus",
+      "desa": "Desa Firdaus",
+      "sp2kpId": "sb",
+      "pengelola": "Pak Damanik",
+      "lat": 3.455,
+      "lng": 99.155,
+      "stokPaket": 32,
+      "paketBulanIni": 136,
+      "paketHariIni": 15,
+      "stokMin": 15
+    },
+    {
+      "id": "sb-2",
+      "nama": "WP Sei Bamban",
+      "desa": "Desa Sei Bamban",
+      "sp2kpId": "sb",
+      "pengelola": "Bu Purba",
+      "lat": 3.41,
+      "lng": 99.11,
+      "stokPaket": 20,
+      "paketBulanIni": 192,
+      "paketHariIni": 15,
+      "stokMin": 15
+    },
+    {
+      "id": "sb-3",
+      "nama": "WP Pematang Ganjang",
+      "desa": "Desa Pematang Ganjang",
+      "sp2kpId": "sb",
+      "pengelola": "Pak Saragih",
+      "lat": 3.47,
+      "lng": 99.105,
+      "stokPaket": 10,
+      "paketBulanIni": 135,
+      "paketHariIni": 15,
+      "stokMin": 15
+    },
+    {
+      "id": "sb-4",
+      "nama": "WP Sei Rejo",
+      "desa": "Desa Sei Rejo",
+      "sp2kpId": "sb",
+      "pengelola": "Kak Lilis",
+      "lat": 3.425,
+      "lng": 99.16,
+      "stokPaket": 4,
+      "paketBulanIni": 217,
+      "paketHariIni": 14,
+      "stokMin": 15
+    },
+    {
+      "id": "lkt-1",
+      "nama": "WP Kwala Bingai",
+      "desa": "Desa Kwala Bingai",
+      "sp2kpId": "lkt",
+      "pengelola": "Pak Sembiring",
+      "lat": 3.755,
+      "lng": 98.47,
+      "stokPaket": 37,
+      "paketBulanIni": 124,
+      "paketHariIni": 10,
+      "stokMin": 15
+    },
+    {
+      "id": "lkt-2",
+      "nama": "WP Sido Mulyo",
+      "desa": "Desa Sido Mulyo",
+      "sp2kpId": "lkt",
+      "pengelola": "Bu Sri",
+      "lat": 3.785,
+      "lng": 98.44,
+      "stokPaket": 51,
+      "paketBulanIni": 120,
+      "paketHariIni": 15,
+      "stokMin": 15
+    },
+    {
+      "id": "lkt-3",
+      "nama": "WP Ara Condong",
+      "desa": "Desa Ara Condong",
+      "sp2kpId": "lkt",
+      "pengelola": "Bang Andi",
+      "lat": 3.74,
+      "lng": 98.43,
+      "stokPaket": 10,
+      "paketBulanIni": 120,
+      "paketHariIni": 9,
+      "stokMin": 15
+    },
+    {
+      "id": "lkt-4",
+      "nama": "WP Pantai Gemi",
+      "desa": "Desa Pantai Gemi",
+      "sp2kpId": "lkt",
+      "pengelola": "Pak Harahap",
+      "lat": 3.795,
+      "lng": 98.485,
+      "stokPaket": 34,
+      "paketBulanIni": 154,
+      "paketHariIni": 13,
+      "stokMin": 15
+    },
+    {
+      "id": "kr-1",
+      "nama": "WP Gung Leto",
+      "desa": "Desa Gung Leto",
+      "sp2kpId": "kr",
+      "pengelola": "Pak Karo-karo",
+      "lat": 3.11,
+      "lng": 98.505,
+      "stokPaket": 31,
+      "paketBulanIni": 84,
+      "paketHariIni": 13,
+      "stokMin": 15
+    },
+    {
+      "id": "kr-2",
+      "nama": "WP Lau Simomo",
+      "desa": "Desa Lau Simomo",
+      "sp2kpId": "kr",
+      "pengelola": "Bu Br. Sitepu",
+      "lat": 3.085,
+      "lng": 98.475,
+      "stokPaket": 16,
+      "paketBulanIni": 137,
+      "paketHariIni": 15,
+      "stokMin": 15
+    },
+    {
+      "id": "kr-3",
+      "nama": "WP Ketaren",
+      "desa": "Desa Ketaren",
+      "sp2kpId": "kr",
+      "pengelola": "Pak Perangin-angin",
+      "lat": 3.125,
+      "lng": 98.465,
+      "stokPaket": 36,
+      "paketBulanIni": 82,
+      "paketHariIni": 12,
+      "stokMin": 15
+    },
+    {
+      "id": "kr-4",
+      "nama": "WP Sumber Mufakat",
+      "desa": "Desa Sumber Mufakat",
+      "sp2kpId": "kr",
+      "pengelola": "Bu Tarigan",
+      "lat": 3.095,
+      "lng": 98.515,
+      "stokPaket": 34,
+      "paketBulanIni": 153,
+      "paketHariIni": 16,
+      "stokMin": 15
+    },
+    {
+      "id": "kr-5",
+      "nama": "WP Rumah Berastagi",
+      "desa": "Desa Rumah Berastagi",
+      "sp2kpId": "kr",
+      "pengelola": "Pak Bangun",
+      "lat": 3.185,
+      "lng": 98.51,
+      "stokPaket": 0,
+      "paketBulanIni": 120,
+      "paketHariIni": 13,
+      "stokMin": 15
+    }
+  ],
+  "distributor": [
+    {
+      "id": "f1",
+      "nama": "PT Mitra Sawit Nusantara",
+      "kota": "Refinery Belawan, Medan",
+      "produk": "Minyak goreng sawit",
+      "lat": 3.776,
+      "lng": 98.683,
+      "kontak": "Hendra"
+    },
+    {
+      "id": "f2",
+      "nama": "PT Pangan Sumut Lestari",
+      "kota": "KIM Mabar, Medan",
+      "produk": "Beras",
+      "lat": 3.702,
+      "lng": 98.685,
+      "kontak": "Lina"
+    },
+    {
+      "id": "f3",
+      "nama": "PT Gula Manis Sumut",
+      "kota": "Binjai",
+      "produk": "Gula pasir",
+      "lat": 3.6,
+      "lng": 98.485,
+      "kontak": "Yusuf"
+    },
+    {
+      "id": "f4",
+      "nama": "PT Tepung Makmur",
+      "kota": "Tanjung Morawa",
+      "produk": "Tepung terigu",
+      "lat": 3.523,
+      "lng": 98.788,
+      "kontak": "Bu Sinaga"
+    },
+    {
+      "id": "f5",
+      "nama": "UD Telur Berkah",
+      "kota": "Pancur Batu",
+      "produk": "Telur ayam ras",
+      "lat": 3.46,
+      "lng": 98.62,
+      "kontak": "Pak Simanjuntak"
+    }
+  ],
+  "bahan": [
+    {
+      "id": "beras",
+      "nama": "Beras Medium 5 kg",
+      "satuan": "sak",
+      "hargaBeli": 62000,
+      "distributorId": "f2"
+    },
+    {
+      "id": "minyak",
+      "nama": "Minyak Goreng Sawit 2 L",
+      "satuan": "pouch",
+      "hargaBeli": 34000,
+      "distributorId": "f1"
+    },
+    {
+      "id": "gula",
+      "nama": "Gula Pasir 1 kg",
+      "satuan": "bungkus",
+      "hargaBeli": 17000,
+      "distributorId": "f3"
+    },
+    {
+      "id": "terigu",
+      "nama": "Tepung Terigu 1 kg",
+      "satuan": "bungkus",
+      "hargaBeli": 11500,
+      "distributorId": "f4"
+    },
+    {
+      "id": "telur",
+      "nama": "Telur Ayam Ras 1 kg",
+      "satuan": "kg",
+      "hargaBeli": 26000,
+      "distributorId": "f5"
+    }
+  ],
+  "stokBahanKp": {
+    "ds": {
+      "beras": 392,
+      "minyak": 245,
+      "gula": 401,
+      "terigu": 247,
+      "telur": 310
+    },
+    "mdn": {
+      "beras": 551,
+      "minyak": 595,
+      "gula": 423,
+      "terigu": 140,
+      "telur": 89
+    },
+    "sb": {
+      "beras": 402,
+      "minyak": 175,
+      "gula": 568,
+      "terigu": 228,
+      "telur": 38
+    },
+    "lkt": {
+      "beras": 445,
+      "minyak": 410,
+      "gula": 203,
+      "terigu": 274,
+      "telur": 332
+    },
+    "kr": {
+      "beras": 185,
+      "minyak": 46,
+      "gula": 104,
+      "terigu": 454,
+      "telur": 506
+    }
+  },
+  "barangMasuk": [
+    {
+      "id": "BM-261007-04",
+      "distributorId": "f1",
+      "sp2kpId": "kr",
+      "waktu": "2026-10-07T10:20:00+07:00",
+      "status": "dalam_perjalanan",
+      "items": [
+        {
+          "produkId": "minyak",
+          "qty": 600,
+          "harga": 34000
+        }
+      ],
+      "total": 20400000,
+      "eta": "10.20",
+      "berangkat": "07.10",
+      "plat": "BK 9012 FA",
+      "supir": "Hendra",
+      "progres": 0.65
+    },
+    {
+      "id": "BM-261007-03",
+      "distributorId": "f2",
+      "sp2kpId": "ds",
+      "waktu": "2026-10-07T10:45:00+07:00",
+      "status": "dalam_perjalanan",
+      "items": [
+        {
+          "produkId": "beras",
+          "qty": 400,
+          "harga": 62000
+        }
+      ],
+      "total": 24800000,
+      "eta": "10.45",
+      "berangkat": "09.00",
+      "plat": "BK 1934 PS",
+      "supir": "Lina",
+      "progres": 0.3
+    },
+    {
+      "id": "BM-261007-02",
+      "distributorId": "f5",
+      "sp2kpId": "sb",
+      "waktu": "2026-10-07T08:40:00+07:00",
+      "status": "diterima",
+      "items": [
+        {
+          "produkId": "telur",
+          "qty": 300,
+          "harga": 26000
+        }
+      ],
+      "total": 7800000,
+      "diterimaOleh": "Pak Siregar"
+    },
+    {
+      "id": "BM-261007-01",
+      "distributorId": "f1",
+      "sp2kpId": "mdn",
+      "waktu": "2026-10-07T07:50:00+07:00",
+      "status": "diterima",
+      "items": [
+        {
+          "produkId": "minyak",
+          "qty": 800,
+          "harga": 34000
+        }
+      ],
+      "total": 27200000,
+      "diterimaOleh": "Rudi Hartono"
+    },
+    {
+      "id": "BM-261008-01",
+      "distributorId": "f1",
+      "sp2kpId": "lkt",
+      "waktu": "2026-10-08T08:00:00+07:00",
+      "status": "dipesan",
+      "items": [
+        {
+          "produkId": "minyak",
+          "qty": 500,
+          "harga": 34000
+        }
+      ],
+      "total": 17000000
+    },
+    {
+      "id": "BM-261008-02",
+      "distributorId": "f3",
+      "sp2kpId": "kr",
+      "waktu": "2026-10-08T09:00:00+07:00",
+      "status": "dipesan",
+      "items": [
+        {
+          "produkId": "gula",
+          "qty": 400,
+          "harga": 17000
+        }
+      ],
+      "total": 6800000
+    },
+    {
+      "id": "BM-261006-02",
+      "distributorId": "f4",
+      "sp2kpId": "ds",
+      "waktu": "2026-10-06T13:10:00+07:00",
+      "status": "diterima",
+      "items": [
+        {
+          "produkId": "terigu",
+          "qty": 500,
+          "harga": 11500
+        }
+      ],
+      "total": 5750000,
+      "diterimaOleh": "Sari Dewi"
+    },
+    {
+      "id": "BM-261006-01",
+      "distributorId": "f1",
+      "sp2kpId": "ds",
+      "waktu": "2026-10-06T08:20:00+07:00",
+      "status": "diterima",
+      "items": [
+        {
+          "produkId": "minyak",
+          "qty": 700,
+          "harga": 34000
+        }
+      ],
+      "total": 23800000,
+      "diterimaOleh": "Sari Dewi",
+      "selisih": {
+        "produkId": "minyak",
+        "qty": 6,
+        "catatan": "6 pouch bocor, diretur ke PT Mitra Sawit Nusantara"
+      }
+    },
+    {
+      "id": "BM-261005-01",
+      "distributorId": "f2",
+      "sp2kpId": "lkt",
+      "waktu": "2026-10-05T10:00:00+07:00",
+      "status": "diterima",
+      "items": [
+        {
+          "produkId": "beras",
+          "qty": 450,
+          "harga": 62000
+        }
+      ],
+      "total": 27900000,
+      "diterimaOleh": "Bu Ginting"
+    }
+  ],
+  "kirimanWp": [
+    {
+      "id": "BK-261007-08",
+      "sp2kpId": "kr",
+      "wpId": "kr-2",
+      "waktu": "2026-10-07T09:25:00+07:00",
+      "status": "disiapkan",
+      "paket": 40,
+      "total": 5120000
+    },
+    {
+      "id": "BK-261007-07",
+      "sp2kpId": "ds",
+      "wpId": "ds-4",
+      "waktu": "2026-10-07T09:15:00+07:00",
+      "status": "disiapkan",
+      "paket": 35,
+      "total": 4480000
+    },
+    {
+      "id": "BK-261007-06",
+      "sp2kpId": "mdn",
+      "wpId": "mdn-3",
+      "waktu": "2026-10-07T08:50:00+07:00",
+      "status": "dikirim",
+      "paket": 50,
+      "total": 6400000,
+      "kurir": "Togar",
+      "plat": "BK 8130 UB",
+      "eta": "09.55",
+      "progres": 0.6
+    },
+    {
+      "id": "BK-261007-05",
+      "sp2kpId": "ds",
+      "wpId": "ds-1",
+      "waktu": "2026-10-07T08:30:00+07:00",
+      "status": "dikirim",
+      "paket": 45,
+      "total": 5760000,
+      "kurir": "Andi",
+      "plat": "BK 4821 AK",
+      "eta": "09.40",
+      "progres": 0.75
+    },
+    {
+      "id": "BK-261007-04",
+      "sp2kpId": "lkt",
+      "wpId": "lkt-2",
+      "waktu": "2026-10-07T08:10:00+07:00",
+      "status": "dikirim",
+      "paket": 30,
+      "total": 3840000,
+      "kurir": "Rahmat",
+      "plat": "BK 7710 LK",
+      "eta": "10.05",
+      "progres": 0.4
+    },
+    {
+      "id": "BK-261007-03",
+      "sp2kpId": "sb",
+      "wpId": "sb-1",
+      "waktu": "2026-10-07T07:40:00+07:00",
+      "status": "diterima",
+      "paket": 40,
+      "total": 5120000,
+      "kurir": "Daniel",
+      "plat": "BK 3301 SB",
+      "diterima": "08.20"
+    },
+    {
+      "id": "BK-261007-02",
+      "sp2kpId": "mdn",
+      "wpId": "mdn-1",
+      "waktu": "2026-10-07T07:20:00+07:00",
+      "status": "diterima",
+      "paket": 60,
+      "total": 7680000,
+      "kurir": "Togar",
+      "plat": "BK 8130 UB",
+      "diterima": "07.55"
+    },
+    {
+      "id": "BK-261007-01",
+      "sp2kpId": "ds",
+      "wpId": "ds-3",
+      "waktu": "2026-10-07T07:05:00+07:00",
+      "status": "diterima",
+      "paket": 30,
+      "total": 3840000,
+      "kurir": "Andi",
+      "plat": "BK 4821 AK",
+      "diterima": "07.40"
+    },
+    {
+      "id": "BK-261006-04",
+      "sp2kpId": "kr",
+      "wpId": "kr-5",
+      "waktu": "2026-10-06T13:30:00+07:00",
+      "status": "diterima",
+      "paket": 35,
+      "total": 4480000,
+      "kurir": "Bangun",
+      "plat": "BK 2210 KR",
+      "diterima": "14.30"
+    },
+    {
+      "id": "BK-261006-03",
+      "sp2kpId": "lkt",
+      "wpId": "lkt-4",
+      "waktu": "2026-10-06T10:00:00+07:00",
+      "status": "diterima",
+      "paket": 40,
+      "total": 5120000,
+      "kurir": "Rahmat",
+      "plat": "BK 7710 LK",
+      "diterima": "10.50"
+    }
+  ],
+  "harian30": [
+    {
+      "tanggal": "2026-09-08",
+      "beli": 246,
+      "bantuan": 75,
+      "masuk": 41856000,
+      "keluar": 70950000,
+      "beliDistributor": 68300000,
+      "operasional": 2650000,
+      "danaProgram": 0
+    },
+    {
+      "tanggal": "2026-09-09",
+      "beli": 236,
+      "bantuan": 70,
+      "masuk": 36736000,
+      "keluar": 3580000,
+      "beliDistributor": 0,
+      "operasional": 3580000,
+      "danaProgram": 0
+    },
+    {
+      "tanggal": "2026-09-10",
+      "beli": 268,
+      "bantuan": 82,
+      "masuk": 45440000,
+      "keluar": 71110000,
+      "beliDistributor": 67700000,
+      "operasional": 3410000,
+      "danaProgram": 0
+    },
+    {
+      "tanggal": "2026-09-11",
+      "beli": 291,
+      "bantuan": 87,
+      "masuk": 50688000,
+      "keluar": 2950000,
+      "beliDistributor": 0,
+      "operasional": 2950000,
+      "danaProgram": 0
+    },
+    {
+      "tanggal": "2026-09-12",
+      "beli": 245,
+      "bantuan": 84,
+      "masuk": 39936000,
+      "keluar": 67050000,
+      "beliDistributor": 64400000,
+      "operasional": 2650000,
+      "danaProgram": 0
+    },
+    {
+      "tanggal": "2026-09-13",
+      "beli": 108,
+      "bantuan": 31,
+      "masuk": 19200000,
+      "keluar": 0,
+      "beliDistributor": 0,
+      "operasional": 0,
+      "danaProgram": 0
+    },
+    {
+      "tanggal": "2026-09-14",
+      "beli": 289,
+      "bantuan": 110,
+      "masuk": 49152000,
+      "keluar": 62760000,
+      "beliDistributor": 59700000,
+      "operasional": 3060000,
+      "danaProgram": 0
+    },
+    {
+      "tanggal": "2026-09-15",
+      "beli": 233,
+      "bantuan": 81,
+      "masuk": 39808000,
+      "keluar": 2970000,
+      "beliDistributor": 0,
+      "operasional": 2970000,
+      "danaProgram": 0
+    },
+    {
+      "tanggal": "2026-09-16",
+      "beli": 302,
+      "bantuan": 99,
+      "masuk": 53248000,
+      "keluar": 49820000,
+      "beliDistributor": 47400000,
+      "operasional": 2420000,
+      "danaProgram": 0
+    },
+    {
+      "tanggal": "2026-09-17",
+      "beli": 309,
+      "bantuan": 76,
+      "masuk": 51456000,
+      "keluar": 2370000,
+      "beliDistributor": 0,
+      "operasional": 2370000,
+      "danaProgram": 0
+    },
+    {
+      "tanggal": "2026-09-18",
+      "beli": 286,
+      "bantuan": 98,
+      "masuk": 52736000,
+      "keluar": 64120000,
+      "beliDistributor": 61900000,
+      "operasional": 2220000,
+      "danaProgram": 0
+    },
+    {
+      "tanggal": "2026-09-19",
+      "beli": 294,
+      "bantuan": 97,
+      "masuk": 54656000,
+      "keluar": 3260000,
+      "beliDistributor": 0,
+      "operasional": 3260000,
+      "danaProgram": 0
+    },
+    {
+      "tanggal": "2026-09-20",
+      "beli": 108,
+      "bantuan": 28,
+      "masuk": 18048000,
+      "keluar": 0,
+      "beliDistributor": 0,
+      "operasional": 0,
+      "danaProgram": 0
+    },
+    {
+      "tanggal": "2026-09-21",
+      "beli": 247,
+      "bantuan": 106,
+      "masuk": 44288000,
+      "keluar": 3060000,
+      "beliDistributor": 0,
+      "operasional": 3060000,
+      "danaProgram": 0
+    },
+    {
+      "tanggal": "2026-09-22",
+      "beli": 244,
+      "bantuan": 92,
+      "masuk": 45056000,
+      "keluar": 43260000,
+      "beliDistributor": 40800000,
+      "operasional": 2460000,
+      "danaProgram": 0
+    },
+    {
+      "tanggal": "2026-09-23",
+      "beli": 260,
+      "bantuan": 99,
+      "masuk": 49920000,
+      "keluar": 3280000,
+      "beliDistributor": 0,
+      "operasional": 3280000,
+      "danaProgram": 0
+    },
+    {
+      "tanggal": "2026-09-24",
+      "beli": 319,
+      "bantuan": 89,
+      "masuk": 57472000,
+      "keluar": 47690000,
+      "beliDistributor": 45400000,
+      "operasional": 2290000,
+      "danaProgram": 0
+    },
+    {
+      "tanggal": "2026-09-25",
+      "beli": 280,
+      "bantuan": 77,
+      "masuk": 43008000,
+      "keluar": 3270000,
+      "beliDistributor": 0,
+      "operasional": 3270000,
+      "danaProgram": 0
+    },
+    {
+      "tanggal": "2026-09-26",
+      "beli": 280,
+      "bantuan": 100,
+      "masuk": 53120000,
+      "keluar": 70210000,
+      "beliDistributor": 67000000,
+      "operasional": 3210000,
+      "danaProgram": 0
+    },
+    {
+      "tanggal": "2026-09-27",
+      "beli": 83,
+      "bantuan": 31,
+      "masuk": 14208000,
+      "keluar": 0,
+      "beliDistributor": 0,
+      "operasional": 0,
+      "danaProgram": 0
+    },
+    {
+      "tanggal": "2026-09-28",
+      "beli": 259,
+      "bantuan": 108,
+      "masuk": 42240000,
+      "keluar": 43590000,
+      "beliDistributor": 40900000,
+      "operasional": 2690000,
+      "danaProgram": 0
+    },
+    {
+      "tanggal": "2026-09-29",
+      "beli": 260,
+      "bantuan": 106,
+      "masuk": 50432000,
+      "keluar": 3100000,
+      "beliDistributor": 0,
+      "operasional": 3100000,
+      "danaProgram": 0
+    },
+    {
+      "tanggal": "2026-09-30",
+      "beli": 306,
+      "bantuan": 78,
+      "masuk": 52992000,
+      "keluar": 68800000,
+      "beliDistributor": 66200000,
+      "operasional": 2600000,
+      "danaProgram": 0
+    },
+    {
+      "tanggal": "2026-10-01",
+      "beli": 270,
+      "bantuan": 93,
+      "masuk": 223520000,
+      "keluar": 2340000,
+      "beliDistributor": 0,
+      "operasional": 2340000,
+      "danaProgram": 180000000
+    },
+    {
+      "tanggal": "2026-10-02",
+      "beli": 272,
+      "bantuan": 71,
+      "masuk": 40576000,
+      "keluar": 60600000,
+      "beliDistributor": 57400000,
+      "operasional": 3200000,
+      "danaProgram": 0
+    },
+    {
+      "tanggal": "2026-10-03",
+      "beli": 248,
+      "bantuan": 109,
+      "masuk": 43648000,
+      "keluar": 3110000,
+      "beliDistributor": 0,
+      "operasional": 3110000,
+      "danaProgram": 0
+    },
+    {
+      "tanggal": "2026-10-04",
+      "beli": 82,
+      "bantuan": 27,
+      "masuk": 13952000,
+      "keluar": 0,
+      "beliDistributor": 0,
+      "operasional": 0,
+      "danaProgram": 0
+    },
+    {
+      "tanggal": "2026-10-05",
+      "beli": 266,
+      "bantuan": 103,
+      "masuk": 48000000,
+      "keluar": 2850000,
+      "beliDistributor": 0,
+      "operasional": 2850000,
+      "danaProgram": 0
+    },
+    {
+      "tanggal": "2026-10-06",
+      "beli": 259,
+      "bantuan": 72,
+      "masuk": 38784000,
+      "keluar": 74510000,
+      "beliDistributor": 72100000,
+      "operasional": 2410000,
+      "danaProgram": 0
+    },
+    {
+      "tanggal": "2026-10-07",
+      "beli": 223,
+      "bantuan": 70,
+      "masuk": 20096000,
+      "keluar": 2850000,
+      "beliDistributor": 0,
+      "operasional": 2850000,
+      "danaProgram": 0
+    }
+  ],
+  "kategoriTransaksi": {
+    "setoran": {
+      "label": "Setoran paket dari WP",
+      "arah": "masuk"
+    },
+    "dana": {
+      "label": "Dana program bantuan",
+      "arah": "masuk"
+    },
+    "pembelian": {
+      "label": "Bayar distributor",
+      "arah": "keluar"
+    },
+    "operasional": {
+      "label": "Operasional distribusi",
+      "arah": "keluar"
+    }
+  },
+  "transaksi": [
+    {
+      "id": "T-118",
+      "waktu": "2026-10-07T09:10:00+07:00",
+      "kategori": "operasional",
+      "arah": "keluar",
+      "nominal": 1250000,
+      "ket": "BBM armada Kantong Pangan Deli Serdang & Medan"
+    },
+    {
+      "id": "T-117",
+      "waktu": "2026-10-07T08:25:00+07:00",
+      "kategori": "setoran",
+      "arah": "masuk",
+      "nominal": 7680000,
+      "ket": "WP Kwala Bekala · Kantong Pangan Kota Medan"
+    },
+    {
+      "id": "T-116",
+      "waktu": "2026-10-07T08:20:00+07:00",
+      "kategori": "setoran",
+      "arah": "masuk",
+      "nominal": 5120000,
+      "ket": "WP Firdaus · Kantong Pangan Serdang Bedagai"
+    },
+    {
+      "id": "T-115",
+      "waktu": "2026-10-07T07:45:00+07:00",
+      "kategori": "setoran",
+      "arah": "masuk",
+      "nominal": 3840000,
+      "ket": "WP Tanjung Garbus · Kantong Pangan Deli Serdang"
+    },
+    {
+      "id": "T-114",
+      "waktu": "2026-10-07T07:30:00+07:00",
+      "kategori": "operasional",
+      "arah": "keluar",
+      "nominal": 1600000,
+      "ket": "Bongkar muat 5 gudang Kantong Pangan"
+    },
+    {
+      "id": "T-113",
+      "waktu": "2026-10-06T16:00:00+07:00",
+      "kategori": "pembelian",
+      "arah": "keluar",
+      "nominal": 23800000,
+      "ket": "PT Mitra Sawit Nusantara · minyak goreng 700 pouch"
+    },
+    {
+      "id": "T-112",
+      "waktu": "2026-10-06T15:10:00+07:00",
+      "kategori": "pembelian",
+      "arah": "keluar",
+      "nominal": 5750000,
+      "ket": "PT Tepung Makmur · terigu 500 bungkus"
+    },
+    {
+      "id": "T-111",
+      "waktu": "2026-10-06T14:40:00+07:00",
+      "kategori": "setoran",
+      "arah": "masuk",
+      "nominal": 4480000,
+      "ket": "WP Rumah Berastagi · Kantong Pangan Karo"
+    },
+    {
+      "id": "T-110",
+      "waktu": "2026-10-05T11:00:00+07:00",
+      "kategori": "pembelian",
+      "arah": "keluar",
+      "nominal": 27900000,
+      "ket": "PT Pangan Sumut Lestari · beras 450 sak"
+    },
+    {
+      "id": "T-109",
+      "waktu": "2026-10-01T09:00:00+07:00",
+      "kategori": "dana",
+      "arah": "masuk",
+      "nominal": 180000000,
+      "ket": "Dana program bantuan paket sembako Oktober"
+    }
+  ],
+  "wilayahHarga": [
+    {
+      "id": "sumut",
+      "nama": "Sumut"
+    },
+    {
+      "id": "ds",
+      "nama": "Deli Serdang"
+    },
+    {
+      "id": "mdn",
+      "nama": "Kota Medan"
+    },
+    {
+      "id": "sb",
+      "nama": "Serdang Bedagai"
+    },
+    {
+      "id": "lkt",
+      "nama": "Langkat"
+    },
+    {
+      "id": "kr",
+      "nama": "Karo"
+    }
+  ],
+  "komoditas": [
+    {
+      "id": "beras-medium",
+      "nama": "Beras Medium",
+      "satuan": "kg",
+      "nasional": 14037,
+      "ref": {
+        "jenis": "HET",
+        "nilai": 14000
+      },
+      "harga": {
+        "sumut": {
+          "hariIni": 13900,
+          "kemarin": 13850
+        },
+        "ds": {
+          "hariIni": 14100,
+          "kemarin": 14049
+        },
+        "mdn": {
+          "hariIni": 13950,
+          "kemarin": 13900
+        },
+        "sb": {
+          "hariIni": 13500,
+          "kemarin": 13451
+        },
+        "lkt": {
+          "hariIni": 13850,
+          "kemarin": 13800
+        },
+        "kr": {
+          "hariIni": 14450,
+          "kemarin": 14398
+        }
+      }
+    },
+    {
+      "id": "beras-premium",
+      "nama": "Beras Premium",
+      "satuan": "kg",
+      "nasional": 15704,
+      "ref": {
+        "jenis": "HET",
+        "nilai": 15400
+      },
+      "harga": {
+        "sumut": {
+          "hariIni": 15400,
+          "kemarin": 15350
+        },
+        "ds": {
+          "hariIni": 15300,
+          "kemarin": 15250
+        },
+        "mdn": {
+          "hariIni": 15850,
+          "kemarin": 15799
+        },
+        "sb": {
+          "hariIni": 15300,
+          "kemarin": 15250
+        },
+        "lkt": {
+          "hariIni": 15400,
+          "kemarin": 15350
+        },
+        "kr": {
+          "hariIni": 15600,
+          "kemarin": 15549
+        }
+      }
+    },
+    {
+      "id": "gula",
+      "nama": "Gula Pasir Curah",
+      "satuan": "kg",
+      "nasional": 18380,
+      "ref": {
+        "jenis": "HA",
+        "nilai": 18500
+      },
+      "harga": {
+        "sumut": {
+          "hariIni": 18650,
+          "kemarin": 18600
+        },
+        "ds": {
+          "hariIni": 19000,
+          "kemarin": 18949
+        },
+        "mdn": {
+          "hariIni": 19200,
+          "kemarin": 19149
+        },
+        "sb": {
+          "hariIni": 18050,
+          "kemarin": 18002
+        },
+        "lkt": {
+          "hariIni": 19000,
+          "kemarin": 18949
+        },
+        "kr": {
+          "hariIni": 18750,
+          "kemarin": 18700
+        }
+      }
+    },
+    {
+      "id": "minyak-premium",
+      "nama": "Minyak Goreng Sawit Kemasan Premium",
+      "satuan": "lt",
+      "nasional": 22564,
+      "ref": null,
+      "harga": {
+        "sumut": {
+          "hariIni": 21750,
+          "kemarin": 21800
+        },
+        "ds": {
+          "hariIni": 22150,
+          "kemarin": 22201
+        },
+        "mdn": {
+          "hariIni": 21650,
+          "kemarin": 21700
+        },
+        "sb": {
+          "hariIni": 21300,
+          "kemarin": 21349
+        },
+        "lkt": {
+          "hariIni": 22150,
+          "kemarin": 22201
+        },
+        "kr": {
+          "hariIni": 21900,
+          "kemarin": 21950
+        }
+      }
+    },
+    {
+      "id": "minyak-curah",
+      "nama": "Minyak Goreng Sawit Curah",
+      "satuan": "lt",
+      "nasional": 19526,
+      "ref": {
+        "jenis": "HA",
+        "nilai": 17500
+      },
+      "harga": {
+        "sumut": {
+          "hariIni": 18850,
+          "kemarin": 18900
+        },
+        "ds": {
+          "hariIni": 18600,
+          "kemarin": 18649
+        },
+        "mdn": {
+          "hariIni": 19100,
+          "kemarin": 19151
+        },
+        "sb": {
+          "hariIni": 18750,
+          "kemarin": 18800
+        },
+        "lkt": {
+          "hariIni": 18600,
+          "kemarin": 18649
+        },
+        "kr": {
+          "hariIni": 18900,
+          "kemarin": 18950
+        }
+      }
+    },
+    {
+      "id": "minyakita",
+      "nama": "Minyakita",
+      "satuan": "lt",
+      "nasional": 15856,
+      "ref": {
+        "jenis": "HET",
+        "nilai": 15700
+      },
+      "harga": {
+        "sumut": {
+          "hariIni": 15900,
+          "kemarin": 15950
+        },
+        "ds": {
+          "hariIni": 16000,
+          "kemarin": 16050
+        },
+        "mdn": {
+          "hariIni": 16000,
+          "kemarin": 16050
+        },
+        "sb": {
+          "hariIni": 15650,
+          "kemarin": 15699
+        },
+        "lkt": {
+          "hariIni": 15800,
+          "kemarin": 15850
+        },
+        "kr": {
+          "hariIni": 16600,
+          "kemarin": 16652
+        }
+      }
+    },
+    {
+      "id": "sapi",
+      "nama": "Daging Sapi Paha Belakang",
+      "satuan": "kg",
+      "nasional": 144157,
+      "ref": {
+        "jenis": "HA",
+        "nilai": 140000
+      },
+      "harga": {
+        "sumut": {
+          "hariIni": 139500,
+          "kemarin": 139500
+        },
+        "ds": {
+          "hariIni": 139000,
+          "kemarin": 139000
+        },
+        "mdn": {
+          "hariIni": 139000,
+          "kemarin": 139000
+        },
+        "sb": {
+          "hariIni": 135500,
+          "kemarin": 135500
+        },
+        "lkt": {
+          "hariIni": 141500,
+          "kemarin": 141500
+        },
+        "kr": {
+          "hariIni": 142000,
+          "kemarin": 142000
+        }
+      }
+    },
+    {
+      "id": "ayam",
+      "nama": "Daging Ayam Ras",
+      "satuan": "kg",
+      "nasional": 40126,
+      "ref": {
+        "jenis": "HA",
+        "nilai": 40000
+      },
+      "harga": {
+        "sumut": {
+          "hariIni": 36500,
+          "kemarin": 36800
+        },
+        "ds": {
+          "hariIni": 35500,
+          "kemarin": 35792
+        },
+        "mdn": {
+          "hariIni": 37000,
+          "kemarin": 37304
+        },
+        "sb": {
+          "hariIni": 35500,
+          "kemarin": 35792
+        },
+        "lkt": {
+          "hariIni": 37000,
+          "kemarin": 37304
+        },
+        "kr": {
+          "hariIni": 38000,
+          "kemarin": 38312
+        }
+      }
+    },
+    {
+      "id": "telur",
+      "nama": "Telur Ayam Ras",
+      "satuan": "kg",
+      "nasional": 26739,
+      "ref": {
+        "jenis": "HA",
+        "nilai": 30000
+      },
+      "harga": {
+        "sumut": {
+          "hariIni": 27300,
+          "kemarin": 27400
+        },
+        "ds": {
+          "hariIni": 27750,
+          "kemarin": 27852
+        },
+        "mdn": {
+          "hariIni": 27350,
+          "kemarin": 27450
+        },
+        "sb": {
+          "hariIni": 27550,
+          "kemarin": 27651
+        },
+        "lkt": {
+          "hariIni": 27150,
+          "kemarin": 27249
+        },
+        "kr": {
+          "hariIni": 28050,
+          "kemarin": 28153
+        }
+      }
+    },
+    {
+      "id": "terigu",
+      "nama": "Tepung Terigu",
+      "satuan": "kg",
+      "nasional": 12545,
+      "ref": null,
+      "harga": {
+        "sumut": {
+          "hariIni": 12100,
+          "kemarin": 12100
+        },
+        "ds": {
+          "hariIni": 12350,
+          "kemarin": 12350
+        },
+        "mdn": {
+          "hariIni": 12250,
+          "kemarin": 12250
+        },
+        "sb": {
+          "hariIni": 12050,
+          "kemarin": 12050
+        },
+        "lkt": {
+          "hariIni": 12200,
+          "kemarin": 12200
+        },
+        "kr": {
+          "hariIni": 12150,
+          "kemarin": 12150
+        }
+      }
+    },
+    {
+      "id": "kedelai",
+      "nama": "Kedelai Impor",
+      "satuan": "kg",
+      "nasional": 13756,
+      "ref": {
+        "jenis": "HA",
+        "nilai": 12500
+      },
+      "harga": {
+        "sumut": {
+          "hariIni": 13250,
+          "kemarin": 13200
+        },
+        "ds": {
+          "hariIni": 13300,
+          "kemarin": 13250
+        },
+        "mdn": {
+          "hariIni": 13600,
+          "kemarin": 13549
+        },
+        "sb": {
+          "hariIni": 13200,
+          "kemarin": 13150
+        },
+        "lkt": {
+          "hariIni": 13350,
+          "kemarin": 13300
+        },
+        "kr": {
+          "hariIni": 13550,
+          "kemarin": 13499
+        }
+      }
+    },
+    {
+      "id": "cabai-keriting",
+      "nama": "Cabai Merah Keriting",
+      "satuan": "kg",
+      "nasional": 68814,
+      "ref": {
+        "jenis": "HA",
+        "nilai": 55000
+      },
+      "harga": {
+        "sumut": {
+          "hariIni": 61000,
+          "kemarin": 58500
+        },
+        "ds": {
+          "hariIni": 61500,
+          "kemarin": 58980
+        },
+        "mdn": {
+          "hariIni": 63000,
+          "kemarin": 60418
+        },
+        "sb": {
+          "hariIni": 61000,
+          "kemarin": 58500
+        },
+        "lkt": {
+          "hariIni": 62000,
+          "kemarin": 59459
+        },
+        "kr": {
+          "hariIni": 57500,
+          "kemarin": 55143
+        }
+      }
+    },
+    {
+      "id": "cabai-rawit",
+      "nama": "Cabai Rawit Merah",
+      "satuan": "kg",
+      "nasional": 81225,
+      "ref": {
+        "jenis": "HA",
+        "nilai": 57000
+      },
+      "harga": {
+        "sumut": {
+          "hariIni": 71500,
+          "kemarin": 72000
+        },
+        "ds": {
+          "hariIni": 71500,
+          "kemarin": 72000
+        },
+        "mdn": {
+          "hariIni": 72500,
+          "kemarin": 73007
+        },
+        "sb": {
+          "hariIni": 72000,
+          "kemarin": 72503
+        },
+        "lkt": {
+          "hariIni": 71000,
+          "kemarin": 71497
+        },
+        "kr": {
+          "hariIni": 64500,
+          "kemarin": 64951
+        }
+      }
+    },
+    {
+      "id": "cabai-besar",
+      "nama": "Cabai Merah Besar",
+      "satuan": "kg",
+      "nasional": 58666,
+      "ref": {
+        "jenis": "HA",
+        "nilai": 55000
+      },
+      "harga": {
+        "sumut": {
+          "hariIni": 53500,
+          "kemarin": 52000
+        },
+        "ds": {
+          "hariIni": 52500,
+          "kemarin": 51028
+        },
+        "mdn": {
+          "hariIni": 53500,
+          "kemarin": 52000
+        },
+        "sb": {
+          "hariIni": 53000,
+          "kemarin": 51514
+        },
+        "lkt": {
+          "hariIni": 54500,
+          "kemarin": 52972
+        },
+        "kr": {
+          "hariIni": 48500,
+          "kemarin": 47140
+        }
+      }
+    },
+    {
+      "id": "bawang-merah",
+      "nama": "Bawang Merah",
+      "satuan": "kg",
+      "nasional": 32753,
+      "ref": {
+        "jenis": "HA",
+        "nilai": 41500
+      },
+      "harga": {
+        "sumut": {
+          "hariIni": 34000,
+          "kemarin": 34500
+        },
+        "ds": {
+          "hariIni": 33500,
+          "kemarin": 33993
+        },
+        "mdn": {
+          "hariIni": 35000,
+          "kemarin": 35515
+        },
+        "sb": {
+          "hariIni": 34500,
+          "kemarin": 35007
+        },
+        "lkt": {
+          "hariIni": 34000,
+          "kemarin": 34500
+        },
+        "kr": {
+          "hariIni": 31500,
+          "kemarin": 31963
+        }
+      }
+    },
+    {
+      "id": "bawang-putih",
+      "nama": "Bawang Putih Honan",
+      "satuan": "kg",
+      "nasional": 34542,
+      "ref": {
+        "jenis": "HA",
+        "nilai": 38000
+      },
+      "harga": {
+        "sumut": {
+          "hariIni": 35200,
+          "kemarin": 35200
+        },
+        "ds": {
+          "hariIni": 34500,
+          "kemarin": 34500
+        },
+        "mdn": {
+          "hariIni": 36500,
+          "kemarin": 36500
+        },
+        "sb": {
+          "hariIni": 35500,
+          "kemarin": 35500
+        },
+        "lkt": {
+          "hariIni": 34500,
+          "kemarin": 34500
+        },
+        "kr": {
+          "hariIni": 33000,
+          "kemarin": 33000
+        }
+      }
+    }
+  ],
+  "riwayatHarga30": {
+    "kolom": [
+      "tanggal",
+      "sumut",
+      "nasional"
+    ],
+    "data": {
+      "beras-medium": [
+        [
+          "2026-09-08",
+          13544,
+          13771
+        ],
+        [
+          "2026-09-09",
+          13582,
+          13797
+        ],
+        [
+          "2026-09-10",
+          13587,
+          13802
+        ],
+        [
+          "2026-09-11",
+          13577,
+          13799
+        ],
+        [
+          "2026-09-12",
+          13552,
+          13785
+        ],
+        [
+          "2026-09-13",
+          13567,
+          13797
+        ],
+        [
+          "2026-09-14",
+          13534,
+          13780
+        ],
+        [
+          "2026-09-15",
+          13567,
+          13802
+        ],
+        [
+          "2026-09-16",
+          13612,
+          13832
+        ],
+        [
+          "2026-09-17",
+          13627,
+          13844
+        ],
+        [
+          "2026-09-18",
+          13667,
+          13871
+        ],
+        [
+          "2026-09-19",
+          13702,
+          13895
+        ],
+        [
+          "2026-09-20",
+          13744,
+          13922
+        ],
+        [
+          "2026-09-21",
+          13787,
+          13951
+        ],
+        [
+          "2026-09-22",
+          13792,
+          13957
+        ],
+        [
+          "2026-09-23",
+          13765,
+          13943
+        ],
+        [
+          "2026-09-24",
+          13736,
+          13927
+        ],
+        [
+          "2026-09-25",
+          13776,
+          13955
+        ],
+        [
+          "2026-09-26",
+          13784,
+          13962
+        ],
+        [
+          "2026-09-27",
+          13827,
+          13990
+        ],
+        [
+          "2026-09-28",
+          13792,
+          13971
+        ],
+        [
+          "2026-09-29",
+          13802,
+          13980
+        ],
+        [
+          "2026-09-30",
+          13833,
+          14001
+        ],
+        [
+          "2026-10-01",
+          13839,
+          14007
+        ],
+        [
+          "2026-10-02",
+          13882,
+          14037
+        ],
+        [
+          "2026-10-03",
+          13873,
+          14033
+        ],
+        [
+          "2026-10-04",
+          13858,
+          14027
+        ],
+        [
+          "2026-10-05",
+          13874,
+          14039
+        ],
+        [
+          "2026-10-06",
+          13850,
+          14027
+        ],
+        [
+          "2026-10-07",
+          13900,
+          14037
+        ]
+      ],
+      "beras-premium": [
+        [
+          "2026-09-08",
+          15011,
+          15403
+        ],
+        [
+          "2026-09-09",
+          14983,
+          15388
+        ],
+        [
+          "2026-09-10",
+          14970,
+          15383
+        ],
+        [
+          "2026-09-11",
+          15007,
+          15408
+        ],
+        [
+          "2026-09-12",
+          15007,
+          15411
+        ],
+        [
+          "2026-09-13",
+          15026,
+          15426
+        ],
+        [
+          "2026-09-14",
+          15003,
+          15414
+        ],
+        [
+          "2026-09-15",
+          15004,
+          15418
+        ],
+        [
+          "2026-09-16",
+          15035,
+          15439
+        ],
+        [
+          "2026-09-17",
+          15028,
+          15438
+        ],
+        [
+          "2026-09-18",
+          15035,
+          15445
+        ],
+        [
+          "2026-09-19",
+          15011,
+          15433
+        ],
+        [
+          "2026-09-20",
+          15044,
+          15456
+        ],
+        [
+          "2026-09-21",
+          15056,
+          15466
+        ],
+        [
+          "2026-09-22",
+          15105,
+          15499
+        ],
+        [
+          "2026-09-23",
+          15156,
+          15533
+        ],
+        [
+          "2026-09-24",
+          15198,
+          15562
+        ],
+        [
+          "2026-09-25",
+          15238,
+          15589
+        ],
+        [
+          "2026-09-26",
+          15247,
+          15598
+        ],
+        [
+          "2026-09-27",
+          15289,
+          15626
+        ],
+        [
+          "2026-09-28",
+          15254,
+          15608
+        ],
+        [
+          "2026-09-29",
+          15301,
+          15639
+        ],
+        [
+          "2026-09-30",
+          15289,
+          15635
+        ],
+        [
+          "2026-10-01",
+          15290,
+          15638
+        ],
+        [
+          "2026-10-02",
+          15287,
+          15639
+        ],
+        [
+          "2026-10-03",
+          15296,
+          15647
+        ],
+        [
+          "2026-10-04",
+          15318,
+          15664
+        ],
+        [
+          "2026-10-05",
+          15321,
+          15669
+        ],
+        [
+          "2026-10-06",
+          15350,
+          15689
+        ],
+        [
+          "2026-10-07",
+          15400,
+          15704
+        ]
+      ],
+      "gula": [
+        [
+          "2026-09-08",
+          18166,
+          18024
+        ],
+        [
+          "2026-09-09",
+          18174,
+          18033
+        ],
+        [
+          "2026-09-10",
+          18145,
+          18019
+        ],
+        [
+          "2026-09-11",
+          18195,
+          18052
+        ],
+        [
+          "2026-09-12",
+          18189,
+          18051
+        ],
+        [
+          "2026-09-13",
+          18225,
+          18076
+        ],
+        [
+          "2026-09-14",
+          18248,
+          18093
+        ],
+        [
+          "2026-09-15",
+          18235,
+          18088
+        ],
+        [
+          "2026-09-16",
+          18248,
+          18099
+        ],
+        [
+          "2026-09-17",
+          18231,
+          18092
+        ],
+        [
+          "2026-09-18",
+          18237,
+          18099
+        ],
+        [
+          "2026-09-19",
+          18275,
+          18125
+        ],
+        [
+          "2026-09-20",
+          18326,
+          18159
+        ],
+        [
+          "2026-09-21",
+          18389,
+          18199
+        ],
+        [
+          "2026-09-22",
+          18354,
+          18182
+        ],
+        [
+          "2026-09-23",
+          18389,
+          18206
+        ],
+        [
+          "2026-09-24",
+          18367,
+          18196
+        ],
+        [
+          "2026-09-25",
+          18409,
+          18224
+        ],
+        [
+          "2026-09-26",
+          18453,
+          18254
+        ],
+        [
+          "2026-09-27",
+          18466,
+          18265
+        ],
+        [
+          "2026-09-28",
+          18431,
+          18247
+        ],
+        [
+          "2026-09-29",
+          18431,
+          18251
+        ],
+        [
+          "2026-09-30",
+          18439,
+          18259
+        ],
+        [
+          "2026-10-01",
+          18464,
+          18277
+        ],
+        [
+          "2026-10-02",
+          18526,
+          18317
+        ],
+        [
+          "2026-10-03",
+          18568,
+          18345
+        ],
+        [
+          "2026-10-04",
+          18623,
+          18381
+        ],
+        [
+          "2026-10-05",
+          18622,
+          18383
+        ],
+        [
+          "2026-10-06",
+          18600,
+          18374
+        ],
+        [
+          "2026-10-07",
+          18650,
+          18380
+        ]
+      ],
+      "minyak-premium": [
+        [
+          "2026-09-08",
+          21372,
+          22196
+        ],
+        [
+          "2026-09-09",
+          21418,
+          22229
+        ],
+        [
+          "2026-09-10",
+          21476,
+          22269
+        ],
+        [
+          "2026-09-11",
+          21450,
+          22257
+        ],
+        [
+          "2026-09-12",
+          21449,
+          22260
+        ],
+        [
+          "2026-09-13",
+          21462,
+          22272
+        ],
+        [
+          "2026-09-14",
+          21527,
+          22316
+        ],
+        [
+          "2026-09-15",
+          21534,
+          22325
+        ],
+        [
+          "2026-09-16",
+          21569,
+          22351
+        ],
+        [
+          "2026-09-17",
+          21529,
+          22330
+        ],
+        [
+          "2026-09-18",
+          21510,
+          22322
+        ],
+        [
+          "2026-09-19",
+          21572,
+          22365
+        ],
+        [
+          "2026-09-20",
+          21560,
+          22361
+        ],
+        [
+          "2026-09-21",
+          21538,
+          22351
+        ],
+        [
+          "2026-09-22",
+          21572,
+          22376
+        ],
+        [
+          "2026-09-23",
+          21563,
+          22375
+        ],
+        [
+          "2026-09-24",
+          21577,
+          22388
+        ],
+        [
+          "2026-09-25",
+          21600,
+          22406
+        ],
+        [
+          "2026-09-26",
+          21643,
+          22437
+        ],
+        [
+          "2026-09-27",
+          21618,
+          22425
+        ],
+        [
+          "2026-09-28",
+          21663,
+          22458
+        ],
+        [
+          "2026-09-29",
+          21708,
+          22490
+        ],
+        [
+          "2026-09-30",
+          21726,
+          22505
+        ],
+        [
+          "2026-10-01",
+          21674,
+          22476
+        ],
+        [
+          "2026-10-02",
+          21702,
+          22498
+        ],
+        [
+          "2026-10-03",
+          21738,
+          22524
+        ],
+        [
+          "2026-10-04",
+          21749,
+          22535
+        ],
+        [
+          "2026-10-05",
+          21812,
+          22578
+        ],
+        [
+          "2026-10-06",
+          21800,
+          22575
+        ],
+        [
+          "2026-10-07",
+          21750,
+          22564
+        ]
+      ],
+      "minyak-curah": [
+        [
+          "2026-09-08",
+          18695,
+          19304
+        ],
+        [
+          "2026-09-09",
+          18692,
+          19306
+        ],
+        [
+          "2026-09-10",
+          18742,
+          19340
+        ],
+        [
+          "2026-09-11",
+          18719,
+          19330
+        ],
+        [
+          "2026-09-12",
+          18719,
+          19333
+        ],
+        [
+          "2026-09-13",
+          18746,
+          19353
+        ],
+        [
+          "2026-09-14",
+          18777,
+          19376
+        ],
+        [
+          "2026-09-15",
+          18748,
+          19361
+        ],
+        [
+          "2026-09-16",
+          18752,
+          19368
+        ],
+        [
+          "2026-09-17",
+          18768,
+          19381
+        ],
+        [
+          "2026-09-18",
+          18804,
+          19407
+        ],
+        [
+          "2026-09-19",
+          18822,
+          19421
+        ],
+        [
+          "2026-09-20",
+          18845,
+          19439
+        ],
+        [
+          "2026-09-21",
+          18884,
+          19467
+        ],
+        [
+          "2026-09-22",
+          18897,
+          19478
+        ],
+        [
+          "2026-09-23",
+          18914,
+          19492
+        ],
+        [
+          "2026-09-24",
+          18867,
+          19466
+        ],
+        [
+          "2026-09-25",
+          18908,
+          19495
+        ],
+        [
+          "2026-09-26",
+          18924,
+          19509
+        ],
+        [
+          "2026-09-27",
+          18901,
+          19498
+        ],
+        [
+          "2026-09-28",
+          18879,
+          19488
+        ],
+        [
+          "2026-09-29",
+          18835,
+          19464
+        ],
+        [
+          "2026-09-30",
+          18844,
+          19473
+        ],
+        [
+          "2026-10-01",
+          18827,
+          19466
+        ],
+        [
+          "2026-10-02",
+          18887,
+          19507
+        ],
+        [
+          "2026-10-03",
+          18942,
+          19545
+        ],
+        [
+          "2026-10-04",
+          18943,
+          19549
+        ],
+        [
+          "2026-10-05",
+          18948,
+          19555
+        ],
+        [
+          "2026-10-06",
+          18900,
+          19529
+        ],
+        [
+          "2026-10-07",
+          18850,
+          19526
+        ]
+      ],
+      "minyakita": [
+        [
+          "2026-09-08",
+          16017,
+          15826
+        ],
+        [
+          "2026-09-09",
+          15979,
+          15806
+        ],
+        [
+          "2026-09-10",
+          16028,
+          15839
+        ],
+        [
+          "2026-09-11",
+          16073,
+          15868
+        ],
+        [
+          "2026-09-12",
+          16105,
+          15890
+        ],
+        [
+          "2026-09-13",
+          16069,
+          15871
+        ],
+        [
+          "2026-09-14",
+          16037,
+          15855
+        ],
+        [
+          "2026-09-15",
+          16015,
+          15845
+        ],
+        [
+          "2026-09-16",
+          15980,
+          15827
+        ],
+        [
+          "2026-09-17",
+          15955,
+          15815
+        ],
+        [
+          "2026-09-18",
+          15939,
+          15808
+        ],
+        [
+          "2026-09-19",
+          15907,
+          15792
+        ],
+        [
+          "2026-09-20",
+          15950,
+          15821
+        ],
+        [
+          "2026-09-21",
+          15935,
+          15814
+        ],
+        [
+          "2026-09-22",
+          15960,
+          15832
+        ],
+        [
+          "2026-09-23",
+          15920,
+          15811
+        ],
+        [
+          "2026-09-24",
+          15897,
+          15800
+        ],
+        [
+          "2026-09-25",
+          15922,
+          15818
+        ],
+        [
+          "2026-09-26",
+          15973,
+          15851
+        ],
+        [
+          "2026-09-27",
+          15949,
+          15840
+        ],
+        [
+          "2026-09-28",
+          15968,
+          15854
+        ],
+        [
+          "2026-09-29",
+          15954,
+          15848
+        ],
+        [
+          "2026-09-30",
+          15994,
+          15875
+        ],
+        [
+          "2026-10-01",
+          15981,
+          15870
+        ],
+        [
+          "2026-10-02",
+          15956,
+          15858
+        ],
+        [
+          "2026-10-03",
+          15986,
+          15879
+        ],
+        [
+          "2026-10-04",
+          16013,
+          15898
+        ],
+        [
+          "2026-10-05",
+          15988,
+          15886
+        ],
+        [
+          "2026-10-06",
+          15950,
+          15866
+        ],
+        [
+          "2026-10-07",
+          15900,
+          15856
+        ]
+      ],
+      "sapi": [
+        [
+          "2026-09-08",
+          138608,
+          142892
+        ],
+        [
+          "2026-09-09",
+          138449,
+          142819
+        ],
+        [
+          "2026-09-10",
+          138216,
+          142700
+        ],
+        [
+          "2026-09-11",
+          138296,
+          142776
+        ],
+        [
+          "2026-09-12",
+          138311,
+          142810
+        ],
+        [
+          "2026-09-13",
+          138196,
+          142765
+        ],
+        [
+          "2026-09-14",
+          138589,
+          143034
+        ],
+        [
+          "2026-09-15",
+          138874,
+          143236
+        ],
+        [
+          "2026-09-16",
+          138591,
+          143087
+        ],
+        [
+          "2026-09-17",
+          139010,
+          143372
+        ],
+        [
+          "2026-09-18",
+          139035,
+          143413
+        ],
+        [
+          "2026-09-19",
+          138784,
+          143283
+        ],
+        [
+          "2026-09-20",
+          138544,
+          143160
+        ],
+        [
+          "2026-09-21",
+          138388,
+          143089
+        ],
+        [
+          "2026-09-22",
+          138614,
+          143255
+        ],
+        [
+          "2026-09-23",
+          138982,
+          143509
+        ],
+        [
+          "2026-09-24",
+          139240,
+          143694
+        ],
+        [
+          "2026-09-25",
+          139118,
+          143645
+        ],
+        [
+          "2026-09-26",
+          139128,
+          143677
+        ],
+        [
+          "2026-09-27",
+          139235,
+          143769
+        ],
+        [
+          "2026-09-28",
+          139523,
+          143973
+        ],
+        [
+          "2026-09-29",
+          139812,
+          144178
+        ],
+        [
+          "2026-09-30",
+          139566,
+          144052
+        ],
+        [
+          "2026-10-01",
+          139944,
+          144311
+        ],
+        [
+          "2026-10-02",
+          139619,
+          144136
+        ],
+        [
+          "2026-10-03",
+          139312,
+          143971
+        ],
+        [
+          "2026-10-04",
+          139152,
+          143899
+        ],
+        [
+          "2026-10-05",
+          139337,
+          144039
+        ],
+        [
+          "2026-10-06",
+          139500,
+          144166
+        ],
+        [
+          "2026-10-07",
+          139500,
+          144157
+        ]
+      ],
+      "ayam": [
+        [
+          "2026-09-08",
+          36590,
+          39835
+        ],
+        [
+          "2026-09-09",
+          36608,
+          39854
+        ],
+        [
+          "2026-09-10",
+          36728,
+          39940
+        ],
+        [
+          "2026-09-11",
+          36701,
+          39930
+        ],
+        [
+          "2026-09-12",
+          36609,
+          39876
+        ],
+        [
+          "2026-09-13",
+          36525,
+          39829
+        ],
+        [
+          "2026-09-14",
+          36514,
+          39829
+        ],
+        [
+          "2026-09-15",
+          36562,
+          39867
+        ],
+        [
+          "2026-09-16",
+          36513,
+          39842
+        ],
+        [
+          "2026-09-17",
+          36596,
+          39904
+        ],
+        [
+          "2026-09-18",
+          36586,
+          39904
+        ],
+        [
+          "2026-09-19",
+          36572,
+          39903
+        ],
+        [
+          "2026-09-20",
+          36559,
+          39901
+        ],
+        [
+          "2026-09-21",
+          36517,
+          39880
+        ],
+        [
+          "2026-09-22",
+          36459,
+          39850
+        ],
+        [
+          "2026-09-23",
+          36534,
+          39906
+        ],
+        [
+          "2026-09-24",
+          36638,
+          39982
+        ],
+        [
+          "2026-09-25",
+          36583,
+          39953
+        ],
+        [
+          "2026-09-26",
+          36558,
+          39943
+        ],
+        [
+          "2026-09-27",
+          36524,
+          39928
+        ],
+        [
+          "2026-09-28",
+          36439,
+          39880
+        ],
+        [
+          "2026-09-29",
+          36449,
+          39893
+        ],
+        [
+          "2026-09-30",
+          36524,
+          39950
+        ],
+        [
+          "2026-10-01",
+          36554,
+          39977
+        ],
+        [
+          "2026-10-02",
+          36655,
+          40050
+        ],
+        [
+          "2026-10-03",
+          36689,
+          40080
+        ],
+        [
+          "2026-10-04",
+          36717,
+          40105
+        ],
+        [
+          "2026-10-05",
+          36756,
+          40138
+        ],
+        [
+          "2026-10-06",
+          36800,
+          40174
+        ],
+        [
+          "2026-10-07",
+          36500,
+          40126
+        ]
+      ],
+      "telur": [
+        [
+          "2026-09-08",
+          27026,
+          26442
+        ],
+        [
+          "2026-09-09",
+          27048,
+          26459
+        ],
+        [
+          "2026-09-10",
+          27046,
+          26463
+        ],
+        [
+          "2026-09-11",
+          27049,
+          26469
+        ],
+        [
+          "2026-09-12",
+          27047,
+          26473
+        ],
+        [
+          "2026-09-13",
+          26983,
+          26440
+        ],
+        [
+          "2026-09-14",
+          26987,
+          26447
+        ],
+        [
+          "2026-09-15",
+          26991,
+          26455
+        ],
+        [
+          "2026-09-16",
+          27019,
+          26476
+        ],
+        [
+          "2026-09-17",
+          27057,
+          26502
+        ],
+        [
+          "2026-09-18",
+          27041,
+          26498
+        ],
+        [
+          "2026-09-19",
+          27060,
+          26514
+        ],
+        [
+          "2026-09-20",
+          27050,
+          26513
+        ],
+        [
+          "2026-09-21",
+          27007,
+          26493
+        ],
+        [
+          "2026-09-22",
+          26952,
+          26464
+        ],
+        [
+          "2026-09-23",
+          27014,
+          26506
+        ],
+        [
+          "2026-09-24",
+          27098,
+          26560
+        ],
+        [
+          "2026-09-25",
+          27085,
+          26557
+        ],
+        [
+          "2026-09-26",
+          27169,
+          26611
+        ],
+        [
+          "2026-09-27",
+          27258,
+          26669
+        ],
+        [
+          "2026-09-28",
+          27305,
+          26701
+        ],
+        [
+          "2026-09-29",
+          27335,
+          26723
+        ],
+        [
+          "2026-09-30",
+          27322,
+          26721
+        ],
+        [
+          "2026-10-01",
+          27261,
+          26689
+        ],
+        [
+          "2026-10-02",
+          27196,
+          26656
+        ],
+        [
+          "2026-10-03",
+          27237,
+          26685
+        ],
+        [
+          "2026-10-04",
+          27323,
+          26740
+        ],
+        [
+          "2026-10-05",
+          27363,
+          26768
+        ],
+        [
+          "2026-10-06",
+          27400,
+          26795
+        ],
+        [
+          "2026-10-07",
+          27300,
+          26739
+        ]
+      ],
+      "terigu": [
+        [
+          "2026-09-08",
+          12076,
+          12455
+        ],
+        [
+          "2026-09-09",
+          12047,
+          12439
+        ],
+        [
+          "2026-09-10",
+          12046,
+          12441
+        ],
+        [
+          "2026-09-11",
+          12051,
+          12447
+        ],
+        [
+          "2026-09-12",
+          12072,
+          12462
+        ],
+        [
+          "2026-09-13",
+          12069,
+          12462
+        ],
+        [
+          "2026-09-14",
+          12110,
+          12489
+        ],
+        [
+          "2026-09-15",
+          12088,
+          12478
+        ],
+        [
+          "2026-09-16",
+          12110,
+          12494
+        ],
+        [
+          "2026-09-17",
+          12093,
+          12486
+        ],
+        [
+          "2026-09-18",
+          12083,
+          12482
+        ],
+        [
+          "2026-09-19",
+          12099,
+          12494
+        ],
+        [
+          "2026-09-20",
+          12091,
+          12491
+        ],
+        [
+          "2026-09-21",
+          12093,
+          12495
+        ],
+        [
+          "2026-09-22",
+          12117,
+          12512
+        ],
+        [
+          "2026-09-23",
+          12102,
+          12505
+        ],
+        [
+          "2026-09-24",
+          12107,
+          12510
+        ],
+        [
+          "2026-09-25",
+          12099,
+          12507
+        ],
+        [
+          "2026-09-26",
+          12088,
+          12503
+        ],
+        [
+          "2026-09-27",
+          12058,
+          12487
+        ],
+        [
+          "2026-09-28",
+          12093,
+          12511
+        ],
+        [
+          "2026-09-29",
+          12074,
+          12501
+        ],
+        [
+          "2026-09-30",
+          12081,
+          12508
+        ],
+        [
+          "2026-10-01",
+          12096,
+          12519
+        ],
+        [
+          "2026-10-02",
+          12087,
+          12516
+        ],
+        [
+          "2026-10-03",
+          12090,
+          12520
+        ],
+        [
+          "2026-10-04",
+          12079,
+          12516
+        ],
+        [
+          "2026-10-05",
+          12081,
+          12519
+        ],
+        [
+          "2026-10-06",
+          12100,
+          12533
+        ],
+        [
+          "2026-10-07",
+          12100,
+          12545
+        ]
+      ],
+      "kedelai": [
+        [
+          "2026-09-08",
+          13157,
+          13624
+        ],
+        [
+          "2026-09-09",
+          13182,
+          13642
+        ],
+        [
+          "2026-09-10",
+          13154,
+          13627
+        ],
+        [
+          "2026-09-11",
+          13178,
+          13644
+        ],
+        [
+          "2026-09-12",
+          13173,
+          13643
+        ],
+        [
+          "2026-09-13",
+          13188,
+          13655
+        ],
+        [
+          "2026-09-14",
+          13187,
+          13657
+        ],
+        [
+          "2026-09-15",
+          13161,
+          13643
+        ],
+        [
+          "2026-09-16",
+          13144,
+          13635
+        ],
+        [
+          "2026-09-17",
+          13168,
+          13652
+        ],
+        [
+          "2026-09-18",
+          13142,
+          13639
+        ],
+        [
+          "2026-09-19",
+          13121,
+          13628
+        ],
+        [
+          "2026-09-20",
+          13092,
+          13612
+        ],
+        [
+          "2026-09-21",
+          13108,
+          13625
+        ],
+        [
+          "2026-09-22",
+          13096,
+          13620
+        ],
+        [
+          "2026-09-23",
+          13071,
+          13607
+        ],
+        [
+          "2026-09-24",
+          13087,
+          13619
+        ],
+        [
+          "2026-09-25",
+          13129,
+          13648
+        ],
+        [
+          "2026-09-26",
+          13145,
+          13660
+        ],
+        [
+          "2026-09-27",
+          13161,
+          13673
+        ],
+        [
+          "2026-09-28",
+          13133,
+          13658
+        ],
+        [
+          "2026-09-29",
+          13169,
+          13682
+        ],
+        [
+          "2026-09-30",
+          13149,
+          13673
+        ],
+        [
+          "2026-10-01",
+          13170,
+          13688
+        ],
+        [
+          "2026-10-02",
+          13200,
+          13709
+        ],
+        [
+          "2026-10-03",
+          13232,
+          13732
+        ],
+        [
+          "2026-10-04",
+          13229,
+          13732
+        ],
+        [
+          "2026-10-05",
+          13212,
+          13724
+        ],
+        [
+          "2026-10-06",
+          13200,
+          13719
+        ],
+        [
+          "2026-10-07",
+          13250,
+          13756
+        ]
+      ],
+      "cabai-keriting": [
+        [
+          "2026-09-08",
+          48688,
+          58198
+        ],
+        [
+          "2026-09-09",
+          49082,
+          58568
+        ],
+        [
+          "2026-09-10",
+          48578,
+          58293
+        ],
+        [
+          "2026-09-11",
+          48964,
+          58658
+        ],
+        [
+          "2026-09-12",
+          49676,
+          59257
+        ],
+        [
+          "2026-09-13",
+          50062,
+          59622
+        ],
+        [
+          "2026-09-14",
+          49904,
+          59598
+        ],
+        [
+          "2026-09-15",
+          49632,
+          59492
+        ],
+        [
+          "2026-09-16",
+          50282,
+          60048
+        ],
+        [
+          "2026-09-17",
+          50931,
+          60602
+        ],
+        [
+          "2026-09-18",
+          51060,
+          60785
+        ],
+        [
+          "2026-09-19",
+          51629,
+          61282
+        ],
+        [
+          "2026-09-20",
+          51482,
+          61269
+        ],
+        [
+          "2026-09-21",
+          51824,
+          61606
+        ],
+        [
+          "2026-09-22",
+          52077,
+          61879
+        ],
+        [
+          "2026-09-23",
+          53448,
+          62942
+        ],
+        [
+          "2026-09-24",
+          54069,
+          63475
+        ],
+        [
+          "2026-09-25",
+          53643,
+          63268
+        ],
+        [
+          "2026-09-26",
+          54521,
+          63982
+        ],
+        [
+          "2026-09-27",
+          53903,
+          63640
+        ],
+        [
+          "2026-09-28",
+          54373,
+          64068
+        ],
+        [
+          "2026-09-29",
+          55502,
+          64958
+        ],
+        [
+          "2026-09-30",
+          56982,
+          66088
+        ],
+        [
+          "2026-10-01",
+          56121,
+          65582
+        ],
+        [
+          "2026-10-02",
+          57377,
+          66556
+        ],
+        [
+          "2026-10-03",
+          57500,
+          66742
+        ],
+        [
+          "2026-10-04",
+          58922,
+          67826
+        ],
+        [
+          "2026-10-05",
+          58967,
+          67959
+        ],
+        [
+          "2026-10-06",
+          58500,
+          67736
+        ],
+        [
+          "2026-10-07",
+          61000,
+          68814
+        ]
+      ],
+      "cabai-rawit": [
+        [
+          "2026-09-08",
+          64785,
+          73230
+        ],
+        [
+          "2026-09-09",
+          65518,
+          73837
+        ],
+        [
+          "2026-09-10",
+          65528,
+          73955
+        ],
+        [
+          "2026-09-11",
+          67256,
+          75227
+        ],
+        [
+          "2026-09-12",
+          66771,
+          75013
+        ],
+        [
+          "2026-09-13",
+          66727,
+          75096
+        ],
+        [
+          "2026-09-14",
+          65900,
+          74646
+        ],
+        [
+          "2026-09-15",
+          67077,
+          75555
+        ],
+        [
+          "2026-09-16",
+          66418,
+          75219
+        ],
+        [
+          "2026-09-17",
+          65399,
+          74634
+        ],
+        [
+          "2026-09-18",
+          65863,
+          75064
+        ],
+        [
+          "2026-09-19",
+          66914,
+          75893
+        ],
+        [
+          "2026-09-20",
+          66286,
+          75577
+        ],
+        [
+          "2026-09-21",
+          68053,
+          76890
+        ],
+        [
+          "2026-09-22",
+          68325,
+          77190
+        ],
+        [
+          "2026-09-23",
+          67508,
+          76747
+        ],
+        [
+          "2026-09-24",
+          67839,
+          77089
+        ],
+        [
+          "2026-09-25",
+          66897,
+          76557
+        ],
+        [
+          "2026-09-26",
+          67844,
+          77320
+        ],
+        [
+          "2026-09-27",
+          67530,
+          77221
+        ],
+        [
+          "2026-09-28",
+          68367,
+          77910
+        ],
+        [
+          "2026-09-29",
+          66989,
+          77074
+        ],
+        [
+          "2026-09-30",
+          66992,
+          77192
+        ],
+        [
+          "2026-10-01",
+          68363,
+          78251
+        ],
+        [
+          "2026-10-02",
+          68230,
+          78277
+        ],
+        [
+          "2026-10-03",
+          68262,
+          78417
+        ],
+        [
+          "2026-10-04",
+          69178,
+          79164
+        ],
+        [
+          "2026-10-05",
+          69950,
+          79813
+        ],
+        [
+          "2026-10-06",
+          72000,
+          81324
+        ],
+        [
+          "2026-10-07",
+          71500,
+          81225
+        ]
+      ],
+      "cabai-besar": [
+        [
+          "2026-09-08",
+          49196,
+          53675
+        ],
+        [
+          "2026-09-09",
+          50228,
+          54428
+        ],
+        [
+          "2026-09-10",
+          50632,
+          54772
+        ],
+        [
+          "2026-09-11",
+          49742,
+          54271
+        ],
+        [
+          "2026-09-12",
+          50798,
+          55040
+        ],
+        [
+          "2026-09-13",
+          52213,
+          56035
+        ],
+        [
+          "2026-09-14",
+          51391,
+          55585
+        ],
+        [
+          "2026-09-15",
+          51253,
+          55578
+        ],
+        [
+          "2026-09-16",
+          51690,
+          55946
+        ],
+        [
+          "2026-09-17",
+          50721,
+          55394
+        ],
+        [
+          "2026-09-18",
+          50477,
+          55317
+        ],
+        [
+          "2026-09-19",
+          50107,
+          55155
+        ],
+        [
+          "2026-09-20",
+          51493,
+          56146
+        ],
+        [
+          "2026-09-21",
+          52602,
+          56952
+        ],
+        [
+          "2026-09-22",
+          51595,
+          56376
+        ],
+        [
+          "2026-09-23",
+          50670,
+          55848
+        ],
+        [
+          "2026-09-24",
+          51000,
+          56150
+        ],
+        [
+          "2026-09-25",
+          50775,
+          56085
+        ],
+        [
+          "2026-09-26",
+          51192,
+          56446
+        ],
+        [
+          "2026-09-27",
+          50324,
+          55951
+        ],
+        [
+          "2026-09-28",
+          51287,
+          56674
+        ],
+        [
+          "2026-09-29",
+          50330,
+          56118
+        ],
+        [
+          "2026-09-30",
+          50495,
+          56314
+        ],
+        [
+          "2026-10-01",
+          50662,
+          56510
+        ],
+        [
+          "2026-10-02",
+          51358,
+          57059
+        ],
+        [
+          "2026-10-03",
+          51904,
+          57509
+        ],
+        [
+          "2026-10-04",
+          52456,
+          57962
+        ],
+        [
+          "2026-10-05",
+          51537,
+          57434
+        ],
+        [
+          "2026-10-06",
+          52000,
+          57829
+        ],
+        [
+          "2026-10-07",
+          53500,
+          58666
+        ]
+      ],
+      "bawang-merah": [
+        [
+          "2026-09-08",
+          31670,
+          30602
+        ],
+        [
+          "2026-09-09",
+          32098,
+          30871
+        ],
+        [
+          "2026-09-10",
+          32199,
+          30951
+        ],
+        [
+          "2026-09-11",
+          31920,
+          30812
+        ],
+        [
+          "2026-09-12",
+          32022,
+          30893
+        ],
+        [
+          "2026-09-13",
+          32131,
+          30979
+        ],
+        [
+          "2026-09-14",
+          32347,
+          31126
+        ],
+        [
+          "2026-09-15",
+          32752,
+          31381
+        ],
+        [
+          "2026-09-16",
+          32442,
+          31225
+        ],
+        [
+          "2026-09-17",
+          32551,
+          31310
+        ],
+        [
+          "2026-09-18",
+          32991,
+          31585
+        ],
+        [
+          "2026-09-19",
+          32683,
+          31430
+        ],
+        [
+          "2026-09-20",
+          32508,
+          31352
+        ],
+        [
+          "2026-09-21",
+          32445,
+          31337
+        ],
+        [
+          "2026-09-22",
+          32280,
+          31264
+        ],
+        [
+          "2026-09-23",
+          31973,
+          31107
+        ],
+        [
+          "2026-09-24",
+          31686,
+          30961
+        ],
+        [
+          "2026-09-25",
+          31970,
+          31150
+        ],
+        [
+          "2026-09-26",
+          31955,
+          31164
+        ],
+        [
+          "2026-09-27",
+          32377,
+          31432
+        ],
+        [
+          "2026-09-28",
+          32682,
+          31632
+        ],
+        [
+          "2026-09-29",
+          32809,
+          31729
+        ],
+        [
+          "2026-09-30",
+          33186,
+          31969
+        ],
+        [
+          "2026-10-01",
+          33637,
+          32252
+        ],
+        [
+          "2026-10-02",
+          34076,
+          32527
+        ],
+        [
+          "2026-10-03",
+          34455,
+          32767
+        ],
+        [
+          "2026-10-04",
+          34419,
+          32770
+        ],
+        [
+          "2026-10-05",
+          34704,
+          32956
+        ],
+        [
+          "2026-10-06",
+          34500,
+          32863
+        ],
+        [
+          "2026-10-07",
+          34000,
+          32753
+        ]
+      ],
+      "bawang-putih": [
+        [
+          "2026-09-08",
+          34273,
+          33373
+        ],
+        [
+          "2026-09-09",
+          34071,
+          33278
+        ],
+        [
+          "2026-09-10",
+          34383,
+          33485
+        ],
+        [
+          "2026-09-11",
+          34050,
+          33313
+        ],
+        [
+          "2026-09-12",
+          34382,
+          33531
+        ],
+        [
+          "2026-09-13",
+          34122,
+          33403
+        ],
+        [
+          "2026-09-14",
+          34256,
+          33506
+        ],
+        [
+          "2026-09-15",
+          34454,
+          33646
+        ],
+        [
+          "2026-09-16",
+          34660,
+          33790
+        ],
+        [
+          "2026-09-17",
+          34391,
+          33657
+        ],
+        [
+          "2026-09-18",
+          34231,
+          33587
+        ],
+        [
+          "2026-09-19",
+          34264,
+          33631
+        ],
+        [
+          "2026-09-20",
+          34169,
+          33599
+        ],
+        [
+          "2026-09-21",
+          33945,
+          33490
+        ],
+        [
+          "2026-09-22",
+          34275,
+          33709
+        ],
+        [
+          "2026-09-23",
+          34509,
+          33871
+        ],
+        [
+          "2026-09-24",
+          34210,
+          33719
+        ],
+        [
+          "2026-09-25",
+          34590,
+          33967
+        ],
+        [
+          "2026-09-26",
+          34874,
+          34158
+        ],
+        [
+          "2026-09-27",
+          34921,
+          34211
+        ],
+        [
+          "2026-09-28",
+          34596,
+          34044
+        ],
+        [
+          "2026-09-29",
+          34759,
+          34164
+        ],
+        [
+          "2026-09-30",
+          35226,
+          34463
+        ],
+        [
+          "2026-10-01",
+          35176,
+          34459
+        ],
+        [
+          "2026-10-02",
+          35041,
+          34404
+        ],
+        [
+          "2026-10-03",
+          35334,
+          34601
+        ],
+        [
+          "2026-10-04",
+          35689,
+          34834
+        ],
+        [
+          "2026-10-05",
+          35500,
+          34748
+        ],
+        [
+          "2026-10-06",
+          35200,
+          34596
+        ],
+        [
+          "2026-10-07",
+          35200,
+          34542
+        ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script src="./demo-switcher.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+body{margin:0;background:var(--body,#ECEDEB);color:var(--ink,#161B17);font-family:'Plus Jakarta Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:var(--ink,#161B17);text-decoration:none}
+a:hover{color:var(--ink,#161B17);text-decoration:underline}
+button,input,select,textarea{font-family:inherit}
+@keyframes sbIn{from{opacity:0;transform:translateX(-24px)}to{opacity:1;transform:none}}@keyframes sbFade{from{opacity:0}to{opacity:1}}@keyframes popIn{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}
+</style>
+</helmet>
+<div style="display:flex;gap:20px;min-width:0;min-height:100vh;padding:{{ rootPad }};background:var(--page,linear-gradient(155deg,#F6F7F5 0%,#F1F2F0 45%,#E4E6E2 100%));color:var(--ink,#161B17);font-size:14px;line-height:1.45">
+  <aside data-screen-label="Sidebar" style="width:248px;flex:none;position:{{ asidePos }};top:{{ asideTop }};left:{{ asideLeft }};z-index:5000;height:{{ asideH }};display:{{ asideDisplay }};animation:{{ asideAnim }};flex-direction:column;gap:12px">
+    <div style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--glass,rgba(255,255,255,0.9));border:1px solid var(--glass-b,rgba(255,255,255,0.95));border-radius:24px;box-shadow:0 1px 2px rgba(22,27,23,0.04),0 8px 24px rgba(22,27,23,0.06)">
+      <img src="uploads/logo-sp2kp.webp" alt="SP2KP" style="background:#FFFFFF;border-radius:8px;padding:3px 6px;box-sizing:content-box;height:28px;width:auto;display:block">
+      <div style="display:flex;flex-direction:column;flex:1;min-width:0;border-left:1px solid var(--line,#E5E7E3);padding-left:10px"><span style="font-size:14px;font-weight:700;line-height:1.25;overflow-wrap:anywhere">PT Mitra Sawit Nusantara</span><span style="font-size:12px;color:var(--ink2,#5E645F)">Distributor</span></div>
+    </div>
+    <div style="flex:1;min-height:0;display:flex;flex-direction:column;padding:6px 12px 14px;background:var(--glass,rgba(255,255,255,0.9));border:1px solid var(--glass-b,rgba(255,255,255,0.95));border-radius:28px;box-shadow:0 1px 2px rgba(22,27,23,0.04),0 8px 24px rgba(22,27,23,0.06)">
+      <nav style="display:flex;flex-direction:column;gap:2px;flex:1;overflow-y:auto;scrollbar-width:none">
+        <span style="font-size:12px;font-weight:600;letter-spacing:0.06em;color:var(--ink2,#5E645F);padding:12px 12px 6px">BERANDA</span><a href="5-01%20Beranda%20Distributor.dc.html" style="display:flex;align-items:center;gap:10px;padding:8px 12px 8px 8px;border-radius:999px;color:var(--ink,#161B17);text-decoration:none" style-hover="background:var(--s2,#F1F2F0);text-decoration:none"><span style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;flex:none;color:var(--ink2,#5E645F)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></span><span style="flex:1">Beranda</span></a>
+        <span style="font-size:12px;font-weight:600;letter-spacing:0.06em;color:var(--ink2,#5E645F);padding:12px 12px 6px">DARI KANTONG PANGAN</span><a href="5-02%20Request%20KP.dc.html" style="display:flex;align-items:center;gap:10px;padding:8px 12px 8px 8px;border-radius:999px;color:var(--ink,#161B17);text-decoration:none" style-hover="background:var(--s2,#F1F2F0);text-decoration:none"><span style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;flex:none;color:var(--ink2,#5E645F)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13h5l2 3h4l2-3h5M5 5h14l2 8v6H3v-6z"></path></svg></span><span style="flex:1">Request KP</span><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:#D64545;color:#FFFFFF;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center">2</span></a>
+        <a href="5-03%20Pengambilan%20Kurir%20KP.dc.html" style="display:flex;align-items:center;gap:10px;padding:8px 12px 8px 8px;border-radius:999px;background:var(--ink,#161B17);color:var(--on-ink,#FFFFFF);font-weight:600;text-decoration:none" style-hover="text-decoration:none;color:var(--on-ink,#FFFFFF)"><span style="width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;flex:none"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h12v10H2zM14 10h4l4 4v2h-8M4 18a2 2 0 1 0 4 0a2 2 0 1 0-4 0M16 18a2 2 0 1 0 4 0a2 2 0 1 0-4 0"></path></svg></span><span style="flex:1">Pengambilan Kurir KP</span></a>
+        <span style="font-size:12px;font-weight:600;letter-spacing:0.06em;color:var(--ink2,#5E645F);padding:12px 12px 6px">GUDANG</span><a href="5-04%20Ketersediaan%20Barang.dc.html" style="display:flex;align-items:center;gap:10px;padding:8px 12px 8px 8px;border-radius:999px;color:var(--ink,#161B17);text-decoration:none" style-hover="background:var(--s2,#F1F2F0);text-decoration:none"><span style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;flex:none;color:var(--ink2,#5E645F)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5 9 5 9-5zM3 8v8l9 5 9-5V8M12 13v8"></path></svg></span><span style="flex:1">Ketersediaan Barang</span></a>
+      </nav>
+      <div style="border-top:1px solid var(--line,#E5E7E3);padding-top:12px;display:flex;flex-direction:column;gap:4px">
+        <div style="display:flex;align-items:center;gap:10px;padding:6px 8px">
+          <div style="width:36px;height:36px;border-radius:50%;background:#1E4E9C;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;flex:none">BL</div>
+          <div style="display:flex;flex-direction:column;min-width:0"><span style="font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Bu Linda</span><span style="font-size:12px;color:var(--ink2,#5E645F)">Admin distributor</span></div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;border-radius:999px;background:var(--s2,#F1F2F0)"><button onClick="{{ setLight }}" style="display:flex;align-items:center;justify-content:center;gap:6px;height:34px;border-radius:999px;border:none;background:{{ lightBg }};color:{{ lightC }};font-size:12px;font-weight:600;cursor:pointer"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>Terang</button><button onClick="{{ setDark }}" style="display:flex;align-items:center;justify-content:center;gap:6px;height:34px;border-radius:999px;border:none;background:{{ darkBg }};color:{{ darkC }};font-size:12px;font-weight:600;cursor:pointer"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>Gelap</button></div>
+        <a href="5-00%20Login%20Distributor.dc.html" style="display:flex;align-items:center;gap:10px;padding:8px 12px 8px 8px;border-radius:999px;color:var(--ink,#161B17);text-decoration:none" style-hover="background:var(--s2,#F1F2F0);text-decoration:none"><span style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;flex:none;color:var(--ink2,#5E645F)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"></path></svg></span><span>Keluar</span></a>
+      </div>
+    </div>
+  </aside>
+  <sc-if value="{{ drawerOpen }}" hint-placeholder-val="{{ false }}"><div onClick="{{ closeDrawer }}" style="animation:sbFade .25s ease;position:fixed;inset:0;z-index:4900;background:rgba(22,27,23,0.40)"></div></sc-if>
+  <main style="flex:1;min-width:0;padding:4px 0 32px;display:flex;flex-direction:column;gap:20px">
+    <sc-if value="{{ compact }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;align-items:center;gap:10px;padding:8px 10px;background:var(--glass,rgba(255,255,255,0.9));border:1px solid var(--glass-b,rgba(255,255,255,0.95));border-radius:22px;box-shadow:0 1px 2px rgba(22,27,23,0.04),0 8px 24px rgba(22,27,23,0.06)">
+        <button onClick="{{ openDrawer }}" aria-label="Buka menu" style="width:44px;height:44px;border-radius:50%;border:none;background:var(--ink,#161B17);color:var(--on-ink,#FFFFFF);display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
+        <img src="uploads/logo-sp2kp.webp" alt="SP2KP" style="height:26px;width:auto;background:#FFFFFF;border-radius:6px;padding:2px 5px">
+        <span style="display:flex;flex-direction:column;min-width:0;line-height:1.2"><span style="font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">PT Mitra Sawit Nusantara</span><span style="font-size:12px;color:var(--ink2,#5E645F)">Distributor</span></span>
+      </div>
+    </sc-if>
+    <header style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 16px;padding:4px 0 0">
+      <div style="display:flex;flex-direction:column;gap:4px;min-width:0"><h1 style="margin:0;font-size:{{ h1Fs }};line-height:1.15;font-weight:800;letter-spacing:-0.025em">Pengambilan oleh kurir KP</h1><span style="font-size:14px;color:var(--ink2,#5E645F)">Kurir dari Kantong Pangan datang ke gudang Anda untuk mengambil barang</span></div>
+      <span style="display:flex;gap:2px;padding:3px;border-radius:999px;background:var(--s2,#EEF0EC)" title="Pratinjau tampilan"><sc-for list="{{ pvOpts }}" as="o" hint-placeholder-count="2"><button onClick="{{ o.pick }}" style="height:32px;padding:0 12px;border-radius:999px;border:none;background:{{ o.bg }};color:{{ o.c }};box-shadow:{{ o.sh }};font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap">{{ o.l }}</button></sc-for></span>
+    </header>
+<sc-if value="{{ pvData }}" hint-placeholder-val="{{ true }}">
+    <section data-screen-label="Ringkasan" style="display:grid;grid-template-columns:{{ kCols }};gap:12px">
+      <sc-for list="{{ kpis }}" as="k" hint-placeholder-count="4">
+        <a href="{{ k.href }}" style="grid-column:{{ k.sp }};background:var(--glass,rgba(255,255,255,0.9));border:1px solid var(--glass-b,rgba(255,255,255,0.95));border-radius:28px;box-shadow:0 1px 2px rgba(22,27,23,0.04),0 8px 24px rgba(22,27,23,0.06);border-color:{{ k.bd }};display:flex;flex-direction:column;gap:10px;padding:18px 20px;min-height:150px;min-width:0;text-decoration:none;color:var(--ink,#161B17);transition:transform .15s,box-shadow .15s" style-hover="text-decoration:none;color:var(--ink,#161B17);transform:translateY(-2px);box-shadow:0 2px 4px rgba(22,27,23,0.05),0 16px 34px rgba(22,27,23,0.12)">
+          <span style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px"><span style="display:flex;flex-direction:column;gap:6px;min-width:0"><span style="font-size:14px;font-weight:700;color:var(--ink2,#5E645F);line-height:1.3">{{ k.l }}</span><span style="display:{{ k.tagD }};align-self:flex-start;align-items:center;gap:5px;font-size:11px;font-weight:800;color:{{ k.tagC }};background:{{ k.tagBg }};border-radius:999px;padding:3px 9px;white-space:nowrap"><span style="width:6px;height:6px;border-radius:50%;background:currentColor"></span>{{ k.tag }}</span></span><span style="width:30px;height:30px;border-radius:50%;background:var(--ink,#161B17);color:var(--on-ink,#FFFFFF);display:flex;align-items:center;justify-content:center;flex:none"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></span></span>
+          <span style="display:flex;align-items:baseline;gap:6px;margin-top:auto"><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-size:44px;line-height:1;font-weight:800;letter-spacing:-0.04em;color:{{ k.c }}">{{ k.v }}</span><span style="font-size:13px;font-weight:600;color:var(--ink2,#5E645F)">{{ k.u }}</span></span>
+          <span style="font-size:12px;color:var(--ink2,#5E645F);line-height:1.4">{{ k.sub }}</span>
+        </a>
+      </sc-for>
+    </section>
+    <section data-screen-label="Daftar pengambilan" style="display:grid;grid-template-columns:{{ cCols }};gap:16px;align-items:start">
+      <sc-for list="{{ cards }}" as="r" hint-placeholder-count="3">
+        <div style="background:var(--glass,rgba(255,255,255,0.9));border:1px solid var(--glass-b,rgba(255,255,255,0.95));border-radius:28px;box-shadow:0 1px 2px rgba(22,27,23,0.04),0 8px 24px rgba(22,27,23,0.06);border-color:{{ r.cbd }};padding:20px;display:flex;flex-direction:column;gap:14px;min-width:0">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px"><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-size:12px;font-weight:700;color:var(--ink2,#5E645F)">{{ r.code }}</span><span style="display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;color:{{ r.sC }};background:{{ r.sBg }};border-radius:999px;padding:3px 10px;white-space:nowrap"><span style="width:6px;height:6px;border-radius:50%;background:currentColor"></span>{{ r.stL }}</span></div>
+          <div style="display:grid;grid-template-columns:44px minmax(0,1fr) auto;align-items:center;gap:12px">
+            <span style="width:44px;height:44px;border-radius:50%;background:#1E4E9C;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;flex:none">{{ r.ini }}</span>
+            <span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:16px;font-weight:800">{{ r.kurir }}</span><span style="font-size:12px;color:var(--ink2,#5E645F)">Kurir {{ r.kp }}, <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;">{{ r.khp }}</span></span></span>
+            <a href="tel:{{ r.tel }}" aria-label="Telepon {{ r.kurir }}" style="width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line,#D5D9D4);background:var(--card,#FFFFFF);color:var(--ink,#161B17);display:flex;align-items:center;justify-content:center" style-hover="border-color:var(--ink,#161B17)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"></path></svg></a>
+          </div>
+          <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:12px 14px;border-radius:16px;background:var(--s1,#F5F6F4)"><span style="font-size:13px;font-weight:600">Minyak goreng 2 L</span><span style="display:flex;align-items:baseline;gap:4px"><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-size:24px;font-weight:800;line-height:1">{{ r.qtyF }}</span><span style="font-size:12px;color:var(--ink2,#5E645F)">pouch</span></span></div>
+          <span style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px"><sc-for list="{{ r.steps }}" as="s" hint-placeholder-count="4"><span style="display:flex;flex-direction:column;gap:6px;min-width:0"><span style="height:6px;border-radius:999px;background:{{ s.bg }}"></span><span style="font-size:11px;font-weight:{{ s.w }};color:{{ s.c }};white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ s.l }}</span></span></sc-for></span>
+          <sc-if value="{{ r.hasFoto }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;font-weight:700;color:var(--ink2,#5E645F)">Foto dari kurir saat mengambil</span><div style="position:relative;width:100%;aspect-ratio:19.5 / 9;border-radius:16px;overflow:hidden;background:var(--s2,#EEF0EC)"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ r.fid }}" shape="rect" placeholder="Foto barang diambil" style="position:absolute;inset:0;width:100%;height:100%" hint-size="100%,140px"></x-import></div></div>
+          </sc-if>
+          <span style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:{{ r.sC }};line-height:1.4"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>{{ r.at }}. {{ r.eta }}</span>
+        </div>
+      </sc-for>
+    </section>
+    <span style="font-size:12px;color:var(--ink2,#5E645F);line-height:1.5">Status berubah sendiri saat kurir memfoto barang di gudang Anda dan saat KP mengonfirmasi barang diterima. Pembayaran dari Kantong Pangan dilakukan di luar sistem.</span>
+    </sc-if>
+    <sc-if value="{{ pvEmpty }}" hint-placeholder-val="{{ false }}">
+      <section data-screen-label="Akun baru" style="background:var(--glass,rgba(255,255,255,0.9));border:1px solid var(--glass-b,rgba(255,255,255,0.95));border-radius:28px;box-shadow:0 1px 2px rgba(22,27,23,0.04),0 8px 24px rgba(22,27,23,0.06);padding:48px 22px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
+      <span style="width:64px;height:64px;border-radius:20px;background:var(--s1,#F5F6F4);color:var(--ink,#161B17);display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h12v10H2zM14 10h4l4 4v2h-8M4 18a2 2 0 1 0 4 0a2 2 0 1 0-4 0M16 18a2 2 0 1 0 4 0a2 2 0 1 0-4 0"></path></svg></span>
+      <span style="display:flex;flex-direction:column;gap:6px;max-width:480px"><span style="font-size:20px;font-weight:800;line-height:1.25">Belum ada jadwal pengambilan</span><span style="font-size:14px;color:var(--ink2,#5E645F);line-height:1.55">Setelah Anda menyetujui request, kurir KP yang ditugaskan tampil di sini beserta perkiraan jam datangnya.</span></span>
+      <a href="5-02%20Request%20KP.dc.html" style="display:flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 18px;border-radius:999px;border:none;background:var(--ink,#161B17);color:var(--on-ink,#FFFFFF);font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap;text-decoration:none" style-hover="text-decoration:none;color:var(--on-ink,#FFFFFF)">Lihat request<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></a>
+    </section>
+    </sc-if>
+  </main>
+  <sc-if value="{{ toastOn }}" hint-placeholder-val="{{ false }}"><div style="position:fixed;left:50%;bottom:28px;transform:translateX(-50%);z-index:6000;display:flex;align-items:center;gap:10px;max-width:calc(100vw - 32px);padding:12px 18px;border-radius:999px;background:var(--ink,#161B17);color:var(--on-ink,#FFFFFF);font-size:14px;font-weight:600;box-shadow:0 12px 32px rgba(22,27,23,0.25);animation:popIn .2s ease"><span style="color:#62D4A8;display:flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"></path></svg></span>{{ toast }}</div></sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  static DARK = {"--body":"#0E1210","--page":"#0E1210","--glass":"#171C19","--glass-b":"rgba(255,255,255,0.05)","--card":"#171C19","--ink":"#EDF0ED","--ink2":"#9BA39D","--ink3":"#C5CBC6","--mute":"#7E857F","--mute2":"#5B625C","--s1":"#1E2420","--s2":"#232A25","--line":"#262D28","--hover":"#1C221E","--ink-h":"#FFFFFF","--on-ink":"#121613","--green-ink":"#86D9A0","--blue-ink":"#8CB2F0","--red-ink":"#F08A8A","--amber-ink":"#F2BB5E","--green-ink2":"#62D4A8","--teal-ink":"#4FD6CA","--purple-ink":"#C9A3E6"};
+  static ST = {
+    'Menunggu': ['var(--amber-ink,#9A5F0A)', 'rgba(239,159,39,0.16)'],
+    'Menunggu distributor': ['var(--amber-ink,#9A5F0A)', 'rgba(239,159,39,0.16)'],
+    'Disetujui': ['var(--blue-ink,#1E4E9C)', 'rgba(30,78,156,0.10)'],
+    'Siap diambil': ['var(--blue-ink,#1E4E9C)', 'rgba(30,78,156,0.10)'],
+    'Kurir ditugaskan': ['var(--blue-ink,#1E4E9C)', 'rgba(30,78,156,0.10)'],
+    'Diambil kurir': ['var(--teal-ink,#0F7C74)', 'rgba(19,168,158,0.14)'],
+    'Dalam perjalanan': ['var(--teal-ink,#0F7C74)', 'rgba(19,168,158,0.14)'],
+    'Diterima': ['var(--green-ink2,#14795A)', 'rgba(29,158,117,0.13)'],
+    'Selesai': ['var(--green-ink2,#14795A)', 'rgba(29,158,117,0.13)'],
+    'Ditolak': ['var(--red-ink,#C03A3A)', 'rgba(214,69,69,0.10)'],
+    'Aman': ['var(--green-ink2,#14795A)', 'rgba(29,158,117,0.13)'],
+    'Menipis': ['var(--amber-ink,#9A5F0A)', 'rgba(239,159,39,0.16)'],
+    'Habis': ['var(--red-ink,#C03A3A)', 'rgba(214,69,69,0.10)'],
+    'Kritis': ['var(--red-ink,#C03A3A)', 'rgba(214,69,69,0.10)']
+  };
+  st(s) { const m = Component.ST[s] || ['var(--ink2,#5E645F)', 'var(--s2,#F1F2F0)']; return { sC: m[0], sBg: m[1] }; }
+  num(n) { return Number(n).toLocaleString('id-ID'); }
+  state = { vw: typeof window !== 'undefined' ? window.innerWidth : 1280, drawer: false, toast: '', ...{} };
+  theme() { return this.state.theme || (typeof localStorage !== 'undefined' && localStorage.getItem('sp2kp-theme')) || 'light'; }
+  setTheme(t) { try { localStorage.setItem('sp2kp-theme', t); } catch (e) {} this.setState({ theme: t }, () => this.applyTheme()); }
+  applyTheme() { const r = document.documentElement, d = this.theme() === 'dark'; Object.entries(Component.DARK).forEach(([k, v]) => d ? r.style.setProperty(k, v) : r.style.removeProperty(k)); r.style.colorScheme = d ? 'dark' : 'light'; }
+  flash(t) { clearTimeout(this.tt); this.setState({ toast: t }); this.tt = setTimeout(() => this.setState({ toast: '' }), 2600); }
+  componentDidMount() { this.onR = () => { const vw = window.innerWidth; if (vw !== this.state.vw) this.setState({ vw, drawer: vw >= 1100 ? false : this.state.drawer }); }; window.addEventListener('resize', this.onR); this.onR(); this.applyTheme(); this.mount && this.mount(); }
+  componentWillUnmount() { window.removeEventListener('resize', this.onR); clearTimeout(this.tt); this.unmount && this.unmount(); }
+static R = [
+    { code: 'BM-261007-05', kp: 'KP Karo', kota: 'Kabanjahe', pic: 'Pak Tarigan', hp: '0813-6250-7712', qty: 300, time: '09.05', st: 'Menunggu', kurir: 'Bastian Ginting', khp: '0812-6455-1023', note: 'Mohon disiapkan sebelum jam 11', at: 'Masuk 09.05', eta: 'Kurir berangkat setelah Anda setujui' },
+    { code: 'BM-261007-06', kp: 'KP Serdang Bedagai', kota: 'Sei Rampah', pic: 'Pak Siregar', hp: '0812-6378-1150', qty: 250, time: '08.50', st: 'Menunggu', kurir: 'Fajar Lubis', khp: '0813-7011-8854', note: '', at: 'Masuk 08.50', eta: 'Kurir berangkat setelah Anda setujui' },
+    { code: 'BM-261007-02', kp: 'KP Langkat', kota: 'Stabat', pic: 'Bu Ginting', hp: '0812-6101-4432', qty: 200, time: '08.12', st: 'Disetujui', kurir: 'Dedi Saputra', khp: '0813-7022-4410', note: '', at: 'Disetujui 08.30', eta: 'Kurir datang sekitar 10.30' },
+    { code: 'BM-261007-04', kp: 'KP Kota Medan', kota: 'Medan Johor', pic: 'Rudi Hartono', hp: '0811-6044-2290', qty: 400, time: '07.40', st: 'Diambil', kurir: 'Joko Siswanto', khp: '0812-6090-3341', note: '', at: 'Diambil 08.55', eta: 'Dalam perjalanan ke KP Kota Medan' },
+    { code: 'BM-261006-03', kp: 'KP Deli Serdang', kota: 'Lubuk Pakam', pic: 'Sari Dewi', hp: '0813-7005-6621', qty: 300, time: '6 Okt', st: 'Diterima', kurir: 'Andre Simanjuntak', khp: '0852-6177-2045', note: '', at: 'Diterima KP 6 Okt 13.10', eta: 'Jumlah sesuai, 300 pouch' }
+  ];
+  static ST = { 'Menunggu': ['Menunggu persetujuan', 'var(--amber-ink,#9A5F0A)', 'rgba(239,159,39,0.16)', 0], 'Disetujui': ['Menunggu kurir', 'var(--blue-ink,#1E4E9C)', 'rgba(30,78,156,0.10)', 1], 'Diambil': ['Dibawa kurir', 'var(--teal-ink,#0E7F78)', 'rgba(19,168,158,0.14)', 2], 'Diterima': ['Diterima KP', 'var(--green-ink2,#14795A)', 'rgba(29,158,117,0.12)', 3], 'Ditolak': ['Ditolak', 'var(--red-ink,#C03A3A)', 'rgba(214,69,69,0.10)', -1] };
+  static STOK = 2400;
+  f(n) { return Number(n).toLocaleString('id-ID'); }
+  ini(n) { return n.split(' ').map(x => x[0]).slice(0, 2).join(''); }
+  rows() { const o = this.state.stMap || {}; return Component.R.map(r => ({ ...r, st: o[r.code] || r.st, qty: (this.state.qMap || {})[r.code] ?? r.qty })); }
+  steps(st) { const i = Component.ST[st][3]; return ['Request masuk', 'Disetujui', 'Diambil kurir', 'Diterima KP'].map((l, k) => ({ l, bg: st === 'Ditolak' ? (k === 0 ? '#D64545' : 'var(--s2,#E3E6E1)') : k < i || (k === i && st === 'Diterima') ? '#3DAE4F' : k === i ? '#1E4E9C' : 'var(--s2,#E3E6E1)', w: k === i ? 800 : 600, c: k === i ? 'var(--ink,#161B17)' : 'var(--ink2,#5E645F)' })); }
+  deco(r) { const s = Component.ST[r.st]; return { ...r, stL: s[0], sC: s[1], sBg: s[2], qtyF: this.f(r.qty), ini: this.ini(r.kurir), tel: r.khp.replace(/-/g, ''), steps: this.steps(r.st) }; }
+  pv() { const k = this.state.pv || 'data'; return { pvEmpty: k === 'empty', pvData: k !== 'empty', pvOpts: [['data', 'Data contoh'], ['empty', 'Akun baru']].map(([v, l]) => ({ l, bg: k === v ? 'var(--card,#FFFFFF)' : 'transparent', c: k === v ? 'var(--ink,#161B17)' : 'var(--ink2,#5E645F)', sh: k === v ? '0 1px 3px rgba(22,27,23,0.12)' : 'none', pick: () => this.setState({ pv: v }) })) }; }
+  page(vw) { const rs = this.rows().map(r => this.deco(r)), cards = rs.filter(r => ['Disetujui', 'Diambil', 'Diterima'].includes(r.st)).map(r => ({ ...r, hasFoto: r.st !== 'Disetujui', fid: 'dist-ambil-' + r.code, cbd: r.st === 'Disetujui' ? 'rgba(30,78,156,0.35)' : 'var(--glass-b,rgba(255,255,255,0.95))' }));
+    const G = 'var(--glass-b,rgba(255,255,255,0.95))', n = k => rs.filter(r => r.st === k).length, P = '#';
+    const kpis = [
+      { l: 'Akan datang', v: n('Disetujui'), u: 'kurir', sub: 'Siapkan barangnya sebelum kurir tiba', href: P, c: n('Disetujui') ? 'var(--blue-ink,#1E4E9C)' : 'var(--mute,#A3A8A4)', bd: n('Disetujui') ? 'rgba(30,78,156,0.35)' : G, tag: 'Siapkan barang', tagD: n('Disetujui') ? 'inline-flex' : 'none', tagC: 'var(--blue-ink,#1E4E9C)', tagBg: 'rgba(30,78,156,0.10)' },
+      { l: 'Dibawa kurir', v: n('Diambil'), u: 'kiriman', sub: 'Sudah diambil, menuju KP', href: P, c: 'var(--ink,#161B17)', bd: G, tag: '', tagD: 'none' },
+      { l: 'Diterima KP', v: n('Diterima'), u: 'kiriman', sub: '7 hari terakhir', href: P, c: 'var(--green-ink2,#14795A)', bd: G, tag: '', tagD: 'none' }];
+    return { ...this.pv(), kpis: kpis.map((x, i, a) => ({ ...x, sp: a.length === 3 && i === 2 && (this.state.vw || window.innerWidth) < 900 ? '1 / -1' : 'auto' })), cards, kCols: vw >= 900 ? 'repeat(3,minmax(0,1fr))' : 'repeat(2,minmax(0,1fr))', cCols: vw >= 1300 ? 'repeat(3,minmax(0,1fr))' : vw >= 800 ? 'repeat(2,minmax(0,1fr))' : 'minmax(0,1fr)' }; }
+  renderVals() {
+    const vw = this.state.vw, compact = vw < 1100, d = this.theme() === 'dark', open = compact && this.state.drawer;
+    const base = { compact, rootPad: compact ? '12px' : '20px', h1Fs: vw < 640 ? '26px' : '32px',
+      asidePos: compact ? 'fixed' : 'sticky', asideTop: compact ? '12px' : '20px', asideLeft: compact ? '12px' : 'auto', asideH: compact ? 'calc(100vh - 24px)' : 'calc(100vh - 40px)',
+      asideDisplay: compact && !open ? 'none' : 'flex', asideAnim: open ? 'sbIn .25s ease' : 'none', drawerOpen: open,
+      openDrawer: () => this.setState({ drawer: true }), closeDrawer: () => this.setState({ drawer: false }),
+      setLight: () => this.setTheme('light'), setDark: () => this.setTheme('dark'),
+      lightBg: d ? 'transparent' : 'var(--ink,#161B17)', lightC: d ? 'var(--ink2,#5E645F)' : 'var(--on-ink,#FFFFFF)', darkBg: d ? 'var(--ink,#161B17)' : 'transparent', darkC: d ? 'var(--on-ink,#FFFFFF)' : 'var(--ink2,#5E645F)',
+      toastOn: !!this.state.toast, toast: this.state.toast };
+    return { ...base, ...this.page(vw) };
+  }
+}
+</script>
+</body>
+</html>

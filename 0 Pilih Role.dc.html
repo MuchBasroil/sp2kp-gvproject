@@ -30,7 +30,7 @@ a:hover{color:#163B78;text-decoration:none}
           <span style="display:flex;flex-direction:column;gap:2px"><span style="font-size:15px;font-weight:800">SP2KP Kantong Pangan</span><span style="font-size:13px;font-weight:600;opacity:0.85">Provinsi Sumatera Utara</span></span>
         </div>
         <div style="display:flex;flex-direction:column;gap:10px">
-          <h1 style="margin:0;font-size:{{ h1 }};line-height:1.05;font-weight:800;letter-spacing:-0.035em;color:#FFFFFF;text-wrap:balance">Satu sistem untuk paket sembako, dari distributor sampai warga.</h1>
+          <h1 style="margin:0;font-size:{{ h1 }};line-height:1.05;font-weight:800;letter-spacing:-0.035em;color:#FFFFFF;text-wrap:balance">Satu sistem untuk melacak barang pokok, dari distributor sampai Warung Point.</h1>
           <p style="margin:0;font-size:16px;line-height:1.55;opacity:0.9;max-width:560px;text-wrap:pretty">Pilih peran di bawah untuk melihat tampilan masing-masing pengguna.</p>
         </div>
       </div>
@@ -101,17 +101,15 @@ class Component extends DCLogic {
     const r = (name, desc, who, href, device, ic, c) => ({ name, desc, who, href: encodeURI(href), device, devIc: DEV[device === 'Desktop' ? 'Desktop' : 'Mobile'], ic: IC[ic], icBg: c[0], icC: c[1], sh: c[2] });
     const groups = [
       { step: '01', title: 'Pengelola program', sub: 'Memantau dan mengatur', c: '#1E4E9C', bg: 'rgba(30,78,156,0.10)', roles: [
-        r('Admin Provinsi', 'Pantau 5 Kantong Pangan, harga bahan pokok, arus barang, dan keuangan program.', 'Admin Provinsi Sumut', '1-00 Login Admin Provinsi.dc.html', 'Desktop', 'prov', B),
-        r('Admin Kantong Pangan', 'Setujui request Warung Point, rakit paket, terima barang, dan tugaskan kurir.', 'Admin KP Langkat', '2-00 Login Admin KP.dc.html', 'Desktop', 'kp', B)
+        r('Admin Provinsi', 'Pantau stok barang di 5 Kantong Pangan dan Warung Point, serta kiriman yang berjalan.', 'Admin Provinsi Sumut', '1-00 Login Admin Provinsi.dc.html', 'Desktop', 'prov', B),
+        r('Admin Kantong Pangan', 'Request barang ke distributor, terima barang, setujui request WP, dan tugaskan kurir.', 'Admin KP Langkat', '2-00 Login Admin KP.dc.html', 'Desktop', 'kp', B)
       ] },
       { step: '02', title: 'Rantai pasok', sub: 'Pemasok bahan dan pengantar', c: '#0F6F82', bg: 'rgba(22,144,168,0.12)', roles: [
-        r('Distributor', 'Terima pesanan dari Kantong Pangan dan kirim bahan ke gudang.', 'Bu Linda, PT Mitra Sawit Nusantara', '5-00 Login Distributor.dc.html', 'Desktop', 'dist', T),
-        r('Kurir Distributor', 'Antar bahan dari distributor ke gudang Kantong Pangan.', 'Pak Sarman', '6-00 Kurir Distributor - Login.dc.html', 'Web mobile', 'truck', T),
-        r('Kurir Kantong Pangan', 'Antar paket sembako dari gudang KP ke Warung Point.', 'Rizky Pratama, KP Langkat', '3-00 Kurir KP - Login.dc.html', 'Web mobile', 'pkg', T)
+        r('Distributor', 'Terima request Kantong Pangan, update ketersediaan, dan siapkan barang untuk diambil.', 'Bu Linda, PT Mitra Sawit Nusantara', '5-00 Login Distributor.dc.html', 'Desktop', 'dist', T),
+        r('Kurir KP', 'Ambil barang dari distributor ke KP, lalu antar barang dari KP ke Warung Point.', 'Rizky Pratama, KP Langkat', '3-00 Kurir KP - Login.dc.html', 'Web mobile', 'pkg', T)
       ] },
-      { step: '03', title: 'Penyaluran', sub: 'Titik akhir ke warga', c: '#0E7C74', bg: 'rgba(19,168,158,0.12)', roles: [
-        r('Warung Point', 'Pesan paket ke KP, terima kiriman, dan catat penyaluran ke warga.', 'Bang Andi, WP Ara Condong', '4-00 Login Warung Point.dc.html', 'Desktop', 'store', G),
-        r('Pembeli (GV App)', 'Warga memesan dan membayar paket sembako, lalu mengambil di Warung Point.', 'Warga, pelanggan WP', '7-00 Login GV App.dc.html', 'Mobile', 'bag', G)
+      { step: '03', title: 'Warung Point', sub: 'Titik akhir penyaluran', c: '#0E7C74', bg: 'rgba(19,168,158,0.12)', roles: [
+        r('Warung Point', 'Request barang ke KP, terima barang, dan update ketersediaan barang di warung.', 'Bang Andi, WP Ara Condong', '4-00 Login Warung Point.dc.html', 'Desktop', 'store', G),
       ] }
     ];
     const stats = [['5', 'Kantong Pangan'], ['22', 'Warung Point'], ['7', 'Peran pengguna']].map(([v, l], i) => ({ v, l, bl: i ? '1px solid rgba(255,255,255,0.22)' : 'none' }));

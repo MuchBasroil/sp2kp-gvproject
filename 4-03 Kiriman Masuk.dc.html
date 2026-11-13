@@ -10,157 +10,235 @@
 <helmet>
 <script src="./demo-switcher.js" defer></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
 body{margin:0;background:var(--body,#ECEDEB);color:var(--ink,#161B17);font-family:'Plus Jakarta Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 *{box-sizing:border-box}
 a{color:var(--ink,#161B17);text-decoration:none}
 a:hover{color:var(--ink,#161B17);text-decoration:underline}
-button{font-family:inherit}
-@keyframes sbIn{from{opacity:0;transform:translateX(-24px) scale(.98)}to{opacity:1;transform:none}}@keyframes sbFade{from{opacity:0}to{opacity:1}}</style>
+button,input,select,textarea{font-family:inherit}
+@keyframes sbIn{from{opacity:0;transform:translateX(-24px)}to{opacity:1;transform:none}}@keyframes sbFade{from{opacity:0}to{opacity:1}}@keyframes popIn{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}
+</style>
 </helmet>
-<div style="display:flex;gap:20px;min-width:0;min-height:100vh;padding:{{ rootPad }};background:var(--page,linear-gradient(155deg,#F6F7F5 0%,#F1F2F0 45%,#E4E6E2 100%));color:var(--ink,#161B17);font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-size:14px;line-height:1.45">
-
-  <aside data-screen-label="Sidebar" style="width:248px;flex:none;position:{{ asidePos }};top:20px;left:{{ asideLeft }};z-index:{{ asideZ }};height:calc(100vh - 40px);display:{{ asideDisplay }};animation:{{ asideAnim }};flex-direction:column;gap:12px">
-    <div style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--glass,rgba(255,255,255,0.82));border:1px solid var(--glass-b,rgba(255,255,255,0.95));border-radius:24px;box-shadow:0 1px 2px rgba(22,27,23,0.04),0 8px 24px rgba(22,27,23,0.06)">
+<div style="display:flex;gap:20px;min-width:0;min-height:100vh;padding:{{ rootPad }};background:var(--page,linear-gradient(155deg,#F6F7F5 0%,#F1F2F0 45%,#E4E6E2 100%));color:var(--ink,#161B17);font-size:14px;line-height:1.45">
+  <aside data-screen-label="Sidebar" style="width:248px;flex:none;position:{{ asidePos }};top:{{ asideTop }};left:{{ asideLeft }};z-index:5000;height:{{ asideH }};display:{{ asideDisplay }};animation:{{ asideAnim }};flex-direction:column;gap:12px">
+    <div style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--glass,rgba(255,255,255,0.9));border:1px solid var(--glass-b,rgba(255,255,255,0.95));border-radius:24px;box-shadow:0 1px 2px rgba(22,27,23,0.04),0 8px 24px rgba(22,27,23,0.06)">
       <img src="uploads/logo-sp2kp.webp" alt="SP2KP" style="background:#FFFFFF;border-radius:8px;padding:3px 6px;box-sizing:content-box;height:28px;width:auto;display:block">
-      <div style="display:flex;flex-direction:column;min-width:0;border-left:1px solid var(--line,#E5E7E3);padding-left:10px"><span style="font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">WP Ara Condong</span><span style="font-size:12px;color:var(--ink2,#5E645F)">Warung Point</span></div>
+      <div style="display:flex;flex-direction:column;flex:1;min-width:0;border-left:1px solid var(--line,#E5E7E3);padding-left:10px"><span style="font-size:14px;font-weight:700;line-height:1.25;overflow-wrap:anywhere">WP Ara Condong</span><span style="font-size:12px;color:var(--ink2,#5E645F)">Warung Point</span></div>
     </div>
-    <div style="flex:1;min-height:0;display:flex;flex-direction:column;padding:14px 12px;background:var(--glass,rgba(255,255,255,0.88));border:1px solid var(--glass-b,rgba(255,255,255,0.95));border-radius:28px;box-shadow:0 1px 2px rgba(22,27,23,0.04),0 8px 24px rgba(22,27,23,0.06)">
-      <nav style="display:flex;flex-direction:column;gap:2px;flex:1;overflow-y:auto;overflow-x:hidden;scrollbar-width:none">
-        <span style="font-size:12px;font-weight:600;letter-spacing:0.06em;color:var(--ink2,#5E645F);padding:6px 12px 6px">BERANDA</span>
-        <a href="4-01%20Beranda%20Warung%20Point.dc.html" style="display:flex;align-items:center;gap:10px;padding:8px;border-radius:999px;color:var(--ink,#161B17);text-decoration:none" style-hover="background:var(--s2,#F1F2F0)"><span style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;flex:none"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--ink2,#5E645F)"><path d="M3 11l9-7 9 7"></path><path d="M5 10v10h14V10"></path><path d="M10 20v-6h4v6"></path></svg></span><span style="flex:1">Beranda</span></a>
-        <span style="font-size:12px;font-weight:600;letter-spacing:0.06em;color:var(--ink2,#5E645F);padding:12px 12px 6px">OPERASIONAL</span>
-        <a href="4-02%20Order%20ke%20KP.dc.html" style="display:flex;align-items:center;gap:10px;padding:8px;border-radius:999px;color:var(--ink,#161B17);text-decoration:none" style-hover="background:var(--s2,#F1F2F0)"><span style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;flex:none"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l16-8-6 16-2-7z"></path></svg></span><span style="flex:1">Order ke KP</span></a>
-        <a href="4-03%20Kiriman%20Masuk.dc.html" style="display:flex;align-items:center;gap:10px;padding:8px 12px 8px 8px;border-radius:999px;background:var(--ink,#161B17);color:var(--on-ink,#FFFFFF);font-weight:600;text-decoration:none"><span style="width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;flex:none"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h11v10H3zM14 9h4l3 3v4h-7z"></path><circle cx="7" cy="17.5" r="1.8"></circle><circle cx="17" cy="17.5" r="1.8"></circle></svg></span><span style="flex:1">Kiriman Masuk</span><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:#D64545;color:#FFFFFF;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center">1</span></a>
-        <a href="4-04%20Penyaluran%20dan%20Stok.dc.html" style="display:flex;align-items:center;gap:10px;padding:8px;border-radius:999px;color:var(--ink,#161B17);text-decoration:none" style-hover="background:var(--s2,#F1F2F0)"><span style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;flex:none"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14h3l3 2h4a2 2 0 0 0 0-4h-3"></path><path d="M7 14l5-4h4l4 3"></path><path d="M4 20h16"></path></svg></span><span style="flex:1">Penyaluran dan Stok</span><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:#D64545;color:#FFFFFF;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center">2</span></a>
+    <div style="flex:1;min-height:0;display:flex;flex-direction:column;padding:6px 12px 14px;background:var(--glass,rgba(255,255,255,0.9));border:1px solid var(--glass-b,rgba(255,255,255,0.95));border-radius:28px;box-shadow:0 1px 2px rgba(22,27,23,0.04),0 8px 24px rgba(22,27,23,0.06)">
+      <nav style="display:flex;flex-direction:column;gap:2px;flex:1;overflow-y:auto;scrollbar-width:none">
+        <span style="font-size:12px;font-weight:600;letter-spacing:0.06em;color:var(--ink2,#5E645F);padding:12px 12px 6px">BERANDA</span><a href="4-01%20Beranda%20WP.dc.html" style="display:flex;align-items:center;gap:10px;padding:8px 12px 8px 8px;border-radius:999px;color:var(--ink,#161B17);text-decoration:none" style-hover="background:var(--s2,#F1F2F0);text-decoration:none"><span style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;flex:none;color:var(--ink2,#5E645F)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg></span><span style="flex:1">Beranda</span></a>
+        <span style="font-size:12px;font-weight:600;letter-spacing:0.06em;color:var(--ink2,#5E645F);padding:12px 12px 6px">KE KANTONG PANGAN</span><a href="4-02%20Request%20ke%20KP.dc.html" style="display:flex;align-items:center;gap:10px;padding:8px 12px 8px 8px;border-radius:999px;color:var(--ink,#161B17);text-decoration:none" style-hover="background:var(--s2,#F1F2F0);text-decoration:none"><span style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;flex:none;color:var(--ink2,#5E645F)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2 11h11l2-8H6M9 20a1 1 0 1 0 0-2 1 1 0 0 0 0 2zM18 20a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path></svg></span><span style="flex:1">Request Barang</span></a>
+        <a href="4-03%20Kiriman%20Masuk.dc.html" style="display:flex;align-items:center;gap:10px;padding:8px 12px 8px 8px;border-radius:999px;background:var(--ink,#161B17);color:var(--on-ink,#FFFFFF);font-weight:600;text-decoration:none" style-hover="text-decoration:none;color:var(--on-ink,#FFFFFF)"><span style="width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;flex:none"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h12v10H2zM14 10h4l4 4v2h-8M4 18a2 2 0 1 0 4 0a2 2 0 1 0-4 0M16 18a2 2 0 1 0 4 0a2 2 0 1 0-4 0"></path></svg></span><span style="flex:1">Kiriman Masuk</span><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:rgba(255,255,255,0.18);color:#FFFFFF;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center">1</span></a>
+        <span style="font-size:12px;font-weight:600;letter-spacing:0.06em;color:var(--ink2,#5E645F);padding:12px 12px 6px">WARUNG</span><a href="4-04%20Ketersediaan%20Barang.dc.html" style="display:flex;align-items:center;gap:10px;padding:8px 12px 8px 8px;border-radius:999px;color:var(--ink,#161B17);text-decoration:none" style-hover="background:var(--s2,#F1F2F0);text-decoration:none"><span style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;flex:none;color:var(--ink2,#5E645F)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5 9 5 9-5zM3 8v8l9 5 9-5V8M12 13v8"></path></svg></span><span style="flex:1">Ketersediaan Barang</span></a>
       </nav>
-      <div style="border-top:1px solid var(--line,#E5E7E3);padding-top:12px;display:flex;flex-direction:column;gap:2px">
-        <div style="display:flex;align-items:center;gap:10px;padding:6px 8px"><div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(150deg,#B6F04A,#CFE3F7);color:#161B17;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;flex:none">BA</div><div style="display:flex;flex-direction:column;min-width:0"><span style="font-size:14px;font-weight:600;white-space:nowrap">Bang Andi</span><span style="font-size:12px;color:var(--ink2,#5E645F)">Pengelola warung</span></div></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;margin:2px 0 4px;border-radius:999px;background:var(--s2,#F1F2F0)"><button onClick="{{ setLight }}" aria-label="Tema terang" style="display:flex;align-items:center;justify-content:center;gap:6px;height:34px;padding:0 10px;border-radius:999px;border:none;background:{{ lightBg }};color:{{ lightC }};font-size:12px;font-weight:600;cursor:pointer;transition:background .15s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>Terang</button><button onClick="{{ setDark }}" aria-label="Tema gelap" style="display:flex;align-items:center;justify-content:center;gap:6px;height:34px;padding:0 10px;border-radius:999px;border:none;background:{{ darkBg }};color:{{ darkC }};font-size:12px;font-weight:600;cursor:pointer;transition:background .15s"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>Gelap</button></div>
-        <a href="4-00%20Login%20Warung%20Point.dc.html" style="display:flex;align-items:center;gap:10px;padding:8px;border-radius:999px;color:var(--ink,#161B17);text-decoration:none" style-hover="background:var(--s2,#F1F2F0)"><span style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;flex:none"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h4v16h-4M10 8l-4 4 4 4M6 12h10"></path></svg></span><span>Keluar</span></a>
+      <div style="border-top:1px solid var(--line,#E5E7E3);padding-top:12px;display:flex;flex-direction:column;gap:4px">
+        <div style="display:flex;align-items:center;gap:10px;padding:6px 8px">
+          <div style="width:36px;height:36px;border-radius:50%;background:#1E4E9C;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;flex:none">BA</div>
+          <div style="display:flex;flex-direction:column;min-width:0"><span style="font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Bang Andi</span><span style="font-size:12px;color:var(--ink2,#5E645F)">Pengelola, KP Langkat</span></div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;border-radius:999px;background:var(--s2,#F1F2F0)"><button onClick="{{ setLight }}" style="display:flex;align-items:center;justify-content:center;gap:6px;height:34px;border-radius:999px;border:none;background:{{ lightBg }};color:{{ lightC }};font-size:12px;font-weight:600;cursor:pointer"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>Terang</button><button onClick="{{ setDark }}" style="display:flex;align-items:center;justify-content:center;gap:6px;height:34px;border-radius:999px;border:none;background:{{ darkBg }};color:{{ darkC }};font-size:12px;font-weight:600;cursor:pointer"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>Gelap</button></div>
+        <a href="4-00%20Login%20Warung%20Point.dc.html" style="display:flex;align-items:center;gap:10px;padding:8px 12px 8px 8px;border-radius:999px;color:var(--ink,#161B17);text-decoration:none" style-hover="background:var(--s2,#F1F2F0);text-decoration:none"><span style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;flex:none;color:var(--ink2,#5E645F)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"></path></svg></span><span>Keluar</span></a>
       </div>
     </div>
   </aside>
-
-  
-
-  <sc-if value="{{ drawerOpen }}" hint-placeholder-val="{{ false }}"><div onClick="{{ closeDrawer }}" style="animation:sbFade .25s ease;position:fixed;inset:0;z-index:4900;background:rgba(22,27,23,0.40);backdrop-filter:blur(3px)"></div></sc-if>
-  <main style="flex:1;min-width:0;padding:8px 0 32px;display:flex;flex-direction:column;gap:20px">
+  <sc-if value="{{ drawerOpen }}" hint-placeholder-val="{{ false }}"><div onClick="{{ closeDrawer }}" style="animation:sbFade .25s ease;position:fixed;inset:0;z-index:4900;background:rgba(22,27,23,0.40)"></div></sc-if>
+  <main style="flex:1;min-width:0;padding:4px 0 32px;display:flex;flex-direction:column;gap:20px">
     <sc-if value="{{ compact }}" hint-placeholder-val="{{ false }}">
-      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px 10px 14px;background:var(--glass,rgba(255,255,255,0.88));border:1px solid var(--glass-b,rgba(255,255,255,0.95));border-radius:22px;box-shadow:0 1px 2px rgba(22,27,23,0.04),0 8px 24px rgba(22,27,23,0.06)">
-        <div style="display:flex;align-items:center;gap:10px;min-width:0">
-          <img src="uploads/logo-sp2kp.webp" alt="SP2KP" style="background:#FFFFFF;border-radius:8px;padding:3px 6px;box-sizing:content-box;height:24px;width:auto;display:block">
-          <span style="display:flex;flex-direction:column;min-width:0;border-left:1px solid var(--line,#E5E7E3);padding-left:10px"><span style="font-size:14px;font-weight:700;white-space:nowrap">WP Ara Condong</span><span style="font-size:12px;color:var(--ink2,#5E645F)">Warung Point</span></span>
-        </div>
-        <button onClick="{{ openDrawer }}" aria-label="Buka menu" style="width:44px;height:44px;border-radius:50%;border:none;background:var(--ink,#161B17);color:var(--on-ink,#FFFFFF);display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+      <div style="display:flex;align-items:center;gap:10px;padding:8px 10px;background:var(--glass,rgba(255,255,255,0.9));border:1px solid var(--glass-b,rgba(255,255,255,0.95));border-radius:22px;box-shadow:0 1px 2px rgba(22,27,23,0.04),0 8px 24px rgba(22,27,23,0.06)">
+        <button onClick="{{ openDrawer }}" aria-label="Buka menu" style="width:44px;height:44px;border-radius:50%;border:none;background:var(--ink,#161B17);color:var(--on-ink,#FFFFFF);display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
+        <img src="uploads/logo-sp2kp.webp" alt="SP2KP" style="height:26px;width:auto;background:#FFFFFF;border-radius:6px;padding:2px 5px">
+        <span style="display:flex;flex-direction:column;min-width:0;line-height:1.2"><span style="font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">WP Ara Condong</span><span style="font-size:12px;color:var(--ink2,#5E645F)">Warung Point</span></span>
       </div>
     </sc-if>
-
-    <header style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;padding:4px 0 0">
-      <div style="display:flex;flex-direction:column;gap:6px;min-width:0">
-        <span style="display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--ink2,#5E645F)"><span style="width:6px;height:6px;border-radius:50%;background:var(--blue-ink,#1E4E9C)"></span>WP Ara Condong</span>
-        <h1 style="margin:0;font-size:{{ h1Fs }};line-height:1.15;font-weight:700;letter-spacing:-0.02em">Kiriman masuk</h1>
-        <span style="font-size:14px;color:var(--ink2,#5E645F);text-wrap:pretty;max-width:720px">Saat kurir tiba, scan label di kardus dan hitung paketnya sebelum konfirmasi.</span>
-      </div>
-      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px"></div>
+    <header style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 16px;padding:4px 0 0">
+      <div style="display:flex;flex-direction:column;gap:4px;min-width:0"><h1 style="margin:0;font-size:{{ h1Fs }};line-height:1.15;font-weight:800;letter-spacing:-0.025em">Kiriman masuk</h1><span style="font-size:14px;color:var(--ink2,#5E645F)">Pilih kiriman untuk melihat prosesnya. Konfirmasi saat barang tiba.</span></div>
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end"><span style="display:flex;gap:2px;padding:3px;border-radius:999px;background:var(--s2,#EEF0EC);align-self:center" title="Pratinjau tampilan"><sc-for list="{{ pvOpts }}" as="o" hint-placeholder-count="2"><button onClick="{{ o.pick }}" style="height:30px;padding:0 12px;border-radius:999px;border:none;background:{{ o.bg }};color:{{ o.c }};box-shadow:{{ o.sh }};font-family:inherit;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap">{{ o.l }}</button></sc-for></span></div>
     </header>
+    <sc-if value="{{ pvEmpty }}" hint-placeholder-val="{{ false }}">
+      <section data-screen-label="Akun baru" style="background:var(--glass,rgba(255,255,255,0.9));border:1px solid var(--glass-b,rgba(255,255,255,0.95));border-radius:28px;box-shadow:0 1px 2px rgba(22,27,23,0.04),0 8px 24px rgba(22,27,23,0.06);padding:48px 22px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
+        <span style="width:64px;height:64px;border-radius:20px;background:var(--s1,#F5F6F4);color:var(--ink,#161B17);display:flex;align-items:center;justify-content:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2M5.5 5h13L22 12v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-6z"></path></svg></span>
+        <span style="display:flex;flex-direction:column;gap:6px;max-width:460px"><span style="font-size:20px;font-weight:800;line-height:1.25">Belum ada kiriman</span><span style="font-size:14px;color:var(--ink2,#5E645F);line-height:1.55">Kiriman dari Kantong Pangan akan muncul di sini setelah request Anda disetujui. Anda bisa melacak kurir dan mengonfirmasi saat barang tiba.</span></span>
+        <a href="4-02%20Request%20ke%20KP.dc.html" style="display:flex;align-items:center;gap:8px;height:46px;padding:0 8px 0 18px;border-radius:999px;background:var(--ink,#161B17);color:var(--on-ink,#FFFFFF);font-size:14px;font-weight:700;text-decoration:none" style-hover="text-decoration:none;color:var(--on-ink,#FFFFFF);background:var(--ink-h,#2E3530)">Request barang<span style="width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,0.14);display:flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></span></a>
+      </section>
+    </sc-if>
+    <sc-if value="{{ pvData }}" hint-placeholder-val="{{ true }}">
 
-    <section style="display:grid;grid-template-columns:{{ two }};gap:16px;align-items:start">
-      <div style="background:var(--glass,rgba(255,255,255,0.88));border:1px solid var(--glass-b,rgba(255,255,255,0.95));border-radius:28px;box-shadow:0 1px 2px rgba(22,27,23,0.04),0 8px 24px rgba(22,27,23,0.06);padding:22px;display:flex;flex-direction:column;gap:18px;min-width:0">
-        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap"><span style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-size:13px;font-weight:700;color:var(--ink2,#5E645F)">BK-261007-21</span><span style="font-size:22px;font-weight:700">20 paket bantuan dari KP Langkat</span><span style="font-size:12px;color:var(--ink2,#5E645F);line-height:1.4">Kurir Doni, <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;">0812-6340-1187</span></span></span><span style="display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;color:{{ stC }};background:{{ stBg }};border-radius:999px;padding:3px 10px;white-space:nowrap;align-self:flex-start;justify-self:start"><span style="width:6px;height:6px;border-radius:50%;background:currentColor"></span>{{ stL }}</span></div>
-        <div style="display:flex;flex-direction:column">
-          <sc-for list="{{ tl }}" as="t" hint-placeholder-count="5">
-            <div style="display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:12px">
-              <span style="display:flex;flex-direction:column;align-items:center"><span style="width:24px;height:24px;border-radius:50%;background:{{ t.dot }};color:#FFFFFF;display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 0 0 {{ t.ring }} rgba(30,78,156,0.18)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"></path></svg></span><span style="flex:1;width:2px;min-height:18px;background:{{ t.line }};display:{{ t.lineD }}"></span></span>
-              <span style="display:flex;flex-direction:column;gap:2px;padding-bottom:16px;min-width:0"><span style="font-size:15px;font-weight:700;color:{{ t.c }}">{{ t.l }}</span><span style="font-size:12px;color:var(--ink2,#5E645F);line-height:1.4">{{ t.s }}</span></span>
-              <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-size:13px;font-weight:700;color:var(--ink2,#5E645F)">{{ t.time }}</span>
-            </div>
-          </sc-for>
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-          <div style="position:relative;aspect-ratio:19.5 / 9;border-radius:18px;background:linear-gradient(135deg,#C9B48E,#8E7A57)"><span style="position:absolute;left:10px;bottom:10px;padding:4px 10px;border-radius:999px;background:rgba(22,27,23,0.75);color:#FFFFFF;font-size:12px;font-weight:600;white-space:nowrap">Foto diambil, <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;">10.48</span></span></div>
-          <div style="position:relative;aspect-ratio:19.5 / 9;border-radius:18px;background:{{ fotoBg }};border:{{ fotoBd }};display:flex;align-items:center;justify-content:center;text-align:center;padding:10px"><span style="font-size:12px;color:var(--ink2,#5E645F);line-height:1.4">{{ fotoL }}</span></div>
-        </div>
+    <section data-screen-label="Kiriman masuk" style="display:grid;grid-template-columns:{{ gCols }};gap:16px;align-items:start">
+      <div style="background:var(--glass,rgba(255,255,255,0.9));border:1px solid var(--glass-b,rgba(255,255,255,0.95));border-radius:28px;box-shadow:0 1px 2px rgba(22,27,23,0.04),0 8px 24px rgba(22,27,23,0.06);padding:18px;display:flex;flex-direction:column;gap:12px;min-width:0">
+        <div style="display:flex;gap:4px;padding:4px;border-radius:999px;background:var(--s2,#F1F2F0)"><sc-for list="{{ tabs }}" as="t" hint-placeholder-count="2"><button onClick="{{ t.pick }}" style="flex:1;height:38px;border:none;border-radius:999px;background:{{ t.bg }};color:{{ t.c }};font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap">{{ t.l }} <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-size:11px;opacity:.75">{{ t.n }}</span></button></sc-for></div>
+        <sc-for list="{{ rows }}" as="r" hint-placeholder-count="3">
+          <button onClick="{{ r.pick }}" style="display:flex;flex-direction:column;gap:8px;padding:14px;border-radius:18px;border:1.5px solid {{ r.bd }};background:{{ r.bg }};color:var(--ink,#161B17);text-align:left;cursor:pointer">
+            <span style="display:flex;justify-content:space-between;gap:8px;width:100%"><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-size:12px;font-weight:700;color:var(--ink2,#5E645F)">{{ r.code }}</span><span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;color:{{ r.sC }};background:{{ r.sBg }};border-radius:999px;padding:3px 9px;white-space:nowrap"><span style="width:6px;height:6px;border-radius:50%;background:currentColor"></span>{{ r.status }}</span></span>
+            <span style="font-size:14px;font-weight:700;line-height:1.35">{{ r.what }}</span>
+            <span style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--ink2,#5E645F)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"></path></svg>{{ r.kurir }}, {{ r.when }}</span>
+            <span style="display:flex;gap:3px;width:100%"><sc-for list="{{ r.bars }}" as="b" hint-placeholder-count="5"><span style="flex:1;height:4px;border-radius:999px;background:{{ b.bg }}"></span></sc-for></span>
+          </button>
+        </sc-for>
       </div>
-      <div style="background:var(--glass,rgba(255,255,255,0.88));border:1px solid var(--glass-b,rgba(255,255,255,0.95));border-radius:28px;box-shadow:0 1px 2px rgba(22,27,23,0.04),0 8px 24px rgba(22,27,23,0.06);padding:22px;display:flex;flex-direction:column;gap:16px;min-width:0">
-        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap"><span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:18px;font-weight:700;line-height:1.25">Konfirmasi diterima</span><span style="font-size:12px;color:var(--ink2,#5E645F);line-height:1.4">Isi setelah paket diturunkan di warung</span></span></div>
-        <sc-if value="{{ open }}" hint-placeholder-val="{{ true }}">
-          <span style="font-size:14px;font-weight:700">1. Scan label kiriman</span>
-          <sc-if value="{{ noScan }}" hint-placeholder-val="{{ true }}">
-            <div style="display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:8px"><input value="{{ code }}" onChange="{{ setCode }}" placeholder="Atau ketik kode BK" style="height:48px;padding:0 14px;border-radius:14px;border:1.5px solid var(--line,#E3E6E1);background:var(--card,#FFFFFF);color:var(--ink,#161B17);font-family:inherit;font-size:14px;outline:none;min-width:0;width:100%;font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;border-color:{{ codeBd }}"><button onClick="{{ check }}" style="height:48px;padding:0 16px;border-radius:14px;border:1.5px solid var(--line,#E3E6E1);background:transparent;color:var(--ink,#161B17);font-size:14px;font-weight:700;cursor:pointer">Cek</button><button onClick="{{ doScan }}" style="display:flex;align-items:center;gap:6px;height:48px;padding:0 16px;border-radius:14px;border:none;background:var(--ink,#161B17);color:var(--on-ink,#FFFFFF);font-size:14px;font-weight:700;cursor:pointer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 8V5h3M17 5h3v3M20 16v3h-3M7 19H4v-3M8 9v6M11 9v6M14 9v6M17 9v6"></path></svg>Scan</button></div>
-            <sc-if value="{{ err }}" hint-placeholder-val="{{ false }}"><span style="font-size:12px;font-weight:600;color:var(--red-ink,#C03A3A)">Kode tidak cocok dengan kiriman ini.</span></sc-if>
-          </sc-if>
-          <sc-if value="{{ scanned }}" hint-placeholder-val="{{ false }}"><div style="display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:16px;background:rgba(29,158,117,0.12);color:var(--green-ink2,#14795A);font-size:14px;font-weight:700"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"></path></svg><span><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;">BK-261007-21</span> cocok, lewat {{ via }}</span></div></sc-if>
-          <span style="font-size:14px;font-weight:700">2. Jumlah paket yang diterima</span>
-          <div style="display:grid;grid-template-columns:52px minmax(0,1fr) 52px;gap:8px;align-items:center"><button onClick="{{ rDec }}" aria-label="Kurangi" style="height:52px;border-radius:16px;border:none;background:var(--s1,#F5F6F4);color:var(--ink,#161B17);font-size:22px;font-weight:700;cursor:pointer">−</button><span style="display:flex;flex-direction:column;align-items:center;gap:2px"><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-size:36px;font-weight:800;line-height:1">{{ recv }}</span><span style="font-size:12px;color:var(--ink2,#5E645F);line-height:1.4">dari <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;">20</span> paket dikirim</span></span><button onClick="{{ rInc }}" aria-label="Tambah" style="height:52px;border-radius:16px;border:none;background:var(--s1,#F5F6F4);color:var(--ink,#161B17);font-size:22px;font-weight:700;cursor:pointer">+</button></div>
-          <sc-if value="{{ short }}" hint-placeholder-val="{{ false }}"><span style="font-size:12px;font-weight:600;color:var(--amber-ink,#9A5F0A)">{{ shortTxt }}</span></sc-if>
-          <button onClick="{{ confirm }}" style="height:54px;border-radius:999px;border:none;background:{{ cBg }};color:{{ cC }};font-size:15px;font-weight:700;cursor:{{ cCur }}">{{ cLbl }}</button>
-        </sc-if>
-        <sc-if value="{{ done }}" hint-placeholder-val="{{ false }}">
-          <div style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:18px;border-radius:20px;background:rgba(29,158,117,0.12)"><span style="width:44px;height:44px;border-radius:50%;background:#3DAE4F;color:#FFFFFF;display:flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"></path></svg></span><span style="font-size:18px;font-weight:700"><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;">{{ recv }}</span> paket diterima</span><span style="font-size:14px;color:var(--ink2,#5E645F);line-height:1.5">Stok warung sekarang sekitar <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-weight:800;color:var(--ink,#161B17)">{{ stokAfter }}</span> paket. Paket bantuan tidak ada tagihan.</span><a href="4-04%20Penyaluran%20dan%20Stok.dc.html" style="display:flex;align-items:center;gap:8px;height:44px;padding:0 8px 0 18px;border-radius:999px;background:var(--ink,#161B17);color:var(--on-ink,#FFFFFF);font-size:14px;font-weight:700;text-decoration:none;white-space:nowrap;flex:none" style-hover="background:var(--ink-h,#2E3530);text-decoration:none">Lihat stok<span style="width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,0.14);display:flex;align-items:center;justify-content:center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></span></a></div>
-        </sc-if>
-        <div style="display:flex;flex-direction:column;gap:8px;padding-top:14px;border-top:1px solid var(--line,#ECEEEA)">
-          <span style="font-size:14px;font-weight:700">Kiriman sebelumnya</span>
-          <sc-for list="{{ prev }}" as="p" hint-placeholder-count="2"><div style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 14px;background:var(--s1,#F5F6F4);border-radius:20px"><span style="display:flex;flex-direction:column;gap:2px"><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-size:12px;font-weight:700">{{ p.code }}</span><span style="font-size:12px;color:var(--ink2,#5E645F);line-height:1.4">{{ p.sub }}</span></span><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-size:18px;font-weight:800">{{ p.qty }}</span></div></sc-for>
+
+      <div style="background:var(--glass,rgba(255,255,255,0.9));border:1px solid var(--glass-b,rgba(255,255,255,0.95));border-radius:28px;box-shadow:0 1px 2px rgba(22,27,23,0.04),0 8px 24px rgba(22,27,23,0.06);padding:22px 24px;display:flex;flex-direction:column;gap:18px;min-width:0">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap">
+          <span style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-size:12px;font-weight:700;color:var(--ink2,#5E645F)">{{ s.code }}, dari request {{ s.rq }}</span><span style="font-size:24px;font-weight:800;letter-spacing:-0.02em;line-height:1.2">{{ s.headline }}</span><span style="font-size:13px;color:var(--ink2,#5E645F)">Kurir {{ s.kurir }}, <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;">{{ s.hp }}</span></span></span>
+          <span style="display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:{{ s.sC }};background:{{ s.sBg }};border-radius:999px;padding:5px 12px;white-space:nowrap"><span style="width:7px;height:7px;border-radius:50%;background:currentColor"></span>{{ s.status }}</span>
+        </div>
+        <div style="display:grid;grid-template-columns:{{ dCols }};gap:18px">
+          <div style="display:flex;flex-direction:column;gap:14px;min-width:0">
+            <div style="display:flex;flex-direction:column;padding:16px 18px;border-radius:20px;background:var(--s1,#F5F6F4)">
+              <sc-for list="{{ tl }}" as="t" hint-placeholder-count="5">
+                <div style="display:grid;grid-template-columns:22px minmax(0,1fr) auto;gap:12px;align-items:start;min-height:44px">
+                  <span style="display:flex;flex-direction:column;align-items:center;height:100%"><span style="width:14px;height:14px;border-radius:50%;margin-top:3px;background:{{ t.dot }};box-shadow:0 0 0 4px {{ t.ring }};flex:none"></span><span style="flex:1;width:2px;background:{{ t.line }};margin-top:4px;display:{{ t.lineD }}"></span></span>
+                  <span style="display:flex;flex-direction:column;gap:2px;padding-bottom:12px"><span style="font-size:14px;font-weight:{{ t.w }};color:{{ t.c }}">{{ t.l }}</span><span style="font-size:12px;color:var(--ink2,#5E645F)">{{ t.d }}</span></span>
+                  <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-size:12px;color:var(--ink2,#5E645F)">{{ t.t }}</span>
+                </div>
+              </sc-for>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+              <span style="display:flex;flex-direction:column;gap:6px"><span style="aspect-ratio:4 / 3;border-radius:16px;background:{{ s.ph1 }};display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--ink2,#5E645F)">{{ s.ph1t }}</span><span style="font-size:12px;color:var(--ink2,#5E645F)">Diambil di gudang KP</span></span>
+              <span style="display:flex;flex-direction:column;gap:6px"><span style="aspect-ratio:4 / 3;border-radius:16px;background:{{ s.ph2 }};display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--ink2,#5E645F)">{{ s.ph2t }}</span><span style="font-size:12px;color:var(--ink2,#5E645F)">Tiba di warung</span></span>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px;min-width:0">
+            <span style="font-size:16px;font-weight:800">{{ confTitle }}</span>
+            <div style="display:flex;flex-direction:column;border-radius:20px;border:1px solid var(--line,#E3E6E1);overflow:hidden">
+              <sc-for list="{{ lines }}" as="l" hint-placeholder-count="3">
+                <div style="display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:10px;padding:12px 16px;border-top:1px solid var(--line,#ECEEEA)">
+                  <span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:14px;font-weight:700">{{ l.n }}</span><span style="font-size:12px;color:{{ l.dC }};font-weight:600">{{ l.d }}</span></span>
+                  <sc-if value="{{ l.edit }}" hint-placeholder-val="{{ false }}"><span style="display:flex;align-items:center;gap:6px"><button onClick="{{ l.dec }}" aria-label="Kurangi" style="width:40px;height:40px;border-radius:50%;border:1.5px solid var(--line,#E3E6E1);background:var(--card,#FFFFFF);color:var(--ink,#161B17);font-size:18px;font-weight:700;cursor:pointer">−</button><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;min-width:40px;text-align:center;font-size:20px;font-weight:800">{{ l.got }}</span><button onClick="{{ l.inc }}" aria-label="Tambah" style="width:40px;height:40px;border-radius:50%;border:1.5px solid var(--line,#E3E6E1);background:var(--card,#FFFFFF);color:var(--ink,#161B17);font-size:18px;font-weight:700;cursor:pointer">+</button></span></sc-if>
+                  <sc-if value="{{ l.ro }}" hint-placeholder-val="{{ true }}"><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-size:18px;font-weight:800">{{ l.got }} <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:600;color:var(--ink2,#5E645F)">{{ l.u }}</span></span></sc-if>
+                </div>
+              </sc-for>
+            </div>
+            <sc-if value="{{ canConfirm }}" hint-placeholder-val="{{ false }}">
+              <span style="font-size:12px;color:var(--ink2,#5E645F);line-height:1.5">Jumlah sudah terisi sesuai kiriman. Kurangi jika ada barang yang tidak datang.</span>
+              <div style="display:flex;flex-direction:column;gap:12px;padding:14px 16px;border-radius:18px;border:1.5px solid {{ cBd }};background:{{ cBg }}">
+                <button onClick="{{ toggleC }}" style="display:flex;align-items:center;gap:10px;border:none;background:transparent;padding:0;color:var(--ink,#161B17);font-size:14px;font-weight:700;cursor:pointer;text-align:left"><span style="width:22px;height:22px;border-radius:7px;border:2px solid {{ cBox }};background:{{ cBoxBg }};color:#FFFFFF;display:flex;align-items:center;justify-content:center;flex:none">{{ cTick }}</span><span style="display:flex;flex-direction:column;gap:2px"><span>Ada barang cacat atau rusak</span><span style="font-size:12px;font-weight:500;color:var(--ink2,#5E645F)">Barang cacat dikembalikan lewat kurir dan tidak masuk stok warung.</span></span></button>
+                <sc-if value="{{ cOn }}" hint-placeholder-val="{{ false }}">
+                  <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;font-weight:700">Barang</span><div style="display:flex;flex-wrap:wrap;gap:6px"><sc-for list="{{ cItems }}" as="x" hint-placeholder-count="3"><button onClick="{{ x.pick }}" style="height:38px;padding:0 14px;border-radius:999px;border:1.5px solid {{ x.bd }};background:{{ x.bg }};color:{{ x.c }};font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap">{{ x.l }}</button></sc-for></div></div>
+                  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px"><span style="font-size:12px;font-weight:700">Jumlah cacat</span><span style="display:flex;align-items:center;gap:6px"><button onClick="{{ cDec }}" aria-label="Kurangi" style="width:40px;height:40px;border-radius:50%;border:1.5px solid var(--line,#E3E6E1);background:var(--card,#FFFFFF);color:var(--ink,#161B17);font-size:18px;font-weight:700;cursor:pointer">−</button><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;min-width:36px;text-align:center;font-size:20px;font-weight:800">{{ cQ }}</span><button onClick="{{ cInc }}" aria-label="Tambah" style="width:40px;height:40px;border-radius:50%;border:1.5px solid var(--line,#E3E6E1);background:var(--card,#FFFFFF);color:var(--ink,#161B17);font-size:18px;font-weight:700;cursor:pointer">+</button><span style="font-size:12px;color:var(--ink2,#5E645F)">{{ cU }}</span></span></div>
+                  <div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;font-weight:700">Alasan</span><div style="display:flex;flex-wrap:wrap;gap:6px"><sc-for list="{{ cReasons }}" as="a" hint-placeholder-count="3"><button onClick="{{ a.pick }}" style="height:38px;padding:0 14px;border-radius:999px;border:1.5px solid {{ a.bd }};background:{{ a.bg }};color:{{ a.c }};font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap">{{ a.l }}</button></sc-for></div></div>
+                  <button onClick="{{ togglePh }}" style="display:flex;align-items:center;gap:10px;min-height:56px;padding:0 14px;border-radius:14px;border:2px dashed {{ phBd }};background:var(--card,#FFFFFF);color:var(--ink,#161B17);font-size:13px;font-weight:700;cursor:pointer">{{ phIcon }}<span style="display:flex;flex-direction:column;gap:1px;text-align:left"><span>{{ phT }}</span><span style="font-size:11px;font-weight:500;color:var(--ink2,#5E645F)">Foto wajib, tunjukkan bagian yang cacat</span></span></button>
+                </sc-if>
+              </div>
+              <sc-if value="{{ cMissOn }}" hint-placeholder-val="{{ false }}"><span style="font-size:12px;font-weight:700;color:var(--red-ink,#C03A3A)">{{ cMiss }}</span></sc-if>
+              <div style="display:flex;flex-direction:column;gap:6px;width:100%"><x-import component-from-global-scope="SlideConfirm" from="./slide-confirm.js" label="Geser untuk konfirmasi diterima" done-label="Diterima" on-confirm="{{ confirm }}" hint-size="100%,56px"></x-import><span style="text-align:center;font-size:12px;color:var(--ink2,#5E645F)">Geser ke kanan untuk konfirmasi</span></div>
+            </sc-if>
+            <sc-if value="{{ onWay }}" hint-placeholder-val="{{ false }}"><div style="display:flex;align-items:center;gap:10px;padding:14px 16px;border-radius:18px;background:rgba(19,168,158,0.12);font-size:14px;line-height:1.5"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;color:var(--teal-ink,#0F7C74)"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 7v5l3 2"></path></svg><span>{{ s.eta }}. Tombol konfirmasi muncul setelah kurir tiba.</span></div></sc-if>
+            <sc-if value="{{ done }}" hint-placeholder-val="{{ false }}"><div style="display:flex;align-items:center;gap:10px;padding:14px 16px;border-radius:18px;background:rgba(29,158,117,0.12);font-size:14px;line-height:1.5"><span style="color:var(--green-ink2,#14795A);display:flex"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"></path></svg></span>{{ s.doneTxt }}</div></sc-if>
+            <sc-if value="{{ kpOn }}" hint-placeholder-val="{{ false }}"><div style="display:flex;flex-direction:column;gap:6px;padding:14px 16px;border-radius:18px;background:rgba(239,159,39,0.10);border:1px solid rgba(239,159,39,0.35)"><span style="display:flex;align-items:center;justify-content:space-between;gap:8px"><span style="font-size:14px;font-weight:800">Barang diretur</span><span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;color:{{ kpC }};background:{{ kpBg }};border-radius:999px;padding:3px 9px;white-space:nowrap"><span style="width:6px;height:6px;border-radius:50%;background:currentColor"></span>{{ kpSt }}</span></span><span style="font-size:13px;line-height:1.5">{{ kpTxt }}</span></div></sc-if>
+          </div>
         </div>
       </div>
     </section>
-    <sc-if value="{{ toastOn }}" hint-placeholder-val="{{ false }}"><div style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:6500;max-width:calc(100vw - 32px);padding:12px 18px;border-radius:999px;background:var(--ink,#161B17);color:var(--on-ink,#FFFFFF);box-shadow:0 12px 32px rgba(22,27,23,0.28);font-size:14px;font-weight:600">{{ toastText }}</div></sc-if>
+  </sc-if>
   </main>
+  <sc-if value="{{ toastOn }}" hint-placeholder-val="{{ false }}"><div style="position:fixed;left:50%;bottom:28px;transform:translateX(-50%);z-index:6000;display:flex;align-items:center;gap:10px;max-width:calc(100vw - 32px);padding:12px 18px;border-radius:999px;background:var(--ink,#161B17);color:var(--on-ink,#FFFFFF);font-size:14px;font-weight:600;box-shadow:0 12px 32px rgba(22,27,23,0.25);animation:popIn .2s ease"><span style="color:#62D4A8;display:flex"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"></path></svg></span>{{ toast }}</div></sc-if>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;preview&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Data contoh&quot;,&quot;Akun baru&quot;],&quot;default&quot;:&quot;Data contoh&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
 class Component extends DCLogic {
-  static DARK = {"--body":"#0F1311","--page":"linear-gradient(155deg,#171C19 0%,#121614 50%,#0D100E 100%)","--glass":"rgba(28,33,30,0.92)","--glass-b":"rgba(255,255,255,0.06)","--card":"#1C211E","--ink":"#EDF0ED","--ink2":"#A2A9A3","--ink3":"#C5CBC6","--mute":"#7E857F","--mute2":"#5B625C","--s1":"#242A26","--s2":"#272D29","--line":"#313833","--hover":"#262C28","--ink-h":"#FFFFFF","--on-ink":"#121613","--tosca-bg":"rgba(19,168,158,0.18)","--tosca-ink":"#4FD6CA","--t-blue":"rgba(58,110,200,0.20)","--t-tosca":"rgba(19,168,158,0.16)","--t-green":"rgba(61,174,79,0.16)","--green-ink":"#86D9A0","--blue-ink":"#8CB2F0","--red-ink":"#F08A8A","--amber-ink":"#F2BB5E","--green-ink2":"#62D4A8"};
+  static DARK = {"--body":"#0E1210","--page":"#0E1210","--glass":"#171C19","--glass-b":"rgba(255,255,255,0.05)","--card":"#171C19","--ink":"#EDF0ED","--ink2":"#9BA39D","--ink3":"#C5CBC6","--mute":"#7E857F","--mute2":"#5B625C","--s1":"#1E2420","--s2":"#232A25","--line":"#262D28","--hover":"#1C221E","--ink-h":"#FFFFFF","--on-ink":"#121613","--green-ink":"#86D9A0","--blue-ink":"#8CB2F0","--red-ink":"#F08A8A","--amber-ink":"#F2BB5E","--green-ink2":"#62D4A8","--teal-ink":"#4FD6CA","--purple-ink":"#C9A3E6"};
+  static ST = {
+    'Menunggu': ['var(--amber-ink,#9A5F0A)', 'rgba(239,159,39,0.16)'],
+    'Menunggu distributor': ['var(--amber-ink,#9A5F0A)', 'rgba(239,159,39,0.16)'],
+    'Disetujui': ['var(--blue-ink,#1E4E9C)', 'rgba(30,78,156,0.10)'],
+    'Siap diambil': ['var(--blue-ink,#1E4E9C)', 'rgba(30,78,156,0.10)'],
+    'Kurir ditugaskan': ['var(--blue-ink,#1E4E9C)', 'rgba(30,78,156,0.10)'],
+    'Diambil kurir': ['var(--teal-ink,#0F7C74)', 'rgba(19,168,158,0.14)'],
+    'Dalam perjalanan': ['var(--teal-ink,#0F7C74)', 'rgba(19,168,158,0.14)'],
+    'Diterima': ['var(--green-ink2,#14795A)', 'rgba(29,158,117,0.13)'],
+    'Selesai': ['var(--green-ink2,#14795A)', 'rgba(29,158,117,0.13)'],
+    'Ditolak': ['var(--red-ink,#C03A3A)', 'rgba(214,69,69,0.10)'],
+    'Aman': ['var(--green-ink2,#14795A)', 'rgba(29,158,117,0.13)'],
+    'Menipis': ['var(--amber-ink,#9A5F0A)', 'rgba(239,159,39,0.16)'],
+    'Habis': ['var(--red-ink,#C03A3A)', 'rgba(214,69,69,0.10)'],
+    'Kritis': ['var(--red-ink,#C03A3A)', 'rgba(214,69,69,0.10)']
+  };
+  st(s) { const m = Component.ST[s] || ['var(--ink2,#5E645F)', 'var(--s2,#F1F2F0)']; return { sC: m[0], sBg: m[1] }; }
+  num(n) { return Number(n).toLocaleString('id-ID'); }
+  state = { vw: typeof window !== 'undefined' ? window.innerWidth : 1280, drawer: false, toast: '', ...{} };
   theme() { return this.state.theme || (typeof localStorage !== 'undefined' && localStorage.getItem('sp2kp-theme')) || 'light'; }
   setTheme(t) { try { localStorage.setItem('sp2kp-theme', t); } catch (e) {} this.setState({ theme: t }, () => this.applyTheme()); }
-  applyTheme() {
-    const r = document.documentElement, dark = this.theme() === 'dark';
-    Object.entries(Component.DARK).forEach(([k, v]) => dark ? r.style.setProperty(k, v) : r.style.removeProperty(k));
-    r.style.colorScheme = dark ? 'dark' : 'light';
-    this.applyTiles();
+  applyTheme() { const r = document.documentElement, d = this.theme() === 'dark'; Object.entries(Component.DARK).forEach(([k, v]) => d ? r.style.setProperty(k, v) : r.style.removeProperty(k)); r.style.colorScheme = d ? 'dark' : 'light'; }
+  flash(t) { clearTimeout(this.tt); this.setState({ toast: t }); this.tt = setTimeout(() => this.setState({ toast: '' }), 2600); }
+  componentDidMount() { this.onR = () => { const vw = window.innerWidth; if (vw !== this.state.vw) this.setState({ vw, drawer: vw >= 1100 ? false : this.state.drawer }); }; window.addEventListener('resize', this.onR); this.onR(); this.applyTheme(); this.mount && this.mount(); }
+  componentWillUnmount() { window.removeEventListener('resize', this.onR); clearTimeout(this.tt); this.unmount && this.unmount(); }
+  static ITEMS = [
+    { k: 'beras', n: 'Beras medium 5 kg', u: 'sak', stok: 6, min: 10 },
+    { k: 'minyak', n: 'Minyak goreng 2 L', u: 'pouch', stok: 4, min: 10 },
+    { k: 'gula', n: 'Gula pasir 1 kg', u: 'bungkus', stok: 9, min: 10 },
+    { k: 'terigu', n: 'Tepung terigu 1 kg', u: 'bungkus', stok: 14, min: 10 },
+    { k: 'telur', n: 'Telur ayam ras', u: 'kg', stok: 3, min: 10 }
+  ];
+  lvl(s, min) { return s === 0 ? 'Habis' : s < min / 2 ? 'Kritis' : s < min ? 'Menipis' : 'Aman'; }
+  barC(l) { return l === 'Kritis' || l === 'Habis' ? '#D64545' : l === 'Menipis' ? '#EF9F27' : '#1D9E75'; }
+  static K = [
+    { code: 'BK-261006-08', rq: 'RQ-261006-02', kurir: 'Rizky Pratama', hp: '0812-6011-2231', items: [['beras', 8], ['minyak', 10], ['gula', 6]], t: ['6 Okt 09.10', '6 Okt 11.30', '6 Okt 15.10', '6 Okt 16.20'], when: 'tiba 6 Okt 16.20' },
+    { code: 'BK-261007-06', rq: 'RQ-261006-04', kurir: 'Dedi Saputra', hp: '0813-7022-4410', items: [['terigu', 10], ['telur', 6]], t: ['6 Okt 14.30', '6 Okt 16.05', 'Hari ini 09.20'], when: 'tiba sekitar 10.15', eta: 'Perkiraan tiba sekitar 10.15' },
+    { code: 'BK-261003-05', rq: 'RQ-261003-04', kurir: 'Dedi Saputra', hp: '0813-7022-4410', items: [['beras', 10], ['terigu', 10], ['telur', 8]], t: ['3 Okt 10.25', '3 Okt 11.00', '3 Okt 13.20', '3 Okt 14.00', '3 Okt 14.05'], when: 'diterima 3 Okt', got: { beras: 10, terigu: 10, telur: 8 } },
+    { code: 'BK-260926-02', rq: 'RQ-260926-03', kurir: 'Ilham Nasution', hp: '0852-9033-1187', items: [['beras', 12], ['minyak', 10], ['gula', 8]], t: ['26 Sep 09.40', '26 Sep 10.30', '26 Sep 13.00', '26 Sep 13.45', '26 Sep 13.50'], when: 'diterima 26 Sep', got: { beras: 12, minyak: 10, gula: 7 } }
+  ];
+  mount() { const h = decodeURIComponent((location.hash || '').slice(1)); if (h && Component.K.find(k => k.code === h)) this.setState({ sel: h, tab: Component.K.find(k => k.code === h).got ? 1 : 0 }); }
+  static KPL = { 'BK-261003-05': { k: 'telur', q: 2, r: 'Pecah', st: 'Diretur', note: 'Dibawa kembali kurir. Tidak masuk stok warung.' } };
+  static RS = ['Rusak atau sobek', 'Bocor', 'Pecah', 'Kedaluwarsa'];
+  page(vw) {
+    const st = this.state, I = Component.ITEMS, cf = st.cf || {}, gotS = st.got || {}, sn = n => n.replace(/ \d.*$/, '');
+    const K = Component.K.map(k => { const conf = k.got || cf[k.code]; const stage = conf ? 4 : k.t.length - 1; return { ...k, stage, gotM: k.got || cf[k.code] }; });
+    const lab = k => k.stage === 4 ? 'Diterima' : k.stage === 3 ? 'Perlu konfirmasi' : 'Dalam perjalanan';
+    const mOf = k => k.stage === 3 ? { sC: 'var(--amber-ink,#9A5F0A)', sBg: 'rgba(239,159,39,0.16)' } : this.st(lab(k));
+    const tab = st.tab || 0, vis = K.filter(k => tab === 0 ? k.stage < 4 : k.stage === 4);
+    let sel = st.sel; if (!vis.find(k => k.code === sel)) sel = vis[0] && vis[0].code;
+    const tabs = [['Aktif', K.filter(k => k.stage < 4).length], ['Selesai', K.filter(k => k.stage === 4).length]].map(([l, n], i) => ({ l, n, bg: tab === i ? 'var(--ink,#161B17)' : 'transparent', c: tab === i ? 'var(--on-ink,#FFFFFF)' : 'var(--ink2,#5E645F)', pick: () => this.setState({ tab: i, sel: null }) }));
+    const rows = vis.map(k => ({ code: k.code, kurir: k.kurir, when: k.stage === 4 && cf[k.code] ? 'baru dikonfirmasi' : k.when, status: lab(k), ...mOf(k), what: k.items.map(([x, v]) => sn(I.find(i => i.k === x).n) + ' ' + v).join(', '),
+      bars: [0, 1, 2, 3, 4].map(j => ({ bg: j <= k.stage ? (k.stage === 4 ? '#1D9E75' : '#1E4E9C') : 'var(--line,#E3E6E1)' })),
+      bd: k.code === sel ? 'var(--ink,#161B17)' : 'var(--line,#E3E6E1)', bg: k.code === sel ? 'var(--card,#FFFFFF)' : 'var(--s1,#F5F6F4)', pick: () => { this.setState({ sel: k.code }); try { history.replaceState(null, '', '#' + k.code); } catch (e) {} } }));
+    const base = { tabs, rows, gCols: vw >= 1180 ? 'minmax(300px,0.8fr) minmax(0,1.7fr)' : 'minmax(0,1fr)', dCols: vw >= 1000 ? 'minmax(0,1.1fr) minmax(0,1fr)' : 'minmax(0,1fr)' };
+    const k = K.find(x => x.code === sel) || K[0], stage = k.stage, done = stage === 4, arrived = stage === 3, g = gotS[k.code] || {};
+    const lines = k.items.map(([x, q]) => { const it = I.find(i => i.k === x), got = done ? k.gotM[x] : (g[x] ?? q), set = v => this.setState(p => ({ got: { ...(p.got || {}), [k.code]: { ...((p.got || {})[k.code] || {}), [x]: Math.max(0, Math.min(q, v)) } } }));
+      return { n: it.n, u: it.u, got, edit: arrived, ro: !arrived, d: got === q ? 'Dikirim ' + q + ' ' + it.u + (done ? ', sesuai' : '') : 'Dikirim ' + q + ', kurang ' + (q - got) + ' ' + it.u, dC: got === q ? 'var(--ink2,#5E645F)' : 'var(--red-ink,#C03A3A)', dec: () => set(got - 1), inc: () => set(got + 1) }; });
+    const T = [['Request dikirim', k.rq + ' ke KP Langkat'], ['Disetujui KP Langkat', 'Bu Ginting'], ['Diambil kurir', k.kurir + ', scan barang di gudang KP'], ['Tiba di warung', 'Kurir foto barang di warung'], ['Diterima warung', done ? 'Dikonfirmasi Bang Andi' : 'Menunggu konfirmasi Anda']];
+    const tl = T.map(([l, d], j) => ({ l, d, t: k.t[j] || (j === 4 && cf[k.code] ? 'Baru saja' : ''), dot: j <= stage ? (done ? '#1D9E75' : '#1E4E9C') : 'var(--line,#D5D9D4)', ring: j === stage + 1 && !done ? (arrived ? 'rgba(239,159,39,0.25)' : 'rgba(19,168,158,0.22)') : 'transparent', line: j < stage ? (done ? '#1D9E75' : '#1E4E9C') : 'var(--line,#E3E6E1)', lineD: j === 4 ? 'none' : 'block', w: j === stage + 1 || (done && j === 4) ? 800 : 600, c: j <= stage + 1 ? 'var(--ink,#161B17)' : 'var(--ink2,#5E645F)' }));
+    const pat = 'repeating-linear-gradient(135deg,var(--s2,#EEF0EC) 0 8px,var(--s1,#F5F6F4) 8px 16px)';
+    const sumG = lines.reduce((a, l) => a + l.got, 0), sumQ = k.items.reduce((a, x) => a + x[1], 0);
+    return { ...base, lines, tl, canConfirm: arrived, onWay: stage < 3, done,
+      confTitle: done ? 'Jumlah yang diterima' : arrived ? 'Cek jumlah yang diterima' : 'Barang dalam kiriman',
+      s: { ...k, status: lab(k), ...mOf(k), headline: done ? 'Kiriman sudah Anda terima' : arrived ? 'Kiriman sudah tiba, konfirmasi jumlahnya' : 'Kiriman sedang diantar ke warung',
+        ph1: stage >= 2 ? pat : 'var(--s1,#F5F6F4)', ph1t: stage >= 2 ? 'Foto kurir, ' + k.t[2] : 'Belum ada', ph2: stage >= 3 ? pat : 'var(--s1,#F5F6F4)', ph2t: stage >= 3 ? 'Foto kurir, ' + k.t[3] : 'Belum ada',
+        doneTxt: 'Diterima ' + sumG + ' dari ' + sumQ + ' satuan. Stok warung sudah bertambah.' },
+      ...(() => {
+        const cOn = !!st.cOn, cK = k.items.find(x => x[0] === st.cK) ? st.cK : null, cMax = cK ? (lines[k.items.findIndex(x => x[0] === cK)] || {}).got || 0 : 0, cQ = cK ? Math.max(1, Math.min(st.cQ || 1, cMax)) : 0, cR = st.cR, ph = !!st.cPh;
+        const pk = (sel, v) => ({ bd: sel ? 'var(--ink,#161B17)' : 'var(--line,#E3E6E1)', bg: sel ? 'var(--ink,#161B17)' : 'var(--card,#FFFFFF)', c: sel ? 'var(--on-ink,#FFFFFF)' : 'var(--ink,#161B17)' });
+        const cMiss = !cOn ? '' : !cK ? 'Pilih barang yang cacat.' : !cR ? 'Pilih alasannya.' : !ph ? 'Foto bukti wajib dilampirkan.' : '';
+        const ic = d => React.createElement('svg', { width: 22, height: 22, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 2.2, strokeLinecap: 'round', strokeLinejoin: 'round' }, React.createElement('path', { d }));
+        const kpx = (st.kp || {})[k.code] || Component.KPL[k.code];
+        return { cOn, cQ, cU: cK ? I.find(i => i.k === cK).u : '', cMiss, cMissOn: !!cMiss,
+          cBd: cOn ? 'rgba(239,159,39,0.5)' : 'var(--line,#E3E6E1)', cBg: cOn ? 'rgba(239,159,39,0.07)' : 'transparent', cBox: cOn ? '#EF9F27' : 'var(--line,#C9CDC8)', cBoxBg: cOn ? '#EF9F27' : 'transparent', cTick: cOn ? ic('M20 6L9 17l-5-5') : null,
+          toggleC: () => this.setState({ cOn: !cOn }),
+          cItems: k.items.map(([x]) => ({ l: sn(I.find(i => i.k === x).n), ...pk(x === cK), pick: () => this.setState({ cK: x, cQ: 1 }) })),
+          cReasons: Component.RS.map(l => ({ l, ...pk(l === cR), pick: () => this.setState({ cR: l }) })),
+          cDec: () => this.setState({ cQ: Math.max(1, cQ - 1) }), cInc: () => this.setState({ cQ: Math.min(cMax, cQ + 1) }),
+          togglePh: () => this.setState({ cPh: !ph }), phIcon: ic(ph ? 'M20 6L9 17l-5-5' : 'M3 8h3l2-3h8l2 3h3v12H3zM12 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8z'), phT: ph ? 'Foto terlampir' : 'Ambil foto barang cacat', phBd: ph ? '#1D9E75' : 'var(--line,#D5D9D4)',
+          confL: cOn ? 'Konfirmasi dan retur barang cacat' : 'Konfirmasi diterima', cfOp: cMiss ? 0.4 : 1, cfPe: cMiss ? 'none' : 'auto',
+          kpOn: done && !!kpx, kpSt: kpx ? kpx.st : '', kpC: 'var(--amber-ink,#9A5F0A)', kpBg: 'rgba(239,159,39,0.16)',
+          kpTxt: kpx ? sn(I.find(i => i.k === kpx.k).n) + ' ' + kpx.q + ' ' + I.find(i => i.k === kpx.k).u + ', ' + kpx.r.toLowerCase() + '. ' + kpx.note : '',
+          confirm: () => { const got = Object.fromEntries(lines.map((l, j) => [k.items[j][0], l.got]));
+            this.setState(p => ({ cf: { ...(p.cf || {}), [k.code]: got }, kp: cOn ? { ...(p.kp || {}), [k.code]: { k: cK, q: cQ, r: cR, st: 'Diretur', note: 'Dibawa kembali kurir. Tidak masuk stok warung. Kalau perlu, buat request baru.' } } : p.kp, cOn: false, cK: null, cR: null, cPh: false }));
+            this.flash(cOn ? 'Kiriman diterima, barang cacat diretur ke KP Langkat' : 'Kiriman ' + k.code + ' diterima, stok warung bertambah'); } };
+      })() };
   }
-  applyTiles() {
-    const g = this.theme() === 'dark' ? 'Dark_Gray' : 'Light_Gray', u = n => 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_' + g + '_' + n + '/MapServer/tile/{z}/{y}/{x}';
-    if (this.tb) this.tb.setUrl(u('Base')); if (this.tr) this.tr.setUrl(u('Reference'));
-  }
-  themeVals() {
-    const d = this.theme() === 'dark';
-    return { setLight: () => this.setTheme('light'), setDark: () => this.setTheme('dark'),
-      lightBg: d ? 'transparent' : 'var(--ink,#161B17)', lightC: d ? 'var(--ink2,#5E645F)' : 'var(--on-ink,#FFFFFF)',
-      darkBg: d ? 'var(--ink,#161B17)' : 'transparent', darkC: d ? 'var(--on-ink,#FFFFFF)' : 'var(--ink2,#5E645F)' };
-  }
-
-
-
-
-  state = { scan: null, code: '', err: false, recv: 20, done: false };
-  componentDidMount() { this.onResize = () => { const vw = window.innerWidth; if (vw !== this.state.vw) this.setState({ vw, drawer: vw >= 1100 ? false : this.state.drawer }); }; window.addEventListener('resize', this.onResize); this.onResize(); this.applyTheme(); this.onKey = e => { if (e.key === 'Escape' && this.state.modal) this.setState({ modal: null }); }; window.addEventListener('keydown', this.onKey); }
-  componentWillUnmount() { window.removeEventListener('resize', this.onResize); window.removeEventListener('keydown', this.onKey); clearTimeout(this.tt); }
-  toast(t) { clearTimeout(this.tt); this.setState({ toast: t }); this.tt = setTimeout(() => this.setState({ toast: null }), 3500); }
-  now() { const d = new Date(); return String(d.getHours()).padStart(2, '0') + '.' + String(d.getMinutes()).padStart(2, '0'); }
-
-  renderVals() {
-    const st = this.state, vw = st.vw || 1440, lg = vw >= 1100, md = vw >= 760, compact = !lg, drawer = compact && !!st.drawer, sm = vw < 640;
-    const f = n => Number(n).toLocaleString('id-ID'), rp = n => 'Rp ' + f(n);
-    const base = { ...this.themeVals(), compact, drawerOpen: drawer, openDrawer: () => this.setState({ drawer: true }), closeDrawer: () => this.setState({ drawer: false }),
-      rootPad: md ? '20px' : '12px', asidePos: compact ? 'fixed' : 'sticky', asideLeft: compact ? '20px' : 'auto', asideZ: compact ? 5000 : 'auto', asideDisplay: compact && !drawer ? 'none' : 'flex', asideAnim: drawer ? 'sbIn .32s cubic-bezier(.2,.8,.2,1)' : 'none',
-      h1Fs: sm ? '28px' : '34px', kpiCols: vw >= 900 ? 'repeat(3,minmax(0,1fr))' : 'minmax(0,1fr)', two: vw >= 1200 ? 'minmax(0,1.5fr) minmax(0,1fr)' : 'minmax(0,1fr)', btnFlex: sm ? '1 1 0' : '0 0 auto',
-      stop: e => e.stopPropagation(), closeModal: () => this.setState({ modal: null }), toastOn: !!st.toast, toastText: st.toast || '' };
-const ok = !!st.scan, done = st.done;
-    const T = [['Request dibuat', 'Bang Andi, stok fisik 9 paket', '08.15'], ['Disetujui Admin KP', 'Bu Ginting, 20 paket bantuan', '09.05'], ['Diambil kurir', 'Label discan di gudang KP Langkat', '10.48'], ['Dalam perjalanan', 'Sekitar 4,8 km lagi', '10.50'], ['Diterima', done ? st.recv + ' paket dikonfirmasi' : 'Menunggu konfirmasi Anda', done ? this.now() : '']];
-    const cur = done ? 4 : 3;
-    const tl = T.map(([l, s, time], i) => ({ l, s, time, dot: i <= cur ? (i === 4 ? '#3DAE4F' : '#1E4E9C') : 'var(--line,#C9CDC8)', ring: i === cur && !done ? '5px' : '0', line: i < cur ? '#1E4E9C' : 'var(--line,#E3E6E1)', lineD: i === 4 ? 'none' : 'block', c: i <= cur ? 'var(--ink,#161B17)' : 'var(--ink2,#5E645F)' }));
-    const can = ok;
-    return { ...base, tl, stL: done ? 'Diterima' : 'Dikirim', stC: done ? 'var(--green-ink2,#14795A)' : '#FFFFFF', stBg: done ? 'rgba(29,158,117,0.13)' : '#1E4E9C',
-      fotoBg: done ? 'linear-gradient(135deg,#9FB7A4,#5E7F68)' : 'transparent', fotoBd: done ? 'none' : '2px dashed var(--line,#C9CDC8)', fotoL: done ? '' : 'Foto saat diterima diunggah kurir setelah Anda konfirmasi',
-      open: !done, done, noScan: !ok, scanned: ok, via: st.scan === 'kode' ? 'kode diketik' : 'barcode', code: st.code, setCode: e => this.setState({ code: e.target.value, err: false }), codeBd: st.err ? '#D64545' : 'var(--line,#E3E6E1)', err: st.err,
-      check: () => st.code.trim().toUpperCase().replace(/\s/g, '') === 'BK-261007-21' ? this.setState({ scan: 'kode', err: false }) : this.setState({ err: true }), doScan: () => this.setState({ scan: 'barcode', err: false }),
-      recv: st.recv, rDec: () => this.setState({ recv: Math.max(0, st.recv - 1) }), rInc: () => this.setState({ recv: Math.min(20, st.recv + 1) }), short: st.recv < 20, shortTxt: 'Kurang ' + (20 - st.recv) + ' paket. Selisih dilaporkan ke Admin KP.',
-      cBg: can ? 'var(--ink,#161B17)' : 'var(--s2,#E3E6E1)', cC: can ? 'var(--on-ink,#FFFFFF)' : 'var(--ink2,#5E645F)', cCur: can ? 'pointer' : 'not-allowed', cLbl: can ? 'Konfirmasi ' + st.recv + ' paket diterima' : 'Scan atau ketik kode dulu',
-      confirm: () => { if (!can) return; this.setState({ done: true }); this.toast(st.recv + ' paket masuk stok warung'); }, stokAfter: 10 + st.recv,
-      prev: [{ code: 'BK-260930-07', sub: '30 Sep, dibeli, kurir Rizky', qty: 30 }, { code: 'BK-260923-11', sub: '23 Sep, dibeli, kurir Rizky', qty: 25 }] };
+  renderVals() { const pvK = this.state.pv || (this.props.preview === 'Akun baru' ? 'empty' : 'data'); return { ...this.rv0(), pvEmpty: pvK === 'empty', pvData: pvK !== 'empty', pvOpts: [['data', 'Data contoh'], ['empty', 'Akun baru']].map(([k, l]) => ({ l, bg: pvK === k ? 'var(--card,#FFFFFF)' : 'transparent', c: pvK === k ? 'var(--ink,#161B17)' : 'var(--ink2,#5E645F)', sh: pvK === k ? '0 1px 3px rgba(22,27,23,0.12)' : 'none', pick: () => this.setState({ pv: k }) })) }; }
+  rv0() {
+    const vw = this.state.vw, compact = vw < 1100, d = this.theme() === 'dark', open = compact && this.state.drawer;
+    const base = { compact, rootPad: compact ? '12px' : '20px', h1Fs: vw < 640 ? '26px' : '32px',
+      asidePos: compact ? 'fixed' : 'sticky', asideTop: compact ? '12px' : '20px', asideLeft: compact ? '12px' : 'auto', asideH: compact ? 'calc(100vh - 24px)' : 'calc(100vh - 40px)',
+      asideDisplay: compact && !open ? 'none' : 'flex', asideAnim: open ? 'sbIn .25s ease' : 'none', drawerOpen: open,
+      openDrawer: () => this.setState({ drawer: true }), closeDrawer: () => this.setState({ drawer: false }),
+      setLight: () => this.setTheme('light'), setDark: () => this.setTheme('dark'),
+      lightBg: d ? 'transparent' : 'var(--ink,#161B17)', lightC: d ? 'var(--ink2,#5E645F)' : 'var(--on-ink,#FFFFFF)', darkBg: d ? 'var(--ink,#161B17)' : 'transparent', darkC: d ? 'var(--on-ink,#FFFFFF)' : 'var(--ink2,#5E645F)',
+      toastOn: !!this.state.toast, toast: this.state.toast };
+    return { ...base, ...this.page(vw) };
   }
 }
 </script>

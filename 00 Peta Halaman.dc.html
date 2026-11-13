@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F3F4F2;color:#161B17;font-family:'Plus Jakarta Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#161B17;text-decoration:none}
+a:hover{color:#161B17;text-decoration:none}
+</style>
+</helmet>
+<main style="max-width:1200px;margin:0 auto;padding:40px 24px 64px;display:flex;flex-direction:column;gap:24px">
+  <header style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+    <span style="padding:10px 14px;border-radius:18px;background:#FFFFFF"><img src="uploads/logo-sp2kp.webp" alt="SP2KP" style="height:34px;width:auto;display:block"></span>
+    <span style="display:flex;flex-direction:column;gap:4px"><span style="font-size:14px;font-weight:600;color:#5E645F">SP2KP Kantong Pangan Sumatera Utara</span><h1 style="margin:0;font-size:32px;line-height:1.1;font-weight:800;letter-spacing:-0.02em">Peta halaman</h1></span>
+    <span style="margin-left:auto;display:flex;gap:8px;flex-wrap:wrap">
+      <a href="0%20Pilih%20Role.dc.html" style="display:flex;align-items:center;height:42px;padding:0 18px;border-radius:999px;background:#161B17;color:#FFFFFF;font-size:14px;font-weight:700">Pilih role</a>
+      <a href="00%20Diagram%20Sistem.dc.html" style="display:flex;align-items:center;height:42px;padding:0 18px;border-radius:999px;background:#FFFFFF;border:1.5px solid #E3E6E1;font-size:14px;font-weight:700">Alur sistem</a>
+    </span>
+  </header>
+  <section style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px">
+    <sc-for list="{{ roles }}" as="r" hint-placeholder-count="5">
+      <div style="display:flex;flex-direction:column;gap:10px;padding:18px;border-radius:24px;background:#FFFFFF;box-shadow:0 1px 2px rgba(22,27,23,0.04),0 8px 24px rgba(22,27,23,0.06)">
+        <span style="display:flex;align-items:center;gap:12px"><span style="width:36px;height:36px;border-radius:12px;background:{{ r.c }};color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:15px;font-weight:700">{{ r.n }}</span><span style="display:flex;flex-direction:column"><span style="font-size:16px;font-weight:800">{{ r.name }}</span><span style="font-size:12px;color:#5E645F">{{ r.sub }}</span></span></span>
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <sc-for list="{{ r.pages }}" as="p" hint-placeholder-count="4">
+            <a href="{{ p.href }}" style="display:flex;align-items:center;gap:12px;padding:9px 12px;border-radius:14px;background:#F5F6F4" style-hover="background:#ECEEEA;text-decoration:none"><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;font-weight:700;color:#5E645F;min-width:34px">{{ p.no }}</span><span style="flex:1;font-size:14px;font-weight:600">{{ p.t }}</span><span style="font-size:11px;font-weight:700;color:#5E645F">{{ p.tag }}</span></a>
+          </sc-for>
+        </div>
+      </div>
+    </sc-for>
+  </section>
+</main>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const R = [
+      ['1', 'Admin Provinsi', 'Hanya memantau', '#1E4E9C', [['1-00', 'Login', '1-00 Login Admin Provinsi'], ['1-01', 'Dashboard Provinsi', '1-01 Dashboard Provinsi'], ['1-02', 'Kantong Pangan', '1-02 Kantong Pangan'], ['1-03', 'Distributor', '1-03 Distributor'], ['1-04', 'Warung Point', '1-04 Warung Point'], ['1-05', 'Riwayat Distribusi', '1-05 Riwayat Distribusi']]],
+      ['2', 'Admin Kantong Pangan', 'KP Langkat, web', '#1E4E9C', [['2-00', 'Login', '2-00 Login Admin KP'], ['2-01', 'Beranda', '2-01 Beranda KP'], ['2-02', 'Request WP', '2-02 Request WP'], ['2-03', 'Restock Distributor', '2-03 Restock Distributor'], ['2-04', 'Tugas Kurir', '2-04 Tugas Kurir'], ['2-05', 'Stok Gudang', '2-05 Stok Gudang'], ['2-06', 'Komplain WP', '2-06 Komplain WP'], ['2-07', 'Riwayat KP', '2-07 Riwayat KP'], ['2-08', 'Warung Point', '2-08 Warung Point']]],
+      ['3', 'Kurir KP', 'Web, dipakai di HP', '#1F8A4C', [['3-00', 'Login', '3-00 Kurir KP - Login'], ['3-01', 'Tugas Hari Ini', '3-01 Kurir KP - Tugas Hari Ini'], ['3-02', 'Tugas Hari Ini', '3-02 Kurir KP - Tugas Hari Ini -Mobile-', 'HP 390 px'], ['3-03', 'Riwayat Tugas', '3-03 Kurir KP - Riwayat Tugas']]],
+      ['4', 'Warung Point', 'WP Ara Condong, web', '#7A3E9D', [['4-00', 'Login', '4-00 Login Warung Point'], ['4-01', 'Beranda', '4-01 Beranda WP'], ['4-02', 'Request ke KP', '4-02 Request ke KP'], ['4-03', 'Kiriman Masuk', '4-03 Kiriman Masuk'], ['4-04', 'Ketersediaan Barang', '4-04 Ketersediaan Barang']]],
+      ['5', 'Distributor', 'PT Mitra Sawit Nusantara, web', '#C8641E', [['5-00', 'Login', '5-00 Login Distributor'], ['5-01', 'Beranda', '5-01 Beranda Distributor'], ['5-02', 'Request KP', '5-02 Request KP'], ['5-03', 'Pengambilan Kurir KP', '5-03 Pengambilan Kurir KP'], ['5-04', 'Ketersediaan Barang', '5-04 Ketersediaan Barang']]]
+    ];
+    return { roles: R.map(([n, name, sub, c, P]) => ({ n, name, sub, c, pages: P.map(([no, t, f, tag]) => ({ no, t, tag: tag || '', href: encodeURI(f + '.dc.html') })) })) };
+  }
+}
+</script>
+</body>
+</html>

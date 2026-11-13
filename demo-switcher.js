@@ -4,14 +4,12 @@
   const ROLES = [
     ['Admin Provinsi', '1-00 Login Admin Provinsi.dc.html', '1-'],
     ['Admin Kantong Pangan', '2-00 Login Admin KP.dc.html', '2-'],
-    ['Kurir Kantong Pangan', '3-00 Kurir KP - Login.dc.html', '3-'],
+    ['Kurir KP', '3-00 Kurir KP - Login.dc.html', '3-'],
     ['Warung Point', '4-00 Login Warung Point.dc.html', '4-'],
-    ['Distributor', '5-00 Login Distributor.dc.html', '5-'],
-    ['Kurir Distributor', '6-00 Kurir Distributor - Login.dc.html', '6-'],
-    ['Pembeli (GV App)', '7-00 Login GV App.dc.html', '7-']
+    ['Distributor', '5-00 Login Distributor.dc.html', '5-']
   ];
   const file = decodeURIComponent(location.pathname.split('/').pop() || '');
-  if (!/^[1-7]-\d\d /.test(file)) return;
+  if (!/^[1-5]-\d\d /.test(file)) return;
   const cur = ROLES.find(r => file.startsWith(r[2]));
   const F = "'Plus Jakarta Sans',system-ui,sans-serif";
   const mount = () => {
