@@ -49,28 +49,17 @@ input:focus{border-color:#1E4E9C !important;box-shadow:0 0 0 4px rgba(30,78,156,
             <div style="display:flex;flex-wrap:wrap;gap:6px"><sc-for list="{{ d_demo }}" as="d" hint-placeholder-count="1"><button type="button" onClick="{{ d.fill }}" style="height:34px;padding:0 12px;border-radius:999px;border:1.5px solid #E3E6E1;background:#FFFFFF;font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap" style-hover="border-color:#161B17">{{ d.label }}</button></sc-for></div>
           </div>
         </form>
-          <span style="font-size:12px;color:#5E645F;line-height:1.5">Akun distributor dibuat oleh Admin Provinsi.</span>
+          <span style="font-size:12px;color:#5E645F;line-height:1.5">Akun distributor dibuat oleh Admin KP.</span>
         </div>
       </div>
     </div>
-<sc-if value="{{ fOn }}" hint-placeholder-val="{{ false }}"><div style="position:fixed;inset:0;z-index:6000;background:rgba(14,18,16,0.5);display:flex;align-items:center;justify-content:center;padding:20px">
-  <div style="width:100%;max-width:440px;display:flex;flex-direction:column;gap:16px;padding:26px;border-radius:28px;background:#FFFFFF;color:#161B17;box-shadow:0 24px 60px rgba(14,18,16,0.3)">
-    <span style="width:52px;height:52px;border-radius:16px;background:rgba(30,78,156,0.1);color:#1E4E9C;display:flex;align-items:center;justify-content:center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg></span>
-    <span style="display:flex;flex-direction:column;gap:6px"><span style="font-size:22px;font-weight:800;line-height:1.2">Selamat datang, {{ fWho }}</span><span style="font-size:14px;color:#5E645F;line-height:1.5">Ini pertama kali Anda masuk. Kata sandi Anda dibuat oleh admin. Mau ganti dengan kata sandi sendiri sekarang?</span></span>
-    <label style="display:flex;flex-direction:column;gap:6px"><span style="font-size:14px;font-weight:600">Kata sandi baru</span><input type="password" value="{{ fNew }}" onInput="{{ fOnNew }}" placeholder="Minimal 8 karakter" style="width:100%;height:52px;padding:0 16px;border-radius:16px;border:1.5px solid {{ fBd }};background:#FFFFFF;color:#161B17;font-family:inherit;font-size:16px;outline:none"></label>
-    <label style="display:flex;flex-direction:column;gap:6px"><span style="font-size:14px;font-weight:600">Ulangi kata sandi baru</span><input type="password" value="{{ fNew2 }}" onInput="{{ fOnNew2 }}" placeholder="Ketik sekali lagi" style="width:100%;height:52px;padding:0 16px;border-radius:16px;border:1.5px solid {{ fBd }};background:#FFFFFF;color:#161B17;font-family:inherit;font-size:16px;outline:none"></label>
-    <sc-if value="{{ fErrOn }}" hint-placeholder-val="{{ false }}"><span style="font-size:13px;font-weight:600;color:#C03A3A">{{ fErr }}</span></sc-if>
-    <button onClick="{{ fSave }}" style="height:52px;border-radius:999px;border:none;background:#161B17;color:#FFFFFF;font-family:inherit;font-size:16px;font-weight:700;cursor:pointer">Simpan dan masuk</button>
-    <button onClick="{{ fSkip }}" style="height:48px;border-radius:999px;border:1.5px solid #E3E6E1;background:#FFFFFF;color:#161B17;font-family:inherit;font-size:15px;font-weight:700;cursor:pointer">Nanti saja, langsung masuk</button>
-    <span style="font-size:12px;color:#5E645F;text-align:center;line-height:1.5">Kata sandi bisa diganti kapan saja lewat menu akun.</span>
-  </div>
-</div></sc-if>
+
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{}">
 class Component extends DCLogic {
   state = {};
   static USERS = [{ ids: ["dist.mitrasawit","linda@mitrasawit.co.id","081263017745"], role: 'Distributor', who: 'Linda Siregar, PT Mitra Sawit Nusantara', dest: 'Beranda Distributor', file: '5-01 Beranda Distributor.dc.html', label: 'Linda Siregar' }];
-  static OTHERS = [{"r":"Admin Provinsi","ids":["admin.sumut@sp2kp.id","081260001000"],"f":"1-00 Login Admin Provinsi"},{"r":"Admin KP","ids":["ginting@sp2kp.id","085277441265"],"f":"2-00 Login Admin KP"},{"r":"Kurir KP","ids":["081263401187","rizky@sp2kp.id"],"f":"3-00 Login Kurir KP"},{"r":"Warung Point","ids":["081370228899","andi@sp2kp.id"],"f":"4-00 Login Warung Point"},{"r":"Kurir Distributor","ids":["081262118804","sarman@mitrasawit.co.id"],"f":"6-00 Login Kurir Distributor"},{"r":"Pembeli","ids":["081377015522","rahma@gmail.com"],"f":"7-00 Login GV App"}];
+  static OTHERS = [{"r":"Admin KP","ids":["ginting@sp2kp.id","085277441265"],"f":"2-00 Login Admin KP"},{"r":"Kurir KP","ids":["081263401187","rizky@sp2kp.id"],"f":"3-00 Login Kurir KP"},{"r":"Warung Point","ids":["081370228899","andi@sp2kp.id"],"f":"4-00 Login Warung Point"},{"r":"Kurir Distributor","ids":["081262118804","sarman@mitrasawit.co.id"],"f":"6-00 Login Kurir Distributor"},{"r":"Pembeli","ids":["081377015522","rahma@gmail.com"],"f":"7-00 Login GV App"}];
   componentWillUnmount() { clearTimeout(this.t); window.removeEventListener('resize', this.onR); }
   side(P) {
     const st = this.state, g = k => st[P + k], set = o => this.setState(Object.fromEntries(Object.entries(o).map(([k, v]) => [P + k, v])));
@@ -81,7 +70,7 @@ class Component extends DCLogic {
       if (!norm(g('id')) || !g('pw')) return set({ err: 'Isi username atau nomor HP dan kata sandi' });
       if (!user) { const o = Component.OTHERS.find(x => x.ids.includes(norm(g('id')))); return set({ err: o ? 'Ini akun ' + o.r + '. Masuk lewat halaman ' + o.f.replace(/^[0-9-]+ /, '') + '.' : 'Akun tidak ditemukan. Cek lagi username atau nomor HP.' }); }
       if ((g('pw') || '').length < 6) return set({ err: 'Kata sandi salah' });
-      set({ err: null }); this.setState({ first: user, fN: '', fN2: '', fE: null }); };
+      set({ err: null }); this.setState({ first: user }, () => this.firstVals().fSkip && this.firstVals().fSkip()); };
     return { [P + '_id']: g('id') || '', [P + '_pw']: g('pw') || '',
       [P + '_onId']: e => set({ id: e.target.value, err: null }), [P + '_onPw']: e => set({ pw: e.target.value, err: null }),
       [P + '_pwType']: g('show') ? 'text' : 'password', [P + '_pwShown']: !!g('show'), [P + '_pwHidden']: !g('show'), [P + '_togglePw']: () => set({ show: !g('show') }),

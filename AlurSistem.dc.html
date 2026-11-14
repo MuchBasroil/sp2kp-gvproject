@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div data-screen-label="Alur sistem" style="width:100%;display:flex;flex-direction:column;gap:16px">
+  <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 16px">
+    <div style="display:flex;flex-direction:column;gap:4px;min-width:0;flex:1 1 380px">
+      <span style="display:flex;align-items:center;gap:10px"><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;font-weight:800;color:#1E4E9C;background:rgba(30,78,156,0.08);border-radius:999px;padding:4px 10px">Alur</span><span style="font-size:20px;font-weight:800;line-height:1.25">Alur sistem antar role</span></span>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:6px">
+      <span style="display:inline-flex;align-items:center;gap:8px;height:30px;padding:0 12px;border-radius:999px;background:#FFFFFF;border:1px solid #E3E6E1;font-size:12px;font-weight:700;color:#161B17;white-space:nowrap"><span style="width:22px;height:3px;border-radius:2px;background:#1E4E9C"></span>Request dan informasi</span>
+      <span style="display:inline-flex;align-items:center;gap:8px;height:30px;padding:0 12px;border-radius:999px;background:#FFFFFF;border:1px solid #E3E6E1;font-size:12px;font-weight:700;color:#161B17;white-space:nowrap"><span style="width:22px;height:5px;border-radius:3px;background:#F5B24A"></span>Barang bergerak</span>
+      <span style="display:inline-flex;align-items:center;gap:8px;height:30px;padding:0 12px;border-radius:999px;background:#FFFFFF;border:1px solid #E3E6E1;font-size:12px;font-weight:700;color:#161B17;white-space:nowrap"><span style="width:22px;height:0;border-top:3px dashed #6A4FB3"></span>Pemantauan</span>
+    </div>
+  </div>
+
+  <section data-screen-label="Diagram" style="background:#FFFFFF;border:1px solid #ECEEEA;border-radius:28px;box-shadow:0 1px 2px rgba(22,27,23,0.04),0 8px 24px rgba(22,27,23,0.06);padding:{{ cardPad }};display:flex;flex-direction:column;gap:12px">
+    <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px">
+      <span style="display:flex;flex-direction:column;gap:2px"><span style="font-size:20px;font-weight:800">Peta hubungan</span><span style="font-size:13px;color:#5E645F">{{ focusTxt }}</span></span>
+      <sc-if value="{{ hasActive }}" hint-placeholder-val="{{ false }}"><button onClick="{{ clear }}" style="height:36px;padding:0 14px;border-radius:999px;border:1.5px solid #E3E6E1;background:#FFFFFF;font-family:inherit;font-size:13px;font-weight:700;cursor:pointer" style-hover="border-color:#161B17">Tampilkan semua</button></sc-if>
+    </div>
+    <div style="width:100%;overflow-x:auto">{{ diagram }}</div>
+  </section>
+
+  <section data-screen-label="Urutan" style="display:grid;grid-template-columns:{{ gCols }};gap:16px;align-items:start">
+    <sc-for list="{{ groups }}" as="g" hint-placeholder-count="3">
+      <div style="background:#FFFFFF;border:1px solid #ECEEEA;border-radius:28px;box-shadow:0 1px 2px rgba(22,27,23,0.04),0 8px 24px rgba(22,27,23,0.06);padding:20px;display:flex;flex-direction:column;gap:12px;min-width:0">
+        <span style="display:flex;align-items:center;gap:10px"><span style="width:36px;height:36px;border-radius:12px;background:{{ g.bg }};color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;flex:none">{{ g.k }}</span><span style="display:flex;flex-direction:column;gap:1px;min-width:0"><span style="font-size:17px;font-weight:800;line-height:1.25">{{ g.title }}</span><span style="font-size:12px;color:#5E645F">{{ g.sub }}</span></span></span>
+        <div style="display:grid;grid-template-columns:{{ iCols }};gap:6px">
+          <sc-for list="{{ g.items }}" as="s" hint-placeholder-count="4">
+            <button onClick="{{ s.pick }}" onMouseEnter="{{ s.hover }}" onMouseLeave="{{ s.leave }}" style="display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px;align-items:start;text-align:left;padding:10px 12px 10px 10px;border-radius:16px;border:1.5px solid {{ s.bd }};background:{{ s.bg }};font-family:inherit;color:#161B17;cursor:pointer" style-hover="border-color:#161B17">
+              <span style="width:30px;height:30px;border-radius:50%;background:{{ s.c }};color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;font-weight:800">{{ s.n }}</span>
+              <span style="display:flex;flex-direction:column;gap:3px;min-width:0">
+                <span style="display:flex;flex-wrap:wrap;align-items:center;gap:4px;font-size:12px;font-weight:700"><span style="color:{{ s.fromC }}">{{ s.from }}</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8C918D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg><span style="color:{{ s.toC }}">{{ s.to }}</span></span>
+                <span style="font-size:14px;font-weight:700;line-height:1.35">{{ s.t }}</span>
+                <span style="font-size:12px;color:#5E645F;line-height:1.45">{{ s.d }}</span>
+              </span>
+            </button>
+          </sc-for>
+        </div>
+      </div>
+    </sc-for>
+  </section>
+  <span style="font-size:12px;color:#5E645F;text-align:center;padding:0 0 16px">Pembayaran dilakukan manual di luar sistem. Sistem hanya mencatat dan melacak barang.</span>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = { vw: typeof window !== 'undefined' ? window.innerWidth : 1280, act: null, hov: null };
+  componentDidMount() { this.onR = () => this.setState({ vw: window.innerWidth }); window.addEventListener('resize', this.onR); }
+  componentWillUnmount() { window.removeEventListener('resize', this.onR); }
+  static R = {
+    pen: ['Tim penyedia', '#161B17', 'Membuat akun Admin KP'],
+    kp: ['Admin KP', '#1E4E9C', 'Pusat kegiatan kab/kota'],
+    dist: ['Distributor', '#13A89E', 'Pemasok barang'],
+    kur: ['Kurir KP', '#E08A0C', 'Mengambil dan mengantar'],
+    wp: ['Warung Point', '#3DAE4F', 'Menyalurkan ke warga'],
+    prov: ['Admin Provinsi', '#6A4FB3', 'Memantau, tidak mengubah']
+  };
+  static S = [
+    ['A', 'Pendaftaran akun', 'Sekali di awal', '#161B17', [
+      [1, 'pen', 'kp', 'Buat akun Admin KP', 'Untuk setiap Kantong Pangan baru.'],
+      [2, 'kp', 'dist', 'Daftarkan distributor', 'Data lengkap, barang yang dipasok, username dan kata sandi.'],
+      [3, 'kp', 'wp', 'Daftarkan Warung Point', 'Akun diberikan ke pemilik warung.'],
+      [4, 'kp', 'kur', 'Daftarkan kurir', 'Kurir milik KP, satu kurir untuk semua tugas.']]],
+    ['B', 'Restock gudang KP', 'KP mengisi stok dari distributor', '#1E4E9C', [
+      [5, 'kp', 'dist', 'Request barang', 'Sekaligus memilih kurir yang akan mengambil.'],
+      [6, 'dist', 'kp', 'Setujui atau tolak', 'Kalau ditolak, KP bisa request ke distributor lain.'],
+      [7, 'kp', 'kur', 'Tugas ambil di distributor', 'Tugas langsung masuk, muncul notifikasi.'],
+      [8, 'dist', 'kur', 'Serahkan barang', 'Kurir memfoto barang saat diambil.'],
+      [9, 'kur', 'kp', 'Antar ke gudang KP', 'Foto saat diterima, stok gudang bertambah.'],
+      [10, 'kp', 'dist', 'Lapor barang reject', 'Kalau ada barang cacat saat dicek.']]],
+    ['C', 'Pengiriman ke Warung Point', 'WP bisa request kapan saja', '#3DAE4F', [
+      [11, 'wp', 'kp', 'Request barang', 'Dalam satuan, boleh lebih dari satu sekaligus.'],
+      [12, 'kp', 'wp', 'Setujui atau tolak', 'Jumlah bisa diubah, alasan tolak tampil di WP.'],
+      [13, 'kp', 'kur', 'Tugas antar ke WP', 'Stok gudang berkurang saat barang diambil.'],
+      [14, 'kur', 'wp', 'Antar barang', 'WP bisa melacak kiriman, foto saat diterima.'],
+      [15, 'wp', 'kp', 'Konfirmasi atau retur', 'Barang cacat dilaporkan sebelum pesanan selesai.'],
+      [16, 'kp', 'prov', 'Data untuk dipantau', 'Semua kegiatan tercatat di riwayat.']]]
+  ];
+  diagram(on) {
+    const h = React.createElement, R = Component.R, OR = '#E08A0C';
+    const N = { pen: [500, 60, 190, 60], prov: [850, 60, 200, 60], kp: [500, 256, 236, 92], dist: [130, 256, 196, 72], wp: [870, 256, 196, 72], kur: [500, 524, 196, 72] };
+    const E = [
+      ['M500,92 L500,204', R.pen[1], [1], [[500, 150]], 'buat akun', 522, 154, 'start', 0],
+      ['M380,240 L232,240', R.kp[1], [2, 5, 10], [[276, 240], [314, 240], [352, 240]], 'akun, request, reject', 306, 226, 'middle', 0],
+      ['M230,274 L378,274', R.dist[1], [6], [[304, 274]], 'setujui / tolak', 304, 296, 'middle', 0],
+      ['M620,240 L768,240', R.kp[1], [3, 12], [[672, 240], [712, 240]], 'akun, setujui / tolak', 694, 226, 'middle', 0],
+      ['M770,274 L622,274', R.wp[1], [11, 15], [[676, 274], [716, 274]], 'request, konfirmasi, retur', 696, 296, 'middle', 0],
+      ['M480,304 L480,484', R.kp[1], [4, 7, 13], [[480, 336], [480, 366], [480, 396]], 'akun, tugas', 466, 446, 'end', 0],
+      ['M520,486 L520,306', OR, [9], [[520, 400]], 'barang ke gudang', 534, 446, 'start', 1],
+      ['M130,294 C130,430 250,524 398,524', OR, [8], [[209, 458]], 'serahkan barang', 228, 462, 'start', 1],
+      ['M602,524 C750,524 870,430 870,294', OR, [14], [[791, 458]], 'antar ke WP', 772, 462, 'end', 1],
+      ['M616,214 L780,92', R.prov[1], [16], [[698, 153]], 'data dipantau', 712, 178, 'start', 2]
+    ];
+    const mk = c => 'm' + c.slice(1);
+    const cols = [...new Set(E.map(e => e[1]))];
+    const defs = h('defs', null, cols.map(c => h('marker', { key: c, id: mk(c), viewBox: '0 0 10 10', refX: 8, refY: 5, markerWidth: 14, markerHeight: 14, markerUnits: 'userSpaceOnUse', orient: 'auto-start-reverse' }, h('path', { d: 'M0,0 L10,5 L0,10 z', fill: c }))));
+    const edges = E.map(([d, c, ns, bs, lab, lx, ly, la, kind], i) => {
+      const hit = on == null || ns.includes(on), op = hit ? 1 : 0.12;
+      return h('g', { key: 'e' + i, style: { opacity: op, transition: 'opacity .2s' } },
+        h('path', { d, fill: 'none', stroke: c, strokeWidth: kind === 1 ? 5 : 2.5, strokeDasharray: kind === 2 ? '7 6' : undefined, strokeLinecap: 'round', markerEnd: 'url(#' + mk(c) + ')' }),
+        h('text', { x: lx, y: ly, textAnchor: la, fontSize: 12, fontWeight: 700, fill: kind === 1 ? '#9A5F0A' : '#5E645F', fontFamily: 'Plus Jakarta Sans, sans-serif' }, lab),
+        ns.map((n, j) => { const [x, y] = bs[j], a = on === n; return h('g', { key: n, style: { cursor: 'pointer' }, onClick: () => this.setState({ act: a ? null : n }) },
+          h('circle', { cx: x, cy: y, r: a ? 14 : 12, fill: a ? c : '#FFFFFF', stroke: c, strokeWidth: 2 }),
+          h('text', { x, y: y + 4.5, textAnchor: 'middle', fontSize: 12, fontWeight: 800, fill: a ? '#FFFFFF' : c, fontFamily: 'JetBrains Mono, monospace' }, n)); }));
+    });
+    const inv = on == null ? null : Component.S.flatMap(g => g[4]).find(s => s[0] === on);
+    const nodes = Object.entries(N).map(([k, [cx, cy, w, ht]]) => {
+      const [name, c, sub] = R[k], main = k === 'kp', dim = inv && inv[1] !== k && inv[2] !== k;
+      return h('g', { key: k, style: { opacity: dim ? 0.35 : 1, transition: 'opacity .2s' } },
+        h('rect', { x: cx - w / 2, y: cy - ht / 2, width: w, height: ht, rx: 20, fill: main ? c : '#FFFFFF', stroke: c, strokeWidth: main ? 0 : 2, style: { filter: 'drop-shadow(0 4px 10px rgba(22,27,23,0.08))' } }),
+        !main && h('circle', { cx: cx - w / 2 + 20, cy, r: 6, fill: c }),
+        h('text', { x: main ? cx : cx - w / 2 + 34, y: cy - (main ? 4 : 2), textAnchor: main ? 'middle' : 'start', fontSize: main ? 20 : 15, fontWeight: 800, fill: main ? '#FFFFFF' : '#161B17', fontFamily: 'Plus Jakarta Sans, sans-serif' }, name),
+        h('text', { x: main ? cx : cx - w / 2 + 34, y: cy + (main ? 20 : 16), textAnchor: main ? 'middle' : 'start', fontSize: 11.5, fontWeight: 600, fill: main ? 'rgba(255,255,255,0.85)' : '#5E645F', fontFamily: 'Plus Jakarta Sans, sans-serif' }, sub));
+    });
+    return h('svg', { viewBox: '0 0 1000 590', style: { width: '100%', minWidth: 720, height: 'auto', display: 'block' } }, defs, edges, nodes);
+  }
+  renderVals() {
+    const vw = this.state.vw, sm = vw < 640, R = Component.R, on = this.state.hov != null ? this.state.hov : this.state.act;
+    const groups = Component.S.map(([k, title, sub, bg, items]) => ({ k, title, sub, bg, items: items.map(([n, f, t, tt, d]) => { const a = on === n; return { n, t: tt, d, from: R[f][0], to: R[t][0], fromC: R[f][1], toC: R[t][1], c: R[f][1], bg: a ? '#F3F6FB' : '#FFFFFF', bd: a ? R[f][1] : '#ECEEEA', pick: () => this.setState({ act: this.state.act === n ? null : n }), hover: () => this.setState({ hov: n }), leave: () => this.setState({ hov: null }) }; }) }));
+    const cur = on == null ? null : Component.S.flatMap(g => g[4]).find(s => s[0] === on);
+    return { groups, diagram: this.diagram(on), hasActive: this.state.act != null, clear: () => this.setState({ act: null }), focusTxt: cur ? cur[0] + '. ' + R[cur[1]][0] + ' ke ' + R[cur[2]][0] + ': ' + cur[3] : 'Admin KP di tengah karena semua alur melewati KP', gCols: vw >= 1100 ? 'repeat(3,minmax(0,1fr))' : 'minmax(0,1fr)', iCols: vw >= 1100 || vw < 720 ? 'minmax(0,1fr)' : 'repeat(2,minmax(0,1fr))', pagePad: sm ? '12px' : '28px 24px', heroPad: sm ? '20px' : '28px', cardPad: sm ? '16px' : '22px 24px', h1Fs: sm ? '26px' : '34px' };
+  }
+}
+
+</script>
+</body>
+</html>
