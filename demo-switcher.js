@@ -38,12 +38,31 @@
       a.onmouseleave = () => { if (!on) a.style.background = 'transparent'; };
       menu.appendChild(a);
     });
+    const st = document.createElement('style');
+    st.textContent = '[title="Pratinjau tampilan"]{display:none!important}';
+    document.head.appendChild(st);
+    const pvWrap = document.createElement('div');
+    pvWrap.style.cssText = 'display:none;flex-direction:column;gap:6px;padding:8px 4px 10px;margin-bottom:6px;border-bottom:1px solid #ECEEEA';
+    const pvL = document.createElement('span'); pvL.textContent = 'Tampilan halaman ini'; pvL.style.cssText = 'font-size:11px;font-weight:700;color:#5E645F;padding:0 8px';
+    const pvSeg = document.createElement('div'); pvSeg.style.cssText = 'display:grid;grid-template-columns:1fr 1fr;gap:2px;padding:3px;border-radius:12px;background:#F3F4F2';
+    pvWrap.appendChild(pvL); pvWrap.appendChild(pvSeg);
+    const pageBtns = () => [...document.querySelectorAll('[title="Pratinjau tampilan"] button')];
+    const isOn = b => { const c = getComputedStyle(b).backgroundColor; return c !== 'rgba(0, 0, 0, 0)' && c !== 'transparent'; };
+    const renderPv = () => {
+      const pb = pageBtns(); if (!pb.length) { pvWrap.style.display = 'none'; return; }
+      pvWrap.style.display = 'flex'; pvSeg.innerHTML = '';
+      pb.forEach(b => { const on = isOn(b), x = document.createElement('button'); x.type = 'button'; x.textContent = b.textContent.trim();
+        x.style.cssText = `height:34px;border:none;border-radius:10px;font-family:${F};font-size:12px;font-weight:700;cursor:pointer;background:${on ? '#FFFFFF' : 'transparent'};color:${on ? '#1E4E9C' : '#5E645F'};box-shadow:${on ? '0 1px 3px rgba(22,27,23,0.12)' : 'none'}`;
+        x.onclick = e => { e.stopPropagation(); b.click(); setTimeout(renderPv, 60); };
+        pvSeg.appendChild(x); });
+    };
+    menu.insertBefore(pvWrap, home);
     const btn = document.createElement('button');
     btn.type = 'button';
     btn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"></circle><path d="M3 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"></path><path d="M16 4.5a3 3 0 0 1 0 6M21 20c0-2.6-1.6-4.6-4-5.3"></path></svg><span style="display:flex;flex-direction:column;align-items:flex-start;line-height:1.15"><span style="font-size:10px;font-weight:700;opacity:.75">${cur ? cur[0] : 'Demo'}</span><span style="font-size:13px;font-weight:800">Pilih role</span></span>`;
     btn.style.cssText = `display:flex;align-items:center;gap:10px;height:48px;padding:0 18px 0 14px;border-radius:999px;border:none;background:#161B17;color:#FFFFFF;font-family:${F};cursor:pointer;box-shadow:0 8px 24px rgba(22,27,23,0.25)`;
     let open = false;
-    btn.onclick = e => { e.stopPropagation(); open = !open; menu.style.display = open ? 'flex' : 'none'; };
+    btn.onclick = e => { e.stopPropagation(); open = !open; if (open) renderPv(); menu.style.display = open ? 'flex' : 'none'; };
     document.addEventListener('click', e => { if (open && !root.contains(e.target)) { open = false; menu.style.display = 'none'; } });
     window.addEventListener('resize', () => { root.style.bottom = bottom(); });
     root.appendChild(menu); root.appendChild(btn);
